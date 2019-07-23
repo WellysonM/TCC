@@ -5,43 +5,58 @@
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-left">
-                            <h2>Welcome Back!</h2>
-                            <p>Please login with your personal info</p>
-                            <button class="invert" id="signIn" @click="signUp = !signUp">Sign In</button>
+                            <h2>Olá, Amigo(a)!</h2>
+                            <p>Seja bem vindo :)</p>
+                            <p>Já tem cadastro? que tal entrar no sistema?</p>
+                            <button class="invert" id="signIn" @click="signUp = !signUp">Entrar
+                            </button>
                         </div>
                         <div class="overlay-right">
-                            <h2>Hello, Friend!</h2>
-                            <p>Please enter your personal details</p>
-                            <button class="invert" id="signUp" @click="signUp = !signUp">Sign Up</button>
+                            <h2>Olá, Amigo(a)!</h2>
+                            <p>É novo por aqui?</p>
+                            <p>Que tal se cadastrar para ter acesso ao sistema?</p>
+                            <button class="invert" id="signUp" @click="signUp = !signUp">Cadastrar</button>
                         </div>
                     </div>
                 </div>
                 <form class="sign-up" action="#">
-                    <h2>Create login</h2>
-                    <div>Use your email for registration</div>
-                    <input type="text" placeholder="Name"/>
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
+                    <h2>Cadastro</h2>
+                    <div>Crie um nome de usuário e senha</div>
+                    <v-input type="text" placeholder="Seu nome"/>
+                    <v-input type="text" placeholder="Nome de usuário"/>
+                    <v-input type="password" placeholder="Senha"/>
                     <button>Sign Up</button>
                 </form>
                 <form class="sign-in" action="#">
-                    <h2>Sign In</h2>
-                    <div>Use your account</div>
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
-                    <a href="#">Forgot your password?</a>
-                    <button>Sign Up</button>
+                    <h2>Bem Vindo</h2>
+                    <div>Use seu nome de usuário e senha para entrar no sistema.</div>
+                    <div class="input">
+                        <v-text-field
+                                v-validate="'required|min:6'" type="text" name="username"
+                                label="Nome de usuário"
+                        ></v-text-field>
+                        <v-text-field
+                                :append-icon="show1 ? 'visibility' : 'visibility_off'"
+                                :type="show1 ? 'text' : 'password'"
+                                name="password"
+                                label="Senha"
+                                counter
+                                @click:append="show1 = !show1"
+                        ></v-text-field>
+                    </div>
+                    <button>Entrar</button>
                 </form>
             </div>
         </article>
     </div>
 </template>
-
 <script>
     export default {
-        data: () => {
+        name: "SingIn",
+        data() {
             return {
-                signUp: false
+                signUp: false,
+                show1: false,
             }
         }
     }
@@ -54,8 +69,8 @@
         height: 480px;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, .2),
-        0 10px 10px rgba(0, 0, 0, .2);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .3),
+        0 10px 10px rgba(0, 0, 0, .3);
         background: linear-gradient(to bottom, #efefef, #ccc);
 
         .overlay-container {
@@ -74,7 +89,10 @@
             left: -100%;
             height: 100%;
             width: 200%;
-            background: linear-gradient(to bottom right, #7FD625, #009345);
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+
             color: #fff;
             transform: translateX(0);
             transition: transform .5s ease-in-out;
@@ -88,8 +106,8 @@
             justify-content: space-around;
             flex-direction: column;
             padding: 70px 40px;
-            width: calc(50% - 80px);
-            height: calc(100% - 140px);
+            width: calc(66% - 120px);
+            height: calc(130% - 180px);
             text-align: center;
             transform: translateX($property);
             transition: transform .5s ease-in-out;
@@ -154,9 +172,9 @@
         align-items: center;
         justify-content: space-around;
         flex-direction: column;
-        padding: 90px 60px;
-        width: calc(50% - 120px);
-        height: calc(100% - 180px);
+        padding: 70px 60px;
+        width: calc(66% - 120px);
+        height: calc(130% - 180px);
         text-align: center;
         background: linear-gradient(to bottom, #efefef, #ccc);
         transition: all .5s ease-in-out;
@@ -165,23 +183,9 @@
             font-size: 1rem;
         }
 
-        input {
-            background-color: #eee;
-            border: none;
-            padding: 8px 15px;
+        .input {
             margin: 6px 0;
-            width: calc(100% - 30px);
-            border-radius: 15px;
-            border-bottom: 1px solid #ddd;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4),
-            0 -1px 1px #fff,
-            0 1px 0 #fff;
-            overflow: hidden;
-
-            &:focus {
-                outline: none;
-                background-color: #fff;
-            }
+            width: calc(100% - 20px);
         }
     }
 
