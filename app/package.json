@@ -10,10 +10,11 @@
     "vee-validate": "^2.2.13",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
-    "vuetify": "^1.5.5"
+    "vuetify": "^1.5.16"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
+    "@mdi/font": "^3.8.95",
     "@vue/cli-plugin-babel": "^3.9.2",
     "@vue/cli-service": "^3.9.3",
     "material-design-icons-iconfont": "^5.0.1",
