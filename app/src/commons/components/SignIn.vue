@@ -40,21 +40,22 @@
                     </div>
                     <v-btn class="button">Cadastrar</v-btn>
                 </form>
-                <v-form class="sign-in" @submit.prevent="validateBeforeSubmit">
+                <v-form class="sign-in" @submit.prevent="login">
                     <h2>Bem Vindo</h2>
                     <div>Use seu nome de usuário e senha para entrar no sistema.</div>
                     <div class="input">
                         <v-text-field
                                 autofocus
+                                v-model="usuario.username"
                                 type="text"
-                                name="teste"
+                                name="username"
                                 label="Nome de usuário"
-                                v-validate="'required|min:2'"
                         ></v-text-field>
                         <span>{{ errors.first('teste') }}</span>
                         <v-text-field
                                 :append-icon="show1 ? 'visibility' : 'visibility_off'"
                                 :type="show1 ? 'text' : 'password'"
+                                v-model="usuario.password"
                                 name="password"
                                 label="Senha"
                                 counter
@@ -68,22 +69,36 @@
     </div>
 </template>
 <script>
+    import service from '../../services/service'
+
     export default {
         name: "SingIn",
         data() {
             return {
                 signUp: false,
                 show1: false,
+                usuario: {
+                    name:'',
+                    username:'',
+                    password:''
+                },
+                usuarioLogado:[]
             }
         },
         methods: {
-            validateBeforeSubmit() {
+            login(){
+                console.log(this.usuario)
+                service.login(this.usuario).then(resposta =>{
+                    console.log(resposta)
+                })
+            }
+            /*validateBeforeSubmit() {
                 this.$validator.validate().then((result) => {
-                    if (result) {
-                        alert('Usuario encontrado! ')
+                    if (!result) {
+                        alert(result)
                     }
                 });
-            }
+                }*/
         }
     }
 </script>

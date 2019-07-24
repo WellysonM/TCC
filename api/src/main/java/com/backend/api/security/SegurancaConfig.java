@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -30,17 +31,21 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and()
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/*/ADMIN/**").hasRole("ADMIN")
                 .antMatchers("/*/USER/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/api/entrar")
+                .defaultSuccessUrl("/menu")
                 .permitAll()
-                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
+                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/api/sair"))
+                .logoutSuccessUrl("/entrar?sair=true")
+                .invalidateHttpSession(true)
                 .and()
-                .httpBasic()
-                .and()
-                .csrf().disable();
+                .httpBasic();
     }
 
     @Override
