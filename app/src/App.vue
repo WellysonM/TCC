@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <SignIn />
+        <router-view></router-view>
     </div>
 </template>
 
@@ -16,16 +16,4 @@
 </script>
 
 <style lang="scss">
-    #app {
-        font-family: sans-serif, fantasy;
-        font-size: 1.6rem;
-        color: #222;
-        background: #00416A;
-        background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);
-        background: linear-gradient(to right, #E4E5E6, #00416A);
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 </style>

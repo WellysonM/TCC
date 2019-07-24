@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="pagina">
         <article>
             <div class="container" :class="{'sign-up-active' : signUp}">
                 <div class="overlay-container">
@@ -22,17 +22,11 @@
                 <form class="sign-up" action="#">
                     <h2>Cadastro</h2>
                     <div>Crie um nome de usuário e senha</div>
-                    <v-input type="text" placeholder="Seu nome"/>
-                    <v-input type="text" placeholder="Nome de usuário"/>
-                    <v-input type="password" placeholder="Senha"/>
-                    <button>Sign Up</button>
-                </form>
-                <form class="sign-in" action="#">
-                    <h2>Bem Vindo</h2>
-                    <div>Use seu nome de usuário e senha para entrar no sistema.</div>
                     <div class="input">
                         <v-text-field
-                                v-validate="'required|min:6'" type="text" name="username"
+                                label="Seu nome"
+                        ></v-text-field>
+                        <v-text-field
                                 label="Nome de usuário"
                         ></v-text-field>
                         <v-text-field
@@ -44,8 +38,31 @@
                                 @click:append="show1 = !show1"
                         ></v-text-field>
                     </div>
-                    <button>Entrar</button>
+                    <v-btn class="button">Cadastrar</v-btn>
                 </form>
+                <v-form class="sign-in" @submit.prevent="validateBeforeSubmit">
+                    <h2>Bem Vindo</h2>
+                    <div>Use seu nome de usuário e senha para entrar no sistema.</div>
+                    <div class="input">
+                        <v-text-field
+                                autofocus
+                                type="text"
+                                name="teste"
+                                label="Nome de usuário"
+                                v-validate="'required|min:2'"
+                        ></v-text-field>
+                        <span>{{ errors.first('teste') }}</span>
+                        <v-text-field
+                                :append-icon="show1 ? 'visibility' : 'visibility_off'"
+                                :type="show1 ? 'text' : 'password'"
+                                name="password"
+                                label="Senha"
+                                counter
+                                @click:append="show1 = !show1"
+                        ></v-text-field>
+                    </div>
+                    <v-btn class="button" type="submit">Entrar</v-btn>
+                </v-form>
             </div>
         </article>
     </div>
@@ -58,11 +75,33 @@
                 signUp: false,
                 show1: false,
             }
+        },
+        methods: {
+            validateBeforeSubmit() {
+                this.$validator.validate().then((result) => {
+                    if (result) {
+                        alert('Usuario encontrado! ')
+                    }
+                });
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    #pagina {
+        font-family: sans-serif, fantasy;
+        font-size: 1.6rem;
+        color: #222;
+        background: #00416A;
+        background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);
+        background: linear-gradient(to right, #E4E5E6, #00416A);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .container {
         position: relative;
         width: 768px;
@@ -105,7 +144,7 @@
             align-items: center;
             justify-content: space-around;
             flex-direction: column;
-            padding: 70px 40px;
+            padding: 70px 60px;
             width: calc(66% - 120px);
             height: calc(130% - 180px);
             text-align: center;
@@ -138,10 +177,10 @@
         font-size: 1rem;
     }
 
-    button {
+    .button, button {
         border-radius: 20px;
         border: 1px solid #009345;
-        background-color: #009345;
+        background: transparent;
         color: #fff;
         font-size: 1rem;
         font-weight: bold;
@@ -150,6 +189,8 @@
         text-transform: uppercase;
         cursor: pointer;
         transition: transform .1s ease-in;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .3),
+        0 10px 10px rgba(0, 0, 0, .3);
 
         &:active {
             transform: scale(.9);
@@ -163,6 +204,7 @@
     button.invert {
         background-color: transparent;
         border-color: #fff;
+
     }
 
     form {

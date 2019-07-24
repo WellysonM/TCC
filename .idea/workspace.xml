@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/plugins/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/plugins/vee-validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/views/Menu.vue" afterDir="false" />
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="ajustes na aparencia da tela de login">
+      <change afterPath="$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/globals/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/commons/components/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/commons/components/SignIn.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/globals/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/plugins/vee-validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/router.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,26 +41,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/commons/components/SignIn.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="174" column="18" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/views/Menu.vue">
+        <entry file="file://$PROJECT_DIR$/app/src/commons/components/SignIn.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+            <state relative-caret-position="4">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -81,6 +80,7 @@
       <find>script</find>
       <find>tar</find>
       <find>load</find>
+      <find>vee-vali</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,20 +94,25 @@
         <option value="$PROJECT_DIR$/app/src/components/SignIn.vue" />
         <option value="$PROJECT_DIR$/app/src/views/Menu.vue" />
         <option value="$PROJECT_DIR$/app/src/router.js" />
-        <option value="$PROJECT_DIR$/app/src/App.vue" />
-        <option value="$PROJECT_DIR$/app/src/plugins/vee-validate.js" />
         <option value="$PROJECT_DIR$/app/src/plugins/index.js" />
+        <option value="$PROJECT_DIR$/app/src/plugins/vee-validate.js" />
         <option value="$PROJECT_DIR$/app/src/plugins/vuetify.js" />
+        <option value="$PROJECT_DIR$/app/src/globals/router/router.js" />
+        <option value="$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js" />
         <option value="$PROJECT_DIR$/app/src/main.js" />
-        <option value="$PROJECT_DIR$/app/public/index.html" />
+        <option value="$PROJECT_DIR$/app/src/globals/plugins/index.js" />
+        <option value="$PROJECT_DIR$/app/src/globals/router/index.js" />
+        <option value="$PROJECT_DIR$/app/src/App.vue" />
         <option value="$PROJECT_DIR$/app/src/commons/components/SignIn.vue" />
+        <option value="$PROJECT_DIR$/app/public/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="27" />
-    <option name="width" value="683" />
-    <option name="height" value="741" />
+    <option name="x" value="613" />
+    <option name="y" value="113" />
+    <option name="width" value="741" />
+    <option name="height" value="555" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -116,7 +121,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,7 +165,23 @@
               <item name="TCC" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="globals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="globals" type="462c0819:PsiDirectoryNode" />
               <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="globals" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
@@ -174,13 +194,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tok-stoke" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -192,11 +213,13 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/globals/router" />
+      <recent name="$PROJECT_DIR$/app/src/globals" />
+      <recent name="$PROJECT_DIR$/app/src/commons" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/commons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -235,7 +258,9 @@
       <updated>1563750908695</updated>
       <workItem from="1563750910677" duration="4283000" />
       <workItem from="1563798685621" duration="11635000" />
-      <workItem from="1563840459361" duration="5343000" />
+      <workItem from="1563840459361" duration="5482000" />
+      <workItem from="1563892974425" duration="7736000" />
+      <workItem from="1563927839494" duration="219000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -244,17 +269,24 @@
       <option name="project" value="LOCAL" />
       <updated>1563802932401</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ajustes na aparencia da tela de login">
+      <created>1563845966808</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563845966808</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21261000" />
+    <option name="totallyTimeSpent" value="29355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21363637" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22348484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -262,8 +294,8 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924242" weight="0.42528737" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924242" weight="0.4827586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,7 +324,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="atualização das dependencias" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualização das dependencias" />
+    <MESSAGE value="ajustes na aparencia da tela de login" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes na aparencia da tela de login" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/babel.config.js">
@@ -300,22 +333,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/commons/components/Nav.vue" />
     <entry file="file://$PROJECT_DIR$/app/src/commons/components/Layout.vue" />
-    <entry file="file://$PROJECT_DIR$/app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33075">
-          <caret line="2205" column="13" selection-start-line="2205" selection-start-column="9" selection-end-line="2205" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/node_modules/vue-router/types/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -342,24 +361,10 @@
     <entry file="file://$PROJECT_DIR$/app/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/node_modules/vee-validate/types/vee-validate.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="636" column="21" selection-start-line="636" selection-start-column="21" selection-end-line="636" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/views/Menu.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -370,17 +375,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/vuetify.js">
+    <entry file="file://$PROJECT_DIR$/app/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        <state relative-caret-position="175">
+          <caret line="10641" column="13" selection-start-line="10641" selection-start-column="5" selection-end-line="10641" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/vuetify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/index.js">
+    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
@@ -390,47 +426,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/vee-validate.js">
+    <entry file="file://$PROJECT_DIR$/app/src/views/Menu.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/globals/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/router.js">
+    <entry file="file://$PROJECT_DIR$/app/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state relative-caret-position="255">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/commons/components/SignIn.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="174" column="18" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
+        <state relative-caret-position="4">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
