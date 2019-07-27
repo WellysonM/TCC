@@ -1,7 +1,7 @@
 /*package com.backend.api.config;
 
-import com.backend.api.documents.Cliente;
-import com.backend.api.repository.ClienteRepository;
+import com.backend.api.cliente.spec.entity.Cliente;
+import com.backend.api.cliente.impl.repository.ClienteRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

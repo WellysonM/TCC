@@ -38,7 +38,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*/USER/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/entrar")
-                .defaultSuccessUrl("/api/USER/menu")
+                .defaultSuccessUrl("/menu")
                 .permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/sair"))
                 .logoutSuccessUrl("/entrar?sair=true")

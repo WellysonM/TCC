@@ -1,8 +1,8 @@
 package com.backend.api.security;
 
 
-import com.backend.api.documents.Usuario;
-import com.backend.api.repository.UsuarioRepository;
+import com.backend.api.usuario.impl.repository.UsuarioRepository;
+import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

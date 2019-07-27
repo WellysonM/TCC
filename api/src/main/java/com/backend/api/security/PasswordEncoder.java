@@ -1,6 +1,6 @@
 package com.backend.api.security;
 
-import com.backend.api.documents.Usuario;
+import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class PasswordEncoder {
