@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BeansEndpointTabSettings">
+    <option name="showContexts" value="false" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="organização das pastas da api">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/bo/ClienteBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/AtualizarCliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/BuscarCliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/RemoverCliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/ICliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/dto/ClienteDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/UsuarioImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/bo/UsuarioBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/repository/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/AtualizarUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/BuscarUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/InserirUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/RemoverUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/IUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/dto/UsuarioDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/entity/Usuario.java" afterDir="false" />
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/templates/cadastrar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/config/MongoDBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/config/MongoDBConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/documents/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/entity/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/repository/UsuarioRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/documents/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/globals/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/globals/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/api/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,27 +44,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#525#526#0" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="75">
+              <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,10 +61,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -112,13 +79,20 @@
       <find>input</find>
       <find>content</find>
       <find>main</find>
-      <find>active</find>
       <find>ol</find>
       <find>la</find>
       <find>html</find>
       <find>content-w3ls</find>
       <find>btn</find>
       <find>act</find>
+      <find>wthree-field</find>
+      <find>content-b</find>
+      <find>content-w</find>
+      <find>font-size: 16</find>
+      <find>active</find>
+      <find>button.btn</find>
+      <find>2em</find>
+      <find>content-form</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,9 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/package.json" />
-        <option value="$PROJECT_DIR$/app/src/commons/components/Layout.vue" />
-        <option value="$PROJECT_DIR$/app/src/components/SignIn.vue" />
         <option value="$PROJECT_DIR$/app/src/views/Menu.vue" />
         <option value="$PROJECT_DIR$/app/src/router.js" />
         <option value="$PROJECT_DIR$/app/src/plugins/index.js" />
@@ -139,8 +110,6 @@
         <option value="$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js" />
         <option value="$PROJECT_DIR$/app/src/main.js" />
         <option value="$PROJECT_DIR$/app/src/globals/plugins/index.js" />
-        <option value="$PROJECT_DIR$/app/src/globals/router/index.js" />
-        <option value="$PROJECT_DIR$/app/src/App.vue" />
         <option value="$PROJECT_DIR$/app/src/globals/plugins/vuetify.js" />
         <option value="$PROJECT_DIR$/app/public/index.html" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SampleAuthenticationManager.java" />
@@ -151,8 +120,6 @@
         <option value="$PROJECT_DIR$/api/src/main/resources/static/css/style2.css" />
         <option value="$PROJECT_DIR$/api/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/controller/ClienteController.java" />
-        <option value="$PROJECT_DIR$/api/src/main/resources/static/css/style.css" />
-        <option value="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/dto/ClinteDTO.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/dto/ClienteDTO.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java" />
@@ -163,12 +130,9 @@
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/RemoverCliente.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/ICliente.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/dto/UsuarioDTO.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/ClienteController.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/IUsuario.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/repository/UsuarioRepository.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/bo/UsuarioBO.java" />
@@ -177,6 +141,17 @@
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/InserirUsuario.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/RemoverUsuario.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/UsuarioImpl.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java" />
+        <option value="$PROJECT_DIR$/api/src/main/resources/static/css/style.css" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java" />
+        <option value="$PROJECT_DIR$/app/src/App.vue" />
+        <option value="$PROJECT_DIR$/api/src/main/resources/templates/cadastrar.html" />
+        <option value="$PROJECT_DIR$/app/src/commons/css/style.css" />
+        <option value="$PROJECT_DIR$/app/src/globals/router/index.js" />
+        <option value="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" />
+        <option value="$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue" />
       </list>
     </option>
   </component>
@@ -207,7 +182,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,17 +232,51 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="cliente" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCC" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="usuario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="usuario" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,7 +287,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tok-stoke" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/main/resources/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -291,17 +299,17 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/app/src/globals/plugins" />
+      <recent name="$PROJECT_DIR$/app/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/api/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/app/src/globals/router" />
       <recent name="$PROJECT_DIR$/app/src/globals" />
       <recent name="$PROJECT_DIR$/app/src/commons" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/app/src/globals/plugins" />
-      <recent name="$PROJECT_DIR$/app/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,7 +369,9 @@
       <workItem from="1564096652531" duration="6363000" />
       <workItem from="1564153156609" duration="7574000" />
       <workItem from="1564181825634" duration="5728000" />
-      <workItem from="1564243453763" duration="11537000" />
+      <workItem from="1564243453763" duration="12471000" />
+      <workItem from="1564331983472" duration="7212000" />
+      <workItem from="1564442891032" duration="5349000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -412,16 +422,31 @@
       <option name="project" value="LOCAL" />
       <updated>1564246851751</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="organização das pastas da api">
+      <created>1564258914825</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564258914825</updated>
+    </task>
+    <task id="LOCAL-00009" summary="pasta documents apagada">
+      <created>1564259043911</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1564259043911</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95884000" />
+    <option name="totallyTimeSpent" value="109379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.26363635" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.2621212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -432,18 +457,18 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924242" weight="0.5862069" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.57471263" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.35139573" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" weight="0.7254902" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32840723" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" weight="0.7241379" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32840723" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32840723" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
-      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="bottom" id="Spring" order="14" weight="0.32840723" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -507,71 +532,10 @@
     <MESSAGE value="tela de login feita" />
     <MESSAGE value="ajustes na tela de login finalizados" />
     <MESSAGE value="organização das pastas da api" />
-    <option name="LAST_COMMIT_MESSAGE" value="organização das pastas da api" />
+    <MESSAGE value="pasta documents apagada" />
+    <option name="LAST_COMMIT_MESSAGE" value="pasta documents apagada" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="10" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE-sources.jar!/org/springframework/ui/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/vuetify.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/globals/plugins/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/security/Principal.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.5.RELEASE/spring-security-core-5.1.5.RELEASE-sources.jar!/org/springframework/security/core/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-392">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.5.RELEASE/spring-security-config-5.1.5.RELEASE-sources.jar!/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="183" column="103" selection-start-line="183" selection-start-column="103" selection-end-line="183" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SampleAuthenticationManager.java" />
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/ApiApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -604,13 +568,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/documents/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/documents/Usuario.java" />
     <entry file="file://$PROJECT_DIR$/api/src/main/resources/static/images/b1.jpg" />
     <entry file="file://$PROJECT_DIR$/api/src/main/resources/static/css/style12.css" />
     <entry file="file://$PROJECT_DIR$/api/src/main/resources/templates/paginaInicial.html" />
@@ -626,20 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/templates/entrar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3780">
-          <caret line="252" column="40" selection-start-line="252" selection-start-column="40" selection-end-line="252" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/commons/components/SignIn.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -651,23 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -702,36 +629,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/repository/UsuarioRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/repository/UsuarioRepository.java" />
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/bo/ClienteBO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -771,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/entity/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -795,16 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -863,17 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/IUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -906,10 +773,166 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/net/PlainSocketImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/sun/nio/ch/EPoll.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="248" column="16" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/resources/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="258" column="16" lean-forward="true" selection-end-line="729" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/commons/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="252" column="1" lean-forward="true" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/globals/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/resources/templates/cadastrar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="102" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="102" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#525#526#0" expanded="true" />
@@ -918,12 +941,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java">
+    <entry file="file://$PROJECT_DIR$/api/src/main/resources/templates/entrar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="150">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

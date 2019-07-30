@@ -20,21 +20,27 @@
             </div>
             <div class="links">
                 <ul class="links-unordered-list">
-                    <li class="active">
+                    <li class="">
                         <a href="/entrar" class="">Entrar</a>
                     </li>
-                    <li class="">
-                        <a href="http://localhost:8080/#/cadastrar" class="">Cadastrar</a>
+                    <li class="active">
+                        <a href="/cadastrar" class="">Cadastrar</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="content-w3ls">
+        <div class="content-form">
             <div class="content-bottom">
                 <div class="main-icon">
                     <span class="fa fa-eercast"></span>
                 </div>
-                <form action="/entrar" method="post">
+                <form action="/salvarCadastro" method="post">
+                    <div class="field-group">
+                        <span class="fa fa-user-circle-o" aria-hidden="true"></span>
+                        <div class="wthree-field">
+                            <input name="name" type="text" placeholder="Nome">
+                        </div>
+                    </div>
                     <div class="field-group">
                         <span class="fa fa-user" aria-hidden="true"></span>
                         <div class="wthree-field">
@@ -48,11 +54,12 @@
                         </div>
                     </div>
                     <div class="wthree-field">
-                        <button type="submit" class="btn">Entrar</button>
+                        <button type="submit" class="btn">Cadastrar</button>
                     </div>
                     <ul class="list-login-bottom">
                         <li class="">
-                            <a href="http://localhost:8080/#/cadastrar" class="">Criar Conta</a>
+                            <span class="fa fa-reply-all" aria-hidden="true" style="color: white"></span>
+                            <a href="/entrar" class=""> Voltar</a>
                         </li>
                         <li class="clearfix"></li>
                     </ul>
@@ -63,7 +70,6 @@
             <p>© 2019 Trabalho De Conclusão De Curso
             </p>
         </div>
-    </div>
     </div>
 </section>
 </body>
