@@ -249,13 +249,13 @@ body {
 }
 
 .content-form {
-    margin: 2.7em auto;
+    margin: 2em auto;
 }
 
 ul.links-unordered-list li.active a {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.07);
-    padding: 10px 20px;
+    padding: 5px 20px;
     color: #fff;
     background: rgba(255, 255, 255, 0.04);
     -webkit-box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
@@ -275,7 +275,7 @@ ul.links-unordered-list li.active a {
 .content-bottom {
     border-radius: 10px;
     position: relative;
-    max-width: 375px;
+    max-width: 380px;
     margin: 0 auto;
     position: relative;
     z-index: 999;
@@ -420,7 +420,7 @@ form .field-group .wthree-field {
     background: #0a1819;
     border: none;
     color: #fff;
-    padding: 16px 15px;
+    padding: 11px 15px;
     text-transform: uppercase;
     font-family: 'Mukta', sans-serif;
     font-size: 16px;
@@ -465,7 +465,7 @@ ul.links-unordered-list li a {
 }
 
 .wthree-field input {
-    padding: 14px 0 10px 15px;
+    padding: 10px 0 10px 15px;
     font-size: 17px;
     font-weight: 300;
     color: #ddd;
@@ -582,7 +582,7 @@ input:checked + .slider:before {
 .copyright p {
     color: #ccc;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     word-spacing: 1px;
     text-transform: capitalize;

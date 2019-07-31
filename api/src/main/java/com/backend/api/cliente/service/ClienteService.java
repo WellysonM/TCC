@@ -22,7 +22,7 @@ public class ClienteService {
     }
 
     @PostMapping("ADMIN/cadastrar")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCliente(@RequestBody ClienteDTO clienteDTO) {
         iCliente.inserirCliente(clienteDTO);

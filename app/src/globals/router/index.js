@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import singIn from '../../commons/components/SignIn'
-import Menu from '../../views/Menu'
-import Cadastro from '../../commons/components/Cadastrar'
+import singIn from '../../commons/components/PaginaInicial/SignIn'
+import Menu from '../../commons/components/Alert/Alert'
+import Cadastro from '../../commons/components/PaginaInicial/Cadastrar'
 
 Vue.use(Router)
 
@@ -20,7 +20,7 @@ const index = new Router({
         },
         {
             path: '/cadastrar',
-            name: '/Cadastrar',
+            name: 'cadastrar',
             component: Cadastro
         }
     ]

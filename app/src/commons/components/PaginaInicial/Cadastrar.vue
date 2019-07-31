@@ -21,23 +21,25 @@
                     <div class="main-icon">
                         <span class="fa fa-eercast"></span>
                     </div>
-                    <form action="/salvarCadastro" method="post">
+                    <form @submit.prevent="teste">
                         <div class="field-group">
                             <span class="fa fa-user-circle-o" aria-hidden="true"></span>
                             <div class="wthree-field">
-                                <input name="name" type="text" placeholder="Nome">
+                                <input name="name" v-model="usuario.name" type="text" placeholder="Nome">
                             </div>
                         </div>
                         <div class="field-group">
                             <span class="fa fa-user" aria-hidden="true"></span>
                             <div class="wthree-field">
-                                <input name="username" id="text1" type="text" placeholder="Nome de usuário">
+                                <input name="username" v-model="usuario.username" id="text1" type="text"
+                                       placeholder="Nome de usuário">
                             </div>
                         </div>
                         <div class="field-group">
                             <span class="fa fa-lock" aria-hidden="true"></span>
                             <div class="wthree-field">
-                                <input name="password" id="myInput" type="Password" placeholder="Senha">
+                                <input name="password" v-model="usuario.password" id="myInput" type="Password"
+                                       placeholder="Senha">
                             </div>
                         </div>
                         <div class="wthree-field">
@@ -62,11 +64,26 @@
 </template>
 
 <script>
+    import service from '../../../services/service'
+
     export default {
-        name: "Cadastrar"
+        name: "Cadastrar",
+        data() {
+            return {
+                usuario: {
+                    name: '',
+                    username: '',
+                    password: ''
+                },
+                usuarioLogado: []
+            }
+        },
+        methods: {
+            teste() {
+                service.cadastrar(this.usuario)
+            }
+        }
     }
 </script>
-<style src="../css/style.css"></style>
-<style src="../css/font-awesome.min.css"></style>
-<style href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet"></style>
-<style href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet"></style>
+<style src="../../css/style.css"></style>
+<style src="../../css/font-awesome.min.css"></style>
