@@ -4,22 +4,88 @@
     <option name="showContexts" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue" afterDir="false" />
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="telas iniciais feitas durante o final de semana">
+      <change afterPath="$PROJECT_DIR$/app-telas/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/.postcssrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/ISSUE_TEMPLATE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/public/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/public/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/public/img/vuetifylogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/Footer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/View.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/helper/Offset.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/material/Card.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/material/ChartCard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/material/Notification.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/material/StatsCard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/plugins/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/plugins/chartist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/plugins/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/plugins/vuetify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/router/paths.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_alerts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_checkboxes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_fixed-plugin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_inputs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_tabs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_toolbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_tooltips.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Inicio.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Notifications.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Relatorios.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/commons/components/Layout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/commons/components/PaginaInicial/Cadastrar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/commons/components/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/commons/components/PaginaInicial/SignIn.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/commons/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/commons/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/globals/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/plugins/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/plugins/vee-validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/globals/plugins/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/plugins/vuetify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/commons/components/PaginaInicial/SignIn.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/HelloWorld.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/globals/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/globals/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/plugins/vee-validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/plugins/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/plugins/vuetify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Menu.vue" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/api/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,29 +116,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="112" column="23" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main.js">
+        <entry file="file://$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/plugins/vuetify.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            <state relative-caret-position="225">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -114,7 +162,11 @@
       <find>button.btn</find>
       <find>2em</find>
       <find>content-form</find>
+      <find>vcs</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,13 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/plugins/index.js" />
-        <option value="$PROJECT_DIR$/app/src/plugins/vee-validate.js" />
-        <option value="$PROJECT_DIR$/app/src/globals/router/router.js" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SampleAuthenticationManager.java" />
-        <option value="$PROJECT_DIR$/app/src/commons/components/SignIn.vue" />
-        <option value="$PROJECT_DIR$/app/src/services/config.js" />
-        <option value="$PROJECT_DIR$/api/pom.xml" />
         <option value="$PROJECT_DIR$/api/src/main/resources/static/css/style2.css" />
         <option value="$PROJECT_DIR$/api/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/controller/ClienteController.java" />
@@ -162,17 +207,24 @@
         <option value="$PROJECT_DIR$/app/src/commons/components/Cadastrar.vue" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/bo/UsuarioBO.java" />
-        <option value="$PROJECT_DIR$/app/src/commons/components/PaginaInicial/Cadastrar.vue" />
         <option value="$PROJECT_DIR$/app/src/commons/css/style.css" />
         <option value="$PROJECT_DIR$/app/src/globals/router/index.js" />
-        <option value="$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue" />
-        <option value="$PROJECT_DIR$/app/src/App.vue" />
         <option value="$PROJECT_DIR$/app/src/globals/plugins/vuetify.js" />
-        <option value="$PROJECT_DIR$/app/public/index.html" />
         <option value="$PROJECT_DIR$/app/src/globals/plugins/vee-validate.js" />
         <option value="$PROJECT_DIR$/app/src/globals/plugins/index.js" />
-        <option value="$PROJECT_DIR$/app/src/plugins/vuetify.js" />
+        <option value="$PROJECT_DIR$/app/src/commons/components/Layout.vue" />
+        <option value="$PROJECT_DIR$/app/src/commons/components/PaginaInicial/Cadastrar.vue" />
+        <option value="$PROJECT_DIR$/hello-world/src/App.vue" />
+        <option value="$PROJECT_DIR$/hello-world/src/main.js" />
+        <option value="$PROJECT_DIR$/hello-world/src/globals/router/index.js" />
+        <option value="$PROJECT_DIR$/hello-world/public/index.html" />
+        <option value="$PROJECT_DIR$/app/src/plugins/index.js" />
         <option value="$PROJECT_DIR$/app/src/main.js" />
+        <option value="$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue" />
+        <option value="$PROJECT_DIR$/app/src/App.vue" />
+        <option value="$PROJECT_DIR$/app/public/index.html" />
+        <option value="$PROJECT_DIR$/app/src/plugins/vuetify.js" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
       </list>
     </option>
   </component>
@@ -203,7 +255,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,25 +265,13 @@
             <path>
               <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCC" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCC" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TCC" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="app-telas" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -243,7 +282,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/vuetify-material-dashboard-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -251,7 +290,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -280,7 +319,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
+  <component name="RunManager" selected="npm.app">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -329,6 +368,12 @@
       <workItem from="1564331983472" duration="7212000" />
       <workItem from="1564442891032" duration="6583000" />
       <workItem from="1564528421878" duration="5615000" />
+      <workItem from="1565135793164" duration="4235000" />
+      <workItem from="1565221010136" duration="3406000" />
+      <workItem from="1565277650767" duration="3516000" />
+      <workItem from="1565306221502" duration="1716000" />
+      <workItem from="1565573955747" duration="731000" />
+      <workItem from="1565623038065" duration="1147000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -411,13 +456,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116228000" />
+    <option name="totallyTimeSpent" value="134080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.2621212" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.2621212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -427,7 +471,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924242" weight="0.5862069" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924242" weight="0.44170773" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.57471263" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,6 +496,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Maven" order="9" weight="0.32954547" />
       <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="SciView" order="11" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.2621212" />
@@ -505,142 +550,10 @@
     <MESSAGE value="organização das pastas da api" />
     <MESSAGE value="pasta documents apagada" />
     <MESSAGE value="tela de cadastro feita no vue e comunicando com o backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="tela de cadastro feita no vue e comunicando com o backend" />
+    <MESSAGE value="telas iniciais feitas durante o final de semana" />
+    <option name="LAST_COMMIT_MESSAGE" value="telas iniciais feitas durante o final de semana" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/dto/UsuarioDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="62" column="1" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
-          <folding>
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/repository/UsuarioRepository.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.9.RELEASE/spring-data-commons-2.1.9.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/repository/UsuarioRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/entity/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/BuscarCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/AtualizarUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/BuscarUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/RemoverCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/RemoverUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/InserirUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/UsuarioImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1130#1131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/net/PlainSocketImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
@@ -659,26 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="248" column="16" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -710,26 +603,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/commons/fonts/fontawesome-webfont.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/views/Menu.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/commons/components/PaginaInicial/SignIn.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="75" column="3" lean-forward="true" selection-start-line="75" selection-start-column="3" selection-end-line="85" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/commons/components/PaginaInicial/SignIn.vue" />
     <entry file="file://$PROJECT_DIR$/api/src/main/resources/templates/entrar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -866,88 +740,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/views/Menu.vue" />
+    <entry file="file://$PROJECT_DIR$/app/node_modules/vee-validate/dist/vee-validate.esm.js" />
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/config/MongoDBConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="32" column="128" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="128" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/.browserslistrc" />
+    <entry file="file://$PROJECT_DIR$/hello-world/package.json" />
+    <entry file="file://$PROJECT_DIR$/hello-world/src/commons/components/PaginaInicial/SignIn.vue" />
+    <entry file="file://$PROJECT_DIR$/hello-world/src/main.js" />
+    <entry file="file://$PROJECT_DIR$/hello-world/src/commons/components/PaginaInicial/Cadastrar.vue" />
+    <entry file="file://$PROJECT_DIR$/hello-world/public/index.html" />
+    <entry file="file://$PROJECT_DIR$/hello-world/src/globals/router/index.js" />
+    <entry file="file://$PROJECT_DIR$/hello-world/src/App.vue" />
+    <entry file="file://$PROJECT_DIR$/app/src/plugins/vee-validate.js" />
+    <entry file="file://$PROJECT_DIR$/app/src/globals/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/commons/components/PaginaInicial/Cadastrar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
+        <state relative-caret-position="76">
+          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#1;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/vuetify.js">
+    <entry file="file://$PROJECT_DIR$/app/src/commons/components/Layout.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" />
+        <state relative-caret-position="120">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/plugins/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/dist/index.html" />
+    <entry file="file://$PROJECT_DIR$/app/src/components/HelloWorld.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
+        <state relative-caret-position="195">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="89" lean-forward="true" selection-start-line="14" selection-start-column="89" selection-end-line="14" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/globals/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/vee-validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/plugins/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="12" column="105" lean-forward="true" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/plugins/vuetify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        <state relative-caret-position="165">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main.js">
+    <entry file="file://$PROJECT_DIR$/app/src/commons/components/Alert/Alert.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="371">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
         </state>
       </provider>
     </entry>
