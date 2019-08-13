@@ -2,15 +2,16 @@
   border-color: $input-color !important;
 }
 
-.input--is-focused .v-input__control .v-input__slot:after{
+.input--is-focused .v-input__control .v-input__slot:after {
   border-color: red !important;
 }
 
 .v-text-field__slot {
   input {
-    @include material-placeholder{
+    @include material-placeholder {
       color: $input-color;
-    };
+    }
+  ;
   }
 
   .v-label {

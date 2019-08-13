@@ -9,7 +9,7 @@
   @include shadow-8dp();
   text-align: center;
 
-  &:after{
+  &:after {
     position: absolute;
     bottom: -$tooltip-border;
     height: 0;
@@ -29,14 +29,15 @@
     border-left: $tooltip-border solid transparent;
   }
 
-  &.bottom:after{
+  &.bottom:after {
     top: -$tooltip-border;
     border-top: 0;
     border-right: $tooltip-border solid transparent;
     border-bottom: $tooltip-border solid $white;
     border-left: $tooltip-border solid transparent;
   }
-  &.left:after{
+
+  &.left:after {
     margin-right: 0;
     right: -$tooltip-border;
     top: $tooltip-top-border-pos;
@@ -44,7 +45,8 @@
     border-bottom: $tooltip-border solid transparent;
     border-left: $tooltip-border solid $white;
   }
-  &.right:after{
+
+  &.right:after {
     margin-left: 0;
     left: -$tooltip-border;
     top: $tooltip-top-border-pos;

@@ -1,30 +1,30 @@
 <template>
     <div>
         <v-btn
-                v-if="responsive"
+                @click.stop="onClickBtn"
                 class="default v-btn--simple"
                 dark
                 icon
-                @click.stop="onClickBtn">
+                v-if="responsive">
             <v-icon>mdi-view-list</v-icon>
         </v-btn>
         <v-navigation-drawer
-                id="app-drawer"
-                v-model="setDrawer"
                 app
                 dark
                 floating
-                persistent
+                id="app-drawer"
                 mobile-break-point="991"
+                persistent
+                v-model="setDrawer"
                 width="260">
             <v-img
-                    src="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg"
                     gradient="rgba(27, 27, 27, 0.74), rgba(27, 27, 27, 0.74)"
-                    height="100%">
+                    height="100%"
+                    src="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg">
                 <v-layout
                         class="fill-height"
-                        tag="v-list"
-                        column>
+                        column
+                        tag="v-list">
                     <v-list-tile avatar>
                         <v-list-tile-avatar>
                             <v-icon size="50">mdi-account-circle</v-icon>
@@ -35,12 +35,12 @@
                     </v-list-tile>
                     <v-divider/>
                     <v-list-tile
-                            v-for="(link, i) in links"
                             :key="i"
                             :to="link.to"
                             active-class="info"
                             avatar
-                            class="v-list-item">
+                            class="v-list-item"
+                            v-for="(link, i) in links">
                         <v-list-tile-action>
                             <v-icon>{{ link.icon }}</v-icon>
                         </v-list-tile-action>

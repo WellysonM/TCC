@@ -1,25 +1,25 @@
 <template>
     <div>
-        <v-btn text color="success" @click="snack">
-                <v-icon color="white">{{this.icone}}</v-icon>
+        <v-btn @click="snack" color="success" text>
+            <v-icon color="white">{{this.icone}}</v-icon>
         </v-btn>
         <v-snackbar
                 :color="color"
-                :top="top"
                 :right="right"
-                v-model="snackbar"
+                :top="top"
                 dark
+                v-model="snackbar"
         >
             <v-icon
-                    color="white"
                     class="mr-3"
+                    color="white"
             >
                 mdi-bell-plus
             </v-icon>
             <div>{{this.mensagem}}</div>
             <v-icon
-                    size="16"
                     @click="snackbar = false"
+                    size="16"
             >
                 mdi-close-circle
             </v-icon>
@@ -46,8 +46,8 @@
         props: {
             cor: null,
             mensagem: '',
-            icone:'',
-            corBtn:''
+            icone: '',
+            corBtn: ''
         },
         methods: {
             snack() {

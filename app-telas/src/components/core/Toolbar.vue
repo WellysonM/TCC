@@ -1,7 +1,7 @@
 <template>
     <v-toolbar
-            id="core-toolbar"
             flat
+            id="core-toolbar"
             prominent
             style="background: #eee;">
         <div class="v-toolbar-title">
@@ -17,22 +17,22 @@
                     layout
                     py-2>
                 <router-link
-                        v-ripple
                         class="toolbar-items"
-                        to="/">
+                        to="/"
+                        v-ripple>
                     <v-icon color="tertiary">mdi-home</v-icon>
                 </router-link>
                 <v-menu
                         bottom
-                        left
                         content-class="dropdown-menu"
+                        left
                         offset-y
                         transition="slide-y-transition">
                     <router-link
-                            v-ripple
-                            slot="activator"
                             class="toolbar-items"
-                            to="/notifications">
+                            slot="activator"
+                            to="/notifications"
+                            v-ripple>
                         <v-badge
                                 color="error"
                                 overlap>
@@ -45,9 +45,9 @@
                     <v-card>
                         <v-list dense>
                             <v-list-tile
-                                    v-for="notification in notifications"
                                     :key="notification"
-                                    @click="">
+                                    @click=""
+                                    v-for="notification in notifications">
                                 <v-list-tile-title
                                         v-text="notification"/>
                             </v-list-tile>
@@ -55,9 +55,9 @@
                     </v-card>
                 </v-menu>
                 <router-link
-                        v-ripple
                         class="toolbar-items"
-                        to="/perfil">
+                        to="/perfil"
+                        v-ripple>
                     <v-icon color="tertiary">mdi-account</v-icon>
                 </router-link>
             </v-flex>

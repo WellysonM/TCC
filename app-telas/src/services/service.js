@@ -1,7 +1,7 @@
 import {http} from './config'
 
 export default {
-    cadastrar:(usuario) =>{
+    cadastrar: (usuario) => {
         return http.post('/cadastrar', usuario)
     }
 }

@@ -1,6 +1,6 @@
 .theme--light.v-table tbody tr:not(:last-child),
 .theme--light.v-table thead tr:first-child {
-  border-bottom: 1px solid $table-border-color!important;
+  border-bottom: 1px solid $table-border-color !important;
 }
 
 table.v-table thead tr {
@@ -27,6 +27,6 @@ table.v-table thead th:first-child, table.v-table thead th:not(:first-child) {
   display: none;
 }
 
-table thead tr th span{
+table thead tr th span {
   font-size: 1.0625rem !important;
 }

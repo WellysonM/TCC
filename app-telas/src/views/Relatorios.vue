@@ -5,9 +5,9 @@
             grid-list-xl>
         <v-layout wrap>
             <v-flex
+                    lg4
                     md12
-                    sm12
-                    lg4>
+                    sm12>
                 <material-chart-card
                         :data="dailySalesChart.data"
                         :options="dailySalesChart.options"
@@ -17,9 +17,9 @@
                 </material-chart-card>
             </v-flex>
             <v-flex
+                    lg4
                     md12
-                    sm12
-                    lg4>
+                    sm12>
                 <material-chart-card
                         :data="emailsSubscriptionChart.data"
                         :options="emailsSubscriptionChart.options"
@@ -30,9 +30,9 @@
                 </material-chart-card>
             </v-flex>
             <v-flex
+                    lg4
                     md12
-                    sm12
-                    lg4>
+                    sm12>
                 <material-chart-card
                         :data="dataCompletedTasksChart.data"
                         :options="dataCompletedTasksChart.options"

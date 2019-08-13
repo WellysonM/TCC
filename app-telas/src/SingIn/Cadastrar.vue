@@ -8,10 +8,10 @@
                 <div class="links">
                     <ul class="links-unordered-list">
                         <li class="">
-                            <a href="http://localhost:8095/entrar" class="">Entrar</a>
+                            <a class="" href="http://localhost:8095/entrar">Entrar</a>
                         </li>
                         <li class="active">
-                            <a href="" class="">Cadastrar</a>
+                            <a class="" href="">Cadastrar</a>
                         </li>
                     </ul>
                 </div>
@@ -23,32 +23,32 @@
                     </div>
                     <form @submit.prevent="teste">
                         <div class="field-group">
-                            <span class="fa fa-user-circle-o" aria-hidden="true"></span>
+                            <span aria-hidden="true" class="fa fa-user-circle-o"></span>
                             <div class="wthree-field">
-                                <input name="name" v-model="usuario.name" type="text" placeholder="Nome">
+                                <input name="name" placeholder="Nome" type="text" v-model="usuario.name">
                             </div>
                         </div>
                         <div class="field-group">
-                            <span class="fa fa-user" aria-hidden="true"></span>
+                            <span aria-hidden="true" class="fa fa-user"></span>
                             <div class="wthree-field">
-                                <input name="username" v-model="usuario.username" id="text1" type="text"
-                                       placeholder="Nome de usuário">
+                                <input id="text1" name="username" placeholder="Nome de usuário" type="text"
+                                       v-model="usuario.username">
                             </div>
                         </div>
                         <div class="field-group">
-                            <span class="fa fa-lock" aria-hidden="true"></span>
+                            <span aria-hidden="true" class="fa fa-lock"></span>
                             <div class="wthree-field">
-                                <input name="password" v-model="usuario.password" id="myInput" type="Password"
-                                       placeholder="Senha">
+                                <input id="myInput" name="password" placeholder="Senha" type="Password"
+                                       v-model="usuario.password">
                             </div>
                         </div>
                         <div class="wthree-field">
-                            <button type="submit" class="btn">Cadastrar</button>
+                            <button class="btn" type="submit">Cadastrar</button>
                         </div>
                         <ul class="list-login-bottom">
                             <li class="">
-                                <span class="fa fa-reply-all" aria-hidden="true" style="color: white"></span>
-                                <a href="http://localhost:8095/entrar" class=""> Voltar</a>
+                                <span aria-hidden="true" class="fa fa-reply-all" style="color: white"></span>
+                                <a class="" href="http://localhost:8095/entrar"> Voltar</a>
                             </li>
                             <li class="clearfix"></li>
                         </ul>
@@ -64,7 +64,8 @@
 </template>
 
 <script>
-    import service from '../../../services/service'
+    import service from '../services/service'
+    import inicio from './Layout'
 
     export default {
         name: "Cadastrar",
@@ -80,10 +81,13 @@
         },
         methods: {
             teste() {
-                service.cadastrar(this.usuario)
+                this.$route.router.go(inicio)
+               // service.cadastrar(this.usuario)
             }
         }
     }
 </script>
-<style src="../../css/style.css"></style>
-<style src="../../css/font-awesome.min.css"></style>
+<style lang="scss">
+    @import './css/style.css';
+    @import './css/font-awesome.min.css';
+</style>

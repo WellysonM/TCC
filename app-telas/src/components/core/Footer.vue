@@ -1,7 +1,7 @@
 <template>
-    <v-footer id="core-footer"
-              absolute
-              height="82">
+    <v-footer absolute
+              height="82"
+              id="core-footer">
         <v-spacer/>
         <span class="font-weight-light copyright">
             &copy;{{ (new Date()).getFullYear() }}
