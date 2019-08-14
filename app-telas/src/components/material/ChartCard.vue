@@ -13,9 +13,7 @@
                 :type="type"
                 slot="header"
         />
-
         <slot/>
-
         <slot
                 name="actions"
                 slot="actions"

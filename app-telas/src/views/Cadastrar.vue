@@ -64,8 +64,6 @@
 </template>
 
 <script>
-    import service from '../services/service'
-    import inicio from './Layout'
 
     export default {
         name: "Cadastrar",
@@ -81,13 +79,12 @@
         },
         methods: {
             teste() {
-                this.$route.router.go(inicio)
-               // service.cadastrar(this.usuario)
+                // service.cadastrar(this.usuario)
             }
         }
     }
 </script>
 <style lang="scss">
-    @import './css/style.css';
-    @import './css/font-awesome.min.css';
+    @import 'SingIn/css/style.css';
+    @import 'SingIn/css/font-awesome.min.css';
 </style>
