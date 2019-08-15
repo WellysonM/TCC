@@ -15,36 +15,35 @@
                         <v-flex md6 xs12>
                             <v-text-field
                                     class="info-input"
+                                    v-model="statusCard.titulo"
                                     label="Titulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-text-field
                                     class="info-input"
-                                    label="Sub Titulo"/>
+                                    v-model="statusCard.preco"
+                                    label="Margem de preço"/>
                         </v-flex>
-                        <v-container fluid>
-                            <v-row align="center">
-                                <v-col cols="6">
-                                    <v-subheader>Prepended icon</v-subheader>
-                                </v-col>
-                                <v-col cols="6">
-                                    <v-select
-                                            v-model="e1"
-                                            :items="states"
-                                            menu-props="auto"
-                                            label="Select"
-                                            hide-details
-                                            prepend-icon="mdi-pizza"
-                                            single-line
-                                    ></v-select>
-                                </v-col>
-                            </v-row>
-                        </v-container>
-                        <v-btn
-                                class="mx-0 font-weight-light"
-                                color="success">
-                            Atualizar
-                        </v-btn>
+                        <v-flex md6 xs12>
+                            <v-text-field
+                                    class="info-input"
+                                    v-model="statusCard.subtitulo"
+                                    label="Informação Adicional"/>
+                        </v-flex>
+                        <v-flex md6 xs12>
+                            <v-select
+                                    :items="tamanhos"
+                                    menu-props="auto"
+                                    label="Icone"
+                                    hide-details
+                                    v-model="statusCard.icone"
+                                    :prepend-icon="statusCard.icone"
+                                    single-line
+                                    @change="trocarTamanho"
+                            ></v-select>
+                        </v-flex>
+                        <v-btn @click="fecharModalProduto" color="info">fechar</v-btn>
+                        <v-btn @click="statusCardM" color="info">enviar</v-btn>
                     </v-layout>
                 </v-container>
             </v-form>
@@ -57,40 +56,33 @@
         name: 'ModalSistema',
         data() {
             return {
-                e1: 'Florida',
-                e2: 'Texas',
-                e3: null,
-                e4: null,
-                items: [
-                    {text: 'State 1'},
-                    {text: 'State 2'},
-                    {text: 'State 3'},
-                    {text: 'State 4'},
-                    {text: 'State 5'},
-                    {text: 'State 6'},
-                    {text: 'State 7'},
-                ],
-                states: [
-                    'Alabama', 'Alaska', 'American Samoa', 'Arizona',
-                    'Arkansas', 'California', 'Colorado', 'Connecticut',
-                    'Delaware', 'District of Columbia', 'Federated States of Micronesia',
-                    'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho',
-                    'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-                    'Louisiana', 'Maine', 'Marshall Islands', 'Maryland',
-                    'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-                    'Missouri', 'Montana', 'Nebraska', 'Nevada',
-                    'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-                    'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio',
-                    'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
-                    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
-                    'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia',
-                    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
+                tamanhos: [
+                    {text: 'pizza', value: 'mdi-pizza'},
+                    {text: 'bebida', value: 'mdi-beer'},
+                    {text: 'pão', value: 'mdi-baguette'},
+                    {text: 'browne', value: 'mdi-bowl'},
+                    {text: 'bolo', value: 'mdi-cake'},
+                    {text: 'cookie', value: 'mdi-cookie'},
+                    {text: 'sorvete', value: 'mdi-rice'},
+                    {text: '24', value: '24pt'},
+                    {text: '30', value: '30pt'},
+                    {text: '36', value: '36pt'},
+                    {text: '48', value: '48pt'},
+                    {text: '60', value: '60pt'},
+                    {text: '72', value: '72pt'},
+                    {text: '96', value: '96pt'}
                 ],
             }
         },
         props: {
             abrirModalProduto: {
                 required: true
+            },
+            statusCard: {
+                icone: '',
+                titulo: '',
+                subtitulo: '',
+                preco: ''
             }
         },
         methods: {
@@ -99,6 +91,13 @@
             },
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
+            },
+            trocarTamanho(tamanho) {
+                console.log(tamanho)
+                this.icone = tamanho
+            },
+            statusCardM(){
+                this.$emit('statusCardM', this.statusCard)
             }
         }
     }

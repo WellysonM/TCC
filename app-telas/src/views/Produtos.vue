@@ -1,9 +1,11 @@
 <template>
     <div>
         <modal-produto
+                :status-card="statusCard"
                 :abrir-modal-produto="abrirModalProduto"
                 @enviarDadosCategoria="enviarDadosCategoria"
                 @fecharModalProduto="fecharModalProduto"
+                @statusCardM="statusCardM"
         />
         <v-container
                 fill-height
@@ -63,11 +65,11 @@
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
                             color="info"
-                            icon="mdi-glass-wine"
-                            sub-icon="mdi-plus-outline"
-                            sub-text="Adicional 2 R$"
-                            title="Bebidas"
-                            value="3.50 a 6 R$"
+                            :icon=statusCard.icone
+                            :sub-icon=statusCard.icone
+                            :sub-text=statusCard.subtitulo
+                            :title=statusCard.titulo
+                            :value=statusCard.preco
                     />
                 </v-flex>
                 <v-flex lg4 md6 sm6 xs12>
@@ -95,6 +97,12 @@
         data() {
             return {
                 abrirModalProduto: false,
+                statusCard: {
+                    icone: '',
+                    titulo: '',
+                    subtitulo: '',
+                    preco: ''
+                }
             }
         },
         methods: {
@@ -103,6 +111,11 @@
             },
             fecharModalProduto() {
                 this.abrirModalProduto = false
+            },
+            statusCardM(statusCard) {
+                this.statusCard = statusCard
+                console.log(statusCard)
+                this.fecharModalProduto()
             }
         }
     }
