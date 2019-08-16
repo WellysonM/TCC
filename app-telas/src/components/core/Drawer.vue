@@ -1,22 +1,15 @@
 <template>
     <div>
-        <v-btn
-                @click.stop="onClickBtn"
-                class="default v-btn--simple"
-                dark
-                icon
-                v-if="responsive">
-            <v-icon>mdi-view-list</v-icon>
-        </v-btn>
         <v-navigation-drawer
+                id="app-drawer"
+                v-model="inputValue"
                 app
                 dark
                 floating
-                id="app-drawer"
-                mobile-break-point="991"
                 persistent
-                v-model="setDrawer"
-                width="260">
+                mobile-break-point="991"
+                width="260"
+        >
             <v-img
                     gradient="rgba(27, 27, 27, 0.74), rgba(27, 27, 27, 0.74)"
                     height="100%"
@@ -54,10 +47,11 @@
 </template>
 
 <script>
+    import {mapMutations, mapState} from 'vuex'
+
     export default {
         data: () => ({
             logo: '',
-            setDrawer: false,
             responsive: false,
             links: [
                 {
@@ -87,8 +81,18 @@
                 }
             ]
         }),
+        computed: {
+            ...mapState('app', ['image', 'color']),
+            inputValue: {
+                get() {
+                    return this.$store.state.app.drawer
+                },
+                set(val) {
+                    this.setDrawer(val)
+                }
+            }
+        },
         mounted() {
-            this.setDrawer = true
             this.onResponsiveInverted()
             window.addEventListener('resize', this.onResponsiveInverted)
         },
@@ -96,6 +100,7 @@
             window.removeEventListener('resize', this.onResponsiveInverted)
         },
         methods: {
+            ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
             onResponsiveInverted() {
                 if (window.innerWidth < 991) {
                     this.responsive = true
@@ -103,9 +108,10 @@
                     this.responsive = false
                 }
             },
+            ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
             onClickBtn() {
-                this.setDrawer = true
-            },
+                this.setDrawer(!this.$store.state.app.drawer)
+            }
         }
     }
 </script>

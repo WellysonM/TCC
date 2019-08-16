@@ -1,10 +1,19 @@
 <template>
-    <v-toolbar
+    <v-toolbar v-if="drawer"
             flat
             id="core-toolbar"
             prominent
             style="background: #eee;">
         <div class="v-toolbar-title">
+            <v-btn
+                    v-if="responsive"
+                    class="default v-btn--simple"
+                    dark
+                    icon
+                    @click.stop="onClickBtn"
+            >
+                <v-icon>mdi-view-list</v-icon>
+            </v-btn>
             <v-toolbar-title
                     class="tertiary--text font-weight-light">
                 {{ title }}
@@ -66,13 +75,15 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex'
+
     export default {
         data: () => ({
             notifications: [],
             title: null,
             responsive: false,
             responsiveInput: false,
-            drawer: false
+            drawer: this.$store.state.app.drawer
         }),
         watch: {
             '$route'(val) {
@@ -95,6 +106,10 @@
                     this.responsive = false
                     this.responsiveInput = true
                 }
+            },
+            ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+            onClickBtn() {
+                this.setDrawer(!this.$store.state.app.drawer)
             }
         }
     }

@@ -1,9 +1,9 @@
 <template>
     <v-dialog
             persistent
-            width="500"
+            width="600"
             v-model="abrirModalProduto">
-        <v-card style="max-height: 400px; overflow-y: auto">
+        <v-card style="max-height: 600px; overflow-y: auto">
             <v-card-title
                     class="title color darken-1 white--text"
                     primary-title>
@@ -42,9 +42,121 @@
                                     @change="trocarTamanho"
                             ></v-select>
                         </v-flex>
-                        <v-btn @click="fecharModalProduto" color="info">fechar</v-btn>
-                        <v-btn @click="statusCardM" color="info">enviar</v-btn>
+                        <v-container py-3 v-model="statusCard.cor">
+                            <v-layout wrap>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="red"
+                                            color="red"
+                                            value="red"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="red darken-3"
+                                            color="red darken-3"
+                                            value="red darken-3"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="indigo"
+                                            color="indigo"
+                                            value="indigo"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="indigo darken-3"
+                                            color="indigo darken-3"
+                                            value="indigo darken-3"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="orange"
+                                            color="orange"
+                                            value="orange"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="orange darken-3"
+                                            color="orange darken-3"
+                                            value="orange darken-3"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="primary"
+                                            color="primary"
+                                            value="primary"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="secondary"
+                                            color="secondary"
+                                            value="secondary"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="success"
+                                            color="success"
+                                            value="success"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="info"
+                                            color="info"
+                                            value="info"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="warning"
+                                            color="warning"
+                                            value="warning"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="statusCard.cor"
+                                            label="error"
+                                            color="error"
+                                            value="error"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
                     </v-layout>
+                    <v-btn @click="fecharModalProduto" color="info">fechar</v-btn>
+                    <v-btn @click="statusCardM" color="info">enviar</v-btn>
                 </v-container>
             </v-form>
         </v-card>
@@ -63,14 +175,7 @@
                     {text: 'browne', value: 'mdi-bowl'},
                     {text: 'bolo', value: 'mdi-cake'},
                     {text: 'cookie', value: 'mdi-cookie'},
-                    {text: 'sorvete', value: 'mdi-rice'},
-                    {text: '24', value: '24pt'},
-                    {text: '30', value: '30pt'},
-                    {text: '36', value: '36pt'},
-                    {text: '48', value: '48pt'},
-                    {text: '60', value: '60pt'},
-                    {text: '72', value: '72pt'},
-                    {text: '96', value: '96pt'}
+                    {text: 'sorvete', value: 'mdi-rice'}
                 ],
             }
         },
@@ -82,7 +187,8 @@
                 icone: '',
                 titulo: '',
                 subtitulo: '',
-                preco: ''
+                preco: '',
+                cor: 'info'
             }
         },
         methods: {
@@ -96,7 +202,7 @@
                 console.log(tamanho)
                 this.icone = tamanho
             },
-            statusCardM(){
+            statusCardM() {
                 this.$emit('statusCardM', this.statusCard)
             }
         }

@@ -5,24 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/commons/constants/action-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/commons/constants/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/commons/constants/mutation-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/modules/app/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/modules/app/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/modules/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/store/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/utils/vuex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/Cadastrar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Cadastrar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/Layout.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/images/bg--.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/images/bg--.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/SingIn/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/images/bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/material/ChartCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/material/ChartCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,44 +55,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>script</find>
-      <find>tar</find>
-      <find>load</find>
-      <find>vee-vali</find>
-      <find>AuthenticationManager</find>
-      <find>UserDetails</find>
-      <find>input</find>
-      <find>content</find>
-      <find>main</find>
-      <find>ol</find>
-      <find>la</find>
-      <find>html</find>
-      <find>content-w3ls</find>
-      <find>btn</find>
-      <find>act</find>
-      <find>wthree-field</find>
-      <find>content-b</find>
-      <find>font-size: 16</find>
-      <find>active</find>
-      <find>button.btn</find>
-      <find>2em</find>
-      <find>content-form</find>
-      <find>vcs</find>
-      <find>content-f</find>
-      <find>content-w</find>
-    </findStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,7 +85,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editorconfig.notification" value="View&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AZ/editor-texto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app-telas/src/commons/store" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -131,18 +101,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
+      <recent name="$PROJECT_DIR$/app-telas/src" />
       <recent name="$PROJECT_DIR$/app-telas/src/styles" />
       <recent name="$PROJECT_DIR$/app-telas/src/views" />
-      <recent name="$PROJECT_DIR$/app-telas/src" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/api/src/main/resources/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views" />
       <recent name="$PROJECT_DIR$/app-telas/src" />
-      <recent name="$PROJECT_DIR$/app-telas/src/components/SingIn" />
-      <recent name="$PROJECT_DIR$/app-telas/src/components" />
+      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
+      <recent name="$PROJECT_DIR$/app-telas/src/commons" />
+      <recent name="$PROJECT_DIR$/app-telas/src/constants" />
+      <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -218,7 +188,11 @@
       <workItem from="1565724300844" duration="592000" />
       <workItem from="1565739856554" duration="469000" />
       <workItem from="1565740408555" duration="4171000" />
-      <workItem from="1565795115022" duration="3356000" />
+      <workItem from="1565795115022" duration="3904000" />
+      <workItem from="1565825220809" duration="64000" />
+      <workItem from="1565825531246" duration="4954000" />
+      <workItem from="1565878719721" duration="7771000" />
+      <workItem from="1565966003903" duration="2493000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -311,7 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565657754434</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="modal para inserir categoria no gerenciar produto">
+      <created>1565800099683</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1565800099683</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Ajustes no modal">
+      <created>1565829853963</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565829853963</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -355,7 +343,9 @@
     <MESSAGE value="tela de cadastro feita no vue e comunicando com o backend" />
     <MESSAGE value="telas iniciais feitas durante o final de semana" />
     <MESSAGE value="organização do codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="organização do codigo" />
+    <MESSAGE value="modal para inserir categoria no gerenciar produto" />
+    <MESSAGE value="Ajustes no modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes no modal" />
   </component>
   <component name="masterDetails">
     <states>

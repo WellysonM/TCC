@@ -64,7 +64,7 @@
                 </v-flex>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
-                            color="info"
+                            :color=statusCard.cor
                             :icon=statusCard.icone
                             :sub-icon=statusCard.icone
                             :sub-text=statusCard.subtitulo
@@ -101,7 +101,8 @@
                     icone: '',
                     titulo: '',
                     subtitulo: '',
-                    preco: ''
+                    preco: '',
+                    cor:''
                 }
             }
         },
