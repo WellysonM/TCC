@@ -1,7 +1,6 @@
 <template>
     <div>
         <modal-produto
-                :status-card="statusCard"
                 :abrir-modal-produto="abrirModalProduto"
                 @enviarDadosCategoria="enviarDadosCategoria"
                 @fecharModalProduto="fecharModalProduto"
@@ -64,12 +63,12 @@
                 </v-flex>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
-                            :color=statusCard.cor
-                            :icon=statusCard.icone
-                            :sub-icon=statusCard.icone
-                            :sub-text=statusCard.subtitulo
-                            :title=statusCard.titulo
-                            :value=statusCard.preco
+                            :color=styleCard.cor
+                            :icon=styleCard.icone
+                            :sub-icon=styleCard.icone
+                            :sub-text=styleCard.subtitulo
+                            :title=styleCard.titulo
+                            :value=styleCard.preco
                     />
                 </v-flex>
                 <v-flex lg4 md6 sm6 xs12>
@@ -97,7 +96,7 @@
         data() {
             return {
                 abrirModalProduto: false,
-                statusCard: {
+                styleCard: {
                     icone: '',
                     titulo: '',
                     subtitulo: '',
@@ -113,9 +112,9 @@
             fecharModalProduto() {
                 this.abrirModalProduto = false
             },
-            statusCardM(statusCard) {
-                this.statusCard = statusCard
-                console.log(statusCard)
+            statusCardM(styleCard) {
+                this.styleCard = styleCard
+                console.log(styleCard)
                 this.fecharModalProduto()
             }
         }

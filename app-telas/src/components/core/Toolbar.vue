@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar v-if="drawer"
+    <v-toolbar
             flat
             id="core-toolbar"
             prominent
@@ -82,8 +82,7 @@
             notifications: [],
             title: null,
             responsive: false,
-            responsiveInput: false,
-            drawer: this.$store.state.app.drawer
+            responsiveInput: false
         }),
         watch: {
             '$route'(val) {
