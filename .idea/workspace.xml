@@ -7,8 +7,10 @@
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/material/Card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/material/Card.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Notifications.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Notifications.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
@@ -86,19 +88,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
-      <recent name="$PROJECT_DIR$/app-telas/src" />
-      <recent name="$PROJECT_DIR$/app-telas/src/styles" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app-telas/src" />
       <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
       <recent name="$PROJECT_DIR$/app-telas/src/commons" />
       <recent name="$PROJECT_DIR$/app-telas/src/constants" />
       <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
+      <recent name="$PROJECT_DIR$/app-telas/src" />
+      <recent name="$PROJECT_DIR$/app-telas/src/styles" />
+      <recent name="$PROJECT_DIR$/app-telas/src/views" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -183,7 +185,7 @@
       <workItem from="1566261840028" duration="338000" />
       <workItem from="1566395428025" duration="6748000" />
       <workItem from="1566433465691" duration="2121000" />
-      <workItem from="1566747517830" duration="2754000" />
+      <workItem from="1566747517830" duration="11429000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -297,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566404520607</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Ajustes no modal">
+      <created>1566750415610</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1566750415610</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">

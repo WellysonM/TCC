@@ -29,37 +29,29 @@
                                 </v-flex>
                                 <v-flex md6 xs12>
                                     <v-text-field
-                                            class="info-input"
-                                            label="Last Name"/>
-                                </v-flex>
-                                <v-flex md12 xs12>
-                                    <v-text-field
-                                            class="info-input"
-                                            label="Adress"/>
+                                            :type="'password'"
+                                            label="Senha Atual"
+                                    ></v-text-field>
                                 </v-flex>
                                 <v-flex md4 xs12>
                                     <v-text-field
-                                            class="info-input"
-                                            label="City"/>
+                                            :type="'password'"
+                                            label="Nova Senha"
+                                    ></v-text-field>
                                 </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-text-field
-                                            class="info-input"
-                                            label="Country"/>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-text-field
-                                            class="info-input"
-                                            label="Postal Code"
-                                            type="number"/>
-                                </v-flex>
-                                <v-flex text-xs-right xs12>
-                                    <v-btn
-                                            class="mx-0 font-weight-light"
-                                            color="success">
-                                        Atualizar
-                                    </v-btn>
-                                </v-flex>
+                                    <v-flex md4 xs12>
+                                        <v-text-field
+                                                :type="'password'"
+                                                label="Repita Novamente a Nova Senha"
+                                        ></v-text-field>
+                                    </v-flex>
+                                        <v-flex text-xs-right xs12>
+                                            <v-btn
+                                                    flat
+                                                    class="acao-sucesso">
+                                                Atualizar
+                                            </v-btn>
+                                        </v-flex>
                             </v-layout>
                         </v-container>
                     </v-form>
@@ -78,8 +70,8 @@
                         <h6 class="category text-gray font-weight-thin mb-3">Foto de perfil</h6>
                         <h4 class="card-title font-weight-light">Nome</h4>
                         <v-btn
-                                class="font-weight-light"
-                                color="success"
+                                class="acao-sucesso"
+                                flat
                                 round>Salvar
                         </v-btn>
                     </v-card-text>
@@ -91,6 +83,8 @@
 
 <script>
     export default {
-        //
+        data() {
+            return {}
+        },
     }
 </script>

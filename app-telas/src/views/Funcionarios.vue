@@ -1,56 +1,67 @@
 <template>
-    <v-container
-            fill-height
-            fluid
-            grid-list-xl
-    >
-        <v-layout justify-center wrap
+    <div>
+        <notificacao
+                :cor="cor"
+                :mensagem="mensagem"
+                :notificacao="notificacao"
+                @abrirNotificacao="abrirNotificacao"
+                @fecharNotificacao="fecharNotificacao"
+        />
+        <v-container
+                fill-height
+                fluid
+                grid-list-xl
         >
-            <v-flex md12>
-                <material-card
-                        color="info"
-                        text="Selecione um funcionário para editar"
-                        title="Gerenciar Funcionários"
-                >
-                    <v-data-table
-                            :headers="headers"
-                            :items="items"
-                            hide-actions
+            <v-layout justify-center wrap
+            >
+                <v-flex md12>
+                    <material-card
+                            color="info"
+                            text="Selecione um funcionário para editar"
+                            title="Gerenciar Funcionários"
                     >
-                        <template
-                                slot="headerCell"
-                                slot-scope="{ header }"
+                        <v-data-table
+                                :headers="headers"
+                                :items="items"
+                                hide-actions
                         >
+                            <template
+                                    slot="headerCell"
+                                    slot-scope="{ header }"
+                            >
               <span class="subheading font-weight-light text--darken-3"
                     v-text="header.text"/>
-                        </template>
-                        <template
-                                slot="items"
-                                slot-scope="{ item }"
-                        >
-                            <td>{{ item.nome }}</td>
-                            <td>{{ item.funcao }}</td>
-                            <td>{{ item.contato }}</td>
-                            <td class="text-xs-right">
-                                <n :cor="'green'"
-                                   :icone="'mdi-square-edit-outline'"
-                                   :mensagem="'teste'">
-                                </n>
-                            </td>
-                        </template>
-                    </v-data-table>
-                </material-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
+                            </template>
+                            <template
+                                    slot="items"
+                                    slot-scope="{ item }"
+                            >
+                                <td>{{ item.nome }}</td>
+                                <td>{{ item.funcao }}</td>
+                                <td>{{ item.contato }}</td>
+                                <td class="text-xs-right">
+                                    <v-btn @click="abrirNotificacao" class="acao-sucesso" flat style="float: right">
+                                        Editar
+                                    </v-btn>
+                                </td>
+                            </template>
+                        </v-data-table>
+                    </material-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </div>
 </template>
 
 <script>
-    import n from './Notifications'
+    import notificacao from './Notifications'
 
     export default {
-        components: {n},
+        components: {notificacao},
         data: () => ({
+            notificacao: false,
+            cor: null,
+            mensagem: '',
             headers: [
                 {
                     sortable: true,
@@ -86,8 +97,13 @@
             ]
         }),
         methods: {
-            chamar() {
-                this.$emit('chamou');
+            abrirNotificacao() {
+                this.notificacao = true
+                this.cor = 'green'
+                this.mensagem = 'teste'
+            },
+            fecharNotificacao(){
+                this.notificacao = false
             }
         }
     }

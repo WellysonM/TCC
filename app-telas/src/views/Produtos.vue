@@ -65,7 +65,7 @@
                     <material-stats-card
                             :color=styleCard.cor
                             :icon=styleCard.icone
-                            :sub-icon=styleCard.icone
+                            sub-icon="mdi-message-plus"
                             :sub-text=styleCard.subtitulo
                             :title=styleCard.titulo
                             :value=styleCard.preco
@@ -114,7 +114,6 @@
             },
             enviarCategoriaProduto(styleCard) {
                 this.styleCard = styleCard
-                console.log(styleCard)
                 this.fecharModalProduto()
             }
         }

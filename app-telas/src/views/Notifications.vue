@@ -1,14 +1,11 @@
 <template>
     <div>
-        <v-btn @click="snack" color="success" text>
-            <v-icon color="white">{{this.icone}}</v-icon>
-        </v-btn>
         <v-snackbar
-                :color="color"
+                :color="cor"
                 :right="right"
                 :top="top"
                 dark
-                v-model="snackbar"
+                v-model="notificacao"
         >
             <v-icon
                     class="mr-3"
@@ -18,7 +15,7 @@
             </v-icon>
             <div>{{this.mensagem}}</div>
             <v-icon
-                    @click="snackbar = false"
+                    @click="fecharNotificacao"
                     size="16"
             >
                 mdi-close-circle
@@ -31,31 +28,26 @@
     export default {
         name: 'notifications',
         data: () => ({
-            color: null,
-            colors: [
-                'purple',
-                'info',
-                'success',
-                'warning',
-                'error'
-            ],
             top: true,
-            right: false,
-            snackbar: false,
+            right: true,
         }),
         props: {
-            cor: null,
-            mensagem: '',
-            icone: '',
-            corBtn: ''
+            notificacao: {
+                required: true
+            },
+            cor: {
+                required: true
+            },
+            mensagem: {
+                required: true
+            }
         },
         methods: {
-            snack() {
-                this.mensagem
-                this.top = true
-                this.right = true
-                this.color = this.cor
-                this.snackbar = true
+            abrirNotificacao() {
+                this.$emit('abrirNotificacao')
+            },
+            fecharNotificacao(){
+                this.$emit('fecharNotificacao')
             }
         }
     }
