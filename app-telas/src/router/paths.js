@@ -21,10 +21,5 @@ export default [
         path: '/produtos',
         name: 'Produtos',
         view: 'Produtos'
-    },
-    {
-        path: '/cadastrar',
-        name: 'Cadastrar',
-        view: 'Cadastrar'
     }
 ]

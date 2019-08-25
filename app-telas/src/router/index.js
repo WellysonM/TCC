@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-
+import _ from 'lodash'
 import paths from './paths'
+import pathsRegister from "./pathsRegister";
 
 function route(path, view, name) {
     return {
@@ -15,11 +15,17 @@ function route(path, view, name) {
 }
 
 Vue.use(Router)
+
+const rotasPadrao = paths.map(path => route(path.path, path.view, path.name)).concat([
+    {path: '*', redirect: '/inicio'}
+])
+
+const rotasLogin = pathsRegister
+
+const rotas = _.flatten([rotasPadrao, rotasLogin])
 const router = new Router({
     mode: 'history',
-    routes: paths.map(path => route(path.path, path.view, path.name)).concat([
-        {path: '*', redirect: '/inicio'}
-    ]),
+    routes: rotas,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/cliente")
 public class ClienteService {
 
     @Autowired
@@ -21,7 +21,7 @@ public class ClienteService {
         return iCliente.buscarClientes();
     }
 
-    @PostMapping("ADMIN/cadastrar")
+    @PostMapping("/ADMIN/cadastrar")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCliente(@RequestBody ClienteDTO clienteDTO) {

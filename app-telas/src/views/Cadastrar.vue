@@ -64,7 +64,7 @@
 </template>
 
 <script>
-
+import service from "../services/service";
     export default {
         name: "Cadastrar",
         data() {
@@ -79,7 +79,7 @@
         },
         methods: {
             teste() {
-                // service.cadastrar(this.usuario)
+                service.cadastrar(this.usuario)
             }
         }
     }
