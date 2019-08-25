@@ -1,10 +1,10 @@
 <template>
     <div>
         <modal-produto
-                :abrir-modal-produto="abrirModalProduto"
-                @enviarDadosCategoria="enviarDadosCategoria"
+                :modal-produto="modalProduto"
+                @abrirModalProduto="abrirModalProduto"
                 @fecharModalProduto="fecharModalProduto"
-                @statusCardM="statusCardM"
+                @enviarCategoriaProduto="enviarCategoriaProduto"
         />
         <v-container
                 fill-height
@@ -79,7 +79,7 @@
                             sub-text="clique aqui para adicionar outras categorias"
                             title="Nova Categoria"
                             value="Clique aqui"
-                            @click="enviarDadosCategoria"
+                            @click="abrirModalProduto"
                     />
                 </v-flex>
             </v-layout>
@@ -95,7 +95,7 @@
         components: {ModalProduto},
         data() {
             return {
-                abrirModalProduto: false,
+                modalProduto: false,
                 styleCard: {
                     icone: '',
                     titulo: '',
@@ -106,13 +106,13 @@
             }
         },
         methods: {
-            enviarDadosCategoria() {
-                this.abrirModalProduto = true
+            abrirModalProduto() {
+                this.modalProduto = true
             },
             fecharModalProduto() {
-                this.abrirModalProduto = false
+                this.modalProduto = false
             },
-            statusCardM(styleCard) {
+            enviarCategoriaProduto(styleCard) {
                 this.styleCard = styleCard
                 console.log(styleCard)
                 this.fecharModalProduto()

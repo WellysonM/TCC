@@ -2,7 +2,7 @@
     <v-dialog
             persistent
             width="600"
-            v-model="abrirModalProduto">
+            v-model="modalProduto">
         <v-card style="max-height: 600px;">
             <v-card-title
                     class="title color darken-1 white--text"
@@ -47,61 +47,7 @@
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="red"
-                                            color="red"
-                                            value="red"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="red darken-3"
-                                            color="red darken-3"
-                                            value="red darken-3"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="indigo"
-                                            color="indigo"
-                                            value="indigo"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="indigo darken-3"
-                                            color="indigo darken-3"
-                                            value="indigo darken-3"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="orange"
-                                            color="orange"
-                                            value="orange"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="orange darken-3"
-                                            color="orange darken-3"
-                                            value="orange darken-3"
-                                            hide-details
-                                    ></v-switch>
-                                </v-flex>
-                                <v-flex md4 xs12>
-                                    <v-switch
-                                            v-model="styleCard.cor"
-                                            label="primary"
+                                            label="Preto"
                                             color="primary"
                                             value="primary"
                                             hide-details
@@ -110,16 +56,61 @@
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="secondary"
-                                            color="secondary"
-                                            value="secondary"
+                                            label="Verde"
+                                            color="#33691e"
+                                            value="#33691e"
                                             hide-details
                                     ></v-switch>
                                 </v-flex>
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="success"
+                                            label="Teal"
+                                            color="#004d40"
+                                            value="#004d40"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Indigo"
+                                            color="indigo darken-3"
+                                            value="indigo darken-3"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Cinza"
+                                            color="accent"
+                                            value="accent"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Roxo"
+                                            color="#4a148c"
+                                            value="#4a148c"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Azul"
+                                            color="#0d47a1"
+                                            value="#0d47a1"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Verde Sucesso"
                                             color="success"
                                             value="success"
                                             hide-details
@@ -128,16 +119,25 @@
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="info"
-                                            color="info"
-                                            value="info"
+                                            label="Vermelho"
+                                            color="red"
+                                            value="red"
                                             hide-details
                                     ></v-switch>
                                 </v-flex>
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="warning"
+                                            label="Padrão Sistema"
+                                            color="color"
+                                            value="color"
+                                            hide-details
+                                    ></v-switch>
+                                </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-switch
+                                            v-model="styleCard.cor"
+                                            label="Amarelo"
                                             color="warning"
                                             value="warning"
                                             hide-details
@@ -146,9 +146,9 @@
                                 <v-flex md4 xs12>
                                     <v-switch
                                             v-model="styleCard.cor"
-                                            label="error"
-                                            color="error"
-                                            value="error"
+                                            label="Rosa Escuro"
+                                            color="#c51162"
+                                            value="#c51162"
                                             hide-details
                                     ></v-switch>
                                 </v-flex>
@@ -156,8 +156,8 @@
                         </v-container>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn @click="fecharModalProduto" class="acao-fechar">fechar</v-btn>
-                            <v-btn @click="statusCardM" class="acao-sucesso" outlined>enviar</v-btn>
+                            <v-btn @click="fecharModalProduto" flat color="red" class="acao-fechar">fechar</v-btn>
+                            <v-btn @click="enviarCategoriaProduto"  flat color="black" class="acao-sucesso" outlined>enviar</v-btn>
                         </v-card-actions>
                     </v-layout>
                 </v-container>
@@ -174,11 +174,13 @@
                 tamanhos: [
                     {text: 'pizza', value: 'mdi-pizza'},
                     {text: 'bebida', value: 'mdi-beer'},
-                    {text: 'pão', value: 'mdi-baguette'},
+                    {text: 'peixe', value: 'mdi-fish'},
                     {text: 'browne', value: 'mdi-bowl'},
                     {text: 'bolo', value: 'mdi-cake'},
                     {text: 'cookie', value: 'mdi-cookie'},
-                    {text: 'sorvete', value: 'mdi-rice'}
+                    {text: 'sorvete', value: 'mdi-rice'},
+                    {text: 'bebida 2', value: 'mdi-glass-mug-variant'},
+                    {text: 'hamburgue', value: 'mdi-hamburger'}
                 ],
                 styleCard: {
                     icone: '',
@@ -190,13 +192,13 @@
             }
         },
         props: {
-            abrirModalProduto: {
+            modalProduto: {
                 required: true
             }
         },
         methods: {
-            enviarDadosCategoria() {
-                this.$emit('enviarDadosCategoria')
+            abrirModalProduto() {
+                this.$emit('abrirModalProduto')
             },
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
@@ -205,8 +207,8 @@
                 console.log(tamanho)
                 this.icone = tamanho
             },
-            statusCardM() {
-                this.$emit('statusCardM', this.styleCard)
+            enviarCategoriaProduto() {
+                this.$emit('enviarCategoriaProduto', this.styleCard)
             }
         }
     }

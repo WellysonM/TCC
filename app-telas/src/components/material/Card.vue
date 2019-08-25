@@ -60,7 +60,7 @@
         props: {
             color: {
                 type: String,
-                default: 'secondary'
+                default: 'info'
             },
             elevation: {
                 type: [Number, String],
