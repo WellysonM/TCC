@@ -140,3 +140,22 @@
   background-color: green;
   color: white !important;
 }
+.acao-sair {
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 6px 10px;
+  border-radius: 3px;
+  color: white !important;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  opacity: 0.9;
+  float: right;
+}
+
+.acao-sair:hover {
+  border: 1px solid darkblue;
+  background-color: darkblue;
+  color: white !important;
+}

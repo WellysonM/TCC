@@ -1,47 +1,52 @@
 <template>
     <div>
         <v-navigation-drawer
-                id="app-drawer"
-                v-model="inputValue"
                 app
                 dark
                 floating
-                persistent
+                id="app-drawer"
                 mobile-break-point="991"
+                persistent
+                v-model="inputValue"
                 width="260"
         >
-            <v-img
-                    gradient="rgba(27, 27, 27, 0.74), rgba(27, 27, 27, 0.74)"
-                    height="100%"
-                    src="https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg">
-                <v-layout
-                        class="fill-height"
-                        column
-                        tag="v-list">
-                    <v-list-tile avatar>
-                        <v-list-tile-avatar>
-                            <v-icon size="50">mdi-account-circle</v-icon>
-                        </v-list-tile-avatar>
-                        <v-list-tile-title class="title">
-                            Bem Vindo
-                        </v-list-tile-title>
-                    </v-list-tile>
-                    <v-divider/>
-                    <v-list-tile
-                            :key="i"
-                            :to="link.to"
-                            active-class="info"
-                            avatar
-                            class="v-list-item"
-                            v-for="(link, i) in links">
-                        <v-list-tile-action>
-                            <v-icon>{{ link.icon }}</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-title
-                                v-text="link.text"/>
-                    </v-list-tile>
-                </v-layout>
-            </v-img>
+            <div class="img">
+                <v-img
+                        class="layer"
+                        gradient="rgba(27, 27, 27, 0.74), rgba(27, 27, 27, 0.74)"
+                        height="100%">
+                    <v-layout
+                            class="fill-height"
+                            column
+                            tag="v-list">
+                        <v-list-tile avatar>
+                            <v-list-tile-avatar>
+                                <v-icon size="50">mdi-account-circle</v-icon>
+                            </v-list-tile-avatar>
+                            <v-list-tile-title class="title">
+                                Bem Vindo
+                            </v-list-tile-title>
+                        </v-list-tile>
+                        <v-divider/>
+                        <v-list-tile
+                                :key="i"
+                                :to="link.to"
+                                active-class="info"
+                                avatar
+                                class="v-list-item"
+                                v-for="(link, i) in links">
+                            <v-list-tile-action>
+                                <v-icon>{{ link.icon }}</v-icon>
+                            </v-list-tile-action>
+                            <v-list-tile-title
+                                    v-text="link.text"/>
+                        </v-list-tile>
+                        <div class="pa-2 v-list-item v-list__tile--btn">
+                            <v-btn block class="acao-sair" flat>Sair</v-btn>
+                        </div>
+                    </v-layout>
+                </v-img>
+            </div>
         </v-navigation-drawer>
     </div>
 </template>
@@ -115,11 +120,15 @@
         }
     }
 </script>
-
 <style lang="scss">
     #app-drawer {
         .v-list__tile {
             border-radius: 4px;
+
+            &--btn {
+                margin-top: auto;
+                margin-bottom: 17px;
+            }
         }
 
         .v-image__image--contain {
@@ -129,6 +138,17 @@
 
         div.v-responsive.v-image > div.v-responsive__content {
             overflow-y: auto;
+        }
+        .img{
+            background: url(../../views/SingIn/images/bg.jpg);
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
         }
     }
 </style>

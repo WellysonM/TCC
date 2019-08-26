@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import service from "../services/service";
+import service from "../../services/service";
     export default {
         name: "Cadastrar",
         data() {
@@ -85,6 +85,6 @@ import service from "../services/service";
     }
 </script>
 <style lang="scss">
-    @import 'SingIn/css/style.css';
-    @import 'SingIn/css/font-awesome.min.css';
+    @import 'css/style.css';
+    @import 'css/font-awesome.min.css';
 </style>

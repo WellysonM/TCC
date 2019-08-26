@@ -39,19 +39,19 @@
                                             label="Nova Senha"
                                     ></v-text-field>
                                 </v-flex>
-                                    <v-flex md4 xs12>
-                                        <v-text-field
-                                                :type="'password'"
-                                                label="Repita Novamente a Nova Senha"
-                                        ></v-text-field>
-                                    </v-flex>
-                                        <v-flex text-xs-right xs12>
-                                            <v-btn
-                                                    flat
-                                                    class="acao-sucesso">
-                                                Atualizar
-                                            </v-btn>
-                                        </v-flex>
+                                <v-flex md4 xs12>
+                                    <v-text-field
+                                            :type="'password'"
+                                            label="Repita Novamente a Nova Senha"
+                                    ></v-text-field>
+                                </v-flex>
+                                <v-flex text-xs-right xs12>
+                                    <v-btn
+                                            class="acao-sucesso"
+                                            flat>
+                                        Atualizar
+                                    </v-btn>
+                                </v-flex>
                             </v-layout>
                         </v-container>
                     </v-form>
@@ -86,5 +86,13 @@
         data() {
             return {}
         },
+        mounted() {
+            this.teste()
+        },
+        methods: {
+            teste() {
+                window.location.href = "http://localhost:8095/"
+            }
+        }
     }
 </script>
