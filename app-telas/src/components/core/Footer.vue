@@ -14,5 +14,8 @@
 <style>
     #core-footer {
         z-index: 0;
+        position: fixed;
+        bottom: 0;
+        border: none;
     }
 </style>

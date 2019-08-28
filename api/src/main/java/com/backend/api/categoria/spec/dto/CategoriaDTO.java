@@ -9,7 +9,7 @@ public class CategoriaDTO {
     private String icone;
     private String titulo;
     private String subTitulo;
-    private double preco;
+    private String preco;
     private String cor;
 
     public CategoriaDTO(Categoria categoria) {
@@ -19,6 +19,9 @@ public class CategoriaDTO {
         this.subTitulo = categoria.getSubTitulo();
         this.preco = categoria.getPreco();
         this.cor = categoria.getCor();
+    }
+
+    public CategoriaDTO() {
     }
 
     public String getId() {
@@ -53,11 +56,11 @@ public class CategoriaDTO {
         this.subTitulo = subTitulo;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 

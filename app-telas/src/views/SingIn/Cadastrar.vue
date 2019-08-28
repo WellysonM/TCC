@@ -64,7 +64,8 @@
 </template>
 
 <script>
-import service from "../../services/service";
+    import service from "../../services/service";
+
     export default {
         name: "Cadastrar",
         data() {

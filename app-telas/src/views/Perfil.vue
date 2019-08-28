@@ -6,7 +6,7 @@
         <v-layout justify-center wrap>
             <v-flex md8 xs12>
                 <material-card
-                        color="info"
+                        color="padrao2"
                         text="Não deixe campos vazios :)"
                         title="Atualizar Perfil">
                     <v-form>
@@ -87,12 +87,12 @@
             return {}
         },
         mounted() {
-            this.teste()
+          //  this.teste()
         },
         methods: {
-            teste() {
-                window.location.href = "http://localhost:8095/"
-            }
+            //teste() {
+                //window.location.href = "http://localhost:8095/"
+            //}
         }
     }
 </script>

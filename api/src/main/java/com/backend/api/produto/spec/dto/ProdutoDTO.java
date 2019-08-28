@@ -19,6 +19,9 @@ public class ProdutoDTO {
         TempoPreparo = produto.getTempoPreparo();
     }
 
+    public ProdutoDTO() {
+    }
+
     public String getId() {
         return id;
     }

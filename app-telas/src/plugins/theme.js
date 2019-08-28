@@ -7,5 +7,7 @@ export default {
     info: '#00d3ee',
     success: '#5cb860',
     warning: '#ffa21a',
-    color: '#263238'
+    color: '#263238',
+    padrao: '#0a1819',
+    padrao2:'#004d40'
 }

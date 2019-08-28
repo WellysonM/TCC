@@ -14,13 +14,13 @@ public class CategoriaService {
     @Autowired
     private ICategoria iCategoria;
 
-    @GetMapping("/USER/all")
+    @GetMapping("/login")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<CategoriaDTO> buscarCategorias() {
         return iCategoria.buscarCategorias();
     }
 
-    @PostMapping("/USER/cadastrar")
+    @PostMapping("/cadastrar")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCategoria(@RequestBody CategoriaDTO categoriaDTO) {

@@ -27,7 +27,7 @@
                     py-2>
                 <router-link
                         class="toolbar-items"
-                        to="/"
+                        to="/inicio"
                         v-ripple>
                     <v-icon color="tertiary">mdi-home</v-icon>
                 </router-link>
@@ -40,7 +40,7 @@
                     <router-link
                             class="toolbar-items"
                             slot="activator"
-                            to="/notifications"
+                            to=""
                             v-ripple>
                         <v-badge
                                 color="error"
@@ -79,7 +79,7 @@
 
     export default {
         data: () => ({
-            notifications: [],
+            notifications: ['teste'],
             title: null,
             responsive: false,
             responsiveInput: false

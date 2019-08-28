@@ -11,13 +11,13 @@ public class Categoria {
     private String icone;
     private String titulo;
     private String subTitulo;
-    private double preco;
+    private String preco;
     private String cor;
 
     public Categoria() {
     }
 
-    public Categoria(String id, String icone, String titulo, String subTitulo, double preco, String cor) {
+    public Categoria(String id, String icone, String titulo, String subTitulo, String preco, String cor) {
         this.id = id;
         this.icone = icone;
         this.titulo = titulo;
@@ -58,11 +58,11 @@ public class Categoria {
         this.subTitulo = subTitulo;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 

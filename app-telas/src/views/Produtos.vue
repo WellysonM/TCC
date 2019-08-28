@@ -1,10 +1,10 @@
 <template>
     <div>
-        <modal-produto
-                :modal-produto="modalProduto"
-                @abrirModalProduto="abrirModalProduto"
-                @fecharModalProduto="fecharModalProduto"
+        <modal-categoria
+                :modal-categoria="modalCategoria"
+                @abrirModalCategoria="abrirModalCategoria"
                 @enviarCategoriaProduto="enviarCategoriaProduto"
+                @fecharModalCategoria="fecharModalCategoria"
         />
         <v-container
                 fill-height
@@ -13,73 +13,23 @@
             <v-layout wrap>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
-                            color="info"
-                            icon="mdi-hamburger"
-                            sub-icon="mdi-message-plus"
-                            sub-text="Adicionais 1 R$"
-                            title="Lanches"
-                            value="10 a 24 R$"
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            color="info"
-                            icon="mdi-pizza"
-                            sub-icon="mdi-loupe"
-                            sub-text="Borda 3 R$"
-                            title="Pizzas"
-                            value="28 a 32 R$"
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            color="info"
-                            icon="mdi-silverware-fork-knife"
-                            sub-icon="mdi-plus-outline"
-                            sub-text="Molho vermelho 2 R$"
-                            title="Panquecas"
-                            value="4 a 6 R$"
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            color="info"
-                            icon="mdi-food-croissant"
-                            sub-icon="mdi-plus-outline"
-                            sub-text="Adicional 1 R$"
-                            title="Pastel"
-                            value="4 a 6 R$"
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            color="info"
-                            icon="mdi-silverware-variant"
-                            sub-icon="mdi-plus-outline"
-                            sub-text="Adicional 2 R$"
-                            title="Jantares"
-                            value="15 a 30 R$"
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            :color=styleCard.cor
-                            :icon=styleCard.icone
-                            sub-icon="mdi-message-plus"
-                            :sub-text=styleCard.subtitulo
-                            :title=styleCard.titulo
-                            :value=styleCard.preco
-                    />
-                </v-flex>
-                <v-flex lg4 md6 sm6 xs12>
-                    <material-stats-card
-                            color="info"
+                            @click="abrirModalCategoria"
+                            color="padrao2"
                             icon="mdi-plus-box-outline"
                             sub-icon="mdi-plus-outline"
                             sub-text="clique aqui para adicionar outras categorias"
                             title="Nova Categoria"
                             value="Clique aqui"
-                            @click="abrirModalProduto"
+                    />
+                </v-flex>
+                <v-flex :key="categoria.id" lg4 md6 sm6 v-for="categoria of styleCard" xs12>
+                    <material-stats-card
+                            :color=categoria.cor
+                            :icon="categoria.icone"
+                            :sub-text=categoria.subTitulo
+                            :title=categoria.titulo
+                            :value=categoria.preco
+                            sub-icon="mdi-message-plus"
                     />
                 </v-flex>
             </v-layout>
@@ -88,33 +38,50 @@
 </template>
 
 <script>
-    import ModalProduto from './modal/ModalProduto'
+    import ModalCategoria from './modal/ModalCategoria'
+    import service from "../services/service";
 
     export default {
         name: 'Produtos',
-        components: {ModalProduto},
+        components: {ModalCategoria},
         data() {
             return {
-                modalProduto: false,
+                modalCategoria: false,
                 styleCard: {
                     icone: '',
                     titulo: '',
-                    subtitulo: '',
+                    subTitulo: '',
                     preco: '',
-                    cor:''
+                    cor: ''
                 }
             }
         },
+        mounted() {
+            this.buscarCategorias()
+        },
         methods: {
-            abrirModalProduto() {
-                this.modalProduto = true
+            abrirModalCategoria() {
+                this.modalCategoria = true
             },
-            fecharModalProduto() {
-                this.modalProduto = false
+            fecharModalCategoria() {
+                this.modalCategoria = false
             },
             enviarCategoriaProduto(styleCard) {
                 this.styleCard = styleCard
-                this.fecharModalProduto()
+                this.fecharModalCategoria()
+                this.inserirCategoria()
+                this.buscarCategorias()
+            },
+            inserirCategoria() {
+                service.postCategoria(this.styleCard)
+            },
+            buscarCategorias() {
+                service.getCategoria().then(resposta => {
+                    this.styleCard = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
             }
         }
     }

@@ -1,11 +1,11 @@
 <template>
     <v-dialog
             persistent
-            v-model="modalProduto"
-            width="600">
-        <v-card style="max-height: 600px;">
+            v-model="modalCategoria"
+            width="550">
+        <v-card>
             <v-card-title
-                    class="title color darken-1 white--text"
+                    class="title padrao2 white--text"
                     primary-title>
                 Nova Categoria
             </v-card-title>
@@ -28,7 +28,7 @@
                             <v-text-field
                                     class="info-input"
                                     label="Informação Adicional"
-                                    v-model="styleCard.subtitulo"/>
+                                    v-model="styleCard.subTitulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-select
@@ -42,6 +42,7 @@
                             ></v-select>
                         </v-flex>
                         <v-container py-3 v-model="styleCard.cor">
+                            <h4 class="title font-weight-light">Escolha uma cor</h4>
                             <v-layout wrap>
                                 <v-flex md4 xs12>
                                     <v-switch
@@ -154,10 +155,10 @@
                             </v-layout>
                         </v-container>
                         <v-divider></v-divider>
-                            <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 4% 2%">fechar
-                            </v-btn>
-                            <v-btn @click="enviarCategoriaProduto" class="acao-sucesso" flat style="margin: 4% 2%">enviar
-                            </v-btn>
+                        <v-btn @click="fecharModalCategoria" class="acao-fechar" flat style="margin: 4% 2%">fechar
+                        </v-btn>
+                        <v-btn @click="enviarCategoriaProduto" class="acao-sucesso" flat style="margin: 4% 2%">salvar
+                        </v-btn>
                     </v-layout>
                 </v-container>
             </v-form>
@@ -192,23 +193,23 @@
                 styleCard: {
                     icone: '',
                     titulo: '',
-                    subtitulo: '',
+                    subTitulo: '',
                     preco: '',
-                    cor: 'info'
+                    cor: 'color'
                 }
             }
         },
         props: {
-            modalProduto: {
+            modalCategoria: {
                 required: true
             }
         },
         methods: {
-            abrirModalProduto() {
-                this.$emit('abrirModalProduto')
+            abrirModalCategoria() {
+                this.$emit('abrirModalCategoria')
             },
-            fecharModalProduto() {
-                this.$emit('fecharModalProduto')
+            fecharModalCategoria() {
+                this.$emit('fecharModalCategoria')
             },
             enviarCategoriaProduto() {
                 this.$emit('enviarCategoriaProduto', this.styleCard)
@@ -217,6 +218,5 @@
     }
 </script>
 <style lang="stylus">
-    #nome-sistema-modal
-        max-width 340px
+    .v-dialog:not(.v-dialog--fullscreen){max-height:91%}
 </style>

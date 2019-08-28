@@ -1,4 +1,4 @@
-<template>
+    <template>
     <v-container
             fill-height
             fluid
@@ -11,7 +11,7 @@
                 <material-chart-card
                         :data="dailySalesChart.data"
                         :options="dailySalesChart.options"
-                        color="info"
+                        color="padrao"
                         type="Line">
                     <h4 class="title font-weight-light">Vendas Semanais</h4>
                 </material-chart-card>
@@ -24,7 +24,7 @@
                         :data="emailsSubscriptionChart.data"
                         :options="emailsSubscriptionChart.options"
                         :responsive-options="emailsSubscriptionChart.responsiveOptions"
-                        color="info"
+                        color="padrao"
                         type="Bar">
                     <h4 class="title font-weight-light">Vendas Mensais</h4>
                 </material-chart-card>
@@ -36,7 +36,7 @@
                 <material-chart-card
                         :data="dataCompletedTasksChart.data"
                         :options="dataCompletedTasksChart.options"
-                        color="info"
+                        color="padrao"
                         type="Line">
                     <h3 class="title font-weight-light">Vendas Por Horas</h3>
                 </material-chart-card>

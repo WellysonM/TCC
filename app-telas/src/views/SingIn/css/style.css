@@ -86,15 +86,15 @@ video {
     vertical-align: baseline;
 }
 
-html {
-    overflow: hidden;
-}
-
 ol,
 ul {
     list-style: none;
     margin: 10px;
     padding: 0px;
+}
+
+html {
+    overflow: auto;
 }
 
 body {
@@ -110,7 +110,6 @@ body {
     -ms-background-size: cover;
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .layer {

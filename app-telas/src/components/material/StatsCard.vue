@@ -1,5 +1,6 @@
 <template>
     <material-card
+            style="cursor: pointer  "
             class="v-card--material-stats"
             v-bind="$attrs"
             v-on="$listeners"
@@ -56,7 +57,7 @@
             ...Card.props,
             icon: {
                 type: String,
-                required: true
+                default: undefined,
             },
             subIcon: {
                 type: String,

@@ -16,7 +16,7 @@
             >
                 <v-flex md12>
                     <material-card
-                            color="info"
+                            color="padrao2"
                             text="Selecione um funcionário para editar"
                             title="Gerenciar Funcionários"
                     >
@@ -36,7 +36,7 @@
                                     slot="items"
                                     slot-scope="{ item }"
                             >
-                                <td>{{ item.nome }}</td>
+                                <td>{{ item.funcionario }}</td>
                                 <td>{{ item.funcao }}</td>
                                 <td>{{ item.contato }}</td>
                                 <td class="text-xs-right">
@@ -81,16 +81,16 @@
             ],
             items: [
                 {
-                    nome: 'Jão',
-                    funcao: 'Garçom',
-                    contato: '(99) 9 9999-9999'
+                    funcionario: 'vet',
+                    funcao: 'Caixa',
+                    contato: '(67) 9 9999-9999'
                 },
                 {
-                    nome: 'Jão',
+                    funcionario: 'adão',
                     funcao: 'Garçom',
                     contato: '(99) 9 9999-9999'
                 }, {
-                    nome: 'Jão',
+                    funcionario: 'Jão',
                     funcao: 'Garçom',
                     contato: '(99) 9 9999-9999'
                 }

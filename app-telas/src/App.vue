@@ -4,9 +4,9 @@
             <router-view/>
         </div>
         <div v-else>
-        <core-toolbar/>
-        <core-drawer/>
-        <core-view/>
+            <core-toolbar/>
+            <core-drawer/>
+            <core-view/>
         </div>
     </v-app>
 </template>
