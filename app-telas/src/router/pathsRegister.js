@@ -1,4 +1,5 @@
 import cadastrar from '../views/SingIn/Cadastrar'
+import modal from '../views/modal/ModalProduto'
 
 export default[
     {
@@ -6,5 +7,11 @@ export default[
         component: cadastrar,
         name: 'Cadastrar',
         view: 'Cadastrar'
+    },
+    {
+        path: '/modalProduto',
+        component: modal,
+        name: 'Modal',
+        view: 'ModalProduto'
     }
 ]

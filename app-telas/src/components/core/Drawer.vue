@@ -90,7 +90,7 @@
             ...mapState('app', ['image', 'color']),
             inputValue: {
                 get() {
-                    return this.$store.state.app.drawer
+                    return this.$store.state.app.drawer = false
                 },
                 set(val) {
                     this.setDrawer(val)

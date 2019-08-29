@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app-telas/src/views/ModalProduto.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TCC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TCC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/service/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/service/CategoriaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/dto/CategoriaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/dto/CategoriaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/entity/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/entity/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/material/Notification.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/material/StatsCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/material/StatsCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/router/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Relatorios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Relatorios.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/SingIn/Cadastrar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/Cadastrar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/ModalProduto.vue" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,19 +88,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-telas/src/views" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views/SingIn" />
-      <recent name="$PROJECT_DIR$/app-telas/src" />
-      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
-      <recent name="$PROJECT_DIR$/app-telas/src/commons" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/categorias" />
       <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api" />
       <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto" />
       <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
       <recent name="$PROJECT_DIR$/app-telas/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
+      <recent name="$PROJECT_DIR$/app-telas/src/views" />
+      <recent name="$PROJECT_DIR$/app-telas/src/views/SingIn" />
+      <recent name="$PROJECT_DIR$/app-telas/src" />
+      <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,7 +115,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
+  <component name="RunManager" selected="npm.app">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -205,7 +190,9 @@
       <workItem from="1566861552223" duration="3252000" />
       <workItem from="1566913140668" duration="10048000" />
       <workItem from="1566951433966" duration="2568000" />
-      <workItem from="1567001072735" duration="3429000" />
+      <workItem from="1567001072735" duration="6643000" />
+      <workItem from="1567038556308" duration="1512000" />
+      <workItem from="1567087069275" duration="9764000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -347,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566838186244</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cadastro de categorias pronto">
+      <created>1567005422538</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1567005422538</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -396,7 +390,8 @@
     <MESSAGE value="Ajustes no front end" />
     <MESSAGE value="Produto e categoria criados" />
     <MESSAGE value="refatoração do codigo e rotas" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatoração do codigo e rotas" />
+    <MESSAGE value="cadastro de categorias pronto" />
+    <option name="LAST_COMMIT_MESSAGE" value="cadastro de categorias pronto" />
   </component>
   <component name="masterDetails">
     <states>
