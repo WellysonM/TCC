@@ -36,7 +36,7 @@
 
   .v-card__actions {
     margin: 0 $card-actions-y-margin 0;
-    padding: $padding-small 0 $padding-small;
+    padding: 10px 0 10px;
     line-height: $line-height-higher;
   }
 }
@@ -104,7 +104,7 @@
 
   .v-card__text {
     text-align: right;
-    padding-top: $padding-small;
+    padding-top: 10px;
     position: relative;
   }
 

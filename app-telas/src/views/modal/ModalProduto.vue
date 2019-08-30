@@ -8,24 +8,60 @@
                 <div>
                     <v-card-title
                             class="title padrao2 white--text"
-                            primary-title>
+                            primary-title
+                            style="padding: 5px 10px">
                         <v-flex md4>
-                            Nova Categoria
+                            Categoria:
                         </v-flex>
                         <v-flex md4>
                             <v-text-field
-                                    append-icon="mdi-pizza"
+                                    append-icon="mdi-magnify"
+                                    class="v-text-field__slot2  "
                                     color="white"
+                                    id="search"
                                     label="Procurar"
                                     v-model="search"
                             ></v-text-field>
                         </v-flex>
-                        <v-flex md4>
-                            <v-btn class="acao-sair" flat
-                                   style="float: right">
-                                Excluir
-                            </v-btn>
-                        </v-flex>
+                        <v-dialog max-width="500px" v-model="dialog">
+                            <template v-slot:activator="{ on }">
+                                <v-flex md4>
+                                    <v-btn class="acao-sair" flat
+                                           style="float: right"
+                                           v-on="on">
+                                        Novo produto
+                                    </v-btn>
+                                </v-flex>
+                            </template>
+                            <v-card>
+                                <v-card-title>
+                                    <span class="headline">Cadastrar Produto</span>
+                                </v-card-title>
+
+                                <v-card-text>
+                                    <v-container>
+                                        <v-flex cols="12" md="4" sm="6">
+                                            <v-text-field label="Produto"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex cols="12" md="4" sm="6">
+                                            <v-text-field label="Preço"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex cols="12" md="4" sm="6">
+                                            <v-text-field label="Tempo Médio de Preparo"></v-text-field>
+                                        </v-flex>
+                                    </v-container>
+                                </v-card-text>
+                                <v-card-actions>
+                                    <v-divider></v-divider>
+                                    <v-btn @click="dialog = false" class="acao-fechar" flat style="margin: 0% 2%">
+                                        fechar
+                                    </v-btn>
+                                    <v-btn class="acao-sucesso" flat style="margin: 0% 2%">Salvar</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
                     </v-card-title>
                 </div>
                 <v-container
@@ -40,7 +76,6 @@
                                     :headers="headers"
                                     :items="items"
                                     :search="search"
-
                             >
                                 <template
                                         slot="headerCell"
@@ -54,24 +89,27 @@
                                         slot="items"
                                         slot-scope="{ item }"
                                 >
-                                    <td>{{ item.funcionario }}</td>
+                                    <td><v-checkbox v-model="seleted" :value="item.id" :label=" item.funcionario" color="success"/></td>
                                     <td>{{ item.funcao }}</td>
                                     <td>{{ item.contato }}</td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-sucesso" flat
-                                               style="float: right">
-                                            Editar
+                                        <v-btn class="acao-fechar" flat
+                                               style="float: right; min-width: 10px">
+                                            <v-icon>mdi-close-circle-outline</v-icon>
                                         </v-btn>
                                     </td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-fechar" flat
-                                               style="float: right">
-                                            Excluir
+                                        <v-btn class="acao-sucesso" flat
+                                               style="float: right; min-width: 10px">
+                                            <v-icon>mdi-circle-edit-outline</v-icon>
                                         </v-btn>
                                     </td>
                                 </template>
                             </v-data-table>
                         </v-flex>
+                        <v-divider></v-divider>
+                        <v-btn class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
+                        <v-btn class="acao-sucesso" flat style="margin: 0% 2%" @click="teste"   >pedido</v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -83,6 +121,8 @@
     export default {
         data() {
             return {
+                seleted:[],
+                dialog: false,
                 search: '',
                 modalCategoria: true,
                 headers: [
@@ -105,65 +145,47 @@
                 ],
                 items: [
                     {
+                        id: '1',
                         funcionario: 'vet',
                         funcao: 'Caixa',
                         contato: '(67) 9 9999-9999'
                     },
                     {
+                        id: '2',
                         funcionario: 'adão',
                         funcao: 'Garçom',
                         contato: '(99) 9 9999-9999'
                     }, {
+                        id: '3',
                         funcionario: 'Jão',
                         funcao: 'Garçom',
                         contato: '(99) 9 9999-9999'
                     },
                     {
+                        id: '4',
                         funcionario: 'mm',
                         funcao: 'Caixa',
                         contato: '(67) 9 9999-9999'
                     },
                     {
+                        id: '5',
                         funcionario: 'v',
                         funcao: 'Garçom',
                         contato: '(99) 9 9999-9999'
                     }, {
+                        id: '6',
                         funcionario: 'g',
-                        funcao: 'Garçom',
-                        contato: '(99) 9 9999-9999'
-                    },
-                    {
-                        funcionario: 's',
-                        funcao: 'Caixa',
-                        contato: '(67) 9 9999-9999'
-                    },
-                    {
-                        funcionario: 'q',
-                        funcao: 'Garçom',
-                        contato: '(99) 9 9999-9999'
-                    }, {
-                        funcionario: 'u',
-                        funcao: 'Garçom',
-                        contato: '(99) 9 9999-9999'
-                    },
-                    {
-                        funcionario: 'p',
-                        funcao: 'Caixa',
-                        contato: '(67) 9 9999-9999'
-                    },
-                    {
-                        funcionario: 'k',
-                        funcao: 'Garçom',
-                        contato: '(99) 9 9999-9999'
-                    }, {
-                        funcionario: 'm',
                         funcao: 'Garçom',
                         contato: '(99) 9 9999-9999'
                     }
                 ]
             }
         },
-        methods: {}
+        methods: {
+            teste(){
+                console.log(this.seleted)
+            }
+        }
     }
 </script>
 <style>
@@ -171,13 +193,30 @@
         height: 30px;
     }
 
-    .theme--light.v-icon {
-        color: white;
-    }
-    .v-text-field__slot .v-label {
+    #search {
         color: white !important;
     }
-    .theme--light.v-input:not(.v-input--is-disabled) input{
-        color: white;
+
+    .v-datatable__actions__select {
+        color: black;
+    }
+
+    .v-datatable__actions__select .v-select__selections .v-select__selection--comma {
+        color: black;
+    }
+
+    .v-datatable__actions__pagination {
+        color: black;
+    }
+
+    .v-datatable__actions .v-btn:last-of-type {
+        color: black !important;
+    }
+
+    .v-btn.v-btn--icon {
+        color: black !important;
+    }
+    .v-input--selection-controls.v-input .v-label{
+        color: black;
     }
 </style>

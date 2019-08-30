@@ -20,6 +20,20 @@
     font-weight: $font-weight-base;
   }
 }
+.v-text-field__slot2 {
+  input {
+    @include material-placeholder {
+      color: $input-color;
+    }
+  ;
+  }
+
+  .v-label {
+    color: $label-color2 !important;
+    font-size: $font-size-default;
+    font-weight: $font-weight-base;
+  }
+}
 
 .theme--light.v-input:not(.v-input--is-disabled) input,
 .theme--light.v-input:not(.v-input--is-disabled) textarea {
