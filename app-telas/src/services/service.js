@@ -9,11 +9,17 @@ export default {
         return http.get('usuario/login')
     },
 
-    getCategoria:() =>{
+    getCategoria: () => {
         return http.get('categoria/login')
     },
 
-    postCategoria:(categoria) =>{
+    postCategoria: (categoria) => {
         return http.post('categoria/cadastrar', categoria)
+    },
+    getProdutos: () => {
+        return http.get('produto/login')
+    },
+    postProduto:(produto)=>{
+        return http.post('produto/cadastrar', produto)
     }
 }

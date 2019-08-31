@@ -6,6 +6,15 @@
                 @enviarCategoriaProduto="enviarCategoriaProduto"
                 @fecharModalCategoria="fecharModalCategoria"
         />
+
+        <modal-produto
+                :categoria="categoria"
+                :modal-produto="modalProduto"
+                @abrirModalProduto="abrirModalProduto"
+                @fecharModalProduto="fecharModalProduto"
+                @receberCategoria="receberCategoria"
+        />
+
         <v-container
                 fill-height
                 fluid
@@ -23,7 +32,7 @@
                     />
                 </v-flex>
                 <v-flex :key="categoria.id" lg4 md6 sm6 v-for="categoria of styleCard" xs12>
-                    <material-stats-card
+                    <material-stats-card @click="receberCategoria(categoria)"
                             :color=categoria.cor
                             :icon="categoria.icone"
                             :sub-text=categoria.subTitulo
@@ -39,15 +48,19 @@
 
 <script>
     import ModalCategoria from './modal/ModalCategoria'
+    import ModalProduto from "./modal/ModalProduto";
     import service from "../services/service";
 
     export default {
         name: 'Produtos',
-        components: {ModalCategoria},
+        components: {ModalProduto, ModalCategoria},
         data() {
             return {
+                modalProduto: false,
                 modalCategoria: false,
+                categoria:'',
                 styleCard: {
+                    id:'',
                     icone: '',
                     titulo: '',
                     subTitulo: '',
@@ -60,20 +73,31 @@
             this.buscarCategorias()
         },
         methods: {
+            abrirModalProduto(){
+                this.modalProduto = true
+            },
             abrirModalCategoria() {
                 this.modalCategoria = true
+            },
+            fecharModalProduto(){
+                this.modalProduto = false
             },
             fecharModalCategoria() {
                 this.modalCategoria = false
             },
-            enviarCategoriaProduto(styleCard) {
-                this.styleCard = styleCard
+            receberCategoria(categoria){
+                this.categoria = categoria
+                this.abrirModalProduto()
+            },
+            enviarCategoriaProduto(categoria) {
+                this.categoria = categoria
                 this.fecharModalCategoria()
                 this.inserirCategoria()
                 this.buscarCategorias()
             },
             inserirCategoria() {
                 service.postCategoria(this.styleCard)
+                this.buscarCategorias()
             },
             buscarCategorias() {
                 service.getCategoria().then(resposta => {

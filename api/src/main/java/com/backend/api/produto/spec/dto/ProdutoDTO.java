@@ -7,16 +7,16 @@ public class ProdutoDTO {
 
     private String id;
     private String produto;
-    private double preco;
+    private String preco;
     private Categoria categoria;
-    private String TempoPreparo;
+    private String tempoPreparo;
 
     public ProdutoDTO(Produto produto) {
         this.id = produto.getId();
         this.produto = produto.getProduto();
         this.preco = produto.getPreco();
         this.categoria = produto.getCategoria();
-        TempoPreparo = produto.getTempoPreparo();
+        this.tempoPreparo = produto.getTempoPreparo();
     }
 
     public ProdutoDTO() {
@@ -38,11 +38,11 @@ public class ProdutoDTO {
         this.produto = produto;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
@@ -55,10 +55,10 @@ public class ProdutoDTO {
     }
 
     public String getTempoPreparo() {
-        return TempoPreparo;
+        return tempoPreparo;
     }
 
     public void setTempoPreparo(String tempoPreparo) {
-        TempoPreparo = tempoPreparo;
+        this.tempoPreparo = tempoPreparo;
     }
 }

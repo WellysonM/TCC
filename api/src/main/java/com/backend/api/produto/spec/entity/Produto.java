@@ -10,19 +10,19 @@ public class Produto {
     @Id
     private String id;
     private String produto;
-    private double preco;
+    private String preco;
     private Categoria categoria;
-    private String TempoPreparo;
+    private String tempoPreparo;
 
     public Produto() {
     }
 
-    public Produto(String id, String produto, double preco, Categoria categoria, String tempoPreparo) {
+    public Produto(String id, String produto, String preco, Categoria categoria, String tempoPreparo) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
         this.categoria = categoria;
-        TempoPreparo = tempoPreparo;
+        this.tempoPreparo = tempoPreparo;
     }
 
     public String getId() {
@@ -41,11 +41,11 @@ public class Produto {
         this.produto = produto;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
@@ -58,10 +58,10 @@ public class Produto {
     }
 
     public String getTempoPreparo() {
-        return TempoPreparo;
+        return tempoPreparo;
     }
 
     public void setTempoPreparo(String tempoPreparo) {
-        TempoPreparo = tempoPreparo;
+        this.tempoPreparo = tempoPreparo;
     }
 }

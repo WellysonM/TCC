@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="modal de produtos iniciado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/plugins/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/plugins/vuetify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_cards.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_cards.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_inputs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_inputs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_tables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/IProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/IProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -196,7 +200,10 @@
       <workItem from="1567038556308" duration="1512000" />
       <workItem from="1567087069275" duration="10252000" />
       <workItem from="1567123880335" duration="6010000" />
-      <workItem from="1567171731574" duration="10368000" />
+      <workItem from="1567171731574" duration="10513000" />
+      <workItem from="1567198674124" duration="151000" />
+      <workItem from="1567204564218" duration="4000" />
+      <workItem from="1567257181048" duration="17679000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -352,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567096946190</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="modal de produtos finalizado faltando apenas consumir api">
+      <created>1567182291871</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1567182291871</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -403,7 +417,8 @@
     <MESSAGE value="refatoração do codigo e rotas" />
     <MESSAGE value="cadastro de categorias pronto" />
     <MESSAGE value="modal de produtos iniciado" />
-    <option name="LAST_COMMIT_MESSAGE" value="modal de produtos iniciado" />
+    <MESSAGE value="modal de produtos finalizado faltando apenas consumir api" />
+    <option name="LAST_COMMIT_MESSAGE" value="modal de produtos finalizado faltando apenas consumir api" />
   </component>
   <component name="masterDetails">
     <states>

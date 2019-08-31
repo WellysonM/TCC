@@ -14,13 +14,13 @@ public class ProdutoService {
     @Autowired
     private IProduto iProduto;
 
-    @GetMapping("/USER/all")
+    @GetMapping("/login")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<ProdutoDTO> buscarClientes() {
         return iProduto.buscarProdutos();
     }
 
-    @PostMapping("/USER/cadastrar")
+    @PostMapping("/cadastrar")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCliente(@RequestBody ProdutoDTO produtoDTO) {

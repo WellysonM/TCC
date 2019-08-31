@@ -168,7 +168,7 @@
 
 <script>
     export default {
-        name: 'ModalSistema',
+        name: 'ModalCategoria',
         data() {
             return {
                 tamanhos: [

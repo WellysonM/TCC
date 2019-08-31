@@ -89,7 +89,8 @@
                     funcionario: 'adão',
                     funcao: 'Garçom',
                     contato: '(99) 9 9999-9999'
-                }, {
+                },
+                {
                     funcionario: 'Jão',
                     funcao: 'Garçom',
                     contato: '(99) 9 9999-9999'
@@ -102,7 +103,7 @@
                 this.cor = 'green'
                 this.mensagem = 'teste'
             },
-            fecharNotificacao(){
+            fecharNotificacao() {
                 this.notificacao = false
             }
         }

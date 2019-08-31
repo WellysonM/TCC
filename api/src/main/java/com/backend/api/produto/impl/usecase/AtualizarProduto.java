@@ -19,6 +19,7 @@ public class AtualizarProduto {
     }
 
     private static void preencherProduto(Produto produto, ProdutoDTO produtoDTO) {
+        produto.setId(produtoDTO.getId());
         produto.setProduto(produtoDTO.getProduto());
         produto.setPreco(produtoDTO.getPreco());
         produto.setCategoria(produtoDTO.getCategoria());
