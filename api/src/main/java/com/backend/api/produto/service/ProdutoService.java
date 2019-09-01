@@ -30,10 +30,10 @@ public class ProdutoService {
         List<Produto> produtos = this.produtoRepository.findProdutosByCategoria_Id(categoriaId);
         return produtos;
     }
-    /*@PostMapping("/cadastrar")
+    @PostMapping("/cadastrar")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCliente(@RequestBody ProdutoDTO produtoDTO) {
         iProduto.inserirProduto(produtoDTO);
-    }*/
+    }
 }

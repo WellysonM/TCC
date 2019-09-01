@@ -9,5 +9,5 @@ export default {
     warning: '#ffa21a',
     color: '#263238',
     padrao: '#0a1819',
-    padrao2:'#004d40'
+    padrao2:'#19cca3'
 }

@@ -10,9 +10,11 @@
         <modal-produto
                 :categoria="categoria"
                 :modal-produto="modalProduto"
+                :produtos="produtos"
+                @inserirProduto="inserirProduto"
                 @abrirModalProduto="abrirModalProduto"
                 @fecharModalProduto="fecharModalProduto"
-               />
+        />
 
         <v-container
                 fill-height
@@ -65,7 +67,23 @@
                     subTitulo: '',
                     preco: '',
                     cor: ''
-                }
+                },
+                produtos: [
+                    {
+                        id: '',
+                        produto: '',
+                        preco: '',
+                        tempoPreparo: '',
+                        categoria: {
+                            id: '',
+                            icone: '',
+                            titulo: '',
+                            subTitulo: '',
+                            preco: '',
+                            cor: ''
+                        }
+                    }
+                ]
             }
         },
         mounted() {
@@ -86,6 +104,7 @@
             },
             receberCategoria(categoria) {
                 this.categoria = categoria
+                this.getProdutosCategoria()
                 this.abrirModalProduto()
             },
             enviarCategoriaProduto(categoria) {
@@ -105,7 +124,24 @@
                 }).catch(e => {
                     console.log(e)
                 })
-            }
+            },
+            getProdutosCategoria() {
+                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
+                    this.produtos = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            inserirProduto(produto) {
+                service.postProduto(produto).then(resposta => {
+                    //this.produtos = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+                this.getProdutosCategoria()
+            },
         }
     }
 </script>

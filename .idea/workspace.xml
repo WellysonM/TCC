@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/plugins/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/styles/material-dashboard/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/SingIn/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,7 +116,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
+  <component name="RunManager" selected="npm.app">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -198,7 +199,9 @@
       <workItem from="1567198674124" duration="151000" />
       <workItem from="1567204564218" duration="4000" />
       <workItem from="1567257181048" duration="18527000" />
-      <workItem from="1567293957356" duration="7908000" />
+      <workItem from="1567293957356" duration="8033000" />
+      <workItem from="1567353205275" duration="6258000" />
+      <workItem from="1567368641072" duration="124000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -368,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567277433484</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="busca por categoria implementada na api falta a app consumir">
+      <created>1567302280126</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1567302280126</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -421,7 +431,8 @@
     <MESSAGE value="modal de produtos iniciado" />
     <MESSAGE value="modal de produtos finalizado faltando apenas consumir api" />
     <MESSAGE value="componente modalProduto agra esta consumindo api cadastrando e listado todos os produtos, agora falta listar por categoria" />
-    <option name="LAST_COMMIT_MESSAGE" value="componente modalProduto agra esta consumindo api cadastrando e listado todos os produtos, agora falta listar por categoria" />
+    <MESSAGE value="busca por categoria implementada na api falta a app consumir" />
+    <option name="LAST_COMMIT_MESSAGE" value="busca por categoria implementada na api falta a app consumir" />
   </component>
   <component name="masterDetails">
     <states>

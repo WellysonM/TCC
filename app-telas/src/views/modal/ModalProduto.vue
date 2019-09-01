@@ -9,6 +9,7 @@
                     <v-card-title
                             class="title padrao2 white--text"
                             primary-title
+                            id="card-title"
                             style="padding: 5px 10px">
                         <v-flex md4>
                             Categoria:
@@ -18,7 +19,6 @@
                                     append-icon="mdi-magnify"
                                     class="v-text-field__slot2  "
                                     color="white"
-                                    id="search"
                                     label="Procurar"
                                     v-model="search"
                             ></v-text-field>
@@ -59,7 +59,8 @@
                                     <v-btn @click="dialog = false" class="acao-fechar" flat style="margin: 0% 2%">
                                         fechar
                                     </v-btn>
-                                    <v-btn @click="inserirProduto" class="acao-sucesso" flat style="margin: 0% 2%">
+                                    <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat style="margin: 0% 2%"
+                                           v-on:click="dialog = false">
                                         Salvar
                                     </v-btn>
                                 </v-card-actions>
@@ -115,7 +116,7 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="teste" class="acao-sucesso" flat style="margin: 0% 2%">pedido
+                        <v-btn @click="" class="acao-sucesso" flat style="margin: 0% 2%">pedido
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -125,7 +126,6 @@
 </template>
 
 <script>
-    import service from "../../services/service";
 
     export default {
         name: 'ModalProduto',
@@ -165,22 +165,6 @@
                     },
 
                 ],
-                produtos: [
-                    {
-                        id: '',
-                        produto: '',
-                        preco: '',
-                        tempoPreparo: '',
-                        categoria: {
-                            id: '',
-                            icone: '',
-                            titulo: '',
-                            subTitulo: '',
-                            preco: '',
-                            cor: ''
-                        }
-                    }
-                ],
             }
         },
         props: {
@@ -189,14 +173,13 @@
             },
             categoria: {
                 required: true
+            },
+            produtos: {
+                required: true
             }
         },
-        computed:{
-
-        },
+        computed: {},
         mounted() {
-            //this.getProdutosCategoria()
-            //this.buscarProdutos()
         },
         methods: {
             abrirModalProduto() {
@@ -205,30 +188,13 @@
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
             },
-            buscarProdutos() {
-                service.getProdutos().then(resposta => {
-                    this.produtos = resposta.data
-                }).catch(e => {
-                    console.log(e)
-                })
+            preencherCategoriaNoProduto() {
+                this.produto.categoria = this.categoria
+                this.inserirProduto()
             },
             inserirProduto() {
-                this.produto.categoria = this.categoria
-                service.postProduto(this.produto)
-                this.dialog = false
-                //this.buscarProdutos()
+                this.$emit('inserirProduto', this.produto)
             },
-            teste() {
-                console.log(this.categoria)
-            },
-            getProdutosCategoria() {
-                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
-                    this.produtos = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
-            }
         }
     }
 </script>
@@ -270,5 +236,11 @@
 
     .v-input--selection-controls:not(.v-input--hide-details) .v-input__slot {
         margin-bottom: 0px;
+    }
+    .padrao2 {
+        background: #0F2027;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2C5364, #243B55, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     }
 </style>
