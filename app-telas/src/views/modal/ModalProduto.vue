@@ -115,7 +115,8 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="teste" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
+                        <v-btn @click="teste" class="acao-sucesso" flat style="margin: 0% 2%">pedido
+                        </v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -190,8 +191,12 @@
                 required: true
             }
         },
+        computed:{
+
+        },
         mounted() {
-            this.buscarProdutos()
+            //this.getProdutosCategoria()
+            //this.buscarProdutos()
         },
         methods: {
             abrirModalProduto() {
@@ -199,13 +204,6 @@
             },
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
-            },
-            receberCategoria(categoria) {
-                this.$emit('receberCategoria')
-                this.preencherCategoria(categoria)
-            },
-            preencherCategoria(categoria) {
-                this.categoria = categoria
             },
             buscarProdutos() {
                 service.getProdutos().then(resposta => {
@@ -218,10 +216,18 @@
                 this.produto.categoria = this.categoria
                 service.postProduto(this.produto)
                 this.dialog = false
-                this.buscarProdutos()
+                //this.buscarProdutos()
             },
             teste() {
                 console.log(this.categoria)
+            },
+            getProdutosCategoria() {
+                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
+                    this.produtos = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
             }
         }
     }

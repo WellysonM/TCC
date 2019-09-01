@@ -4,20 +4,14 @@
     <option name="showContexts" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="modal de produtos iniciado">
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/IProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/IProduto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,7 +197,8 @@
       <workItem from="1567171731574" duration="10513000" />
       <workItem from="1567198674124" duration="151000" />
       <workItem from="1567204564218" duration="4000" />
-      <workItem from="1567257181048" duration="17679000" />
+      <workItem from="1567257181048" duration="18527000" />
+      <workItem from="1567293957356" duration="7908000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -366,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567182291871</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="componente modalProduto agra esta consumindo api cadastrando e listado todos os produtos, agora falta listar por categoria">
+      <created>1567277433484</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1567277433484</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -418,7 +420,8 @@
     <MESSAGE value="cadastro de categorias pronto" />
     <MESSAGE value="modal de produtos iniciado" />
     <MESSAGE value="modal de produtos finalizado faltando apenas consumir api" />
-    <option name="LAST_COMMIT_MESSAGE" value="modal de produtos finalizado faltando apenas consumir api" />
+    <MESSAGE value="componente modalProduto agra esta consumindo api cadastrando e listado todos os produtos, agora falta listar por categoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="componente modalProduto agra esta consumindo api cadastrando e listado todos os produtos, agora falta listar por categoria" />
   </component>
   <component name="masterDetails">
     <states>

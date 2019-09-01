@@ -12,8 +12,7 @@
                 :modal-produto="modalProduto"
                 @abrirModalProduto="abrirModalProduto"
                 @fecharModalProduto="fecharModalProduto"
-                @receberCategoria="receberCategoria"
-        />
+               />
 
         <v-container
                 fill-height
@@ -32,13 +31,13 @@
                     />
                 </v-flex>
                 <v-flex :key="categoria.id" lg4 md6 sm6 v-for="categoria of styleCard" xs12>
-                    <material-stats-card @click="receberCategoria(categoria)"
-                            :color=categoria.cor
-                            :icon="categoria.icone"
-                            :sub-text=categoria.subTitulo
-                            :title=categoria.titulo
-                            :value=categoria.preco
-                            sub-icon="mdi-message-plus"
+                    <material-stats-card :color=categoria.cor
+                                         :icon="categoria.icone"
+                                         :sub-text=categoria.subTitulo
+                                         :title=categoria.titulo
+                                         :value=categoria.preco
+                                         @click="receberCategoria(categoria)"
+                                         sub-icon="mdi-message-plus"
                     />
                 </v-flex>
             </v-layout>
@@ -58,9 +57,9 @@
             return {
                 modalProduto: false,
                 modalCategoria: false,
-                categoria:'',
+                categoria: '',
                 styleCard: {
-                    id:'',
+                    id: '',
                     icone: '',
                     titulo: '',
                     subTitulo: '',
@@ -73,19 +72,19 @@
             this.buscarCategorias()
         },
         methods: {
-            abrirModalProduto(){
+            abrirModalProduto() {
                 this.modalProduto = true
             },
             abrirModalCategoria() {
                 this.modalCategoria = true
             },
-            fecharModalProduto(){
+            fecharModalProduto() {
                 this.modalProduto = false
             },
             fecharModalCategoria() {
                 this.modalCategoria = false
             },
-            receberCategoria(categoria){
+            receberCategoria(categoria) {
                 this.categoria = categoria
                 this.abrirModalProduto()
             },

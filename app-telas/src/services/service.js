@@ -19,7 +19,10 @@ export default {
     getProdutos: () => {
         return http.get('produto/login')
     },
-    postProduto:(produto)=>{
+    postProduto: (produto) => {
         return http.post('produto/cadastrar', produto)
+    },
+    getProdutosPorCategoria: (categoriaId) => {
+        return http.get(`produto/produto/all/${categoriaId}`)
     }
 }
