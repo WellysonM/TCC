@@ -8,8 +8,8 @@
                 <div>
                     <v-card-title
                             class="title padrao2 white--text"
-                            primary-title
                             id="card-title"
+                            primary-title
                             style="padding: 5px 10px">
                         <v-flex md4>
                             Categoria:
@@ -17,8 +17,9 @@
                         <v-flex md4>
                             <v-text-field
                                     append-icon="mdi-magnify"
-                                    class="v-text-field__slot2  "
+                                    class="v-text-field__slot2"
                                     color="white"
+                                    id="search"
                                     label="Procurar"
                                     v-model="search"
                             ></v-text-field>
@@ -59,7 +60,8 @@
                                     <v-btn @click="dialog = false" class="acao-fechar" flat style="margin: 0% 2%">
                                         fechar
                                     </v-btn>
-                                    <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat style="margin: 0% 2%"
+                                    <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat
+                                           style="margin: 0% 2%"
                                            v-on:click="dialog = false">
                                         Salvar
                                     </v-btn>
@@ -126,6 +128,7 @@
 </template>
 
 <script>
+    import _ from 'lodash'
 
     export default {
         name: 'ModalProduto',
@@ -190,10 +193,14 @@
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
-                this.inserirProduto()
+                let produtoClone = _.clone(this.produto)
+                this.inserirProduto(produtoClone)
+                this.produto.preco = ''
+                this.produto.produto = ''
+                this.produto.tempoPreparo = ''
             },
-            inserirProduto() {
-                this.$emit('inserirProduto', this.produto)
+            inserirProduto(produtoClone) {
+                this.$emit('inserirProduto', produtoClone)
             },
         }
     }
@@ -237,9 +244,10 @@
     .v-input--selection-controls:not(.v-input--hide-details) .v-input__slot {
         margin-bottom: 0px;
     }
+
     .padrao2 {
-        background: #0F2027;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+        background: #0F2027; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #2C5364, #243B55, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }

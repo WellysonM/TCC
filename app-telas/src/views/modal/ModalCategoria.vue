@@ -157,7 +157,7 @@
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalCategoria" class="acao-fechar" flat style="margin: 4% 2%">fechar
                         </v-btn>
-                        <v-btn @click="enviarCategoriaProduto" class="acao-sucesso" flat style="margin: 4% 2%">salvar
+                        <v-btn @click="copiaCategoria" class="acao-sucesso" flat style="margin: 4% 2%">salvar
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -167,6 +167,8 @@
 </template>
 
 <script>
+    import _ from 'lodash'
+
     export default {
         name: 'ModalCategoria',
         data() {
@@ -211,12 +213,23 @@
             fecharModalCategoria() {
                 this.$emit('fecharModalCategoria')
             },
-            enviarCategoriaProduto() {
-                this.$emit('enviarCategoriaProduto', this.styleCard)
+            copiaCategoria() {
+                let cloneCategoria = _.clone(this.styleCard)
+                this.enviarCategoriaProduto(cloneCategoria)
+                this.styleCard.icone = ''
+                this.styleCard.titulo = ''
+                this.styleCard.subTitulo = ''
+                this.styleCard.preco = ''
+                this.styleCard.cor = 'color'
+            },
+            enviarCategoriaProduto(cloneCategoria) {
+                this.$emit('enviarCategoriaProduto', cloneCategoria)
             }
         }
     }
 </script>
 <style lang="stylus">
-    .v-dialog:not(.v-dialog--fullscreen){max-height:91%}
+    .v-dialog:not(.v-dialog--fullscreen) {
+        max-height: 91%
+    }
 </style>

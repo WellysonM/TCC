@@ -11,9 +11,9 @@
                 :categoria="categoria"
                 :modal-produto="modalProduto"
                 :produtos="produtos"
-                @inserirProduto="inserirProduto"
                 @abrirModalProduto="abrirModalProduto"
                 @fecharModalProduto="fecharModalProduto"
+                @inserirProduto="inserirProduto"
         />
 
         <v-container
@@ -60,14 +60,14 @@
                 modalProduto: false,
                 modalCategoria: false,
                 categoria: '',
-                styleCard: {
+                styleCard: [{
                     id: '',
                     icone: '',
                     titulo: '',
                     subTitulo: '',
                     preco: '',
                     cor: ''
-                },
+                }],
                 produtos: [
                     {
                         id: '',
@@ -108,13 +108,15 @@
                 this.abrirModalProduto()
             },
             enviarCategoriaProduto(categoria) {
-                this.categoria = categoria
                 this.fecharModalCategoria()
-                this.inserirCategoria()
-                this.buscarCategorias()
+                this.inserirCategoria(categoria)
             },
-            inserirCategoria() {
-                service.postCategoria(this.styleCard)
+            inserirCategoria(categoria) {
+                service.postCategoria(categoria).then(resposta => {
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
                 this.buscarCategorias()
             },
             buscarCategorias() {
@@ -135,7 +137,6 @@
             },
             inserirProduto(produto) {
                 service.postProduto(produto).then(resposta => {
-                    //this.produtos = resposta.data
                     console.log(resposta.data)
                 }).catch(e => {
                     console.log(e)
