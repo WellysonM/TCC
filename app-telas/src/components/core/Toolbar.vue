@@ -6,11 +6,11 @@
             style="background: #eee;">
         <div class="v-toolbar-title">
             <v-btn
-                    v-if="responsive"
+                    @click.stop="onClickBtn"
                     class="default v-btn--simple"
                     dark
                     icon
-                    @click.stop="onClickBtn"
+                    v-if="responsive"
             >
                 <v-icon>mdi-view-list</v-icon>
             </v-btn>
@@ -79,7 +79,7 @@
 
     export default {
         data: () => ({
-            notifications: ['teste'],
+            notifications: [],
             title: null,
             responsive: false,
             responsiveInput: false

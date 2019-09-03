@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalCategoria.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
+  <component name="RunManager" selected="npm.app">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -197,7 +200,11 @@
       <workItem from="1567293957356" duration="8033000" />
       <workItem from="1567353205275" duration="6258000" />
       <workItem from="1567368641072" duration="851000" />
-      <workItem from="1567371699901" duration="5008000" />
+      <workItem from="1567371699901" duration="5038000" />
+      <workItem from="1567431507766" duration="757000" />
+      <workItem from="1567467319504" duration="3404000" />
+      <workItem from="1567472657774" duration="37000" />
+      <workItem from="1567521014464" duration="2865000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -381,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567369036302</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="pequenos ajustes nos modais de produto e categoria">
+      <created>1567379629327</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1567379629327</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">

@@ -38,7 +38,6 @@
                                 <v-card-title>
                                     <span class="headline">Cadastrar Produto</span>
                                 </v-card-title>
-
                                 <v-card-text>
                                     <v-container>
                                         <v-flex cols="12" md="4" sm="6">
@@ -57,12 +56,11 @@
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-divider></v-divider>
-                                    <v-btn @click="dialog = false" class="acao-fechar" flat style="margin: 0% 2%">
+                                    <v-btn @click="fecharCadastrar" class="acao-fechar" flat style="margin: 0% 2%">
                                         fechar
                                     </v-btn>
                                     <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat
-                                           style="margin: 0% 2%"
-                                           v-on:click="dialog = false">
+                                           style="margin: 0% 2%">
                                         Salvar
                                     </v-btn>
                                 </v-card-actions>
@@ -198,10 +196,14 @@
                 this.produto.preco = ''
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
+                this.dialog = false
             },
             inserirProduto(produtoClone) {
                 this.$emit('inserirProduto', produtoClone)
             },
+            fecharCadastrar() {
+                this.dialog = false
+            }
         }
     }
 </script>

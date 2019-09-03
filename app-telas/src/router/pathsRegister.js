@@ -1,5 +1,5 @@
 import cadastrar from '../views/SingIn/Cadastrar'
-import modal from '../views/modal/ModalProduto'
+import vendas from '../views/Vendas'
 
 export default[
     {
@@ -9,9 +9,9 @@ export default[
         view: 'Cadastrar'
     },
     {
-        path: '/modalProduto',
-        component: modal,
-        name: 'Modal',
-        view: 'ModalProduto'
+        path: '/vendas',
+        component: vendas,
+        name: 'Vendas',
+        view: 'Vendas'
     }
 ]

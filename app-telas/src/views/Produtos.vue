@@ -60,30 +60,8 @@
                 modalProduto: false,
                 modalCategoria: false,
                 categoria: '',
-                styleCard: [{
-                    id: '',
-                    icone: '',
-                    titulo: '',
-                    subTitulo: '',
-                    preco: '',
-                    cor: ''
-                }],
-                produtos: [
-                    {
-                        id: '',
-                        produto: '',
-                        preco: '',
-                        tempoPreparo: '',
-                        categoria: {
-                            id: '',
-                            icone: '',
-                            titulo: '',
-                            subTitulo: '',
-                            preco: '',
-                            cor: ''
-                        }
-                    }
-                ]
+                styleCard: [],
+                produtos: []
             }
         },
         mounted() {
@@ -108,16 +86,16 @@
                 this.abrirModalProduto()
             },
             enviarCategoriaProduto(categoria) {
-                this.fecharModalCategoria()
                 this.inserirCategoria(categoria)
+                this.fecharModalCategoria()
             },
             inserirCategoria(categoria) {
                 service.postCategoria(categoria).then(resposta => {
+                    this.buscarCategorias()
                     console.log(resposta.data)
                 }).catch(e => {
                     console.log(e)
                 })
-                this.buscarCategorias()
             },
             buscarCategorias() {
                 service.getCategoria().then(resposta => {
@@ -137,11 +115,11 @@
             },
             inserirProduto(produto) {
                 service.postProduto(produto).then(resposta => {
+                    this.getProdutosCategoria()
                     console.log(resposta.data)
                 }).catch(e => {
                     console.log(e)
                 })
-                this.getProdutosCategoria()
             },
         }
     }
