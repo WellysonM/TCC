@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Toolbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +200,9 @@
       <workItem from="1567431507766" duration="757000" />
       <workItem from="1567467319504" duration="3404000" />
       <workItem from="1567472657774" duration="37000" />
-      <workItem from="1567521014464" duration="2865000" />
+      <workItem from="1567521014464" duration="7300000" />
+      <workItem from="1567557213824" duration="613000" />
+      <workItem from="1567601997165" duration="6040000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -395,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567379629327</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="inicio do componente de vendas">
+      <created>1567524066387</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1567524066387</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -451,7 +456,8 @@
     <MESSAGE value="busca por categoria implementada na api falta a app consumir" />
     <MESSAGE value="app consumindo a busca de produtos por categorias" />
     <MESSAGE value="pequenos ajustes nos modais de produto e categoria" />
-    <option name="LAST_COMMIT_MESSAGE" value="pequenos ajustes nos modais de produto e categoria" />
+    <MESSAGE value="inicio do componente de vendas" />
+    <option name="LAST_COMMIT_MESSAGE" value="inicio do componente de vendas" />
   </component>
   <component name="masterDetails">
     <states>

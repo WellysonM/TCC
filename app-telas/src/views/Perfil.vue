@@ -14,6 +14,8 @@
                             <v-layout wrap>
                                 <v-flex md6 xs12>
                                     <v-text-field
+                                            required
+                                            :rules="[val => (val || '').length > 0 || 'This field is required']"
                                             class="info-input"
                                             label="Nome"/>
                                 </v-flex>
@@ -36,6 +38,7 @@
                                 <v-flex md4 xs12>
                                     <v-text-field
                                             :type="'password'"
+                                            required
                                             label="Nova Senha"
                                     ></v-text-field>
                                 </v-flex>
