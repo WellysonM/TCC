@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,7 +78,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -202,7 +201,8 @@
       <workItem from="1567472657774" duration="37000" />
       <workItem from="1567521014464" duration="7300000" />
       <workItem from="1567557213824" duration="613000" />
-      <workItem from="1567601997165" duration="6040000" />
+      <workItem from="1567601997165" duration="6128000" />
+      <workItem from="1567692359075" duration="8163000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -400,17 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1567524066387</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido">
+      <created>1567609193135</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1567609193135</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -432,7 +430,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="atualização das dependencias" />
     <MESSAGE value="ajustes na aparencia da tela de login" />
     <MESSAGE value="foi inserido os campos para cadastrar" />
     <MESSAGE value="troca de icons de fa para mdi" />
@@ -457,7 +454,8 @@
     <MESSAGE value="app consumindo a busca de produtos por categorias" />
     <MESSAGE value="pequenos ajustes nos modais de produto e categoria" />
     <MESSAGE value="inicio do componente de vendas" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicio do componente de vendas" />
+    <MESSAGE value="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido" />
+    <option name="LAST_COMMIT_MESSAGE" value="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido" />
   </component>
   <component name="masterDetails">
     <states>
