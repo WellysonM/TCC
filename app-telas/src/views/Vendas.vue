@@ -1,13 +1,26 @@
 <template>
-    <v-container
-            fill-height
-            fluid
-            grid-list-xl>
-        <v-layout>
-            <v-flex lg2 md2 sm2 xs2>
+    <div>
+        <template>
+            <div class="pa-4 md6 my-6" style="float: left">
+                <v-hover>
+                    <template v-slot="{ hover }">
+                        <v-card
+                                :class="`elevation-${hover ? 24 : 6}`"
+                                class="pa-4 card transition-swing"
+                                color="padrao2"
+                                dark
+                                slot="offset"
+                        >
+                            <v-icon
+                                    size="40"
+                            >
+                                mdi-plus-box-outline
+                            </v-icon>
+                        </v-card>
+                    </template>
+                </v-hover>
                 <v-card
-                        style="margin-top: 48px; width: 90px"
-                        class="pa-4 elevation-10"
+                        class="pa-4 elevation-10 card"
                         color="padrao2"
                         dark
                         slot="offset"
@@ -18,10 +31,8 @@
                         mdi-plus-box-outline
                     </v-icon>
                 </v-card>
-            </v-flex>  <v-flex lg2 md2 sm2 xs2>
                 <v-card
-                        style="margin-top: 48px; width: 90px"
-                        class="pa-4 elevation-10"
+                        class="pa-4 elevation-10 card"
                         color="padrao2"
                         dark
                         slot="offset"
@@ -32,10 +43,8 @@
                         mdi-plus-box-outline
                     </v-icon>
                 </v-card>
-            </v-flex>  <v-flex md2 sm2 xs2>
                 <v-card
-                        style="margin-top: 48px; width: 90px"
-                        class="pa-4 elevation-10"
+                        class="pa-4 elevation-10 card"
                         color="padrao2"
                         dark
                         slot="offset"
@@ -46,58 +55,88 @@
                         mdi-plus-box-outline
                     </v-icon>
                 </v-card>
-            </v-flex>
-            <material-card
-                    color="padrao2"
-                    text="Tabela de produtos"
-                    title="Comanda"
-            >
-                <v-data-table
-                        :headers="headers"
-                        :items="items"
-                        style="text-align: center"
+                <v-card
+                        class="pa-4 elevation-10 card"
+                        color="padrao2"
+                        dark
+                        slot="offset"
                 >
-                    <template
-                            slot="headerCell"
-                            slot-scope="{ header }"
+                    <v-icon
+                            size="40"
                     >
+                        mdi-plus-box-outline
+                    </v-icon>
+                </v-card>
+            </div>
+        </template>
+        <v-container
+                fill-height
+                fluid
+                grid-list-xl
+                style="width: auto; float: right">
+            <v-layout>
+                <material-card
+                        color="padrao2"
+                        text="Tabela de produtos"
+                        title="Comanda"
+                >
+                    <v-data-table
+                            :headers="headers"
+                            :items="items"
+                            style="text-align: center;"
+                    >
+                        <template
+                                slot="headerCell"
+                                slot-scope="{ header }"
+                        >
 
                                     <span class="subheading font-weight-light text--darken-3"
                                           v-text="header.text"/>
-                    </template>
-                    <template
-                            slot="items"
-                            slot-scope="{ item }"
-                    >
-                        <td>
-                            {{item.produto}}
-                        </td>
-                        <td>{{ item.preco}}</td>
-                        <td>
-                            <v-text-field
-                                    style="width: 50%"
-                                    type="number"
-                                    v-model="item.quantidade"
-                            ></v-text-field>
-                        </td>
-                        <td>{{calcularSubValor(item)}}</td>
-                        <td class="text-xs-right">
-                            <v-btn @click="deleteItem(item)" class="acao-fechar" flat
-                                   style="float: right; min-width: 10px">
-                                <v-icon>mdi-close-circle-outline</v-icon>
-                            </v-btn>
-                        </td>
-                    </template>
-                </v-data-table>
-            </material-card>
-        </v-layout>
-    </v-container>
+                        </template>
+                        <template
+                                slot="items"
+                                slot-scope="{ item }"
+                        >
+                            <td>
+                                {{item.produto}}
+                            </td>
+                            <td>{{ item.preco}}</td>
+                            <td>
+                                <v-text-field
+                                        style="width: 50%"
+                                        type="number"
+                                        v-model="item.quantidade"
+                                ></v-text-field>
+                            </td>
+                            <td>{{calcularSubValor(item)}}</td>
+                            <td class="text-xs-right">
+                                <v-btn @click="deleteItem(item)" class="acao-fechar" flat
+                                       style="float: right; min-width: 10px">
+                                    <v-icon>mdi-close-circle-outline</v-icon>
+                                </v-btn>
+                            </td>
+                        </template>
+                    </v-data-table>
+                </material-card>
+            </v-layout>
+        </v-container>
+    </div>
 </template>
 
 <script>
 
+    import StatsCard from "../components/material/StatsCard";
+
     export default {
+        components: {StatsCard},
         data: () => ({
+            justify: [
+                'start',
+                'end',
+                'center',
+                'space-between',
+                'space-around',
+            ],
             styleCard: {
                 icone: 'mesa',
                 titulo: '',
@@ -172,3 +211,10 @@
         }
     }
 </script>
+<style>
+    .card {
+        margin-top: 48px !important;
+        width: 90px;
+        margin: 10px;
+    }
+</style>

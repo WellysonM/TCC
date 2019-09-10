@@ -202,7 +202,14 @@
       <workItem from="1567521014464" duration="7300000" />
       <workItem from="1567557213824" duration="613000" />
       <workItem from="1567601997165" duration="6128000" />
-      <workItem from="1567692359075" duration="8163000" />
+      <workItem from="1567692359075" duration="8259000" />
+      <workItem from="1567725845743" duration="763000" />
+      <workItem from="1567727147141" duration="598000" />
+      <workItem from="1567729253672" duration="101000" />
+      <workItem from="1567735036588" duration="125000" />
+      <workItem from="1567955158822" duration="6415000" />
+      <workItem from="1568076050103" duration="580000" />
+      <workItem from="1568119213456" duration="1161000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -407,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567609193135</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Ajustes no modal de vendas, agora seguindo o prototipo de media fidelidade">
+      <created>1567700657051</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1567700657051</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +444,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="ajustes na aparencia da tela de login" />
     <MESSAGE value="foi inserido os campos para cadastrar" />
     <MESSAGE value="troca de icons de fa para mdi" />
     <MESSAGE value="ajustes no backend CORS" />
@@ -455,7 +468,8 @@
     <MESSAGE value="pequenos ajustes nos modais de produto e categoria" />
     <MESSAGE value="inicio do componente de vendas" />
     <MESSAGE value="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido" />
-    <option name="LAST_COMMIT_MESSAGE" value="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido" />
+    <MESSAGE value="Ajustes no modal de vendas, agora seguindo o prototipo de media fidelidade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes no modal de vendas, agora seguindo o prototipo de media fidelidade" />
   </component>
   <component name="masterDetails">
     <states>
