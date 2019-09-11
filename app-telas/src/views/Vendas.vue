@@ -107,26 +107,34 @@
                         <template
                                 slot="items"
                                 slot-scope="{ item }">
-                            <td>
-                                {{item.produto}}
-                            </td>
-                            <td>{{ item.preco}}</td>
-                            <td>
-                                <v-text-field
-                                        style="width: 50%"
-                                        type="number"
-                                        v-model="item.quantidade"
-                                ></v-text-field>
-                            </td>
-                            <td>{{calcularSubValor(item)}}</td>
-                            <td class="text-xs-right">
-                                <v-btn @click="deleteItem(item)" class="acao-fechar" flat
-                                       style="float: right; min-width: 10px">
-                                    <v-icon>mdi-close-circle-outline</v-icon>
-                                </v-btn>
-                            </td>
+                            <tr>
+                                <td>
+                                    {{item.produto}}
+                                </td>
+                                <td>{{ item.preco}}</td>
+                                <td>
+                                    <v-text-field
+                                            style="width: 50%"
+                                            type="number"
+                                            v-model="item.quantidade"
+                                    ></v-text-field>
+                                </td>
+                                <td>{{calcularSubValor(item)}}</td>
+                                <td class="text-xs-right">
+                                    <v-btn @click="deleteItem(item)" class="acao-fechar" flat
+                                           style="float: right; min-width: 10px">
+                                        <v-icon>mdi-close-circle-outline</v-icon>
+                                    </v-btn>
+                                </td>
+                            </tr>
                         </template>
                     </v-data-table>
+                    <div>
+                        <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
+                        <v-btn :disabled="info" class="acao-sucesso" flat style="float: left">Salvar</v-btn>
+                        <v-btn class="acao-sucesso" flat style="float: none">info
+                        </v-btn>
+                    </div>
                 </material-card>
             </v-layout>
         </v-container>
@@ -140,13 +148,7 @@
     export default {
         components: {StatsCard},
         data: () => ({
-            justify: [
-                'start',
-                'end',
-                'center',
-                'space-between',
-                'space-around',
-            ],
+            info: true,
             styleCard: {
                 icone: 'mesa',
                 titulo: '',

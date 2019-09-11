@@ -1,6 +1,5 @@
 <template>
     <v-footer absolute
-              height="82"
               id="core-footer">
         <v-spacer/>
         <span class="font-weight-light copyright">
@@ -13,6 +12,7 @@
 </template>
 <style>
     #core-footer {
+        margin-top: 3%;
         z-index: 0;
         position: fixed;
         bottom: 0;
