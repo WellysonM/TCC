@@ -1,12 +1,33 @@
 <template>
     <div>
-        <template>
-            <div class="pa-4 md6 my-6" style="float: left">
-                <v-hover>
-                    <template v-slot="{ hover }">
+        <v-container fill-height
+                     fluid
+                     grid-list-xl
+                     style="width: 50%; float: left">
+            <v-layout wrap>
+                <template>
+                    <v-flex lg3 md3>
+                        <v-hover>
+                            <template v-slot="{ hover }">
+                                <v-card
+                                        :class="`elevation-${hover ? 24 : 6}`"
+                                        class="pa-4 card transition-swing"
+                                        color="padrao2"
+                                        dark
+                                        slot="offset"
+                                >
+                                    <v-icon
+                                            size="40"
+                                    >
+                                        mdi-plus-box-outline
+                                    </v-icon>
+                                </v-card>
+                            </template>
+                        </v-hover>
+                    </v-flex>
+                    <v-flex lg3 md3>
                         <v-card
-                                :class="`elevation-${hover ? 24 : 6}`"
-                                class="pa-4 card transition-swing"
+                                class="pa-4 elevation-10 card"
                                 color="padrao2"
                                 dark
                                 slot="offset"
@@ -17,86 +38,75 @@
                                 mdi-plus-box-outline
                             </v-icon>
                         </v-card>
-                    </template>
-                </v-hover>
-                <v-card
-                        class="pa-4 elevation-10 card"
-                        color="padrao2"
-                        dark
-                        slot="offset"
-                >
-                    <v-icon
-                            size="40"
-                    >
-                        mdi-plus-box-outline
-                    </v-icon>
-                </v-card>
-                <v-card
-                        class="pa-4 elevation-10 card"
-                        color="padrao2"
-                        dark
-                        slot="offset"
-                >
-                    <v-icon
-                            size="40"
-                    >
-                        mdi-plus-box-outline
-                    </v-icon>
-                </v-card>
-                <v-card
-                        class="pa-4 elevation-10 card"
-                        color="padrao2"
-                        dark
-                        slot="offset"
-                >
-                    <v-icon
-                            size="40"
-                    >
-                        mdi-plus-box-outline
-                    </v-icon>
-                </v-card>
-                <v-card
-                        class="pa-4 elevation-10 card"
-                        color="padrao2"
-                        dark
-                        slot="offset"
-                >
-                    <v-icon
-                            size="40"
-                    >
-                        mdi-plus-box-outline
-                    </v-icon>
-                </v-card>
-            </div>
-        </template>
-        <v-container
-                fill-height
-                fluid
-                grid-list-xl
-                style="width: auto; float: right">
-            <v-layout>
+                    </v-flex>
+                    <v-flex lg3 md3>
+                        <v-card
+                                class="pa-4 elevation-10 card"
+                                color="padrao2"
+                                dark
+                                slot="offset"
+                        >
+                            <v-icon
+                                    size="40"
+                            >
+                                mdi-plus-box-outline
+                            </v-icon>
+                        </v-card>
+                    </v-flex>
+                    <v-flex lg3 md3>
+                        <v-card
+                                class="pa-4 elevation-10 card"
+                                color="padrao2"
+                                dark
+                                slot="offset"
+                        >
+                            <v-icon
+                                    size="40"
+                            >
+                                mdi-plus-box-outline
+                            </v-icon>
+                        </v-card>
+                    </v-flex>
+                    <v-flex lg3 md3>
+                        <v-card
+                                class="pa-4 elevation-10 card"
+                                color="padrao2"
+                                dark
+                                slot="offset"
+                        >
+                            <v-icon
+                                    size="40"
+                            >
+                                mdi-plus-box-outline
+                            </v-icon>
+                        </v-card>
+                    </v-flex>
+                </template>
+            </v-layout>
+        </v-container>
+        <v-container fill-height
+                     fluid
+                     grid-list-xl
+                     style="width: 50%; float: right">
+            <v-layout wrap>
                 <material-card
                         color="padrao2"
                         text="Tabela de produtos"
-                        title="Comanda"
-                >
+                        title="Comanda">
                     <v-data-table
                             :headers="headers"
                             :items="items"
-                            style="text-align: center;"
-                    >
+                            style="text-align: center;">
                         <template
                                 slot="headerCell"
-                                slot-scope="{ header }"
-                        >
+                                slot-scope="{ header }">
 
                                     <span class="subheading font-weight-light text--darken-3"
                                           v-text="header.text"/>
                         </template>
                         <template
                                 slot="items"
-                                slot-scope="{ item }"
-                        >
+                                slot-scope="{ item }">
                             <td>
                                 {{item.produto}}
                             </td>
