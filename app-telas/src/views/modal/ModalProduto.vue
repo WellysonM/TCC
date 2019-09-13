@@ -24,7 +24,7 @@
                                     v-model="search"
                             ></v-text-field>
                         </v-flex>
-                        <v-dialog max-width="500px" v-model="dialog">
+                        <v-dialog max-width="500px" v-model="dialog" persistent>
                             <template v-slot:activator="{ on }">
                                 <v-flex md4>
                                     <v-btn class="acao-sair" flat

@@ -1,5 +1,11 @@
 <template>
     <div>
+        <modal-pedido
+                :modal-pedido="modalPedido"
+                @abrirModalPedido="abrirModalPedido"
+                @enviarMesaEscolhida="enviarMesaEscolhida"
+                @fecharModalPedido="fecharModalPedido"
+        />
         <v-container fill-height
                      fluid
                      grid-list-xl
@@ -131,8 +137,10 @@
                     </v-data-table>
                     <div>
                         <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="info" class="acao-sucesso" flat style="float: left">Salvar</v-btn>
-                        <v-btn class="acao-sucesso" flat style="float: none">info
+                        <v-btn :disabled="info" class="acao-sucesso" flat style="float: left; margin:0 2%">enviar
+                            pedido
+                        </v-btn>
+                        <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">info
                         </v-btn>
                     </div>
                 </material-card>
@@ -142,20 +150,13 @@
 </template>
 
 <script>
-
-    import StatsCard from "../components/material/StatsCard";
+    import ModalPedido from "./modal/ModalPedido";
 
     export default {
-        components: {StatsCard},
+        components: {ModalPedido},
         data: () => ({
             info: true,
-            styleCard: {
-                icone: 'mesa',
-                titulo: '',
-                subTitulo: '',
-                preco: '',
-                cor: 'color'
-            },
+            modalPedido: false,
             headers: [
                 {
                     sortable: true,
@@ -203,6 +204,16 @@
             ]
         }),
         methods: {
+            abrirModalPedido() {
+                this.modalPedido = true
+            },
+            fecharModalPedido() {
+                this.modalPedido = false
+            },
+            enviarMesaEscolhida() {
+                this.info = false
+                this.fecharModalPedido()
+            },
             abrirNotificacao() {
                 this.notificacao = true
                 this.cor = 'green'
