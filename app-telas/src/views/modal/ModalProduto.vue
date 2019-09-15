@@ -127,7 +127,7 @@
 
 <script>
     import _ from 'lodash'
-    import service from "../../services/service";
+    import {mapMutations} from 'vuex'
 
     export default {
         name: 'ModalProduto',
@@ -179,9 +179,15 @@
             produtos: {
                 required: true
             }
-        },
-        computed: {},
-        mounted() {
+        }, computed: {
+            inputValue: {
+                get() {
+                    return this.$store.state.app.drawer
+                },
+                set(val) {
+                    this.setDrawer(val)
+                }
+            }
         },
         methods: {
             abrirModalProduto() {
@@ -205,18 +211,15 @@
             fecharCadastrar() {
                 this.dialog = false
             },
+            ...mapMutations(['setPedido', 'togglePedido']),
             enviarPedido() {
-                let pedido = {
-                    status: 'espera',
-                    produtos: this.seleted,
-                    quantidade: '1',
-                    subValor: '12,00'
+                if (this.$store.state.pedido === null) {
+                    this.setPedido(this.seleted)
+                } else {
+                    let pedido = this.$store.state.pedido
+                    Array.prototype.push.apply(pedido, this.seleted)
+                    this.setPedido(pedido)
                 }
-                service.postPedido(pedido).then(resposta => {
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
                 this.seleted = {}
             }
         }
