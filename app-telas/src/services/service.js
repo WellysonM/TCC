@@ -26,6 +26,6 @@ export default {
         return http.get(`produto/produto/all/${categoriaId}`)
     },
     postPedido: (pedido) => {
-        return http.post('pedido/cadastrar', produto)
+        return http.post('pedido/cadastrar', pedido)
     }
 }

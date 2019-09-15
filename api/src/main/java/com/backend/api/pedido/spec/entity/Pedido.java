@@ -4,25 +4,35 @@ import com.backend.api.produto.spec.entity.Produto;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document(collection = "pedido")
 public class Pedido {
 
     @Id
     private String id;
     private String status;
-    private Produto produto;
+    private ArrayList<Produto> produtos = new ArrayList<>();
     private String quantidade;
     private String subValor;
 
-    public Pedido(String id, String status, Produto produto, String quantidade, String subValor) {
+    public Pedido(String id, String status, ArrayList<Produto> produtos, String quantidade, String subValor) {
         this.id = id;
         this.status = status;
-        this.produto = produto;
+        this.produtos = produtos;
         this.quantidade = quantidade;
         this.subValor = subValor;
     }
 
     public Pedido() {
+    }
+
+    public ArrayList<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(ArrayList<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public String getId() {
@@ -39,14 +49,6 @@ public class Pedido {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
 
     public String getQuantidade() {

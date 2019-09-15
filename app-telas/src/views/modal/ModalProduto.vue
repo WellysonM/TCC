@@ -24,7 +24,7 @@
                                     v-model="search"
                             ></v-text-field>
                         </v-flex>
-                        <v-dialog max-width="500px" v-model="dialog" persistent>
+                        <v-dialog max-width="500px" persistent v-model="dialog">
                             <template v-slot:activator="{ on }">
                                 <v-flex md4>
                                     <v-btn class="acao-sair" flat
@@ -116,7 +116,7 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="" class="acao-sucesso" flat style="margin: 0% 2%">pedido
+                        <v-btn @click="" @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -127,12 +127,13 @@
 
 <script>
     import _ from 'lodash'
+    import service from "../../services/service";
 
     export default {
         name: 'ModalProduto',
         data() {
             return {
-                seleted: [],
+                seleted: {},
                 dialog: false,
                 search: '',
                 produto: {
@@ -203,6 +204,20 @@
             },
             fecharCadastrar() {
                 this.dialog = false
+            },
+            enviarPedido() {
+                let pedido = {
+                    status: 'espera',
+                    produtos: this.seleted,
+                    quantidade: '1',
+                    subValor: '12,00'
+                }
+                service.postPedido(pedido).then(resposta => {
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+                this.seleted = {}
             }
         }
     }

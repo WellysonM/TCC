@@ -4,23 +4,14 @@
     <option name="showContexts" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="Ajustes no componente de vendas">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/PedidoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/bo/PedidoBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/repository/PedidoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/BuscarPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/RemoverPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/service/PedidoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/IPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/Filter.vue" afterDir="false" />
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +121,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.app">
+  <component name="RunManager" selected="Spring Boot.api">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -474,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568214686519</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="implementando pedido na api">
+      <created>1568571705139</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1568571705140</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +495,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="troca de icons de fa para mdi" />
     <MESSAGE value="ajustes no backend CORS" />
     <MESSAGE value="tela de login feita" />
     <MESSAGE value="ajustes na tela de login finalizados" />
@@ -522,6 +519,7 @@
     <MESSAGE value="divisão do componentes em duas tabelas uma com os produtos e a outra com os detalhes do pedido" />
     <MESSAGE value="Ajustes no modal de vendas, agora seguindo o prototipo de media fidelidade" />
     <MESSAGE value="Ajustes no componente de vendas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes no componente de vendas" />
+    <MESSAGE value="implementando pedido na api" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementando pedido na api" />
   </component>
 </project>
