@@ -4,28 +4,22 @@
     <option name="showContexts" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/ProdutoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/bo/ProdutoBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/repository/ProdutoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarProduto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/BuscarProduto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirProduto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/RemoverProduto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/service/ProdutoService.java" afterDir="false" />
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="Ajustes no componente de vendas">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/PedidoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/bo/PedidoBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/repository/PedidoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/BuscarPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/RemoverPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/service/PedidoService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/IPedido.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TCC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TCC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-telas/src/components/core/Filter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/.eslintrc.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/components/core/Drawer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/router/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Inicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Inicio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +82,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editorconfig.notification" value="View&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/main/java/com/backend/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -109,19 +103,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido" />
+      <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/entity" />
+      <recent name="C:\Users\josew\Documents\Faculdade\TCC\api\src\main\java\com\backend\api" />
+      <recent name="C:\Users\josew\Documents\Faculdade\TCC\app-telas\src\components\core" />
+      <recent name="$PROJECT_DIR$/app-telas/src/components/core" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
       <recent name="$PROJECT_DIR$/app-telas/src/views" />
       <recent name="$PROJECT_DIR$/app-telas/src/views/SingIn" />
       <recent name="$PROJECT_DIR$/app-telas/src" />
       <recent name="$PROJECT_DIR$/app-telas/src/commons/store" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\josew\Documents\Faculdade\TCC\api\src\main\java\com\backend\api" />
-      <recent name="C:\Users\josew\Documents\Faculdade\TCC\app-telas\src\components\core" />
-      <recent name="$PROJECT_DIR$/app-telas/src/components/core" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
-      <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/categorias" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -136,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
+  <component name="RunManager" selected="npm.app">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />

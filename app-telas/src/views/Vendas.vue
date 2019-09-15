@@ -230,6 +230,9 @@
                 let subPreco = parseFloat(item.preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
                 return subPreco.toFixed(2).replace(".", ",")
+            },
+            inserirPedido(){
+
             }
         }
     }
