@@ -65,6 +65,11 @@
                     text: 'Inicio'
                 },
                 {
+                    to: '/vendas',
+                    icon: 'mdi-account-cash',
+                    text: 'Vendas'
+                },
+                {
                     to: '/perfil',
                     icon: 'mdi-account',
                     text: 'Perfil'
@@ -139,7 +144,8 @@
         div.v-responsive.v-image > div.v-responsive__content {
             overflow-y: auto;
         }
-        .img{
+
+        .img {
             background: url(../../views/SingIn/images/bg.jpg);
             background-size: cover;
             -webkit-background-size: cover;

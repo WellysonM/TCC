@@ -234,10 +234,3 @@
         }
     }
 </script>
-<style>
-    .card {
-        margin-top: 48px !important;
-        width: 90px;
-        margin: 10px;
-    }
-</style>

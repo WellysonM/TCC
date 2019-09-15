@@ -16,6 +16,7 @@
     .v-datatable thead th.column.sortable i {
         vertical-align: unset;
     }
+
     table.v-table tbody td {
         height: 30px;
     }
@@ -51,5 +52,11 @@
         background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #2C5364, #243B55, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    }
+
+    .card {
+        margin-top: 48px !important;
+        width: 90px;
+        margin: 10px;
     }
 </style>
