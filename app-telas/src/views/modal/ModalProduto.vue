@@ -116,7 +116,7 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="" @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido
+                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -127,7 +127,6 @@
 
 <script>
     import _ from 'lodash'
-    import {mapMutations} from 'vuex'
 
     export default {
         name: 'ModalProduto',
@@ -140,6 +139,7 @@
                     produto: '',
                     preco: '',
                     tempoPreparo: '',
+                    quantidade: '1',
                     categoria: {
                         id: '',
                         icone: '',
@@ -179,15 +179,6 @@
             produtos: {
                 required: true
             }
-        }, computed: {
-            inputValue: {
-                get() {
-                    return this.$store.state.app.drawer
-                },
-                set(val) {
-                    this.setDrawer(val)
-                }
-            }
         },
         methods: {
             abrirModalProduto() {
@@ -198,11 +189,13 @@
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
+                this.produto.quantidade = '1'
                 let produtoClone = _.clone(this.produto)
                 this.inserirProduto(produtoClone)
                 this.produto.preco = ''
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
+                console.log(produtoClone)
                 this.dialog = false
             },
             inserirProduto(produtoClone) {
@@ -211,16 +204,10 @@
             fecharCadastrar() {
                 this.dialog = false
             },
-            ...mapMutations(['setPedido', 'togglePedido']),
             enviarPedido() {
-                if (this.$store.state.pedido === null) {
-                    this.setPedido(this.seleted)
-                } else {
-                    let pedido = this.$store.state.pedido
-                    Array.prototype.push.apply(pedido, this.seleted)
-                    this.setPedido(pedido)
-                }
+                let seletedClone = _.clone(this.seleted)
                 this.seleted = {}
+                this.$emit('enviarPedido', seletedClone)
             }
         }
     }

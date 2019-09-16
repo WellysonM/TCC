@@ -11,6 +11,7 @@
                 :categoria="categoria"
                 :modal-produto="modalProduto"
                 :produtos="produtos"
+                @enviarPedido="enviarPedido"
                 @abrirModalProduto="abrirModalProduto"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirProduto="inserirProduto"
@@ -51,6 +52,7 @@
     import ModalCategoria from './modal/ModalCategoria'
     import ModalProduto from "./modal/ModalProduto";
     import service from "../services/service";
+    import {mapMutations} from 'vuex';
 
     export default {
         name: 'Produtos',
@@ -121,6 +123,18 @@
                     console.log(e)
                 })
             },
+            ...mapMutations(['setPedido', 'togglePedido']),
+            enviarPedido(seleted) {
+                if (this.$store.state.pedido.produto === null) {
+                    this.setPedido(seleted)
+                } else {
+                    let pedido = this.$store.state.pedido.produto
+                    Array.prototype.push.apply(pedido, seleted)
+                    this.setPedido(pedido)
+                }
+                this.fecharModalProduto()
+                this.$router.push('Vendas')
+            }
         }
     }
 </script>

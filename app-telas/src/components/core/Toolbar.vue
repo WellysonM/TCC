@@ -46,12 +46,12 @@
                                 color="error"
                                 overlap>
                             <template slot="badge">
-                                {{ notifications}}
+                                {{ notifications.length}}
                             </template>
                             <v-icon color="tertiary">mdi-bell</v-icon>
                         </v-badge>
                     </router-link>
-                    <!--<v-card>
+                    <v-card>
                         <v-list dense>
                             <v-list-tile
                                     :key="notification"
@@ -61,7 +61,7 @@
                                         v-text="notification"/>
                             </v-list-tile>
                         </v-list>
-                    </v-card>-->
+                    </v-card>
                 </v-menu>
                 <router-link
                         class="toolbar-items"
@@ -87,16 +87,6 @@
         watch: {
             '$route'(val) {
                 this.title = val.name
-            }
-        },
-        computed: {
-            ...mapState(['pedido']),
-            notificacao() {
-                if (this.$store.state.pedido === null) {
-                    return
-                }
-                if (this.$store.state.pedido != null)
-                    this.notifications = this.$store.state.pedido
             }
         },
         mounted() {

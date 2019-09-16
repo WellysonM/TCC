@@ -24,5 +24,6 @@ public class AtualizarProduto {
         produto.setPreco(produtoDTO.getPreco());
         produto.setCategoria(produtoDTO.getCategoria());
         produto.setTempoPreparo(produtoDTO.getTempoPreparo());
+        produto.setQuantidade(produtoDTO.getQuantidade());
     }
 }

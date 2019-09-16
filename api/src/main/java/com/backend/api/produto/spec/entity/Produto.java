@@ -13,16 +13,18 @@ public class Produto {
     private String preco;
     private Categoria categoria;
     private String tempoPreparo;
+    private String quantidade;
 
     public Produto() {
     }
 
-    public Produto(String id, String produto, String preco, Categoria categoria, String tempoPreparo) {
+    public Produto(String id, String produto, String preco, Categoria categoria, String tempoPreparo, String quantidade) {
         this.id = id;
         this.produto = produto;
         this.preco = preco;
         this.categoria = categoria;
         this.tempoPreparo = tempoPreparo;
+        this.quantidade = quantidade;
     }
 
     public String getId() {
@@ -63,5 +65,13 @@ public class Produto {
 
     public void setTempoPreparo(String tempoPreparo) {
         this.tempoPreparo = tempoPreparo;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
     }
 }

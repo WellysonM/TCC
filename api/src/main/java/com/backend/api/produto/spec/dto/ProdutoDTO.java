@@ -10,6 +10,7 @@ public class ProdutoDTO {
     private String preco;
     private Categoria categoria;
     private String tempoPreparo;
+    private String quantidade;
 
     public ProdutoDTO(Produto produto) {
         this.id = produto.getId();
@@ -17,6 +18,7 @@ public class ProdutoDTO {
         this.preco = produto.getPreco();
         this.categoria = produto.getCategoria();
         this.tempoPreparo = produto.getTempoPreparo();
+        this.quantidade = produto.getQuantidade();
     }
 
     public ProdutoDTO() {
@@ -60,5 +62,13 @@ public class ProdutoDTO {
 
     public void setTempoPreparo(String tempoPreparo) {
         this.tempoPreparo = tempoPreparo;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
     }
 }

@@ -12,7 +12,7 @@ public class InserirProduto {
     @Autowired
     private ProdutoBO produtoBO;
 
-    public void InserirProduto(ProdutoDTO produtoDTO){
+    public void InserirProduto(ProdutoDTO produtoDTO) {
         Produto produto = new Produto();
         preencherProduto(produto, produtoDTO);
         produtoBO.inserirProduto(produto);
@@ -23,5 +23,6 @@ public class InserirProduto {
         produto.setPreco(produtoDTO.getPreco());
         produto.setCategoria(produtoDTO.getCategoria());
         produto.setTempoPreparo(produtoDTO.getTempoPreparo());
+        produto.setQuantidade(produtoDTO.getQuantidade());
     }
 }

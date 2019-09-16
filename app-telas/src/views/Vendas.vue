@@ -137,7 +137,7 @@
                     </v-data-table>
                     <div>
                         <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="info" class="acao-sucesso" flat style="float: left; margin:0 2%">enviar
+                        <v-btn :disabled="info" @click="inserirPedido()" class="acao-sucesso" flat style="float: left; margin:0 2%">enviar
                             pedido
                         </v-btn>
                         <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">info
@@ -151,11 +151,13 @@
 
 <script>
     import ModalPedido from "./modal/ModalPedido";
+    import service from "../services/service";
 
     export default {
+        name: 'Vendas',
         components: {ModalPedido},
         data: () => ({
-            info: true,
+            info: false,
             modalPedido: false,
             headers: [
                 {
@@ -179,30 +181,11 @@
                     value: 'subValor'
                 }
             ],
-            items: [
-                {
-                    produto: 'pizza',
-                    preco: '12,00',
-                    tempoPreparo: '40 minutos',
-                    quantidade: '1',
-                    subValor: null
-                },
-                {
-                    produto: 'escondidinho',
-                    preco: '12,50',
-                    tempoPreparo: '40 minutos',
-                    quantidade: '1',
-                    subValor: null
-                },
-                {
-                    produto: 'jantar',
-                    preco: '12,00',
-                    tempoPreparo: '40 minutos',
-                    quantidade: '1',
-                    subValor: null
-                }
-            ]
+            items: []
         }),
+        mounted() {
+            this.carregaPedido()
+        },
         methods: {
             abrirModalPedido() {
                 this.modalPedido = true
@@ -229,10 +212,17 @@
             calcularSubValor(item) {
                 let subPreco = parseFloat(item.preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
+                console.log(item)
                 return subPreco.toFixed(2).replace(".", ",")
             },
+            carregaPedido() {
+                if (this.$store.state.pedido === null)
+                    return
+                this.items = this.$store.state.pedido
+            },
             inserirPedido(){
-
+                console.log(this.items)
+                service.postPedido(this.items)
             }
         }
     }
