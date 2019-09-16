@@ -139,7 +139,7 @@
                     produto: '',
                     preco: '',
                     tempoPreparo: '',
-                    quantidade: '1',
+                    quantidade: '0',
                     categoria: {
                         id: '',
                         icone: '',
@@ -189,7 +189,7 @@
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
-                this.produto.quantidade = '1'
+                this.produto.quantidade = ''
                 let produtoClone = _.clone(this.produto)
                 this.inserirProduto(produtoClone)
                 this.produto.preco = ''
