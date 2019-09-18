@@ -11,14 +11,12 @@ public class PedidoDTO {
     private String id;
     private String status;
     private ArrayList<Produto> produtos = new ArrayList<>();
-    private String quantidade;
     private String subValor;
 
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.status = pedido.getStatus();
         this.produtos = pedido.getProdutos();
-        this.quantidade = pedido.getQuantidade();
         this.subValor = pedido.getSubValor();
     }
 
@@ -47,14 +45,6 @@ public class PedidoDTO {
 
     public void setProdutos(ArrayList<Produto> produtos) {
         this.produtos = produtos;
-    }
-
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
     }
 
     public String getSubValor() {

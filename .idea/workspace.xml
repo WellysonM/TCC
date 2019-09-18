@@ -4,8 +4,16 @@
     <option name="showContexts" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="pedido gravando no banco com um array de produtos">
+    <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/store/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +80,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editorconfig.notification" value="View&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app-telas/src/store" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -120,7 +128,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.app">
+  <component name="RunManager" selected="Spring Boot.api">
     <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
@@ -232,6 +240,9 @@
       <workItem from="1568478684232" duration="4837000" />
       <workItem from="1568557469637" duration="4593000" />
       <workItem from="1568562488428" duration="68000" />
+      <workItem from="1568675923631" duration="9054000" />
+      <workItem from="1568727022217" duration="4792000" />
+      <workItem from="1568767034700" duration="255000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -478,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568575470221</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Testes na entidade pedido">
+      <created>1568638429925</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1568638429925</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +519,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="tela de login feita" />
     <MESSAGE value="ajustes na tela de login finalizados" />
     <MESSAGE value="organização das pastas da api" />
     <MESSAGE value="pasta documents apagada" />
@@ -526,6 +543,7 @@
     <MESSAGE value="Ajustes no componente de vendas" />
     <MESSAGE value="implementando pedido na api" />
     <MESSAGE value="pedido gravando no banco com um array de produtos" />
-    <option name="LAST_COMMIT_MESSAGE" value="pedido gravando no banco com um array de produtos" />
+    <MESSAGE value="Testes na entidade pedido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testes na entidade pedido" />
   </component>
 </project>

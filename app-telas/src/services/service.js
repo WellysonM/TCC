@@ -27,5 +27,8 @@ export default {
     },
     postPedido: (pedido) => {
         return http.post('pedido/cadastrar', pedido)
+    },
+    getPedidos: () => {
+        return http.get('pedido/login')
     }
 }

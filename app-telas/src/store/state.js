@@ -1,8 +1,7 @@
 export default {
     pedido: {
         status: '',
-        produto: null,
-        quantidade: '',
+        produtos: [],
         subValor: ''
     }
 }

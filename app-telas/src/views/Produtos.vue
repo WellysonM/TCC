@@ -11,8 +11,8 @@
                 :categoria="categoria"
                 :modal-produto="modalProduto"
                 :produtos="produtos"
-                @enviarPedido="enviarPedido"
                 @abrirModalProduto="abrirModalProduto"
+                @enviarPedido="enviarPedido"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirProduto="inserirProduto"
         />
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-    import ModalCategoria from './modal/ModalCategoria'
+    import ModalCategoria from './modal/ModalCategoria';
     import ModalProduto from "./modal/ModalProduto";
     import service from "../services/service";
     import {mapMutations} from 'vuex';
@@ -125,11 +125,17 @@
             },
             ...mapMutations(['setPedido', 'togglePedido']),
             enviarPedido(seleted) {
-                if (this.$store.state.pedido.produto === null) {
-                    this.setPedido(seleted)
+                let pedido = {
+                    status: 'sem status',
+                    produtos: seleted,
+                    subValor: ''
+                }
+                if (this.$store.state.pedido.produtos.length === 0) {
+                    this.setPedido(pedido)
                 } else {
-                    let pedido = this.$store.state.pedido.produto
-                    Array.prototype.push.apply(pedido, seleted)
+                    let produtos = this.$store.state.pedido.produtos
+                    Array.prototype.push.apply(produtos, seleted)
+                    pedido.produtos = produtos
                     this.setPedido(pedido)
                 }
                 this.fecharModalProduto()

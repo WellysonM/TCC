@@ -1,5 +1,14 @@
 <template>
     <div>
+        <modal-produto
+                :categoria="categoria"
+                :modal-produto="modalProduto"
+                :produtos="produtos"
+                @abrirModalProduto="abrirModalProduto"
+                @enviarPedido="enviarPedido"
+                @fecharModalProduto="fecharModalProduto"
+                @inserirProduto="inserirProduto"
+        />
         <modal-pedido
                 :modal-pedido="modalPedido"
                 @abrirModalPedido="abrirModalPedido"
@@ -12,80 +21,25 @@
                      style="width: 50%; float: left">
             <v-layout wrap>
                 <template>
-                    <v-flex lg3 md3>
+                    <v-flex :key="categoria.id" v-for="categoria of styleCard">
                         <v-hover>
                             <template v-slot="{ hover }">
                                 <v-card
-                                        :class="`elevation-${hover ? 24 : 6}`"
+                                        :class="`elevation-${hover ? 24 : 2}`"
+                                        :color=categoria.cor
+                                        @click="receberCategoria(categoria)"
                                         class="pa-4 card transition-swing"
-                                        color="padrao2"
                                         dark
                                         slot="offset"
                                 >
                                     <v-icon
                                             size="40"
                                     >
-                                        mdi-plus-box-outline
+                                        {{categoria.icone}}
                                     </v-icon>
                                 </v-card>
                             </template>
                         </v-hover>
-                    </v-flex>
-                    <v-flex lg3 md3>
-                        <v-card
-                                class="pa-4 elevation-10 card"
-                                color="padrao2"
-                                dark
-                                slot="offset"
-                        >
-                            <v-icon
-                                    size="40"
-                            >
-                                mdi-plus-box-outline
-                            </v-icon>
-                        </v-card>
-                    </v-flex>
-                    <v-flex lg3 md3>
-                        <v-card
-                                class="pa-4 elevation-10 card"
-                                color="padrao2"
-                                dark
-                                slot="offset"
-                        >
-                            <v-icon
-                                    size="40"
-                            >
-                                mdi-plus-box-outline
-                            </v-icon>
-                        </v-card>
-                    </v-flex>
-                    <v-flex lg3 md3>
-                        <v-card
-                                class="pa-4 elevation-10 card"
-                                color="padrao2"
-                                dark
-                                slot="offset"
-                        >
-                            <v-icon
-                                    size="40"
-                            >
-                                mdi-plus-box-outline
-                            </v-icon>
-                        </v-card>
-                    </v-flex>
-                    <v-flex lg3 md3>
-                        <v-card
-                                class="pa-4 elevation-10 card"
-                                color="padrao2"
-                                dark
-                                slot="offset"
-                        >
-                            <v-icon
-                                    size="40"
-                            >
-                                mdi-plus-box-outline
-                            </v-icon>
-                        </v-card>
                     </v-flex>
                 </template>
             </v-layout>
@@ -137,7 +91,8 @@
                     </v-data-table>
                     <div>
                         <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="info" @click="inserirPedido()" class="acao-sucesso" flat style="float: left; margin:0 2%">enviar
+                        <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat
+                               style="float: left; margin:0 2%">enviar
                             pedido
                         </v-btn>
                         <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">info
@@ -152,13 +107,21 @@
 <script>
     import ModalPedido from "./modal/ModalPedido";
     import service from "../services/service";
+    import ModalProduto from "./modal/ModalProduto";
+    import {mapMutations} from 'vuex';
 
     export default {
         name: 'Vendas',
-        components: {ModalPedido},
+        components: {ModalPedido, ModalProduto},
         data: () => ({
+            editedIndex: -1,
+            modalProduto: false,
+            modalCategoria: false,
+            categoria: '',
+            produtos: [],
             info: false,
             modalPedido: false,
+            styleCard: [],
             headers: [
                 {
                     sortable: true,
@@ -183,10 +146,39 @@
             ],
             items: []
         }),
+        computed: {},
         mounted() {
             this.carregaPedido()
+            this.buscarCategorias()
         },
         methods: {
+            abrirModalProduto() {
+                this.modalProduto = true
+            },
+            fecharModalProduto() {
+                this.modalProduto = false
+            },
+            inserirProduto(produto) {
+                service.postProduto(produto).then(resposta => {
+                    this.getProdutosCategoria()
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            receberCategoria(categoria) {
+                this.categoria = categoria
+                this.getProdutosCategoria()
+                this.abrirModalProduto()
+            },
+            getProdutosCategoria() {
+                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
+                    this.produtos = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
             abrirModalPedido() {
                 this.modalPedido = true
             },
@@ -212,18 +204,50 @@
             calcularSubValor(item) {
                 let subPreco = parseFloat(item.preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
-                console.log(item)
                 return subPreco.toFixed(2).replace(".", ",")
             },
             carregaPedido() {
-                if (this.$store.state.pedido === null)
-                    return
-                this.items = this.$store.state.pedido
+                this.items = this.$store.state.pedido.produtos
             },
-            inserirPedido(){
-                console.log(this.items)
-                service.postPedido(this.items)
-            }
+            buscarCategorias() {
+                service.getCategoria().then(resposta => {
+                    this.styleCard = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            inserirPedido(pedido) {
+                service.postPedido(pedido)
+            },
+            ...mapMutations(['setPedido', 'togglePedido']),
+            enviarPedido(seleted) {
+                let pedido = {
+                    status: 'sem status',
+                    produtos: seleted,
+                    subValor: ''
+                }
+                if (this.$store.state.pedido.produtos.length === 0) {
+                    this.setPedido(pedido)
+                    this.carregaPedido()
+                } else {
+                    let produtos = this.$store.state.pedido.produtos
+                    Array.prototype.push.apply(produtos, seleted)
+                    pedido.produtos = produtos
+                    this.setPedido(pedido)
+                   // this.inserirPedido(pedido)
+                    service.getPedidos().then(resposta => {
+                       pedido = resposta.data
+                        for (let i = 0; i < pedido.length; i++) {
+                            this.items = pedido[i].produtos
+                        }
+                        console.log(pedido)
+                    }).catch(e => {
+                        console.log(e)
+                    })
+                }
+                this.fecharModalProduto()
+            },
         }
     }
 </script>

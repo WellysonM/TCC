@@ -22,7 +22,6 @@ public class AtualizarPedido {
         pedido.setId(pedidoDTO.getId());
         pedido.setStatus(pedidoDTO.getStatus());
         pedido.setProdutos(pedidoDTO.getProdutos());
-        pedido.setQuantidade(pedidoDTO.getQuantidade());
         pedido.setSubValor(pedidoDTO.getSubValor());
     }
 }

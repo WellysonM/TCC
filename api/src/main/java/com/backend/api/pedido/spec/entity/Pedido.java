@@ -13,14 +13,12 @@ public class Pedido {
     private String id;
     private String status;
     private ArrayList<Produto> produtos = new ArrayList<>();
-    private String quantidade;
     private String subValor;
 
-    public Pedido(String id, String status, ArrayList<Produto> produtos, String quantidade, String subValor) {
+    public Pedido(String id, String status, ArrayList<Produto> produtos, String subValor) {
         this.id = id;
         this.status = status;
         this.produtos = produtos;
-        this.quantidade = quantidade;
         this.subValor = subValor;
     }
 
@@ -49,14 +47,6 @@ public class Pedido {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
     }
 
     public String getSubValor() {

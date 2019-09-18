@@ -189,13 +189,11 @@
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
-                this.produto.quantidade = ''
                 let produtoClone = _.clone(this.produto)
                 this.inserirProduto(produtoClone)
                 this.produto.preco = ''
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
-                console.log(produtoClone)
                 this.dialog = false
             },
             inserirProduto(produtoClone) {
@@ -206,6 +204,10 @@
             },
             enviarPedido() {
                 let seletedClone = _.clone(this.seleted)
+                for (let i = 0; i < seletedClone.length; i++) {
+                    seletedClone[i].quantidade = '1'
+                }
+               // console.log(seletedClone)
                 this.seleted = {}
                 this.$emit('enviarPedido', seletedClone)
             }
