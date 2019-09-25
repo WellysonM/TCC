@@ -1,20 +1,5 @@
 <template>
     <div>
-        <modal-produto
-                :categoria="categoria"
-                :modal-produto="modalProduto"
-                :produtos="produtos"
-                @abrirModalProduto="abrirModalProduto"
-                @enviarPedido="enviarPedido"
-                @fecharModalProduto="fecharModalProduto"
-                @inserirProduto="inserirProduto"
-        />
-        <modal-pedido
-                :modal-pedido="modalPedido"
-                @abrirModalPedido="abrirModalPedido"
-                @enviarMesaEscolhida="enviarMesaEscolhida"
-                @fecharModalPedido="fecharModalPedido"
-        />
         <v-container fill-height
                      fluid
                      grid-list-xl
@@ -30,11 +15,8 @@
                                         @click="receberCategoria(categoria)"
                                         class="pa-4 card transition-swing"
                                         dark
-                                        slot="offset"
-                                >
-                                    <v-icon
-                                            size="40"
-                                    >
+                                        slot="offset">
+                                    <v-icon size="40">
                                         {{categoria.icone}}
                                     </v-icon>
                                 </v-card>
@@ -77,7 +59,7 @@
                                             style="width: 50%"
                                             type="number"
                                             v-model="item.quantidade"
-                                    ></v-text-field>
+                                    />
                                 </td>
                                 <td>{{calcularSubValor(item)}}</td>
                                 <td class="text-xs-right">
@@ -90,25 +72,41 @@
                         </template>
                     </v-data-table>
                     <div>
-                        <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
+                        <v-btn class="botao-acao-fechar" flat style="float: right">Desistir</v-btn>
                         <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat
-                               style="float: left; margin:0 2%">enviar
-                            pedido
+                               style="float: left; margin:0 2%">
+                            enviar pedido
                         </v-btn>
-                        <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">info
+                        <v-btn @click="abrirModalPedido" class="botao-acao-sucesso" flat style="float: none;">
+                            info
                         </v-btn>
                     </div>
                 </material-card>
             </v-layout>
         </v-container>
+        <modal-produto
+                :categoria="categoria"
+                :modal-produto="modalProduto"
+                :produtos="produtos"
+                @abrirModalProduto="abrirModalProduto"
+                @enviarPedido="enviarPedido"
+                @fecharModalProduto="fecharModalProduto"
+                @inserirProduto="inserirProduto"
+        />
+        <modal-pedido
+                :modal-pedido="modalPedido"
+                @abrirModalPedido="abrirModalPedido"
+                @enviarMesaEscolhida="enviarMesaEscolhida"
+                @fecharModalPedido="fecharModalPedido"
+        />
     </div>
 </template>
 
 <script>
-    import ModalPedido from "./modal/ModalPedido";
-    import service from "../services/service";
-    import ModalProduto from "./modal/ModalProduto";
-    import {mapMutations} from 'vuex';
+    import {mapMutations} from 'vuex'
+    import ModalPedido from './modal/ModalPedido'
+    import service from '../services/service'
+    import ModalProduto from './modal/ModalProduto'
 
     export default {
         name: 'Vendas',
@@ -150,62 +148,17 @@
             this.buscarCategorias()
         },
         methods: {
-            abrirModalProduto() {
-                this.modalProduto = true
-            },
-            fecharModalProduto() {
-                this.modalProduto = false
-            },
-            inserirProduto(produto) {
-                service.postProduto(produto).then(resposta => {
-                    this.getProdutosCategoria()
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
-            },
-            receberCategoria(categoria) {
-                this.categoria = categoria
-                this.getProdutosCategoria()
-                this.abrirModalProduto()
-            },
-            getProdutosCategoria() {
-                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
-                    this.produtos = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
-            },
+            ...mapMutations(['setPedido']),
             abrirModalPedido() {
                 this.modalPedido = true
             },
-            fecharModalPedido() {
-                this.modalPedido = false
-            },
-            enviarMesaEscolhida() {
-                this.info = false
-                this.fecharModalPedido()
+            abrirModalProduto() {
+                this.modalProduto = true
             },
             abrirNotificacao() {
                 this.notificacao = true
                 this.cor = 'green'
                 this.mensagem = 'teste'
-            },
-            fecharNotificacao() {
-                this.notificacao = false
-            },
-            deleteItem(item) {
-                const index = this.items.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
-            },
-            calcularSubValor(item) {
-                let subPreco = parseFloat(item.preco.replace(",", "."))
-                subPreco = subPreco * item.quantidade
-                return subPreco.toFixed(2).replace(".", ",")
-            },
-            carregaPedido() {
-                this.items = this.$store.state.pedido.produtos
             },
             buscarCategorias() {
                 service.getCategoria().then(resposta => {
@@ -215,10 +168,22 @@
                     console.log(e)
                 })
             },
-            inserirPedido(pedido) {
-                service.postPedido(pedido)
+            calcularSubValor(item) {
+                let subPreco = parseFloat(item.preco.replace(",", "."))
+                subPreco = subPreco * item.quantidade
+                return subPreco.toFixed(2).replace(".", ",")
             },
-            ...mapMutations(['setPedido']),
+            carregaPedido() {
+                this.items = this.$store.state.pedido.produtos
+            },
+            deleteItem(item) {
+                const index = this.items.indexOf(item)
+                confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+            },
+            enviarMesaEscolhida() {
+                this.info = false
+                this.fecharModalPedido()
+            },
             enviarPedido(seleted) {
                 let pedido = {
                     status: 'sem status',
@@ -238,7 +203,44 @@
                     this.carregaPedido()
                 }
                 this.fecharModalProduto()
+            },
+            fecharModalProduto() {
+                this.modalProduto = false
+            },
+            fecharModalPedido() {
+                this.modalPedido = false
+            },
+            fecharNotificacao() {
+                this.notificacao = false
+            },
+            inserirProduto(produto) {
+                service.postProduto(produto).then(resposta => {
+                    this.getProdutosCategoria()
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            inserirPedido(pedido) {
+                service.postPedido(pedido)
+            },
+            getProdutosCategoria() {
+                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
+                    this.produtos = resposta.data
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            receberCategoria(categoria) {
+                this.categoria = categoria
+                this.getProdutosCategoria()
+                this.abrirModalProduto()
             }
         }
     }
 </script>
+<style lang="stylus">
+
+
+</style>
