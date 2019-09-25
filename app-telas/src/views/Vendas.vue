@@ -114,7 +114,6 @@
         name: 'Vendas',
         components: {ModalPedido, ModalProduto},
         data: () => ({
-            editedIndex: -1,
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
@@ -146,7 +145,6 @@
             ],
             items: []
         }),
-        computed: {},
         mounted() {
             this.carregaPedido()
             this.buscarCategorias()
@@ -220,7 +218,7 @@
             inserirPedido(pedido) {
                 service.postPedido(pedido)
             },
-            ...mapMutations(['setPedido', 'togglePedido']),
+            ...mapMutations(['setPedido']),
             enviarPedido(seleted) {
                 let pedido = {
                     status: 'sem status',
@@ -231,23 +229,16 @@
                     this.setPedido(pedido)
                     this.carregaPedido()
                 } else {
+                    debugger
                     let produtos = this.$store.state.pedido.produtos
                     Array.prototype.push.apply(produtos, seleted)
                     pedido.produtos = produtos
                     this.setPedido(pedido)
-                   // this.inserirPedido(pedido)
-                    service.getPedidos().then(resposta => {
-                       pedido = resposta.data
-                        for (let i = 0; i < pedido.length; i++) {
-                            this.items = pedido[i].produtos
-                        }
-                        console.log(pedido)
-                    }).catch(e => {
-                        console.log(e)
-                    })
+                    this.items = []
+                    this.carregaPedido()
                 }
                 this.fecharModalProduto()
-            },
+            }
         }
     }
 </script>

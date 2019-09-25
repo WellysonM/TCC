@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/services/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/store/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/modal/ModalProduto.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +234,10 @@
       <workItem from="1568562488428" duration="68000" />
       <workItem from="1568675923631" duration="9054000" />
       <workItem from="1568727022217" duration="4792000" />
-      <workItem from="1568767034700" duration="255000" />
+      <workItem from="1568767034700" duration="1455000" />
+      <workItem from="1568852559227" duration="150000" />
+      <workItem from="1569185622044" duration="1543000" />
+      <workItem from="1569371186665" duration="2068000" />
     </task>
     <task id="LOCAL-00001" summary="atualização das dependencias">
       <created>1563802932401</created>
@@ -496,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568638429925</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Codificação do componente vendas">
+      <created>1568767388074</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1568767388074</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +521,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="ajustes na tela de login finalizados" />
     <MESSAGE value="organização das pastas da api" />
     <MESSAGE value="pasta documents apagada" />
     <MESSAGE value="tela de cadastro feita no vue e comunicando com o backend" />
@@ -544,6 +545,7 @@
     <MESSAGE value="implementando pedido na api" />
     <MESSAGE value="pedido gravando no banco com um array de produtos" />
     <MESSAGE value="Testes na entidade pedido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testes na entidade pedido" />
+    <MESSAGE value="Codificação do componente vendas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codificação do componente vendas" />
   </component>
 </project>
