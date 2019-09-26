@@ -207,7 +207,6 @@
                 for (let i = 0; i < seletedClone.length; i++) {
                     seletedClone[i].quantidade = '1'
                 }
-               // console.log(seletedClone)
                 this.seleted = {}
                 this.$emit('enviarPedido', seletedClone)
             }

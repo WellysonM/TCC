@@ -42,17 +42,13 @@
                         <template
                                 slot="headerCell"
                                 slot-scope="{ header }">
-
                                     <span class="subheading font-weight-light text--darken-3"
-                                          v-text="header.text"/>
+                                          v-text="header.text"
+                                    />
                         </template>
-                        <template
-                                slot="items"
-                                slot-scope="{ item }">
+                        <template slot="items" slot-scope="{ item }">
                             <tr>
-                                <td>
-                                    {{item.produto}}
-                                </td>
+                                <td>{{item.produto}}</td>
                                 <td>{{ item.preco}}</td>
                                 <td>
                                     <v-text-field
