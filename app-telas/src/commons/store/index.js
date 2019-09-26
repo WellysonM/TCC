@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import modules from './modules'
+import modules from '../theme/modules'
 
 import state from './state'
 

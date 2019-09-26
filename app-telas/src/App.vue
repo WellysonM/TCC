@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss">
-    @import '@/assets/styles/index.scss';
+    @import '@/commons/theme/styles/index.scss';
 
     .v-datatable thead th.column.sortable i {
         vertical-align: unset;

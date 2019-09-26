@@ -146,7 +146,7 @@
         }
 
         .img {
-            background: url(../../../views/SingIn/images/bg.jpg);
+            background: url(../../../views/autenticacao/images/bg.jpg);
             background-size: cover;
             -webkit-background-size: cover;
             -moz-background-size: cover;

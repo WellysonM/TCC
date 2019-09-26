@@ -100,9 +100,9 @@
 
 <script>
     import {mapMutations} from 'vuex'
-    import ModalPedido from './modal/ModalPedido'
+    import ModalPedido from '../components/ModalPedido'
     import service from '../services/service'
-    import ModalProduto from './modal/ModalProduto'
+    import ModalProduto from '../components/ModalProduto'
 
     export default {
         name: 'Vendas',

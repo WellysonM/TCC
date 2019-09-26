@@ -49,10 +49,11 @@
 </template>
 
 <script>
-    import ModalCategoria from './modal/ModalCategoria';
-    import ModalProduto from "./modal/ModalProduto";
-    import service from "../services/service";
-    import {mapMutations} from 'vuex';
+    import {mapMutations} from 'vuex'
+    import {actionTypes} from '@/commons/constants'
+    import ModalCategoria from '../components/ModalCategoria'
+    import ModalProduto from '../components/ModalProduto'
+    import service from '../services/service'
 
     export default {
         name: 'Produtos',
@@ -61,13 +62,14 @@
             return {
                 modalProduto: false,
                 modalCategoria: false,
-                categoria: '',
+                categoria: [],
                 styleCard: [],
                 produtos: []
             }
         },
-        mounted() {
-            this.buscarCategorias()
+        async mounted() {
+            await this.buscarCategorias()
+            this.setarCategorias()
         },
         methods: {
             abrirModalProduto() {
@@ -99,13 +101,8 @@
                     console.log(e)
                 })
             },
-            buscarCategorias() {
-                service.getCategoria().then(resposta => {
-                    this.styleCard = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async buscarCategorias() {
+                await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
             getProdutosCategoria() {
                 service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
@@ -140,6 +137,9 @@
                 }
                 this.fecharModalProduto()
                 this.$router.push('Vendas')
+            },
+            setarCategorias() {
+                this.styleCard = this.$store.state.categorias
             }
         }
     }

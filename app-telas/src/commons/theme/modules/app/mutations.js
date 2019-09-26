@@ -1,4 +1,4 @@
-import { set, toggle } from '@/utils/vuex'
+import { set, toggle } from '../../utils/vuex'
 
 export default {
   setDrawer: set('drawer'),

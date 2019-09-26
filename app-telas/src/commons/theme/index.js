@@ -3,7 +3,7 @@ import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
 const requireComponent = require.context(
-    '@/commons/layout', true, /\.vue$/
+    '@/commons/theme', true, /\.vue$/
 )
 
 requireComponent.keys().forEach(fileName => {

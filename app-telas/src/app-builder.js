@@ -3,8 +3,9 @@ import router from '@/globals/router'
 import store from '@/commons/store'
 import App from './App'
 import {sync} from 'vuex-router-sync'
+import '@/globals/http/axios'
 import '@/globals/vendors'
-import '@/commons/layout'
+import '@/commons/theme'
 
 sync(store, router)
 class AppBuilder {
