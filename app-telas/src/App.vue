@@ -10,8 +10,15 @@
         </div>
     </v-app>
 </template>
+
+<script>
+    export default {
+        name: 'app'
+    }
+</script>
+
 <style lang="scss">
-    @import '@/styles/index.scss';
+    @import '@/assets/styles/index.scss';
 
     .v-datatable thead th.column.sortable i {
         vertical-align: unset;

@@ -1,4 +1,4 @@
-import cadastrar from '../views/SingIn/Cadastrar'
+import cadastrar from '../../views/SingIn/Cadastrar'
 
 export default [
     {

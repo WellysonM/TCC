@@ -1,8 +1,8 @@
+import _ from 'lodash'
 import Vue from 'vue'
 import Router from 'vue-router'
-import _ from 'lodash'
 import paths from './paths'
-import pathsRegister from "./pathsRegister";
+import pathsRegister from './pathsRegister'
 
 function route(path, view, name) {
     return {
