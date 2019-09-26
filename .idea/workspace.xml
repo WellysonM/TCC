@@ -6,7 +6,173 @@
   <component name="ChangeListManager">
     <list default="true" id="3eb924b1-b593-4687-b2f2-d878747dbe36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/ApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/CategoriaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/CategoriaImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/bo/CategoriaBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/bo/CategoriaBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/repository/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/usecase/AtualizarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/usecase/AtualizarCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/usecase/BuscarCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/usecase/BuscarCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/usecase/InserirCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/usecase/InserirCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/impl/usecase/RemoverCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/impl/usecase/RemoverCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/service/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/service/CategoriaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/ICategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/spec/ICategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/dto/CategoriaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/spec/dto/CategoriaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/entity/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/spec/entity/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/ClienteImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/bo/ClienteBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/bo/ClienteBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/repository/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/AtualizarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/usecase/AtualizarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/BuscarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/usecase/BuscarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/usecase/InserirCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/impl/usecase/RemoverCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/impl/usecase/RemoverCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/ICliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/spec/ICliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/dto/ClienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/spec/dto/ClienteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/cliente/spec/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/spec/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/config/MongoDBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/config/MongoDBConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/PedidoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/PedidoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/bo/PedidoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/bo/PedidoBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/repository/PedidoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/usecase/AtualizarPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/BuscarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/usecase/BuscarPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/usecase/InserirPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/impl/usecase/RemoverPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/impl/usecase/RemoverPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/IPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/spec/IPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/spec/dto/PedidoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/spec/entity/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/ProdutoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/ProdutoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/bo/ProdutoBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/usecase/AtualizarProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/BuscarProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/usecase/BuscarProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/InserirProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/usecase/InserirProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/impl/usecase/RemoverProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/impl/usecase/RemoverProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/IProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/spec/IProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/spec/dto/ProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/spec/entity/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/PasswordEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/security/PasswordEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/security/SegurancaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/security/SegurancaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/UsuarioImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/UsuarioImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/bo/UsuarioBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/bo/UsuarioBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/AtualizarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/usecase/AtualizarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/BuscarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/usecase/BuscarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/InserirUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/usecase/InserirUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/impl/usecase/RemoverUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/impl/usecase/RemoverUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/service/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/service/UsuarioControllerRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/IUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/spec/IUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/dto/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/spec/dto/UsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/backend/api/usuario/spec/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/usuario/spec/entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/images/bg--.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/images/bg--.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/static/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/static/images/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/cadastrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/templates/cadastrar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/templates/entrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/main/resources/templates/entrar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/test/java/com/backend/api/ApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-api/src/test/java/com/backend/api/ApiApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/.postcssrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/.postcssrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/public/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/public/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/public/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/public/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/public/img/vuetifylogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/public/img/vuetifylogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/app-builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/app-builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/constants/action-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/constants/action-types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/constants/mutation-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/constants/mutation-types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/store/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/store/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/store/getters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/store/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/store/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/core/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/core/Filter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/core/Filter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/core/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/core/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/core/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/core/Toolbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/core/View.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/core/View.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/helper/Offset.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/helper/Offset.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/material/Card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/material/Card.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/material/ChartCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/material/ChartCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/material/StatsCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/material/StatsCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/modules/app/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/modules/app/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/modules/app/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/modules/app/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/modules/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_alerts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_alerts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_cards.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_cards.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_checkboxes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_checkboxes.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_colors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_dropdown.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_fixed-plugin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_fixed-plugin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_inputs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_inputs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_misc.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_tables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_tabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_tabs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_toolbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_toolbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_tooltips.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_tooltips.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_typography.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/styles/material-dashboard/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/styles/material-dashboard/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/commons/theme/utils/vuex.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/commons/theme/utils/vuex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/ModalCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/components/ModalCategoria.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/ModalPedido.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/components/ModalPedido.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/components/ModalProduto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/components/ModalProduto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/http/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/http/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/router/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/router/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/router/pathsRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/router/pathsRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/vendors/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/vendors/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/vendors/chartist.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/vendors/chartist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/vendors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/vendors/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/globals/vendors/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/globals/vendors/vuetify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/services/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/services/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/services/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Funcionarios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Funcionarios.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Inicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Inicio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Notifications.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Notifications.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Perfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Perfil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Produtos.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Relatorios.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Relatorios.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/Vendas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/Vendas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/Cadastrar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/Cadastrar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/images/bg--.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/images/bg--.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/src/views/autenticacao/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/src/views/autenticacao/images/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-telas/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/sistema-app/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +200,22 @@
   <component name="FavoritesManager">
     <favorites_list name="TCC" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/store/actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -45,8 +227,39 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>'@</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app-telas/src/globals/router/index.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/globals/router/pathsRegister.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/router/pathsRegister.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/globals/vendors/vuetify.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/main.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/layout/index.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/layout/modules/app/mutations.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/services/service.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/constants/mutation-types.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/constants/index.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/theme/index.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/App.vue" />
+        <option value="$PROJECT_DIR$/app-telas/src/app-builder.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/globals/http/axios.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/constants/action-types.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/store/state.js" />
+        <option value="$PROJECT_DIR$/app-telas/vue.config.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/store/actions.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/commons/store/mutations.js" />
+        <option value="$PROJECT_DIR$/app-telas/src/views/Produtos.vue" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -56,12 +269,48 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="MavenRunner">
     <option name="jreName" value="11" />
   </component>
   <component name="ProjectId" id="1POKagM7LgwYbDA7OjX1BVk5A7F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TCC" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -72,7 +321,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editorconfig.notification" value="View&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app-telas/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -93,19 +342,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-telas/src/commons/layout" />
+      <recent name="$PROJECT_DIR$/app-telas/src/components" />
+      <recent name="$PROJECT_DIR$/app-telas/src/commons" />
+      <recent name="$PROJECT_DIR$/app-telas/src/components/layout" />
+      <recent name="$PROJECT_DIR$/app-telas/src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app-telas/src" />
       <recent name="$PROJECT_DIR$/app-telas/src/store" />
       <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/pedido" />
       <recent name="$PROJECT_DIR$/api/src/main/java/com/backend/api/categoria/spec/entity" />
       <recent name="C:\Users\josew\Documents\Faculdade\TCC\api\src\main\java\com\backend\api" />
-      <recent name="C:\Users\josew\Documents\Faculdade\TCC\app-telas\src\components\core" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app-telas/src/store/constants" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views/modal" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views" />
-      <recent name="$PROJECT_DIR$/app-telas/src/views/SingIn" />
-      <recent name="$PROJECT_DIR$/app-telas/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -120,28 +369,85 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.api">
-    <configuration name="api" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="api" />
+  <component name="RunManager" selected="npm.APP">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="sistema-api" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="sistema-api" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="API" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sistema-api" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.api.ApiApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/app-telas/package.json" />
+    <configuration name="APP" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/sistema-app/package.json" />
       <command value="run" />
       <scripts>
-        <script value="serve" />
+        <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.app" />
-      <item itemvalue="Spring Boot.api" />
+      <item itemvalue="npm.APP" />
+      <item itemvalue="Spring Boot.API" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -498,8 +804,63 @@
       <option name="project" value="LOCAL" />
       <updated>1568767388074</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Refactore de pastas APP">
+      <created>1569472153830</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1569472153830</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Refactore de pastas APP, Clean Code, ajuste no axios, mutations, actions e etc.">
+      <created>1569479081050</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1569479081050</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10187000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1347" y="28" width="1213" height="1052" extended-state="4" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613539" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18181819" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3292683" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.24175824" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -510,8 +871,28 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -521,8 +902,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/app" />
     </ignored-roots>
-    <MESSAGE value="organização das pastas da api" />
-    <MESSAGE value="pasta documents apagada" />
     <MESSAGE value="tela de cadastro feita no vue e comunicando com o backend" />
     <MESSAGE value="telas iniciais feitas durante o final de semana" />
     <MESSAGE value="organização do codigo" />
@@ -546,6 +925,267 @@
     <MESSAGE value="pedido gravando no banco com um array de produtos" />
     <MESSAGE value="Testes na entidade pedido" />
     <MESSAGE value="Codificação do componente vendas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Codificação do componente vendas" />
+    <MESSAGE value="Refactore de pastas APP" />
+    <MESSAGE value="Refactore de pastas APP, Clean Code, ajuste no axios, mutations, actions e etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactore de pastas APP, Clean Code, ajuste no axios, mutations, actions e etc." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/vendors/chartist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/vendors/axios.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/vendors/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/router/pathsRegister.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51" selection-start-column="51" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/vendors/vuetify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app-telas/src/globals/vendors/theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/styles/index.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/.postcssrc.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/babel.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/material/Card.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1010" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/core/Drawer.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/core/Filter.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/core/View.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/helper/Offset.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/views/autenticacao/Cadastrar.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/modules/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/modules/app/state.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/modules/app/mutations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/constants/mutation-types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/theme/utils/vuex.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/constants/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/services/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/app-builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/constants/action-types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/cliente/service/ClienteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/spec/dto/CategoriaDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/pedido/service/PedidoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/produto/service/ProdutoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/services/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-api/src/main/java/com/backend/api/categoria/service/CategoriaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/vue.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/store/mutations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/store/state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/globals/http/axios.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/views/Produtos.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="118" column="31" lean-forward="true" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+          <folding>
+            <element signature="e#2013#2046#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema-app/src/commons/store/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
