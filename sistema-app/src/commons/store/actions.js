@@ -9,7 +9,7 @@ export default {
     },
 
     async [actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA](context, categoriaId) {
-        const {data} = await axios.get(`produto/produto/all/${categoriaId}`)
+        const {data} = await axios.get(`produtos/all/${categoriaId}`)
         return data
     },
 
@@ -18,6 +18,6 @@ export default {
     },
 
     async [actionTypes.INSERIR_PRODUTO](context, produto) {
-        return await axios.post('produto/cadastrar', produto)
+        return await axios.post('produto/inserir', produto)
     }
 }

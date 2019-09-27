@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("/api")
 public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
@@ -18,19 +18,20 @@ public class ProdutoService {
     @Autowired
     private IProduto iProduto;
 
-    @GetMapping("/login")
+    @GetMapping("/produtos/all")
     @CrossOrigin(origins = "http://localhost:8080")
-    public List<ProdutoDTO> buscarClientes() {
+    public List<ProdutoDTO> buscarProdutos() {
         return iProduto.buscarProdutos();
     }
 
-    @GetMapping("/produto/all/{categoriaId}")
+    @GetMapping("/produtos/all/{categoriaId}")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<Produto> buscarClientesPorCategoria(@PathVariable("categoriaId") String categoriaId) {
         List<Produto> produtos = this.produtoRepository.findProdutosByCategoria_Id(categoriaId);
         return produtos;
     }
-    @PostMapping("/cadastrar")
+
+    @PostMapping("/produto/inserir")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCliente(@RequestBody ProdutoDTO produtoDTO) {
