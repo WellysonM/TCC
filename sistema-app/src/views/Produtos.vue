@@ -3,7 +3,7 @@
         <modal-categoria
                 :modal-categoria="modalCategoria"
                 @abrirModalCategoria="abrirModalCategoria"
-                @enviarCategoriaProduto="enviarCategoriaProduto"
+                @enviarCategoriaProduto="inserirNovaCategoriaProduto"
                 @fecharModalCategoria="fecharModalCategoria"
         />
 
@@ -24,23 +24,24 @@
             <v-layout wrap>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
-                            @click="abrirModalCategoria"
                             color="padrao2"
                             icon="mdi-plus-box-outline"
                             sub-icon="mdi-plus-outline"
                             sub-text="clique aqui para adicionar outras categorias"
                             title="Nova Categoria"
                             value="Clique aqui"
+                            @click="abrirModalCategoria"
                     />
                 </v-flex>
-                <v-flex :key="categoria.id" lg4 md6 sm6 v-for="categoria of styleCard" xs12>
-                    <material-stats-card :color=categoria.cor
-                                         :icon="categoria.icone"
-                                         :sub-text=categoria.subTitulo
-                                         :title=categoria.titulo
-                                         :value=categoria.preco
-                                         @click="receberCategoria(categoria)"
-                                         sub-icon="mdi-message-plus"
+                <v-flex v-for="categoria of this.$store.state.categorias" :key="categoria.id" lg4 md6 sm6 xs12>
+                    <material-stats-card
+                            :color=categoria.cor
+                            :icon="categoria.icone"
+                            :sub-text=categoria.subTitulo
+                            :title=categoria.titulo
+                            :value=categoria.preco
+                            @click="receberCategoria(categoria)"
+                            sub-icon="mdi-message-plus"
                     />
                 </v-flex>
             </v-layout>
@@ -63,64 +64,26 @@
                 modalProduto: false,
                 modalCategoria: false,
                 categoria: [],
-                styleCard: [],
                 produtos: []
             }
         },
         async mounted() {
             await this.buscarCategorias()
-            this.setarCategorias()
         },
         methods: {
-            abrirModalProduto() {
-                this.modalProduto = true
-            },
+            ...mapMutations(['setPedido', 'togglePedido']),
             abrirModalCategoria() {
                 this.modalCategoria = true
             },
-            fecharModalProduto() {
-                this.modalProduto = false
-            },
-            fecharModalCategoria() {
-                this.modalCategoria = false
-            },
-            receberCategoria(categoria) {
-                this.categoria = categoria
-                this.getProdutosCategoria()
-                this.abrirModalProduto()
-            },
-            enviarCategoriaProduto(categoria) {
-                this.inserirCategoria(categoria)
-                this.fecharModalCategoria()
-            },
-            inserirCategoria(categoria) {
-                service.postCategoria(categoria).then(resposta => {
-                    this.buscarCategorias()
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            abrirModalProduto() {
+                this.modalProduto = true
             },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
-            getProdutosCategoria() {
-                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
-                    this.produtos = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async buscarProdutosPorCategoria() {
+                this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
-            inserirProduto(produto) {
-                service.postProduto(produto).then(resposta => {
-                    this.getProdutosCategoria()
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
-            },
-            ...mapMutations(['setPedido', 'togglePedido']),
             enviarPedido(seleted) {
                 let pedido = {
                     status: 'sem status',
@@ -138,8 +101,36 @@
                 this.fecharModalProduto()
                 this.$router.push('Vendas')
             },
-            setarCategorias() {
-                this.styleCard = this.$store.state.categorias
+            fecharModalProduto() {
+                this.modalProduto = false
+            },
+            fecharModalCategoria() {
+                this.modalCategoria = false
+            },
+            async inserirCategoria(categoria) {
+                await this.$store.dispatch(actionTypes.INSERIR_CATEGORIA, categoria)
+            },
+            async inserirNovaCategoriaProduto(categoria) {
+                try {
+                    await this.inserirCategoria(categoria)
+                    await this.buscarCategorias()
+                    this.fecharModalCategoria()
+                } catch (e) {
+                    alert('Ocorreu algum erro. Tente novamente!')
+                }
+            },
+            inserirProduto(produto) {
+                service.postProduto(produto).then(resposta => {
+                    this.buscarProdutosPorCategoria()
+                    console.log(resposta.data)
+                }).catch(e => {
+                    console.log(e)
+                })
+            },
+            receberCategoria(categoria) {
+                this.categoria = categoria
+                this.buscarProdutosPorCategoria()
+                this.abrirModalProduto()
             }
         }
     }

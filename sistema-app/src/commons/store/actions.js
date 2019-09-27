@@ -9,7 +9,11 @@ export default {
     },
 
     async [actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA]({commit}, categoriaId) {
-        const {data} = await axios.get(`api/categorias/${categoriaId}/produtos`)
+        const {data} = await axios.get(`produto/produto/all/${categoriaId}`)
         return data
-    }
+    },
+
+    async [actionTypes.INSERIR_CATEGORIA](context, categoria) {
+        return await axios.post('categoria/cadastrar', categoria)
+    },
 }

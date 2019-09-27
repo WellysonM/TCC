@@ -211,7 +211,7 @@
             },
             inserirProduto(produto) {
                 service.postProduto(produto).then(resposta => {
-                    this.getProdutosCategoria()
+                    this.buscarProdutosPorCategoria()
                     console.log(resposta.data)
                 }).catch(e => {
                     console.log(e)
@@ -220,7 +220,7 @@
             inserirPedido(pedido) {
                 service.postPedido(pedido)
             },
-            getProdutosCategoria() {
+            buscarProdutosPorCategoria() {
                 service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
                     this.produtos = resposta.data
                     console.log(resposta.data)
@@ -230,7 +230,7 @@
             },
             receberCategoria(categoria) {
                 this.categoria = categoria
-                this.getProdutosCategoria()
+                this.buscarProdutosPorCategoria()
                 this.abrirModalProduto()
             }
         }

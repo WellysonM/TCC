@@ -215,15 +215,15 @@
             },
             copiaCategoria() {
                 let cloneCategoria = _.clone(this.styleCard)
-                this.enviarCategoriaProduto(cloneCategoria)
+                this.inserirNovaCategoriaProduto(cloneCategoria)
                 this.styleCard.icone = ''
                 this.styleCard.titulo = ''
                 this.styleCard.subTitulo = ''
                 this.styleCard.preco = ''
                 this.styleCard.cor = 'color'
             },
-            enviarCategoriaProduto(cloneCategoria) {
-                this.$emit('enviarCategoriaProduto', cloneCategoria)
+            inserirNovaCategoriaProduto(cloneCategoria) {
+                this.$emit('inserirNovaCategoriaProduto', cloneCategoria)
             }
         }
     }
