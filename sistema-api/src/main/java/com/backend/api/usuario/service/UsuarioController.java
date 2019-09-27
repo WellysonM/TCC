@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/api/usuario")
 public class UsuarioController {
 
     @Autowired

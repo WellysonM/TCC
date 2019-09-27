@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pedido")
+@RequestMapping("/api")
 public class PedidoService {
 
     @Autowired
     private IPedido iPedido;
 
-    @GetMapping("/login")
+    @GetMapping("/pedido/all")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<PedidoDTO> buscarPedidos() {
         return iPedido.buscarPedidos();
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/pedido/inserir")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirPedido(@RequestBody PedidoDTO pedidoDTO) {

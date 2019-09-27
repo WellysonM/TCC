@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/api")
 public class CategoriaService {
 
     @Autowired
     private ICategoria iCategoria;
 
-    @GetMapping("/login")
+    @GetMapping("/categoria/all")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<CategoriaDTO> buscarCategorias() {
         return iCategoria.buscarCategorias();
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/categoria/inserir")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirCategoria(@RequestBody CategoriaDTO categoriaDTO) {

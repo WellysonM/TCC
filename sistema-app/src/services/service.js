@@ -6,15 +6,15 @@ export default {
     },
 
     getCategoria: () => {
-        return http.get('categoria/login')
+        return http.get('categoria/inserir')
     },
 
     postCategoria: (categoria) => {
-        return http.post('categoria/cadastrar', categoria)
+        return http.post('categoria/all', categoria)
     },
 
     postProduto: (produto) => {
-        return http.post('produto/cadastrar', produto)
+        return http.post('produto/inserir', produto)
     },
 
     getProdutosPorCategoria: (categoriaId) => {
@@ -22,6 +22,6 @@ export default {
     },
 
     postPedido: (pedido) => {
-        return http.post('pedido/cadastrar', pedido)
+        return http.post('pedido/inserir', pedido)
     }
 }
