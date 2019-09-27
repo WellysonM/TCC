@@ -1,12 +1,7 @@
 <template>
-    <v-dialog
-            persistent
-            v-model="modalCategoria"
-            width="550">
+    <v-dialog persistent v-model="modalCategoria" width="550">
         <v-card>
-            <v-card-title
-                    class="title padrao2 white--text"
-                    primary-title>
+            <v-card-title class="title padrao2 white--text" primary-title>
                 Nova Categoria
             </v-card-title>
             <v-form>

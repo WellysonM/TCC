@@ -3,6 +3,6 @@ export default {
     BUSCAR_PRODUTOS_POR_CATEGORIA: 'buscarProdutosPorCategoria',
     INSERIR_CATEGORIA: 'inserirCategoria',
     INSERIR_PEDIDO: 'inserirPedido',
-    INSERIR_PRODUTO: 'inserirProduto',
+    INSERIR_PRODUTO: 'inserirNovoProduto',
     INSERIR_USUARIO: 'inserirUsuario'
 }

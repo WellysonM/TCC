@@ -22,7 +22,7 @@
                                     id="search"
                                     label="Procurar"
                                     v-model="search"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-dialog max-width="500px" persistent v-model="dialog">
                             <template v-slot:activator="{ on }">
@@ -41,16 +41,22 @@
                                 <v-card-text>
                                     <v-container>
                                         <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field label="Produto" v-model="produto.produto"
-                                            ></v-text-field>
+                                            <v-text-field
+                                                    v-model="produto.produto"
+                                                    label="Produto"
+                                            />
                                         </v-flex>
                                         <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field label="Preço" v-model="produto.preco"
-                                            ></v-text-field>
+                                            <v-text-field
+                                                    v-model="produto.preco"
+                                                    label="Preço"
+                                            />
                                         </v-flex>
                                         <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field label="Tempo Médio de Preparo"
-                                                          v-model="produto.tempoPreparo"></v-text-field>
+                                            <v-text-field
+                                                    v-model="produto.tempoPreparo"
+                                                    label="Tempo Médio de Preparo"
+                                            />
                                         </v-flex>
                                     </v-container>
                                 </v-card-text>
@@ -190,14 +196,14 @@
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
                 let produtoClone = _.clone(this.produto)
-                this.inserirProduto(produtoClone)
+                this.inserirNovoProduto(produtoClone)
                 this.produto.preco = ''
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
             },
-            inserirProduto(produtoClone) {
-                this.$emit('inserirProduto', produtoClone)
+            inserirNovoProduto(produtoClone) {
+                this.$emit('inserirNovoProduto', produtoClone)
             },
             fecharCadastrar() {
                 this.dialog = false

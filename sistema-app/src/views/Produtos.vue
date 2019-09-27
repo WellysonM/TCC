@@ -14,7 +14,7 @@
                 @abrirModalProduto="abrirModalProduto"
                 @enviarPedido="enviarPedido"
                 @fecharModalProduto="fecharModalProduto"
-                @inserirProduto="inserirProduto"
+                @inserirNovoProduto="inserirNovoProduto"
         />
 
         <v-container
@@ -54,7 +54,6 @@
     import {actionTypes} from '@/commons/constants'
     import ModalCategoria from '../components/ModalCategoria'
     import ModalProduto from '../components/ModalProduto'
-    import service from '../services/service'
 
     export default {
         name: 'Produtos',
@@ -107,25 +106,28 @@
             fecharModalCategoria() {
                 this.modalCategoria = false
             },
-            async inserirCategoria(categoria) {
+            async inserirCategoriaProduto(categoria) {
                 await this.$store.dispatch(actionTypes.INSERIR_CATEGORIA, categoria)
+            },
+            async inserirProduto(produto) {
+                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
             async inserirNovaCategoriaProduto(categoria) {
                 try {
-                    await this.inserirCategoria(categoria)
+                    await this.inserirCategoriaProduto(categoria)
                     await this.buscarCategorias()
                     this.fecharModalCategoria()
                 } catch (e) {
                     alert('Ocorreu algum erro. Tente novamente!')
                 }
             },
-            inserirProduto(produto) {
-                service.postProduto(produto).then(resposta => {
-                    this.buscarProdutosPorCategoria()
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async inserirNovoProduto(produto) {
+                try {
+                    await this.inserirProduto(produto)
+                    await this.buscarProdutosPorCategoria()
+                } catch (e) {
+                    alert('Ocorreu algum erro. Tente novamente!')
+                }
             },
             receberCategoria(categoria) {
                 this.categoria = categoria

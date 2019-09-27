@@ -209,7 +209,7 @@
             fecharNotificacao() {
                 this.notificacao = false
             },
-            inserirProduto(produto) {
+            inserirNovoProduto(produto) {
                 service.postProduto(produto).then(resposta => {
                     this.buscarProdutosPorCategoria()
                     console.log(resposta.data)
