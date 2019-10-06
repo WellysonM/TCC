@@ -3,7 +3,7 @@
         <modal-categoria
                 :modal-categoria="modalCategoria"
                 @abrirModalCategoria="abrirModalCategoria"
-                @enviarCategoriaProduto="inserirNovaCategoriaProduto"
+                @inserirNovaCategoriaProduto="inserirNovaCategoriaProduto"
                 @fecharModalCategoria="fecharModalCategoria"
         />
 
@@ -17,10 +17,7 @@
                 @inserirNovoProduto="inserirNovoProduto"
         />
 
-        <v-container
-                fill-height
-                fluid
-                grid-list-xl>
+        <v-container fill-height fluid grid-list-xl>
             <v-layout wrap>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
@@ -114,6 +111,7 @@
             },
             async inserirNovaCategoriaProduto(categoria) {
                 try {
+                    debugger
                     await this.inserirCategoriaProduto(categoria)
                     await this.buscarCategorias()
                     this.fecharModalCategoria()
