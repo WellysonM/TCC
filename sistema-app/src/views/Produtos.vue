@@ -37,7 +37,7 @@
                             :sub-text=categoria.subTitulo
                             :title=categoria.titulo
                             :value=categoria.preco
-                            @click="receberCategoria(categoria)"
+                            @click="abrirCategoria(categoria)"
                             sub-icon="mdi-message-plus"
                     />
                 </v-flex>

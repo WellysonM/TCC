@@ -16,6 +16,7 @@
                         </v-flex>
                         <v-flex md4>
                             <v-text-field
+                                    dark
                                     append-icon="mdi-magnify"
                                     class="v-text-field__slot2"
                                     color="white"
