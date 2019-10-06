@@ -111,7 +111,6 @@
             },
             async inserirNovaCategoriaProduto(categoria) {
                 try {
-                    debugger
                     await this.inserirCategoriaProduto(categoria)
                     await this.buscarCategorias()
                     this.fecharModalCategoria()
@@ -127,7 +126,7 @@
                     alert('Ocorreu algum erro. Tente novamente!')
                 }
             },
-            receberCategoria(categoria) {
+            abrirCategoria(categoria) {
                 this.categoria = categoria
                 this.buscarProdutosPorCategoria()
                 this.abrirModalProduto()

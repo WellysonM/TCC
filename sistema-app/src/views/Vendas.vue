@@ -6,13 +6,13 @@
                      style="width: 50%; float: left">
             <v-layout wrap>
                 <template>
-                    <v-flex :key="categoria.id" v-for="categoria of styleCard">
+                    <v-flex :key="categoria.id" v-for="categoria of categorias">
                         <v-hover>
                             <template v-slot="{ hover }">
                                 <v-card
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         :color=categoria.cor
-                                        @click="receberCategoria(categoria)"
+                                        @click="abrirCategoria(categoria)"
                                         class="pa-4 card transition-swing"
                                         dark
                                         slot="offset">
@@ -99,7 +99,8 @@
 </template>
 
 <script>
-    import {mapMutations} from 'vuex'
+    import {mapMutations, mapState} from 'vuex'
+    import {actionTypes} from '@/commons/constants'
     import ModalPedido from '../components/ModalPedido'
     import service from '../services/service'
     import ModalProduto from '../components/ModalProduto'
@@ -143,6 +144,9 @@
             this.carregaPedido()
             this.buscarCategorias()
         },
+        computed: {
+          ...mapState(['categorias']),
+        },
         methods: {
             ...mapMutations(['setPedido']),
             abrirModalPedido() {
@@ -156,13 +160,8 @@
                 this.cor = 'green'
                 this.mensagem = 'teste'
             },
-            buscarCategorias() {
-                service.getCategoria().then(resposta => {
-                    this.styleCard = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async buscarCategorias() {
+                await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
             calcularSubValor(item) {
                 let subPreco = parseFloat(item.preco.replace(",", "."))
@@ -209,29 +208,22 @@
             fecharNotificacao() {
                 this.notificacao = false
             },
-            inserirNovoProduto(produto) {
-                service.postProduto(produto).then(resposta => {
-                    this.buscarProdutosPorCategoria()
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async inserirProduto(produto) {
+                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
             inserirPedido(pedido) {
                 service.postPedido(pedido)
             },
-            buscarProdutosPorCategoria() {
-                service.getProdutosPorCategoria(this.categoria.id).then(resposta => {
-                    this.produtos = resposta.data
-                    console.log(resposta.data)
-                }).catch(e => {
-                    console.log(e)
-                })
+            async buscarProdutosPorCategoria() {
+                this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
-            receberCategoria(categoria) {
-                this.categoria = categoria
+            abrirCategoria(categoria) {
+                this.setCategoria(categoria)
                 this.buscarProdutosPorCategoria()
                 this.abrirModalProduto()
+            },
+            setCategoria(categoria) {
+                this.categoria = categoria
             }
         }
     }
