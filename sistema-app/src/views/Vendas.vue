@@ -29,8 +29,8 @@
         <v-container fill-height
                      fluid
                      grid-list-xl
-                     style="width: 50%; float: right">
-            <v-layout wrap>
+                     style="width: 50%; float: right;">
+            <v-layout wrap style="justify-content: flex-end;">
                 <material-card
                         color="padrao2"
                         text="Tabela de produtos"

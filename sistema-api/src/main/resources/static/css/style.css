@@ -110,7 +110,6 @@ body {
     -ms-background-size: cover;
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .layer {
