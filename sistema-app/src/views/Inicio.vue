@@ -17,7 +17,7 @@
                                         slot="offset"
                                 >
                                 <span style="font-size: 30px; text-align: center; letter-spacing: 2px; font-weight: bold;">
-                                   {{card.numero}}
+                                   {{mesa.numero}}
                                 </span>
                                 </v-card>
                             </template>
@@ -33,12 +33,12 @@
         name: 'Inicio',
         data() {
             return {
-                card: []
+                mesa: []
             }
         },
         methods: {
             inserirMesa() {
-                this.card = {
+                this.mesa = {
                     numero: '02'
                 }
             }

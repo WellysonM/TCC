@@ -1,5 +1,6 @@
 package com.backend.api.usuario.spec.entity;
 
+import com.backend.api.cargo.spec.entity.Cargo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,13 +13,15 @@ public class Usuario {
     private String password;
     private String name;
     private boolean admin;
+    private Cargo cargo;
 
-    public Usuario(String id, String username, String password, String name, boolean admin) {
+    public Usuario(String id, String username, String password, String name, boolean admin, Cargo cargo) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.admin = admin;
+        this.cargo = cargo;
     }
 
     public Usuario() {
@@ -62,5 +65,13 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 }
