@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class CategoriaService {
+public class CargoService {
 
     @Autowired
     private ICargo iCargo;
