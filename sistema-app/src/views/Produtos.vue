@@ -37,7 +37,7 @@
                             :sub-text=categoria.subTitulo
                             :title=categoria.titulo
                             :value=categoria.preco
-                            @click="receberCategoria(categoria)"
+                            @click="abrirCategoria(categoria)"
                             sub-icon="mdi-message-plus"
                     />
                 </v-flex>
@@ -73,6 +73,11 @@
             },
             abrirModalProduto() {
                 this.modalProduto = true
+            },
+            abrirCategoria(categoria) {
+                this.setCategoria(categoria)
+                this.buscarProdutosPorCategoria()
+                this.abrirModalProduto()
             },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
@@ -126,10 +131,8 @@
                     alert('Ocorreu algum erro. Tente novamente!')
                 }
             },
-            abrirCategoria(categoria) {
+            setCategoria(categoria) {
                 this.categoria = categoria
-                this.buscarProdutosPorCategoria()
-                this.abrirModalProduto()
             }
         }
     }

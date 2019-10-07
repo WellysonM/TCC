@@ -35,15 +35,15 @@
                         color="padrao2"
                         text="Tabela de produtos"
                         title="Comanda">
+
                     <v-data-table
                             :headers="headers"
-                            :items="items"
+                            :items="pedido.produtos"
                             style="text-align: center;">
-                        <template
-                                slot="headerCell"
-                                slot-scope="{ header }">
-                                    <span class="subheading font-weight-light text--darken-3"
-                                          v-text="header.text"
+                        <template slot="headerCell" slot-scope="{ header }">
+                                    <span
+                                            class="subheading font-weight-light text--darken-3"
+                                            v-text="header.text"
                                     />
                         </template>
                         <template slot="items" slot-scope="{ item }">
@@ -67,10 +67,10 @@
                             </tr>
                         </template>
                     </v-data-table>
+
                     <div>
                         <v-btn class="botao-acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat
-                               style="float: left; margin:0 2%">
+                        <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat style="float: left; margin:0 2%">
                             enviar pedido
                         </v-btn>
                         <v-btn @click="abrirModalPedido" class="botao-acao-sucesso" flat style="float: none;">
@@ -85,7 +85,7 @@
                 :modal-produto="modalProduto"
                 :produtos="produtos"
                 @abrirModalProduto="abrirModalProduto"
-                @enviarPedido="enviarPedido"
+                @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirProduto="inserirProduto"
         />
@@ -100,9 +100,8 @@
 
 <script>
     import {mapMutations, mapState} from 'vuex'
-    import {actionTypes} from '@/commons/constants'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
     import ModalPedido from '../components/ModalPedido'
-    import service from '../services/service'
     import ModalProduto from '../components/ModalProduto'
 
     export default {
@@ -118,22 +117,18 @@
             styleCard: [],
             headers: [
                 {
-                    sortable: true,
                     text: 'Produto',
                     value: 'produto'
                 },
                 {
-                    sortable: true,
                     text: 'Preço',
                     value: 'preco'
                 },
                 {
-                    sortable: true,
                     text: 'Quantidade',
                     value: 'quantidade'
                 },
                 {
-                    sortable: true,
                     text: 'Sub Valor',
                     value: 'subValor'
                 }
@@ -141,14 +136,13 @@
             items: []
         }),
         mounted() {
-            this.carregaPedido()
             this.buscarCategorias()
         },
         computed: {
-          ...mapState(['categorias']),
+          ...mapState(['categorias', 'pedido']),
         },
         methods: {
-            ...mapMutations(['setPedido']),
+            ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
             abrirModalPedido() {
                 this.modalPedido = true
             },
@@ -164,11 +158,11 @@
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
             calcularSubValor(item) {
-                let subPreco = parseFloat(item.preco.replace(",", "."))
+                let subPreco = parseFloat(item[0].preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
                 return subPreco.toFixed(2).replace(".", ",")
             },
-            carregaPedido() {
+            carregarPedido() {
                 this.items = this.$store.state.pedido.produtos
             },
             deleteItem(item) {
@@ -179,24 +173,30 @@
                 this.info = false
                 this.fecharModalPedido()
             },
-            enviarPedido(seleted) {
-                let pedido = {
-                    status: 'sem status',
-                    produtos: seleted,
-                    subValor: ''
-                }
-                if (this.$store.state.pedido.produtos.length === 0) {
-                    this.setPedido(pedido)
-                    this.carregaPedido()
-                } else {
-                    debugger
-                    let produtos = this.$store.state.pedido.produtos
-                    Array.prototype.push.apply(produtos, seleted)
-                    pedido.produtos = produtos
-                    this.setPedido(pedido)
-                    this.items = []
-                    this.carregaPedido()
-                }
+            inserirProdutoPedido(produtos) {
+                produtos.forEach((produto) => {
+                    this.setProdutoPedido(produto)
+                })
+                debugger
+                console.log(this.pedido.produtos)
+                // this.carregarPedido()
+                // let pedido = {
+                //     status: 'sem status',
+                //     produtos: seleted,
+                //     subValor: ''
+                // }
+                // if (this.$store.state.pedido.produtos.length === 0) {
+                //     this.setPedido(pedido)
+                //     this.carregaPedido()
+                // } else {
+                //     debugger
+                //     let produtos = this.$store.state.pedido.produtos
+                //     Array.prototype.push.apply(produtos, seleted)
+                //     pedido.produtos = produtos
+                //     this.setProdutoPedido(produto)
+                //     this.items = []
+                //     this.carregaPedido()
+                // }
                 this.fecharModalProduto()
             },
             fecharModalProduto() {
@@ -211,8 +211,8 @@
             async inserirProduto(produto) {
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
-            inserirPedido(pedido) {
-                service.postPedido(pedido)
+            async inserirPedido(produto) {
+                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO_PEDIDO, produto)
             },
             async buscarProdutosPorCategoria() {
                 this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)

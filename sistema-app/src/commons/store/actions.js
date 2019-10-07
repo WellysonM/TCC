@@ -19,5 +19,10 @@ export default {
 
     async [actionTypes.INSERIR_PRODUTO](context, produto) {
         return await axios.post('produto/inserir', produto)
+    },
+
+    async [actionTypes.INSERIR_PRODUTO_PEDIDO](context, produto) {
+        return await axios.post('pedido/inserir', produto)
     }
+
 }
