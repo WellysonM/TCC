@@ -70,7 +70,8 @@
 
                     <div>
                         <v-btn class="botao-acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat style="float: left; margin:0 2%">
+                        <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat
+                               style="float: left; margin:0 2%">
                             enviar pedido
                         </v-btn>
                         <v-btn @click="abrirModalPedido" class="botao-acao-sucesso" flat style="float: none;">
@@ -135,14 +136,20 @@
             ],
             items: []
         }),
-        mounted() {
-            this.buscarCategorias()
+        async mounted() {
+            await this.buscarCategorias()
+            this.carregarPedido()
         },
         computed: {
-          ...mapState(['categorias', 'pedido']),
+            ...mapState(['categorias', 'pedido']),
         },
         methods: {
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
+            abrirCategoria(categoria) {
+                this.setCategoria(categoria)
+                this.buscarProdutosPorCategoria()
+                this.abrirModalProduto()
+            },
             abrirModalPedido() {
                 this.modalPedido = true
             },
@@ -157,8 +164,11 @@
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
+            async buscarProdutosPorCategoria() {
+                this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
+            },
             calcularSubValor(item) {
-                let subPreco = parseFloat(item[0].preco.replace(",", "."))
+                let subPreco = parseFloat(item.preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
                 return subPreco.toFixed(2).replace(".", ",")
             },
@@ -173,32 +183,6 @@
                 this.info = false
                 this.fecharModalPedido()
             },
-            inserirProdutoPedido(produtos) {
-                produtos.forEach((produto) => {
-                    this.setProdutoPedido(produto)
-                })
-                debugger
-                console.log(this.pedido.produtos)
-                // this.carregarPedido()
-                // let pedido = {
-                //     status: 'sem status',
-                //     produtos: seleted,
-                //     subValor: ''
-                // }
-                // if (this.$store.state.pedido.produtos.length === 0) {
-                //     this.setPedido(pedido)
-                //     this.carregaPedido()
-                // } else {
-                //     debugger
-                //     let produtos = this.$store.state.pedido.produtos
-                //     Array.prototype.push.apply(produtos, seleted)
-                //     pedido.produtos = produtos
-                //     this.setProdutoPedido(produto)
-                //     this.items = []
-                //     this.carregaPedido()
-                // }
-                this.fecharModalProduto()
-            },
             fecharModalProduto() {
                 this.modalProduto = false
             },
@@ -208,19 +192,19 @@
             fecharNotificacao() {
                 this.notificacao = false
             },
+            inserirProdutoPedido(produtos) {
+                if (produtos) {
+                    produtos.forEach((produto) => {
+                        this.setProdutoPedido(produto)
+                    })
+                    this.fecharModalProduto()
+                }
+            },
             async inserirProduto(produto) {
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
             async inserirPedido(produto) {
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO_PEDIDO, produto)
-            },
-            async buscarProdutosPorCategoria() {
-                this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
-            },
-            abrirCategoria(categoria) {
-                this.setCategoria(categoria)
-                this.buscarProdutosPorCategoria()
-                this.abrirModalProduto()
             },
             setCategoria(categoria) {
                 this.categoria = categoria

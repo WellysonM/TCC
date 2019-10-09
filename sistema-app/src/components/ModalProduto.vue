@@ -91,7 +91,7 @@
                                 <template slot="items" slot-scope="{ item }">
                                     <td>
                                         <v-checkbox
-                                                v-model="seleted"
+                                                v-model="selected"
                                                 :label="item.produto"
                                                 :multiple=true
                                                 :value="item"
@@ -116,8 +116,7 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="enviarPedido" :disabled="!possuiSelecao" class="acao-sucesso" flat style="margin: 0% 2%">pedido
-                        </v-btn>
+                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -132,7 +131,7 @@
         name: 'ModalProduto',
         data() {
             return {
-                seleted: {},
+                selected: {},
                 dialog: false,
                 search: '',
                 produto: {
@@ -180,17 +179,21 @@
                 required: true
             }
         },
-        computed: {
-            possuiSelecao() {
-                return this.seleted.length > 0
-            }
-        },
         methods: {
             abrirModalProduto() {
                 this.$emit('abrirModalProduto')
             },
+            enviarPedido() {
+                this.$emit('inserirProdutoPedido', _.clone(this.selected))
+            },
+            fecharCadastrar() {
+                this.dialog = false
+            },
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
+            },
+            inserirNovoProduto(produtoClone) {
+                this.$emit('inserirNovoProduto', produtoClone)
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
@@ -200,15 +203,6 @@
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
-            },
-            inserirNovoProduto(produtoClone) {
-                this.$emit('inserirNovoProduto', produtoClone)
-            },
-            fecharCadastrar() {
-                this.dialog = false
-            },
-            enviarPedido() {
-                this.$emit('inserirProdutoPedido', _.clone(this.seleted))
             }
         }
     }
