@@ -1,5 +1,5 @@
 import {mutationTypes} from '@/commons/constants'
-import {set, toggle} from '@/commons/theme/utils/vuex'
+import {toggle} from '@/commons/theme/utils/vuex'
 
 export default {
 
@@ -7,6 +7,9 @@ export default {
         state.categorias =  categorias
     },
 
-    setPedido: set('pedido'),
+    [mutationTypes.SET_PRODUTO_PEDIDO](state, produto) {
+        state.pedido.produtos.push(produto)
+    },
+
     togglePedido: toggle('pedido')
 }

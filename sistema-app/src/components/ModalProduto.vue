@@ -75,46 +75,39 @@
                         </v-dialog>
                     </v-card-title>
                 </div>
-                <v-container
-                        fill-height
-                        fluid
-                        grid-list-xl
-                >
-                    <v-layout justify-center wrap
-                    >
+                <v-container fill-height fluid grid-list-xl>
+                    <v-layout justify-center wrap>
                         <v-flex md12>
                             <v-data-table
                                     :headers="headers"
                                     :items="produtos"
-                                    :search="search"
-                            >
-                                <template
-                                        slot="headerCell"
-                                        slot-scope="{ header }"
-                                >
-
-                                    <span class="subheading font-weight-light text--darken-3"
-                                          v-text="header.text"/>
+                                    :search="search">
+                                <template slot="headerCell" slot-scope="{ header }">
+                                    <span
+                                            class="subheading font-weight-light text--darken-3"
+                                            v-text="header.text"
+                                    />
                                 </template>
-                                <template
-                                        slot="items"
-                                        slot-scope="{ item }"
-                                >
+                                <template slot="items" slot-scope="{ item }">
                                     <td>
-                                        <v-checkbox :label="item.produto" :multiple=true :value="item" color="success"
-                                                    style="font-size: 14px" v-model="seleted"/>
+                                        <v-checkbox
+                                                v-model="selected"
+                                                :label="item.produto"
+                                                :multiple=true
+                                                :value="item"
+                                                color="success"
+                                                style="font-size: 14px"
+                                        />
                                     </td>
                                     <td>{{ item.preco}}</td>
                                     <td>{{ item.tempoPreparo}}</td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-fechar" flat
-                                               style="float: right; min-width: 10px">
+                                        <v-btn class="acao-fechar" flat style="float: right; min-width: 10px">
                                             <v-icon>mdi-close-circle-outline</v-icon>
                                         </v-btn>
                                     </td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-sucesso" flat
-                                               style="float: right; min-width: 10px">
+                                        <v-btn class="acao-sucesso" flat style="float: right; min-width: 10px">
                                             <v-icon>mdi-circle-edit-outline</v-icon>
                                         </v-btn>
                                     </td>
@@ -123,8 +116,7 @@
                         </v-flex>
                         <v-divider></v-divider>
                         <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido
-                        </v-btn>
+                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -139,7 +131,7 @@
         name: 'ModalProduto',
         data() {
             return {
-                seleted: {},
+                selected: {},
                 dialog: false,
                 search: '',
                 produto: {
@@ -191,8 +183,17 @@
             abrirModalProduto() {
                 this.$emit('abrirModalProduto')
             },
+            enviarPedido() {
+                this.$emit('inserirProdutoPedido', _.clone(this.selected))
+            },
+            fecharCadastrar() {
+                this.dialog = false
+            },
             fecharModalProduto() {
                 this.$emit('fecharModalProduto')
+            },
+            inserirNovoProduto(produtoClone) {
+                this.$emit('inserirNovoProduto', produtoClone)
             },
             preencherCategoriaNoProduto() {
                 this.produto.categoria = this.categoria
@@ -202,20 +203,6 @@
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
-            },
-            inserirNovoProduto(produtoClone) {
-                this.$emit('inserirNovoProduto', produtoClone)
-            },
-            fecharCadastrar() {
-                this.dialog = false
-            },
-            enviarPedido() {
-                let seletedClone = _.clone(this.seleted)
-                for (let i = 0; i < seletedClone.length; i++) {
-                    seletedClone[i].quantidade = '1'
-                }
-                this.seleted = {}
-                this.$emit('enviarPedido', seletedClone)
             }
         }
     }
