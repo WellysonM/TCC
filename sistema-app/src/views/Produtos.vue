@@ -12,7 +12,7 @@
                 :modal-produto="modalProduto"
                 :produtos="produtos"
                 @abrirModalProduto="abrirModalProduto"
-                @enviarPedido="enviarPedido"
+                @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirNovoProduto="inserirNovoProduto"
         />
@@ -48,7 +48,7 @@
 
 <script>
     import {mapMutations} from 'vuex'
-    import {actionTypes} from '@/commons/constants'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
     import ModalCategoria from '../components/ModalCategoria'
     import ModalProduto from '../components/ModalProduto'
 
@@ -67,7 +67,7 @@
             await this.buscarCategorias()
         },
         methods: {
-            ...mapMutations(['setPedido', 'togglePedido']),
+            ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
             abrirModalCategoria() {
                 this.modalCategoria = true
             },
@@ -85,21 +85,14 @@
             async buscarProdutosPorCategoria() {
                 this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
-            enviarPedido(seleted) {
-                let pedido = {
-                    status: 'sem status',
-                    produtos: seleted,
-                    subValor: ''
+            inserirProdutoPedido(produtos) {
+                if (produtos) {
+                    produtos.forEach((produto) => {
+                        produto.quantidade = '1'
+                        this.setProdutoPedido(produto)
+                    })
+                    this.fecharModalProduto()
                 }
-                if (this.$store.state.pedido.produtos.length === 0) {
-                    this.setPedido(pedido)
-                } else {
-                    let produtos = this.$store.state.pedido.produtos
-                    Array.prototype.push.apply(produtos, seleted)
-                    pedido.produtos = produtos
-                    this.setPedido(pedido)
-                }
-                this.fecharModalProduto()
                 this.$router.push('Vendas')
             },
             fecharModalProduto() {

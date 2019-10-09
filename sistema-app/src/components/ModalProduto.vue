@@ -3,7 +3,7 @@
         <v-dialog
                 persistent
                 v-model="modalProduto"
-                width="700">
+                width="800">
             <v-card>
                 <div>
                     <v-card-title

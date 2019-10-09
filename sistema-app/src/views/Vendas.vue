@@ -69,12 +69,12 @@
                     </v-data-table>
 
                     <div>
-                        <v-btn class="botao-acao-fechar" flat style="float: right">Desistir</v-btn>
+                        <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
                         <v-btn :disabled="info" @click="inserirPedido" class="acao-sucesso" flat
-                               style="float: left; margin:0 2%">
+                               style="float: left">
                             enviar pedido
                         </v-btn>
-                        <v-btn @click="abrirModalPedido" class="botao-acao-sucesso" flat style="float: none;">
+                        <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">
                             info
                         </v-btn>
                     </div>
@@ -133,12 +133,10 @@
                     text: 'Sub Valor',
                     value: 'subValor'
                 }
-            ],
-            items: []
+            ]
         }),
         async mounted() {
             await this.buscarCategorias()
-            this.carregarPedido()
         },
         computed: {
             ...mapState(['categorias', 'pedido']),
@@ -156,11 +154,6 @@
             abrirModalProduto() {
                 this.modalProduto = true
             },
-            abrirNotificacao() {
-                this.notificacao = true
-                this.cor = 'green'
-                this.mensagem = 'teste'
-            },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
@@ -168,16 +161,17 @@
                 this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
             calcularSubValor(item) {
+                let valor
+                valor = item.preco + valor
                 let subPreco = parseFloat(item.preco.replace(",", "."))
                 subPreco = subPreco * item.quantidade
+                console.log(parseFloat(valor))
                 return subPreco.toFixed(2).replace(".", ",")
             },
-            carregarPedido() {
-                this.items = this.$store.state.pedido.produtos
-            },
             deleteItem(item) {
-                const index = this.items.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+                const produtos = this.$store.state.pedido.produtos
+                const index = produtos.indexOf(item)
+                confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
             },
             enviarMesaEscolhida() {
                 this.info = false
@@ -189,12 +183,10 @@
             fecharModalPedido() {
                 this.modalPedido = false
             },
-            fecharNotificacao() {
-                this.notificacao = false
-            },
             inserirProdutoPedido(produtos) {
                 if (produtos) {
                     produtos.forEach((produto) => {
+                        produto.quantidade = '1'
                         this.setProdutoPedido(produto)
                     })
                     this.fecharModalProduto()
@@ -203,8 +195,9 @@
             async inserirProduto(produto) {
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
-            async inserirPedido(produto) {
-                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO_PEDIDO, produto)
+            async inserirPedido() {
+                const pedido = this.$store.state.pedido
+                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO_PEDIDO, pedido)
             },
             setCategoria(categoria) {
                 this.categoria = categoria
