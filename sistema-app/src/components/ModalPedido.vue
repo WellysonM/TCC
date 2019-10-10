@@ -8,12 +8,14 @@
                 <v-container>
                     <v-form>
                         <v-flex cols="12" md="4" pa-2 sm="6">
-                            <v-select
-                                    :items="mesas"
-                                    hide-details
-                                    label="Escolha uma mesa"
-                                    single-line
-                            ></v-select>
+                            <div v-for="mesa of mesas" :key="mesa.id">
+                                <v-select
+                                        :items="mesa.numero"
+                                        hide-details
+                                        label="Escolha o numero da mesa"
+                                        single-line
+                                ></v-select>
+                            </div>
                         </v-flex>
                         <v-flex cols="12" md="4" pa-2 sm="6">
                             <v-select
@@ -46,21 +48,23 @@
     </v-dialog>
 </template>
 <script>
+    import service from "../services/service";
+
     export default {
         name: 'ModalPedido',
         data() {
             return {
-                mesas: [
-                    {text: 'Mesa', value: 'mesa '},
-                ], funcionario: [
-                    {text: 'Vet', value: 'vet '},
-                ]
+                mesas: [],
+                funcionario: []
             }
         },
         props: {
             modalPedido: {
                 required: true
             }
+        },
+        mounted() {
+            this.getMesas()
         },
         methods: {
             abrirModalPedido() {
@@ -71,6 +75,13 @@
             },
             enviarMesaEscolhida() {
                 this.$emit('enviarMesaEscolhida')
+            },
+            async getMesas() {
+                await service.getMesas().then(resposta => {
+                    this.mesas = resposta.data
+                }).catch(e => {
+                    console.log(e)
+                })
             }
         }
     }

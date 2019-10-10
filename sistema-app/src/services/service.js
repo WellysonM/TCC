@@ -23,5 +23,13 @@ export default {
 
     postPedido: (pedido) => {
         return http.post('pedido/inserir', pedido)
+    },
+
+    postMesa: (mesa) => {
+        return http.post('mesa/inserir', mesa)
+    },
+
+    getMesas: () => {
+        return http.get('mesa/all')
     }
 }
