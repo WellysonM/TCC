@@ -3,7 +3,7 @@ package com.backend.api.cargo.spec.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "categoria")
+@Document(collection = "cargo")
 public class Cargo {
 
     @Id
