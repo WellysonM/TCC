@@ -151,8 +151,7 @@
 </script>
 
 <style lang="scss">
-    .v-avatar,
-    .v-responsive {
+    .v-avatar{
         cursor: pointer;
     }
 </style>
