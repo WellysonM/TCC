@@ -14,7 +14,7 @@ public class MesaService {
     @Autowired
     private IMesa iMesa;
 
-    @GetMapping("/mesa/all")
+    @GetMapping("/mesas/all")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<MesaDTO> buscarMesas() {
         return iMesa.buscarMesas();

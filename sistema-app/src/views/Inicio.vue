@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-btn class="acao-sucesso" flat style="float: left; margin: 4% 1% -2%" @click="inserirMesa">inserir mesa
+        <v-btn class="acao-sucesso" flat style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
         </v-btn>
         <v-container fill-height
                      fluid
@@ -10,7 +10,7 @@
                     <v-flex lg2 md2>
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card
+                                <v-card style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         class="pa-4 card transition-swing"
                                         color="padrao2"
@@ -30,7 +30,7 @@
     </div>
 </template>
 <script>
-    import service from "../services/service";
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         name: 'Inicio',
@@ -40,24 +40,22 @@
             }
         },
         mounted() {
-            this.getMesas()
+            this.buscarMesas()
         },
         methods: {
-            async inserirMesa() {
-                this.getMesas()
+            async inserirMesa(mesa) {
+                await this.$store.dispatch(actionTypes.INSERIR_MESA, mesa)
+                this.buscarMesas()
+            },
+            async buscarMesas() {
+                this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+            },
+            montarMesa() {
                 let numero = this.mesas.length
                 let mesa = {
                     numero: numero + 1
                 }
-                await service.postMesa(mesa)
-                this.getMesas()
-            },
-            async getMesas() {
-                await service.getMesas().then(resposta => {
-                    this.mesas = resposta.data
-                }).catch(e => {
-                    console.log(e)
-                })
+                this.inserirMesa(mesa)
             }
         }
     }

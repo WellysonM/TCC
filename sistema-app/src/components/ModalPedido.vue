@@ -8,14 +8,14 @@
                 <v-container>
                     <v-form>
                         <v-flex cols="12" md="4" pa-2 sm="6">
-                            <div v-for="mesa of mesas" :key="mesa.id">
-                                <v-select
-                                        :items="mesa.numero"
-                                        hide-details
-                                        label="Escolha o numero da mesa"
-                                        single-line
-                                ></v-select>
-                            </div>
+                            <v-select
+                                    item-text="numero"
+                                    item-value="id"
+                                    :items="mesas"
+                                    return-object
+                                    @change="verificaMesasEscolhida"
+                                    label="Escolha o numero da mesa"
+                            ></v-select>
                         </v-flex>
                         <v-flex cols="12" md="4" pa-2 sm="6">
                             <v-select
@@ -48,7 +48,7 @@
     </v-dialog>
 </template>
 <script>
-    import service from "../services/service";
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         name: 'ModalPedido',
@@ -64,7 +64,7 @@
             }
         },
         mounted() {
-            this.getMesas()
+            this.buscarMesas()
         },
         methods: {
             abrirModalPedido() {
@@ -76,12 +76,11 @@
             enviarMesaEscolhida() {
                 this.$emit('enviarMesaEscolhida')
             },
-            async getMesas() {
-                await service.getMesas().then(resposta => {
-                    this.mesas = resposta.data
-                }).catch(e => {
-                    console.log(e)
-                })
+            async buscarMesas() {
+                this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+            },
+            verificaMesasEscolhida(mesa) {
+                console.log(mesa)
             }
         }
     }

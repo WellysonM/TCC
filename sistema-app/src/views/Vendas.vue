@@ -9,7 +9,7 @@
                     <v-flex :key="categoria.id" v-for="categoria of categorias">
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card
+                                <v-card  style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         :color=categoria.cor
                                         @click="abrirCategoria(categoria)"

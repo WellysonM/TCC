@@ -13,6 +13,11 @@ export default {
         return data
     },
 
+    async [actionTypes.BUSCAR_MESAS]() {
+        const {data} = await axios.get('mesas/all')
+        return data
+    },
+
     async [actionTypes.INSERIR_CATEGORIA](context, categoria) {
         return await axios.post('categoria/inserir', categoria)
     },
@@ -23,6 +28,10 @@ export default {
 
     async [actionTypes.INSERIR_PRODUTO_PEDIDO](context, produto) {
         return await axios.post('pedido/inserir', produto)
+    },
+
+    async [actionTypes.INSERIR_MESA](context, mesa) {
+        return await axios.post('mesa/inserir', mesa)
     }
 
 }
