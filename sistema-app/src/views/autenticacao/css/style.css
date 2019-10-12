@@ -170,8 +170,8 @@ ul.links-unordered-list li.active a {
     box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
 }
 
-.logo h1 a {
-    font-size: 25px;
+.logo div a {
+    font-size: 25px !important;
     color: #fff;
     text-transform: capitalize;
     font-weight: 600;
@@ -322,12 +322,13 @@ li:nth-child(2) a, li:nth-child(1) a {
 .copyright p {
     color: #ccc;
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: 300;
     word-spacing: 1px;
     text-transform: capitalize;
     position: fixed;
     bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .copyright p a {

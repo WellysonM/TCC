@@ -13,6 +13,16 @@ export default {
         return data
     },
 
+    async [actionTypes.BUSCAR_USUARIOS]() {
+        const {data} = await axios.get('usuarios/all')
+        return data
+    },
+
+    async [actionTypes.BUSCAR_USUARIO_LOGADO]({commit}) {
+        const {data} = await axios.get('usuario/usuarioLogado')
+        commit(mutationTypes.SET_USUARIO_LOGADO, data)
+    },
+
     async [actionTypes.BUSCAR_MESAS]() {
         const {data} = await axios.get('mesas/all')
         return data
@@ -32,6 +42,9 @@ export default {
 
     async [actionTypes.INSERIR_MESA](context, mesa) {
         return await axios.post('mesa/inserir', mesa)
-    }
+    },
 
+    async [actionTypes.INSERIR_USUARIO](context, usuario) {
+        return await axios.post('usuario/inserir', usuario)
+    }
 }

@@ -19,10 +19,12 @@
                         </v-flex>
                         <v-flex cols="12" md="4" pa-2 sm="6">
                             <v-select
+                                    item-text="name"
+                                    item-value="id"
+                                    return-object
+                                    @change="verificaMesasEscolhida"
                                     :items="funcionario"
-                                    hide-details
                                     label="Funcionario"
-                                    single-line
                             ></v-select>
                         </v-flex>
                         <v-flex cols12 md12 pa-2 sm6>
@@ -65,6 +67,7 @@
         },
         mounted() {
             this.buscarMesas()
+            this.buscarFuncionarios()
         },
         methods: {
             abrirModalPedido() {
@@ -78,6 +81,10 @@
             },
             async buscarMesas() {
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+            },
+
+            async buscarFuncionarios() {
+                this.funcionario = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
             },
             verificaMesasEscolhida(mesa) {
                 console.log(mesa)

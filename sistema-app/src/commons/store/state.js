@@ -4,5 +4,6 @@ export default {
         status: '',
         produtos: [],
         subValor: ''
-    }
+    },
+    usuarioLogado: {}
 }

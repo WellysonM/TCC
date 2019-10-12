@@ -4,11 +4,15 @@ import {toggle} from '@/commons/theme/utils/vuex'
 export default {
 
     [mutationTypes.SET_CATEGORIAS](state, categorias) {
-        state.categorias =  categorias
+        state.categorias = categorias
     },
 
     [mutationTypes.SET_PRODUTO_PEDIDO](state, produto) {
         state.pedido.produtos.push(produto)
+    },
+
+    [mutationTypes.SET_USUARIO_LOGADO](state, usuarioLogado) {
+        state.usuarioLogado = usuarioLogado
     },
 
     togglePedido: toggle('pedido')

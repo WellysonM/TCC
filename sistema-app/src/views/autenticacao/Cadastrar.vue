@@ -3,7 +3,7 @@
         <div class="layer">
             <div class="bottom-grid">
                 <div class="logo">
-                    <h1><a href="http://localhost:8095/entrar"><span class="fa fa-ravelry"></span> Sistema</a></h1>
+                    <div><a href="http://localhost:8095/entrar"><span class="fa fa-ravelry"></span>Sistema</a></div>
                 </div>
                 <div class="links">
                     <ul class="links-unordered-list">
@@ -21,7 +21,7 @@
                     <div class="main-icon">
                         <span class="fa fa-eercast"></span>
                     </div>
-                    <form @submit.prevent="teste">
+                    <form @submit.prevent="inserirUsuario">
                         <div class="field-group">
                             <span aria-hidden="true" class="fa fa-user-circle-o"></span>
                             <div class="wthree-field">
@@ -64,23 +64,24 @@
 </template>
 
 <script>
-    import service from "../../services/service";
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         name: "Cadastrar",
         data() {
             return {
                 usuario: {
-                    name: '',
                     username: '',
-                    password: ''
+                    password: '',
+                    name: '',
+                    admin: false
                 },
                 usuarioLogado: []
             }
         },
         methods: {
-            teste() {
-                service.cadastrar(this.usuario)
+            async inserirUsuario() {
+                await this.$store.dispatch(actionTypes.INSERIR_USUARIO, this.usuario)
             }
         }
     }
