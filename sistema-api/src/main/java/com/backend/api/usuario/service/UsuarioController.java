@@ -8,19 +8,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api")
 public class UsuarioController {
 
     @Autowired
     private IUsuario iUsuario;
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/usuario/cadastrar")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         iUsuario.inserirUsuario(usuarioDTO);
     }
 
-    @GetMapping("/login")
+    @GetMapping("/usuario/usuarioLogado")
     @CrossOrigin(origins = "http://localhost:8080")
     public UserDetails getUsuario(@AuthenticationPrincipal UserDetails userDetails) {
         System.out.println(userDetails);

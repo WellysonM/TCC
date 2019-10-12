@@ -13,15 +13,13 @@ public class Usuario {
     private String password;
     private String name;
     private boolean admin;
-    private Cargo cargo;
 
-    public Usuario(String id, String username, String password, String name, boolean admin, Cargo cargo) {
+    public Usuario(String id, String username, String password, String name, boolean admin) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.admin = admin;
-        this.cargo = cargo;
     }
 
     public Usuario() {
@@ -65,13 +63,5 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
     }
 }

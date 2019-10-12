@@ -10,7 +10,6 @@ public class UsuarioDTO {
     private String password;
     private String name;
     private boolean admin;
-    private Cargo cargo;
 
     public UsuarioDTO(Usuario usuario) {
         this.id = usuario.getId();
@@ -18,8 +17,6 @@ public class UsuarioDTO {
         this.password = usuario.getPassword();
         this.name = usuario.getName();
         this.admin = usuario.isAdmin();
-        this.cargo = usuario.getCargo();
-
     }
 
     public UsuarioDTO() {
@@ -63,13 +60,5 @@ public class UsuarioDTO {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
     }
 }

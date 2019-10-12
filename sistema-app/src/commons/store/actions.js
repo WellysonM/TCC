@@ -26,8 +26,8 @@ export default {
         return await axios.post('produto/inserir', produto)
     },
 
-    async [actionTypes.INSERIR_PRODUTO_PEDIDO](context, produto) {
-        return await axios.post('pedido/inserir', produto)
+    async [actionTypes.INSERIR_PEDIDO](context, pedido) {
+        return await axios.post('pedido/inserir', pedido)
     },
 
     async [actionTypes.INSERIR_MESA](context, mesa) {

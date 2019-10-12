@@ -172,7 +172,7 @@
                         valor = valor + (parseFloat(produto.quantidade) * parseFloat(produto.preco))
                     })
                 }
-                return valor
+                return valor.toFixed(2).replace(".", ",")
             },
             deleteItem(item) {
                 const produtos = this.$store.state.pedido.produtos
@@ -204,7 +204,7 @@
             async inserirPedido() {
                 this.montarPedido()
                 const pedido = this.$store.state.pedido
-                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO_PEDIDO, pedido)
+                await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
             },
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'
