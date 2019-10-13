@@ -138,7 +138,7 @@
             await this.buscarCategorias()
         },
         computed: {
-            ...mapState(['categorias', 'pedido']),
+            ...mapState(['categorias', 'pedido'])
         },
         methods: {
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),

@@ -21,6 +21,7 @@ export default {
     async [actionTypes.BUSCAR_USUARIO_LOGADO]({commit}) {
         const {data} = await axios.get('usuario/usuarioLogado')
         commit(mutationTypes.SET_USUARIO_LOGADO, data)
+        return data
     },
 
     async [actionTypes.BUSCAR_MESAS]() {

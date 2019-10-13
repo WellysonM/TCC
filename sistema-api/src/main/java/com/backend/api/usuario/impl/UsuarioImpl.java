@@ -1,11 +1,9 @@
 package com.backend.api.usuario.impl;
 
-import com.backend.api.usuario.impl.usecase.AtualizarUsuario;
-import com.backend.api.usuario.impl.usecase.BuscarUsuario;
-import com.backend.api.usuario.impl.usecase.InserirUsuario;
-import com.backend.api.usuario.impl.usecase.RemoverUsuario;
+import com.backend.api.usuario.impl.usecase.*;
 import com.backend.api.usuario.spec.IUsuario;
 import com.backend.api.usuario.spec.dto.UsuarioDTO;
+import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +24,9 @@ public class UsuarioImpl implements IUsuario {
     @Autowired
     private AtualizarUsuario atualizar;
 
+    @Autowired
+    private BuscarUsuarioPorUsername buscarUsuarioPorUsername;
+
     @Override
     public List<UsuarioDTO> buscarUsuarios() {
         return buscar.BuscarUsuario();
@@ -44,5 +45,10 @@ public class UsuarioImpl implements IUsuario {
     @Override
     public void atualizarUsuario(UsuarioDTO usuarioDTO) {
         atualizar.atualizarUsuario(usuarioDTO);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorUsername(UsuarioDTO usuarioDTO){
+      return buscarUsuarioPorUsername.buscarUsuarioPorUsername(usuarioDTO);
     }
 }

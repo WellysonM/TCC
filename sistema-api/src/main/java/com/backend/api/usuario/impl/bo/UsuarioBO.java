@@ -33,4 +33,8 @@ public class UsuarioBO {
     public void removerUsuario(Usuario usuario) {
         usuarioRepository.delete(usuario);
     }
+
+    public Usuario buscarUsuarioPorUsername(String username) {
+        return usuarioRepository.findByUsername(username);
+    }
 }

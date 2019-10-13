@@ -1,4 +1,5 @@
 import cadastrar from '../../views/autenticacao/Cadastrar'
+import entrar from '../../views/autenticacao/Entrar'
 
 export default [
     {
@@ -6,5 +7,11 @@ export default [
         component: cadastrar,
         name: 'Cadastrar',
         view: 'Cadastrar'
+    },
+    {
+        path: '/entrar',
+        component: entrar,
+        name: 'Entrar',
+        view: 'Entrar'
     }
 ]

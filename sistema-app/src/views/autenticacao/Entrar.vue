@@ -9,14 +9,12 @@
                 </router-link>
                 <div class="links">
                     <ul class="links-unordered-list">
-                        <ul class="links-unordered-list">
-                            <li class="active">
-                                <v-btn flat class="acao-sair" router-link to="/entrar">Entrar</v-btn>
-                            </li>
-                            <li class="active">
-                                <v-btn flat class="acao-sair" router-link to="/">Cadastrar</v-btn>
-                            </li>
-                        </ul>
+                        <li class="active">
+                            <v-btn flat class="acao-sair" router-link to="/entrar">Entrar</v-btn>
+                        </li>
+                        <li class="active">
+                            <v-btn flat class="acao-sair" router-link to="/">Cadastrar</v-btn>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -25,13 +23,7 @@
                     <div class="main-icon">
                         <span class="fa fa-eercast"></span>
                     </div>
-                    <form @submit.prevent="inserirUsuario">
-                        <div class="field-group">
-                            <span aria-hidden="true" class="fa fa-user-circle-o"></span>
-                            <div class="wthree-field">
-                                <input name="name" placeholder="Nome" type="text" v-model="usuario.name">
-                            </div>
-                        </div>
+                    <form @submit.prevent="entrar">
                         <div class="field-group">
                             <span aria-hidden="true" class="fa fa-user"></span>
                             <div class="wthree-field">
@@ -47,7 +39,7 @@
                             </div>
                         </div>
                         <div class="wthree-field">
-                            <button class="btn" type="submit">Cadastrar</button>
+                            <button class="btn" type="submit">Entrar</button>
                         </div>
                     </form>
                 </div>
@@ -61,23 +53,25 @@
 </template>
 
 <script>
-    import {actionTypes} from '@/commons/constants'
+    import service from "../../services/service";
 
     export default {
-        name: "Cadastrar",
+        name: "Entrar",
         data() {
             return {
                 usuario: {
                     username: '',
-                    password: '',
-                    name: '',
-                    admin: false
-                }
+                    password: ''
+                },
+                usuarioLogado: null
             }
         },
         methods: {
-            async inserirUsuario() {
-                await this.$store.dispatch(actionTypes.INSERIR_USUARIO, this.usuario)
+            async entrar() {
+                console.log(this.usuario)
+                alert(this.usuario)
+                this.usuarioLogado = await service.cadastrar(this.usuario)
+                console.log(this.usuarioLogado)
             }
         }
     }
