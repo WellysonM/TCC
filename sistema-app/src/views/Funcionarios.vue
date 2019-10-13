@@ -7,41 +7,27 @@
                 @abrirNotificacao="abrirNotificacao"
                 @fecharNotificacao="fecharNotificacao"
         />
-        <v-container
-                fill-height
-                fluid
-                grid-list-xl
-        >
-            <v-layout justify-center wrap
-            >
-                <v-flex md12>
+        <v-container fill-height fluid grid-list-xl>
+            <v-layout justify-center wrap>
+                <v-flex md9>
                     <material-card
                             color="padrao2"
-                            text="Selecione um funcionário para editar"
-                            title="Gerenciar Funcionários"
-                    >
-                        <v-data-table
-                                :headers="headers"
-                                :items="items"
-                                hide-actions
-                        >
-                            <template
-                                    slot="headerCell"
-                                    slot-scope="{ header }"
-                            >
-              <span class="subheading font-weight-light text--darken-3"
-                    v-text="header.text"/>
+                            text="Selecione um usuario para editar"
+                            title="Gerenciar Usuarios">
+                        <v-data-table :headers="headers" :items="usuarios" style="text-align: center !important">
+                            <template slot="headerCell" slot-scope="{ header }">
+                                <span class="subheading font-weight-light text--darken-3" v-text="header.text"/>
                             </template>
-                            <template
-                                    slot="items"
-                                    slot-scope="{ item }"
-                            >
-                                <td>{{ item.funcionario }}</td>
-                                <td>{{ item.funcao }}</td>
-                                <td>{{ item.contato }}</td>
+                            <template slot="items" slot-scope="{ item }">
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.username }}</td>
+                                <td>
+                                    <v-switch v-model="item.admin" error color="green" @change="atualizarUsuario(item)"
+                                              label="Usuario Administrador"></v-switch>
+                                </td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="abrirNotificacao" class="acao-sucesso" flat style="float: right">
-                                        Editar
+                                    <v-btn @click="abrirNotificacao" class="acao-fechar" flat style="min-width: 10px">
+                                        <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>
                             </template>
@@ -55,6 +41,7 @@
 
 <script>
     import notificacao from './Notifications'
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         components: {notificacao},
@@ -62,50 +49,50 @@
             notificacao: false,
             cor: null,
             mensagem: '',
+            usuarios: [],
             headers: [
                 {
                     sortable: true,
-                    text: 'Funcionário',
-                    value: 'funcionario'
+                    text: 'Nome',
+                    value: 'name'
                 },
                 {
                     sortable: true,
-                    text: 'Função',
-                    value: 'funcao'
+                    text: 'Nome de usuario',
+                    value: 'username'
                 },
                 {
                     sortable: true,
-                    text: 'Contato',
-                    value: 'contato'
-                }
-            ],
-            items: [
-                {
-                    funcionario: 'vet',
-                    funcao: 'Caixa',
-                    contato: '(67) 9 9999-9999'
-                },
-                {
-                    funcionario: 'adão',
-                    funcao: 'Garçom',
-                    contato: '(99) 9 9999-9999'
-                },
-                {
-                    funcionario: 'Jão',
-                    funcao: 'Garçom',
-                    contato: '(99) 9 9999-9999'
+                    text: 'Permissões',
+                    value: 'admin'
                 }
             ]
         }),
+        mounted() {
+            this.buscarUsuarios()
+        },
         methods: {
             abrirNotificacao() {
                 this.notificacao = true
                 this.cor = 'green'
                 this.mensagem = 'teste'
             },
+            async buscarUsuarios() {
+                this.usuarios = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
+            },
             fecharNotificacao() {
                 this.notificacao = false
+            },
+            atualizarUsuario(usuario) {
+                console.log(usuario)
             }
         }
     }
 </script>
+<style>
+    .v-label {
+        color: black !important;
+        font-style: italic;
+        font-size: 16.66px !important;
+    }
+</style>

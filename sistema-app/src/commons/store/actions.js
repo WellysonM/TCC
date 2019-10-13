@@ -18,9 +18,13 @@ export default {
         return data
     },
 
-    async [actionTypes.BUSCAR_USUARIO_LOGADO]({commit}) {
+    async [actionTypes.BUACAR_USUARIO_LOGADO]({commit}) {
         const {data} = await axios.get('usuario/usuarioLogado')
         commit(mutationTypes.SET_USUARIO_LOGADO, data)
+    },
+
+    async [actionTypes.EFETUAR_LOGIN](context, usuario) {
+        const {data} = await axios.post('usuario/entrar', usuario)
         return data
     },
 

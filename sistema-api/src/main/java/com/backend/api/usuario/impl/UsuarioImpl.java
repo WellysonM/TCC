@@ -33,8 +33,8 @@ public class UsuarioImpl implements IUsuario {
     }
 
     @Override
-    public void removerUsuario(UsuarioDTO usuarioDTO) {
-        remover.removerUsuario(usuarioDTO);
+    public void removerUsuario(String usuarioId) {
+        remover.removerUsuario(usuarioId);
     }
 
     @Override

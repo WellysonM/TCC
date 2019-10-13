@@ -12,8 +12,8 @@ public class RemoverUsuario {
     @Autowired
     private UsuarioBO usuarioBO;
 
-    public void removerUsuario(UsuarioDTO usuarioDTO){
-        Usuario usuario = usuarioBO.buscarUsuarioPorId(usuarioDTO.getId());
+    public void removerUsuario(String usuarioId){
+        Usuario usuario = usuarioBO.buscarUsuarioPorId(usuarioId);
         usuarioBO.removerUsuario(usuario);
     }
 }

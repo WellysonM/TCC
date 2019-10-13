@@ -53,7 +53,8 @@
 </template>
 
 <script>
-    import service from "../../services/service";
+    import {mapMutations, mapState} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         name: "Entrar",
@@ -63,13 +64,20 @@
                     username: '',
                     password: ''
                 },
-                usuarioLogado: null
+                usuarioAutenticado: {}
             }
         },
+        computed: {
+            ...mapState(['usuarioLogado'])
+        },
         methods: {
+            ...mapMutations([mutationTypes.SET_USUARIO_LOGADO]),
             async entrar() {
-                this.usuarioLogado = await service.cadastrar(this.usuario)
-                console.log(this.usuarioLogado)
+                this.usuarioAutenticado = await this.$store.dispatch(actionTypes.EFETUAR_LOGIN, this.usuario)
+                if (this.usuarioAutenticado) {
+                    this.setUsuarioLogado(this.usuarioAutenticado)
+                    await this.$router.push({path: '/inicio'})
+                }
             }
         }
     }

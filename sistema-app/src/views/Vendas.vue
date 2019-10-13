@@ -59,7 +59,7 @@
                                 <td>{{calcularSubValor(item)}}</td>
                                 <td class="text-xs-right">
                                     <v-btn @click="deleteItem(item)" class="acao-fechar" flat
-                                           style="float: right; min-width: 10px">
+                                           style="min-width: 10px">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>

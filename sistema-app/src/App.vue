@@ -20,18 +20,24 @@
 
     export default {
         name: 'app',
-        mounted() {
-            this.usuarioLogadoNoSistema()
-        },
         computed: {
             ...mapState(['usuarioLogado'])
         },
+        mounted() {
+            this.buscarUsuarioLogado()
+        },
         methods: {
             ...mapMutations([mutationTypes.SET_USUARIO_LOGADO]),
-            async usuarioLogadoNoSistema() {
-                let usuario
-                usuario = await this.$store.dispatch(actionTypes.BUSCAR_USUARIO_LOGADO)
-                console.log(usuario)
+            async buscarUsuarioLogado() {
+                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
+                this.verificaUsuarioLogado()
+            },
+            verificaUsuarioLogado(){
+                const usuarioAutenticado = this.$store.state.usuarioLogado
+                if(!usuarioAutenticado.id){
+                    this.$router.push({path: '/entrar'})
+                    this.$router.push({path: '/'})
+                }
             }
         }
     }

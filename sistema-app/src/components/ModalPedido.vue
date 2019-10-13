@@ -23,7 +23,7 @@
                                     item-value="id"
                                     return-object
                                     @change="verificaMesasEscolhida"
-                                    :items="funcionario"
+                                    :items="usuarios"
                                     label="Funcionario"
                             ></v-select>
                         </v-flex>
@@ -57,7 +57,7 @@
         data() {
             return {
                 mesas: [],
-                funcionario: []
+                usuarios: []
             }
         },
         props: {
@@ -67,7 +67,7 @@
         },
         mounted() {
             this.buscarMesas()
-            this.buscarFuncionarios()
+            this.buscarUsuarios()
         },
         methods: {
             abrirModalPedido() {
@@ -83,8 +83,8 @@
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
             },
 
-            async buscarFuncionarios() {
-                this.funcionario = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
+            async buscarUsuarios() {
+                this.usuarios = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
             },
             verificaMesasEscolhida(mesa) {
                 console.log(mesa)

@@ -21,6 +21,7 @@
             <v-layout wrap>
                 <v-flex lg4 md6 sm6 xs12>
                     <material-stats-card
+                            style="cursor: pointer"
                             color="padrao2"
                             icon="mdi-plus-box-outline"
                             sub-icon="mdi-plus-outline"
@@ -32,6 +33,7 @@
                 </v-flex>
                 <v-flex v-for="categoria of this.$store.state.categorias" :key="categoria.id" lg4 md6 sm6 xs12>
                     <material-stats-card
+                            style="cursor: pointer"
                             :color=categoria.cor
                             :icon="categoria.icone"
                             :sub-text=categoria.subTitulo

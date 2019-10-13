@@ -19,16 +19,12 @@ public class UsuarioController {
     @Autowired
     private IUsuario iUsuario;
 
+    private Usuario usuario = new Usuario();
+
     @PostMapping("/usuario/inserir")
     @CrossOrigin(origins = "http://localhost:8080")
     public void inserirUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         iUsuario.inserirUsuario(usuarioDTO);
-    }
-
-    @GetMapping("/usuario/usuarioLogado")
-    @CrossOrigin(origins = "http://localhost:8080")
-    public UserDetails getUsuario(@AuthenticationPrincipal UserDetails userDetails) {
-        return userDetails;
     }
 
     @GetMapping("/usuarios/all")
@@ -40,13 +36,42 @@ public class UsuarioController {
     @PostMapping("/usuario/entrar")
     @CrossOrigin(origins = "http://localhost:8080")
     public Usuario authWithHttpServletRequest(HttpServletRequest request, @RequestBody UsuarioDTO usuarioDTO) {
-       return validarLogin(request, usuarioDTO);
+        return validarLogin(request, usuarioDTO);
+    }
+
+    @PutMapping("/usuario/atualizar")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void atualizaProduto(@RequestBody UsuarioDTO usuarioDTO) {
+        iUsuario.atualizarUsuario(usuarioDTO);
+    }
+
+    @DeleteMapping("/usuario/remover/{usuarioId}")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void removerUsuario(@PathVariable(value = "usuarioId") String usuarioId) {
+        iUsuario.removerUsuario(usuarioId);
+    }
+
+    @GetMapping("/usuario/sair")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void sairDoSistema() {
+        usuario.setId(null);
+        usuario.setUsername(null);
+        usuario.setName(null);
+        usuario.setPassword(null);
+        usuario.setAdmin(false);
+    }
+
+    @GetMapping("/usuario/usuarioLogado")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public Usuario getUsuarioLogado() {
+        return usuario;
     }
 
     private Usuario validarLogin(HttpServletRequest request, UsuarioDTO usuarioDTO) {
         try {
             request.login(usuarioDTO.getUsername(), usuarioDTO.getPassword());
-            return iUsuario.buscarUsuarioPorUsername(usuarioDTO);
+            usuario = iUsuario.buscarUsuarioPorUsername(usuarioDTO);
+            return usuario;
         } catch (ServletException e) {
             System.out.println("Error while login ->" + e);
             return null;

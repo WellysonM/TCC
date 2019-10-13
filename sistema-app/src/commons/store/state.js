@@ -5,5 +5,5 @@ export default {
         produtos: [],
         subValor: ''
     },
-    usuarioLogado: {}
+   usuarioLogado: {}
 }
