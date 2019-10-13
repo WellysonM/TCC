@@ -6,8 +6,6 @@ import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
@@ -20,8 +18,6 @@ public class UsuarioController {
 
     @Autowired
     private IUsuario iUsuario;
-
-    private RequestCache requestCache = new HttpSessionRequestCache();
 
     @PostMapping("/usuario/inserir")
     @CrossOrigin(origins = "http://localhost:8080")
@@ -41,12 +37,15 @@ public class UsuarioController {
         return iUsuario.buscarUsuarios();
     }
 
-    @GetMapping("/usuario/entrar")
+    @PostMapping("/usuario/entrar")
     @CrossOrigin(origins = "http://localhost:8080")
     public Usuario authWithHttpServletRequest(HttpServletRequest request, @RequestBody UsuarioDTO usuarioDTO) {
+       return validarLogin(request, usuarioDTO);
+    }
+
+    private Usuario validarLogin(HttpServletRequest request, UsuarioDTO usuarioDTO) {
         try {
             request.login(usuarioDTO.getUsername(), usuarioDTO.getPassword());
-            System.out.println(iUsuario.buscarUsuarioPorUsername(usuarioDTO));
             return iUsuario.buscarUsuarioPorUsername(usuarioDTO);
         } catch (ServletException e) {
             System.out.println("Error while login ->" + e);

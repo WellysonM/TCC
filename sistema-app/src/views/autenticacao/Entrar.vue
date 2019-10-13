@@ -68,8 +68,6 @@
         },
         methods: {
             async entrar() {
-                console.log(this.usuario)
-                alert(this.usuario)
                 this.usuarioLogado = await service.cadastrar(this.usuario)
                 console.log(this.usuarioLogado)
             }

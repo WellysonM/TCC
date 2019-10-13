@@ -2,7 +2,7 @@ import {http} from './config'
 
 export default {
     cadastrar: (usuario) => {
-        return http.get('usuario/entrar', usuario)
+        return http.post('usuario/entrar', usuario)
     },
 
     getCategoria: () => {
