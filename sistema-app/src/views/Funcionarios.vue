@@ -22,11 +22,13 @@
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.username }}</td>
                                 <td>
-                                    <v-switch v-model="item.admin" error color="green" @change="atualizarUsuario(item)"
-                                              label="Usuario Administrador"></v-switch>
+                                    <v-switch v-model="item.admin" :input-value="item.admin" error
+                                              label="Usuario Administrador"
+                                              color="green" @change="atualizarUsuario(item)"></v-switch>
                                 </td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="abrirNotificacao" class="acao-fechar" flat style="min-width: 10px">
+                                    <v-btn @click="removerUsuario(item.id)" class="acao-fechar" flat
+                                           style="min-width: 10px">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>
@@ -83,8 +85,13 @@
             fecharNotificacao() {
                 this.notificacao = false
             },
-            atualizarUsuario(usuario) {
+            async atualizarUsuario(usuario) {
                 console.log(usuario)
+                await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
+                this.buscarUsuarios()
+            },
+            async removerUsuario(usuarioId) {
+                await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)
             }
         }
     }

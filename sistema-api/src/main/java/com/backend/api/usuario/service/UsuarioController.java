@@ -4,8 +4,6 @@ import com.backend.api.usuario.spec.IUsuario;
 import com.backend.api.usuario.spec.dto.UsuarioDTO;
 import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
@@ -39,13 +37,13 @@ public class UsuarioController {
         return validarLogin(request, usuarioDTO);
     }
 
-    @PutMapping("/usuario/atualizar")
+    @RequestMapping(method = RequestMethod.PUT, value = {"/usuario/atualizar"})
     @CrossOrigin(origins = "http://localhost:8080")
     public void atualizaProduto(@RequestBody UsuarioDTO usuarioDTO) {
         iUsuario.atualizarUsuario(usuarioDTO);
     }
 
-    @DeleteMapping("/usuario/remover/{usuarioId}")
+    @DeleteMapping("/usuario/remover/{usuarioId}/")
     @CrossOrigin(origins = "http://localhost:8080")
     public void removerUsuario(@PathVariable(value = "usuarioId") String usuarioId) {
         iUsuario.removerUsuario(usuarioId);

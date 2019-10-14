@@ -42,7 +42,7 @@
                                     v-text="link.text"/>
                         </v-list-tile>
                         <div class="pa-2 v-list-item v-list__tile--btn">
-                            <v-btn block class="acao-sair" flat>Sair</v-btn>
+                            <v-btn block class="acao-sair" flat @click="efetuarLogout">Sair</v-btn>
                         </div>
                     </v-layout>
                 </v-img>
@@ -53,6 +53,7 @@
 
 <script>
     import {mapMutations, mapState} from 'vuex'
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         data: () => ({
@@ -121,6 +122,14 @@
             ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
             onClickBtn() {
                 this.setDrawer(!this.$store.state.app.drawer)
+            },
+            async efetuarLogout() {
+                await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
+                this.buscarUsuarioLogado()
+                this.$router.push({path: '/entrar'})
+            },
+            async buscarUsuarioLogado() {
+                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
             }
         }
     }

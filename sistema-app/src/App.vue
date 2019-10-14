@@ -21,7 +21,7 @@
     export default {
         name: 'app',
         computed: {
-            ...mapState(['usuarioLogado'])
+            ...mapState(['usuarioLogado']),
         },
         mounted() {
             this.buscarUsuarioLogado()
@@ -32,9 +32,9 @@
                 await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
                 this.verificaUsuarioLogado()
             },
-            verificaUsuarioLogado(){
+            verificaUsuarioLogado() {
                 const usuarioAutenticado = this.$store.state.usuarioLogado
-                if(!usuarioAutenticado.id){
+                if (!usuarioAutenticado.id) {
                     this.$router.push({path: '/entrar'})
                     this.$router.push({path: '/'})
                 }

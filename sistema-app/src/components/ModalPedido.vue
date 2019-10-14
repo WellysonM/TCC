@@ -13,7 +13,7 @@
                                     item-value="id"
                                     :items="mesas"
                                     return-object
-                                    @change="verificaMesasEscolhida"
+                                    @change="verificarMesasEscolhida"
                                     label="Escolha o numero da mesa"
                             ></v-select>
                         </v-flex>
@@ -22,7 +22,7 @@
                                     item-text="name"
                                     item-value="id"
                                     return-object
-                                    @change="verificaMesasEscolhida"
+                                    @change="verificarUsuarioEscolhido"
                                     :items="usuarios"
                                     label="Funcionario"
                             ></v-select>
@@ -56,6 +56,8 @@
         name: 'ModalPedido',
         data() {
             return {
+                mesa: {},
+                usuario: {},
                 mesas: [],
                 usuarios: []
             }
@@ -77,7 +79,7 @@
                 this.$emit('fecharModalPedido')
             },
             enviarMesaEscolhida() {
-                this.$emit('enviarMesaEscolhida')
+                this.$emit('enviarMesaEscolhida', this.mesa)
             },
             async buscarMesas() {
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
@@ -86,8 +88,12 @@
             async buscarUsuarios() {
                 this.usuarios = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
             },
-            verificaMesasEscolhida(mesa) {
-                console.log(mesa)
+
+            verificarMesasEscolhida(mesa) {
+                this.mesa = mesa;
+            },
+            verificarUsuarioEscolhido(usuario) {
+                this.usuario = usuario;
             }
         }
     }

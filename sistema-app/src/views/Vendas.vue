@@ -9,7 +9,7 @@
                     <v-flex :key="categoria.id" v-for="categoria of categorias">
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card  style="cursor: pointer"
+                                <v-card style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         :color=categoria.cor
                                         @click="abrirCategoria(categoria)"
@@ -111,6 +111,8 @@
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
+            comandaInserir: {},
+            mesa: {},
             produtos: [],
             comanda: true,
             modalPedido: false,
@@ -179,7 +181,8 @@
                 const index = produtos.indexOf(item)
                 confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
             },
-            enviarMesaEscolhida() {
+            enviarMesaEscolhida(mesa) {
+                this.mesa = mesa
                 this.comanda = false
                 this.fecharModalPedido()
             },
@@ -188,6 +191,14 @@
             },
             fecharModalPedido() {
                 this.modalPedido = false
+            },
+            async inserirComanda(pedido) {
+                this.comandaInserir = {
+                    mesa: this.mesa,
+                    pedidos: [pedido]
+                }
+                console.log(this.comandaInserir)
+                await this.$store.dispatch(actionTypes.INSERIR_COMANDA, this.comandaInserir)
             },
             inserirProdutoPedido(produtos) {
                 if (produtos) {
@@ -205,6 +216,7 @@
                 this.montarPedido()
                 const pedido = this.$store.state.pedido
                 await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                await this.inserirComanda(pedido)
             },
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'

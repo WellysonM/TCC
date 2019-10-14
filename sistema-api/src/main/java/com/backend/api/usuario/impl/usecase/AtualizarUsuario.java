@@ -1,6 +1,5 @@
 package com.backend.api.usuario.impl.usecase;
 
-import com.backend.api.security.PasswordEncoder;
 import com.backend.api.usuario.impl.bo.UsuarioBO;
 import com.backend.api.usuario.spec.dto.UsuarioDTO;
 import com.backend.api.usuario.spec.entity.Usuario;
@@ -13,12 +12,9 @@ public class AtualizarUsuario {
     @Autowired
     private UsuarioBO usuarioBO;
 
-    private PasswordEncoder passwordEncoder = new PasswordEncoder();
-
     public void atualizarUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioBO.buscarUsuarioPorId(usuarioDTO.getId());
         preencherUsuario(usuario, usuarioDTO);
-        passwordEncoder.hasPassword(usuario);
         usuarioBO.atualizarUsuario(usuario);
     }
 

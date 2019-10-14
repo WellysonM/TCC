@@ -58,7 +58,7 @@
                                               color="green"></v-switch>
                                 </v-sheet>
                                 <v-flex text-xs-right xs12>
-                                    <v-btn
+                                    <v-btn @click="atualizarUsuario(usuarioLogado)"
                                             class="acao-sucesso"
                                             flat>
                                         Atualizar
@@ -75,6 +75,7 @@
 
 <script>
     import {mapState} from 'vuex'
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         data() {
@@ -87,9 +88,10 @@
             //  this.teste()
         },
         methods: {
-            //teste() {
-            //window.location.href = "http://localhost:8095/"
-            //}
+            async atualizarUsuario(usuario) {
+                console.log(usuario)
+                await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
+            }
         }
     }
 </script>
