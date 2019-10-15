@@ -25,6 +25,6 @@ public class AtualizarPedido {
         pedido.setValorTotal(pedidoDTO.getValorTotal());
         pedido.setMesa(pedidoDTO.getMesa());
         pedido.setUsuario(pedidoDTO.getUsuario());
-        pedido.setCliente(pedido.getCliente());
+        pedido.setCliente(pedidoDTO.getCliente());
     }
 }

@@ -59,8 +59,8 @@
                                 </v-sheet>
                                 <v-flex text-xs-right xs12>
                                     <v-btn @click="atualizarUsuario(usuarioLogado)"
-                                            class="acao-sucesso"
-                                            flat>
+                                           class="acao-sucesso"
+                                           flat>
                                         Atualizar
                                     </v-btn>
                                 </v-flex>
@@ -91,14 +91,6 @@
             async atualizarUsuario(usuario) {
                 console.log(usuario)
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
-            },
-            async efetuarLogout() {
-                await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
-                this.buscarUsuarioLogado()
-               await this.$router.push({path: '/entrar'})
-            },
-            async buscarUsuarioLogado() {
-                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
             }
         }
     }

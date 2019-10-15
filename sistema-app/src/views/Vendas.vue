@@ -144,7 +144,6 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
-            // ...mapMutations([mutationTypes.SET_COMANDA]),
             abrirCategoria(categoria) {
                 this.setCategoria(categoria)
                 this.buscarProdutosPorCategoria()
@@ -203,11 +202,6 @@
             fecharModalPedido() {
                 this.modalPedido = false
             },
-            /*  async inserirComanda(comanda) {
-                  await this.$store.dispatch(actionTypes.INSERIR_COMANDA, comanda)
-                  this.setComanda(comanda)
-                  this.resetarTabela()
-              },*/
             inserirProdutoPedido(produtos) {
                 if (produtos) {
                     produtos.forEach((produto) => {
@@ -221,26 +215,17 @@
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
             async inserirPedido(pedido) {
-                console.log(pedido)
                 await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
-                // this.setProdutoPedido(comandaPedido)
-                // this.montarComanda(comandaPedido)
             },
-            /*  montarComanda(comandaPedido) {
-                  let comanda = {
-                      mesa: this.mesa,
-                      pedidos: [comandaPedido]
-                  }
-                  this.inserirComanda(comanda)
-              },*/
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'
                 this.$store.state.pedido.valorTotal = this.calcularValorTotal()
                 this.$store.state.pedido.mesa = this.mesa
                 this.$store.state.pedido.usuario = this.usuario
-                this.$store.state.pedido.cliente = 'cliente'
+                this.$store.state.pedido.cliente = 'cliente padrão'
                 const pedido = this.$store.state.pedido
                 this.inserirPedido(pedido)
+                this.resetarTabela()
             },
             resetarTabela() {
                 this.desistirPedido()
@@ -253,7 +238,3 @@
         }
     }
 </script>
-<style lang="stylus">
-
-
-</style>
