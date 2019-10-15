@@ -155,6 +155,9 @@
             abrirModalProduto() {
                 this.modalProduto = true
             },
+            async atualizarMesa() {
+                await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, this.mesa)
+            },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
@@ -216,6 +219,12 @@
             },
             async inserirPedido(pedido) {
                 await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                this.montarMesaParaPedido()
+                this.resetarTabela()
+            },
+            montarMesaParaPedido() {
+                this.mesa.status = 'ocupada'
+                this.atualizarMesa()
             },
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'
@@ -225,7 +234,6 @@
                 this.$store.state.pedido.cliente = 'cliente padrão'
                 const pedido = this.$store.state.pedido
                 this.inserirPedido(pedido)
-                this.resetarTabela()
             },
             resetarTabela() {
                 this.desistirPedido()

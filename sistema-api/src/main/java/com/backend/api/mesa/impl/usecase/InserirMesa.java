@@ -12,7 +12,7 @@ public class InserirMesa {
     @Autowired
     private MesaBO mesaBO;
 
-    public void inserirMesa(MesaDTO mesaDTO){
+    public void inserirMesa(MesaDTO mesaDTO) {
         Mesa mesa = new Mesa();
         preencherMesa(mesa, mesaDTO);
         mesaBO.inserirMesa(mesa);
@@ -20,5 +20,6 @@ public class InserirMesa {
 
     private static void preencherMesa(Mesa mesa, MesaDTO mesaDTO) {
         mesa.setNumero(mesaDTO.getNumero());
+        mesa.setStatus(mesaDTO.getStatus());
     }
 }

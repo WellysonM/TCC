@@ -7,6 +7,10 @@ export default {
         return await axios.post('usuario/atualizar', usuario)
     },
 
+    async [actionTypes.ATUALIZAR_MESA](context, mesa) {
+        return await axios.post('mesa/atualizar', mesa)
+    },
+
     async [actionTypes.BUSCAR_CATEGORIAS]({commit}) {
         const {data} = await axios.get('categoria/all')
         commit(mutationTypes.SET_CATEGORIAS, data)
@@ -14,6 +18,11 @@ export default {
 
     async [actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA](context, categoriaId) {
         const {data} = await axios.get(`produtos/all/${categoriaId}`)
+        return data
+    },
+
+    async [actionTypes.BUSCAR_PEDIDO_POR_MESA](contex, mesaId) {
+        const {data} = await axios.get(`/pedidos/${mesaId}`)
         return data
     },
 

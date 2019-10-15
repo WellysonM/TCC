@@ -21,5 +21,6 @@ public class AtualizarMesa {
     private static void preencherMesa(Mesa mesa, MesaDTO mesaDTO) {
         mesa.setId(mesaDTO.getId());
         mesa.setNumero(mesaDTO.getNumero());
+        mesa.setStatus(mesaDTO.getStatus());
     }
 }
