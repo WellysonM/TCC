@@ -4,7 +4,7 @@ import {actionTypes, mutationTypes} from '@/commons/constants'
 export default {
 
     async [actionTypes.ATUALIZAR_USUARIO](context, usuario) {
-        return await axios.put('usuario/atualizar', usuario)
+        return await axios.post('usuario/atualizar', usuario)
     },
 
     async [actionTypes.BUSCAR_CATEGORIAS]({commit}) {
@@ -66,6 +66,6 @@ export default {
     },
 
     async [actionTypes.REMOVER_USUARIO](context, usuarioId) {
-        await axios.delete(`usuario/remover/${usuarioId}/`)
+        await axios.post(`usuario/remover/${usuarioId}`)
     }
 }

@@ -86,12 +86,12 @@
                 this.notificacao = false
             },
             async atualizarUsuario(usuario) {
-                console.log(usuario)
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
                 this.buscarUsuarios()
             },
             async removerUsuario(usuarioId) {
                 await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)
+                this.buscarUsuarios()
             }
         }
     }

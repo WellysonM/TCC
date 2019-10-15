@@ -37,13 +37,13 @@ public class UsuarioController {
         return validarLogin(request, usuarioDTO);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = {"/usuario/atualizar"})
+    @RequestMapping(method = RequestMethod.POST, value = {"/usuario/atualizar"})
     @CrossOrigin(origins = "http://localhost:8080")
     public void atualizaProduto(@RequestBody UsuarioDTO usuarioDTO) {
         iUsuario.atualizarUsuario(usuarioDTO);
     }
 
-    @DeleteMapping("/usuario/remover/{usuarioId}/")
+    @RequestMapping(method = RequestMethod.POST, value = {"/usuario/remover/{usuarioId}"})
     @CrossOrigin(origins = "http://localhost:8080")
     public void removerUsuario(@PathVariable(value = "usuarioId") String usuarioId) {
         iUsuario.removerUsuario(usuarioId);
