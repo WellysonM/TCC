@@ -78,6 +78,7 @@
         methods: {
             async inserirUsuario() {
                 await this.$store.dispatch(actionTypes.INSERIR_USUARIO, this.usuario)
+                await this.$router.push({path: '/entrar'})
             }
         }
     }

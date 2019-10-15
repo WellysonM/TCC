@@ -15,5 +15,9 @@ export default {
         state.usuarioLogado = usuarioLogado
     },
 
+    [mutationTypes.SET_COMANDA](state, comanda) {
+        state.comanda = comanda
+    },
+
     togglePedido: toggle('pedido')
 }

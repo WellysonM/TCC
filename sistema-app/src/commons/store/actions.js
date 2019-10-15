@@ -41,11 +41,12 @@ export default {
     },
 
     async [actionTypes.INSERIR_PRODUTO](context, produto) {
-        return await axios.post('produto/inserir', produto)
+         await axios.post('produto/inserir', produto)
     },
 
     async [actionTypes.INSERIR_PEDIDO](context, pedido) {
-        return await axios.post('pedido/inserir', pedido)
+        const {data} = await axios.post('pedido/inserir', pedido)
+        return data
     },
 
     async [actionTypes.INSERIR_MESA](context, mesa) {

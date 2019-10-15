@@ -68,8 +68,8 @@
                     </v-data-table>
 
                     <div>
-                        <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="comanda" @click="inserirPedido" class="acao-sucesso" flat
+                        <v-btn class="acao-fechar" flat style="float: right" @click="resetarTabela">Desistir</v-btn>
+                        <v-btn :disabled="comanda" @click="montarPedido" class="acao-sucesso" flat
                                style="float: left">
                             enviar pedido
                         </v-btn>
@@ -111,7 +111,6 @@
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
-            comandaInserir: {},
             mesa: {},
             produtos: [],
             comanda: true,
@@ -144,6 +143,7 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
+            ...mapMutations([mutationTypes.SET_COMANDA]),
             abrirCategoria(categoria) {
                 this.setCategoria(categoria)
                 this.buscarProdutosPorCategoria()
@@ -162,9 +162,11 @@
                 this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
             calcularSubValor(item) {
-                let subPreco = parseFloat(item.preco.replace(",", "."))
-                subPreco = subPreco * item.quantidade
-                return subPreco.toFixed(2).replace(".", ",")
+                if (item) {
+                    let subPreco = parseFloat(item.preco.replace(",", "."))
+                    subPreco = subPreco * item.quantidade
+                    return subPreco.toFixed(2).replace(".", ",")
+                }
             },
             calcularValorTotal() {
                 let valor = 0
@@ -175,6 +177,13 @@
                     })
                 }
                 return valor.toFixed(2).replace(".", ",")
+            },
+            desistirPedido() {
+                const produtos = this.$store.state.pedido.produtos
+                const index = produtos.indexOf(0)
+                while (produtos.length) {
+                    produtos.splice(index, 1)
+                }
             },
             deleteItem(item) {
                 const produtos = this.$store.state.pedido.produtos
@@ -192,13 +201,10 @@
             fecharModalPedido() {
                 this.modalPedido = false
             },
-            async inserirComanda(pedido) {
-                this.comandaInserir = {
-                    mesa: this.mesa,
-                    pedidos: [pedido]
-                }
-                console.log(this.comandaInserir)
-                await this.$store.dispatch(actionTypes.INSERIR_COMANDA, this.comandaInserir)
+            async inserirComanda(comanda) {
+                await this.$store.dispatch(actionTypes.INSERIR_COMANDA, comanda)
+                this.setComanda(comanda)
+                this.resetarTabela()
             },
             inserirProdutoPedido(produtos) {
                 if (produtos) {
@@ -212,15 +218,28 @@
             async inserirProduto(produto) {
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
-            async inserirPedido() {
-                this.montarPedido()
-                const pedido = this.$store.state.pedido
-                await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
-                await this.inserirComanda(pedido)
+            async inserirPedido(pedido) {
+                const comandaPedido = await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                this.setProdutoPedido(comandaPedido)
+                this.montarComanda(comandaPedido)
+            },
+            montarComanda(comandaPedido) {
+                let comanda = {
+                    mesa: this.mesa,
+                    pedidos: [comandaPedido]
+                }
+                this.inserirComanda(comanda)
             },
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'
                 this.$store.state.pedido.subValor = this.calcularValorTotal()
+                const pedido = this.$store.state.pedido
+                this.inserirPedido(pedido)
+            },
+            resetarTabela() {
+                this.desistirPedido()
+                this.comanda = true
+                this.mesa = {}
             },
             setCategoria(categoria) {
                 this.categoria = categoria

@@ -12,10 +12,11 @@ public class InserirPedido {
     @Autowired
     private PedidoBO pedidoBO;
 
-    public void inserirPedido(PedidoDTO pedidoDTO) {
+    public Pedido inserirPedido(PedidoDTO pedidoDTO) {
         Pedido pedido = new Pedido();
         preencherPedido(pedido, pedidoDTO);
         pedidoBO.inserirPedido(pedido);
+        return pedido;
     }
 
     private static void preencherPedido(Pedido pedido, PedidoDTO pedidoDTO) {

@@ -6,6 +6,7 @@ import com.backend.api.pedido.impl.usecase.InserirPedido;
 import com.backend.api.pedido.impl.usecase.RemoverPedido;
 import com.backend.api.pedido.spec.IPedido;
 import com.backend.api.pedido.spec.dto.PedidoDTO;
+import com.backend.api.pedido.spec.entity.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,8 +38,8 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public void inserirPedido(PedidoDTO pedidoDTO) {
-        inserir.inserirPedido(pedidoDTO);
+    public Pedido inserirPedido(PedidoDTO pedidoDTO) {
+        return inserir.inserirPedido(pedidoDTO);
     }
 
     @Override
