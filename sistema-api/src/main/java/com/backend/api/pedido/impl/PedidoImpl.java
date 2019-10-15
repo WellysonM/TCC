@@ -1,9 +1,6 @@
 package com.backend.api.pedido.impl;
 
-import com.backend.api.pedido.impl.usecase.AtualizarPedido;
-import com.backend.api.pedido.impl.usecase.BuscarPedido;
-import com.backend.api.pedido.impl.usecase.InserirPedido;
-import com.backend.api.pedido.impl.usecase.RemoverPedido;
+import com.backend.api.pedido.impl.usecase.*;
 import com.backend.api.pedido.spec.IPedido;
 import com.backend.api.pedido.spec.dto.PedidoDTO;
 import com.backend.api.pedido.spec.entity.Pedido;
@@ -27,9 +24,17 @@ public class PedidoImpl implements IPedido {
     @Autowired
     private RemoverPedido remover;
 
+    @Autowired
+    private BuscarPedidosPorMesa buscarPedidosPorMesa;
+
     @Override
     public List<PedidoDTO> buscarPedidos() {
         return buscar.buscarPedidos();
+    }
+
+    @Override
+    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId) {
+        return buscarPedidosPorMesa.buscarPedidosPorMesa(mesaId);
     }
 
     @Override
@@ -38,8 +43,8 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public Pedido inserirPedido(PedidoDTO pedidoDTO) {
-        return inserir.inserirPedido(pedidoDTO);
+    public void inserirPedido(PedidoDTO pedidoDTO) {
+        inserir.inserirPedido(pedidoDTO);
     }
 
     @Override

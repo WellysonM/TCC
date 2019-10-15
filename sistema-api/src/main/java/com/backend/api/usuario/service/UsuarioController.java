@@ -1,5 +1,6 @@
 package com.backend.api.usuario.service;
 
+import com.backend.api.usuario.impl.bo.UsuarioBO;
 import com.backend.api.usuario.spec.IUsuario;
 import com.backend.api.usuario.spec.dto.UsuarioDTO;
 import com.backend.api.usuario.spec.entity.Usuario;
@@ -16,6 +17,9 @@ public class UsuarioController {
 
     @Autowired
     private IUsuario iUsuario;
+
+    @Autowired
+    private UsuarioBO usuarioBO;
 
     private Usuario usuario = new Usuario();
 
@@ -62,7 +66,11 @@ public class UsuarioController {
     @GetMapping("/usuario/usuarioLogado")
     @CrossOrigin(origins = "http://localhost:8080")
     public Usuario getUsuarioLogado() {
-        return usuario;
+        if (usuario.getId() != null) {
+            return usuarioBO.buscarUsuarioPorId(usuario.getId());
+        } else {
+            return usuario;
+        }
     }
 
     private Usuario validarLogin(HttpServletRequest request, UsuarioDTO usuarioDTO) {

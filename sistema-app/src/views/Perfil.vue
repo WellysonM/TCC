@@ -91,6 +91,14 @@
             async atualizarUsuario(usuario) {
                 console.log(usuario)
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
+            },
+            async efetuarLogout() {
+                await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
+                this.buscarUsuarioLogado()
+               await this.$router.push({path: '/entrar'})
+            },
+            async buscarUsuarioLogado() {
+                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
             }
         }
     }

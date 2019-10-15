@@ -15,16 +15,22 @@ public class PedidoService {
     @Autowired
     private IPedido iPedido;
 
-    @GetMapping("/pedido/all")
+    @GetMapping("/pedidos/all")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<PedidoDTO> buscarPedidos() {
         return iPedido.buscarPedidos();
     }
 
+    @GetMapping("/pedidos/{mesaId}")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(@PathVariable("mesaId") String mesaId) {
+        return iPedido.buscarPedidosPorStatusEMesaId(mesaId);
+    }
+
     @PostMapping("/pedido/inserir")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
-    public Pedido inserirPedido(@RequestBody PedidoDTO pedidoDTO) {
-        return iPedido.inserirPedido(pedidoDTO);
+    public void inserirPedido(@RequestBody PedidoDTO pedidoDTO) {
+        iPedido.inserirPedido(pedidoDTO);
     }
 }

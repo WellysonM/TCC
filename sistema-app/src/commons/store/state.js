@@ -3,8 +3,10 @@ export default {
     pedido: {
         status: '',
         produtos: [],
-        subValor: ''
+        valorTotal: '',
+        mesa: {},
+        usuario: {},
+        cliente: ''
     },
-    usuarioLogado: {},
-    comanda: {}
+    usuarioLogado: {}
 }

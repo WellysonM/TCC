@@ -1,6 +1,8 @@
 package com.backend.api.pedido.spec.entity;
 
+import com.backend.api.mesa.spec.entity.Mesa;
 import com.backend.api.produto.spec.entity.Produto;
+import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,13 +15,19 @@ public class Pedido {
     private String id;
     private String status;
     private ArrayList<Produto> produtos = new ArrayList<>();
-    private String subValor;
+    private String valorTotal;
+    private Mesa mesa;
+    private Usuario usuario;
+    private String cliente;
 
-    public Pedido(String id, String status, ArrayList<Produto> produtos, String subValor) {
+    public Pedido(String id, String status, ArrayList<Produto> produtos, String valorTotal, Mesa mesa, Usuario usuario, String cliente) {
         this.id = id;
         this.status = status;
         this.produtos = produtos;
-        this.subValor = subValor;
+        this.valorTotal = valorTotal;
+        this.mesa = mesa;
+        this.usuario = usuario;
+        this.cliente = cliente;
     }
 
     public Pedido() {
@@ -49,11 +57,35 @@ public class Pedido {
         this.status = status;
     }
 
-    public String getSubValor() {
-        return subValor;
+    public String getValorTotal() {
+        return valorTotal;
     }
 
-    public void setSubValor(String subValor) {
-        this.subValor = subValor;
+    public void setValorTotal(String valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 }

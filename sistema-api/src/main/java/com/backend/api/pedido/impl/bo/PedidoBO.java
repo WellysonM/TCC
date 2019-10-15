@@ -14,8 +14,14 @@ public class PedidoBO {
     @Autowired
     private PedidoRepository pedidoRepository;
 
+    private static final String status = "finalizado";
+
     public List<Pedido> buscarPedidos() {
         return pedidoRepository.findAll(Sort.by("id").ascending());
+    }
+
+    public List<Pedido> buscarPedidosPorMesaIdEStatus(String mesaId) {
+        return pedidoRepository.findAllByMesa_IdAndStatusIsNotLike(mesaId, status);
     }
 
     public Pedido inserirPedido(Pedido pedido) {

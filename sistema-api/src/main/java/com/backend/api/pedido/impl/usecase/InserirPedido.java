@@ -12,17 +12,18 @@ public class InserirPedido {
     @Autowired
     private PedidoBO pedidoBO;
 
-    public Pedido inserirPedido(PedidoDTO pedidoDTO) {
+    public void inserirPedido(PedidoDTO pedidoDTO) {
         Pedido pedido = new Pedido();
         preencherPedido(pedido, pedidoDTO);
         pedidoBO.inserirPedido(pedido);
-        return pedido;
     }
 
     private static void preencherPedido(Pedido pedido, PedidoDTO pedidoDTO) {
-        pedido.setId(pedidoDTO.getId());
+        pedido.setCliente(pedido.getCliente());
         pedido.setStatus(pedidoDTO.getStatus());
         pedido.setProdutos(pedidoDTO.getProdutos());
-        pedido.setSubValor(pedidoDTO.getSubValor());
+        pedido.setValorTotal(pedidoDTO.getValorTotal());
+        pedido.setMesa(pedidoDTO.getMesa());
+        pedido.setUsuario(pedidoDTO.getUsuario());
     }
 }

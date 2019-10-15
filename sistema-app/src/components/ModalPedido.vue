@@ -41,7 +41,7 @@
                 <v-btn @click="fecharModalPedido" class="acao-fechar" flat style="margin: 0% 2%">
                     fechar
                 </v-btn>
-                <v-btn @click="enviarMesaEscolhida" class="acao-sucesso" flat
+                <v-btn @click="enviarPedido" class="acao-sucesso" flat
                        style="margin: 0% 2%">
                     Salvar
                 </v-btn>
@@ -56,8 +56,10 @@
         name: 'ModalPedido',
         data() {
             return {
-                mesa: {},
-                usuario: {},
+                pedido: {
+                    mesa: {},
+                    usuario: {},
+                },
                 mesas: [],
                 usuarios: []
             }
@@ -78,8 +80,8 @@
             fecharModalPedido() {
                 this.$emit('fecharModalPedido')
             },
-            enviarMesaEscolhida() {
-                this.$emit('enviarMesaEscolhida', this.mesa)
+            enviarPedido() {
+                this.$emit('enviarPedido', this.pedido)
             },
             async buscarMesas() {
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
@@ -90,10 +92,10 @@
             },
 
             verificarMesasEscolhida(mesa) {
-                this.mesa = mesa;
+                this.pedido.mesa = mesa;
             },
             verificarUsuarioEscolhido(usuario) {
-                this.usuario = usuario;
+                this.pedido.usuario = usuario;
             }
         }
     }

@@ -92,7 +92,7 @@
         <modal-pedido
                 :modal-pedido="modalPedido"
                 @abrirModalPedido="abrirModalPedido"
-                @enviarMesaEscolhida="enviarMesaEscolhida"
+                @enviarPedido="enviarPedido"
                 @fecharModalPedido="fecharModalPedido"
         />
     </div>
@@ -112,6 +112,7 @@
             modalCategoria: false,
             categoria: '',
             mesa: {},
+            usuario: {},
             produtos: [],
             comanda: true,
             modalPedido: false,
@@ -143,7 +144,7 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
-            ...mapMutations([mutationTypes.SET_COMANDA]),
+            // ...mapMutations([mutationTypes.SET_COMANDA]),
             abrirCategoria(categoria) {
                 this.setCategoria(categoria)
                 this.buscarProdutosPorCategoria()
@@ -190,8 +191,9 @@
                 const index = produtos.indexOf(item)
                 confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
             },
-            enviarMesaEscolhida(mesa) {
-                this.mesa = mesa
+            enviarPedido(pedido) {
+                this.mesa = pedido.mesa
+                this.usuario = pedido.usuario
                 this.comanda = false
                 this.fecharModalPedido()
             },
@@ -201,11 +203,11 @@
             fecharModalPedido() {
                 this.modalPedido = false
             },
-            async inserirComanda(comanda) {
-                await this.$store.dispatch(actionTypes.INSERIR_COMANDA, comanda)
-                this.setComanda(comanda)
-                this.resetarTabela()
-            },
+            /*  async inserirComanda(comanda) {
+                  await this.$store.dispatch(actionTypes.INSERIR_COMANDA, comanda)
+                  this.setComanda(comanda)
+                  this.resetarTabela()
+              },*/
             inserirProdutoPedido(produtos) {
                 if (produtos) {
                     produtos.forEach((produto) => {
@@ -219,20 +221,24 @@
                 await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
             },
             async inserirPedido(pedido) {
-                const comandaPedido = await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
-                this.setProdutoPedido(comandaPedido)
-                this.montarComanda(comandaPedido)
+                console.log(pedido)
+                await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                // this.setProdutoPedido(comandaPedido)
+                // this.montarComanda(comandaPedido)
             },
-            montarComanda(comandaPedido) {
-                let comanda = {
-                    mesa: this.mesa,
-                    pedidos: [comandaPedido]
-                }
-                this.inserirComanda(comanda)
-            },
+            /*  montarComanda(comandaPedido) {
+                  let comanda = {
+                      mesa: this.mesa,
+                      pedidos: [comandaPedido]
+                  }
+                  this.inserirComanda(comanda)
+              },*/
             montarPedido() {
                 this.$store.state.pedido.status = 'em espera'
-                this.$store.state.pedido.subValor = this.calcularValorTotal()
+                this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                this.$store.state.pedido.mesa = this.mesa
+                this.$store.state.pedido.usuario = this.usuario
+                this.$store.state.pedido.cliente = 'cliente'
                 const pedido = this.$store.state.pedido
                 this.inserirPedido(pedido)
             },

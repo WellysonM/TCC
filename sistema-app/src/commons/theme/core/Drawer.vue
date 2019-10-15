@@ -24,7 +24,7 @@
                                 <v-icon size="50">mdi-account-circle</v-icon>
                             </v-list-tile-avatar>
                             <v-list-tile-title class="title">
-                                Bem Vindo
+                                {{usuarioLogado.name}}
                             </v-list-tile-title>
                         </v-list-tile>
                         <v-divider/>
@@ -53,7 +53,7 @@
 
 <script>
     import {mapMutations, mapState} from 'vuex'
-    import {actionTypes} from '@/commons/constants'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         data: () => ({
@@ -93,6 +93,7 @@
             ]
         }),
         computed: {
+            ...mapState(['usuarioLogado']),
             ...mapState('app', ['image', 'color']),
             inputValue: {
                 get() {
@@ -126,7 +127,7 @@
             async efetuarLogout() {
                 await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
                 this.buscarUsuarioLogado()
-                this.$router.push({path: '/entrar'})
+                await this.$router.push({path: '/entrar'})
             },
             async buscarUsuarioLogado() {
                 await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)

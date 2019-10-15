@@ -14,10 +14,16 @@ public class ComandaService {
     @Autowired
     private IComanda iComanda;
 
-    @GetMapping("/comanda/all")
+    @GetMapping("/comandas/all")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<ComandaDTO> buscarCategorias() {
         return iComanda.buscarComandas();
+    }
+
+    @GetMapping("/comandas/mesa/{mesaId}")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<ComandaDTO> buscarComandas(@PathVariable("mesaId") String mesaId) {
+        return iComanda.buscarComandasPorMesa(mesaId);
     }
 
     @PostMapping("/comanda/inserir")
