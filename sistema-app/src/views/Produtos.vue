@@ -1,5 +1,6 @@
 <template>
     <div>
+        <notificacao/>
         <modal-categoria
                 :modal-categoria="modalCategoria"
                 @abrirModalCategoria="abrirModalCategoria"
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+    import notificacao from './Notifications'
     import {mapMutations} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
     import ModalCategoria from '../components/ModalCategoria'
@@ -56,19 +58,21 @@
 
     export default {
         name: 'Produtos',
-        components: {ModalProduto, ModalCategoria},
+        components: {ModalProduto, ModalCategoria, notificacao},
         data() {
             return {
                 modalProduto: false,
                 modalCategoria: false,
                 categoria: [],
-                produtos: []
+                produtos: [],
+                notificacao:{},
             }
         },
         async mounted() {
             await this.buscarCategorias()
         },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
             abrirModalCategoria() {
                 this.modalCategoria = true
@@ -80,6 +84,22 @@
                 this.setCategoria(categoria)
                 this.buscarProdutosPorCategoria()
                 this.abrirModalProduto()
+            },
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
             },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
@@ -96,6 +116,7 @@
                     this.fecharModalProduto()
                 }
                 this.$router.push('Vendas')
+                this.abrirNotificacaoSucesso()
             },
             fecharModalProduto() {
                 this.modalProduto = false
@@ -104,26 +125,38 @@
                 this.modalCategoria = false
             },
             async inserirCategoriaProduto(categoria) {
-                await this.$store.dispatch(actionTypes.INSERIR_CATEGORIA, categoria)
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_CATEGORIA, categoria)
+                    this.abrirNotificacaoSucesso()
+                }catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             async inserirProduto(produto) {
-                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                    this.abrirNotificacaoSucesso()
+                }catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             async inserirNovaCategoriaProduto(categoria) {
                 try {
                     await this.inserirCategoriaProduto(categoria)
                     await this.buscarCategorias()
                     this.fecharModalCategoria()
+                    this.abrirNotificacaoSucesso()
                 } catch (e) {
-                    alert('Ocorreu algum erro. Tente novamente!')
+                    this.abrirNotificacaoErro()
                 }
             },
             async inserirNovoProduto(produto) {
                 try {
+                    this.abrirNotificacaoSucesso()
                     await this.inserirProduto(produto)
                     await this.buscarProdutosPorCategoria()
                 } catch (e) {
-                    alert('Ocorreu algum erro. Tente novamente!')
+                    this.abrirNotificacaoErro()
                 }
             },
             setCategoria(categoria) {

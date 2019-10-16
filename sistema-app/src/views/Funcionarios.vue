@@ -1,15 +1,9 @@
 <template>
     <div>
-        <notificacao
-                :cor="cor"
-                :mensagem="mensagem"
-                :notificacao="notificacao"
-                @abrirNotificacao="abrirNotificacao"
-                @fecharNotificacao="fecharNotificacao"
-        />
+        <notificacao/>
         <v-container fill-height fluid grid-list-xl>
             <v-layout justify-center wrap>
-                <v-flex md9>
+                <v-flex md10>
                     <material-card
                             color="padrao2"
                             text="Selecione um usuario para editar"
@@ -24,7 +18,7 @@
                                 <td>
                                     <v-switch v-model="item.admin" :input-value="item.admin" error
                                               label="Usuario Administrador"
-                                              color="green" @change="atualizarUsuario(item)"></v-switch>
+                                              color="secondary" @change="atualizarUsuario(item)"></v-switch>
                                 </td>
                                 <td class="text-xs-right">
                                     <v-btn @click="removerUsuario(item.id)" class="acao-fechar" flat
@@ -43,14 +37,13 @@
 
 <script>
     import notificacao from './Notifications'
-    import {actionTypes} from '@/commons/constants'
+    import {mapMutations} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         components: {notificacao},
         data: () => ({
-            notificacao: false,
-            cor: null,
-            mensagem: '',
+            notificacao: {},
             usuarios: [],
             headers: [
                 {
@@ -74,24 +67,41 @@
             this.buscarUsuarios()
         },
         methods: {
-            abrirNotificacao() {
-                this.notificacao = true
-                this.cor = 'green'
-                this.mensagem = 'teste'
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
             },
             async buscarUsuarios() {
                 this.usuarios = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
-            },
-            fecharNotificacao() {
-                this.notificacao = false
             },
             async atualizarUsuario(usuario) {
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
                 this.buscarUsuarios()
             },
-            async removerUsuario(usuarioId) {
+            async remover(usuarioId) {
                 await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)
-                this.buscarUsuarios()
+            },
+            removerUsuario(usuarioId) {
+                try {
+                    this.remover(usuarioId)
+                    this.buscarUsuarios()
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             }
         }
     }

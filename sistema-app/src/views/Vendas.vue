@@ -3,10 +3,10 @@
         <v-container fill-height
                      fluid
                      grid-list-xl
-                     style="width: 50%; float: left">
+                     style="width: 40%; float: left">
             <v-layout wrap>
                 <template>
-                    <v-flex :key="categoria.id" v-for="categoria of categorias">
+                    <v-flex :key="categoria.id" v-for="categoria of categorias" lg3 md4>
                         <v-hover>
                             <template v-slot="{ hover }">
                                 <v-card style="cursor: pointer"
@@ -29,9 +29,10 @@
         <v-container fill-height
                      fluid
                      grid-list-xl
-                     style="width: 50%; float: right;">
+                     style="width: 60%; float: right;">
             <v-layout wrap style="justify-content: flex-end;">
                 <material-card
+                        style="width:100%"
                         color="padrao2"
                         text="Tabela de produtos"
                         title="Comanda">
@@ -87,7 +88,7 @@
                 @abrirModalProduto="abrirModalProduto"
                 @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
-                @inserirProduto="inserirProduto"
+                @inserirNovoProduto="inserirNovoProduto"
         />
         <modal-pedido
                 :modal-pedido="modalPedido"
@@ -95,18 +96,20 @@
                 @enviarPedido="enviarPedido"
                 @fecharModalPedido="fecharModalPedido"
         />
+        <notificacao/>
     </div>
 </template>
 
 <script>
     import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
+    import notificacao from './Notifications'
     import ModalPedido from '../components/ModalPedido'
     import ModalProduto from '../components/ModalProduto'
 
     export default {
         name: 'Vendas',
-        components: {ModalPedido, ModalProduto},
+        components: {ModalPedido, ModalProduto, notificacao},
         data: () => ({
             modalProduto: false,
             modalCategoria: false,
@@ -117,6 +120,7 @@
             comanda: true,
             modalPedido: false,
             styleCard: [],
+            notificacao:{},
             headers: [
                 {
                     text: 'Produto',
@@ -143,6 +147,7 @@
             ...mapState(['categorias', 'pedido'])
         },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
             abrirCategoria(categoria) {
                 this.setCategoria(categoria)
@@ -155,8 +160,29 @@
             abrirModalProduto() {
                 this.modalProduto = true
             },
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async atualizarMesa() {
-                await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, this.mesa)
+                try {
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, this.mesa)
+                    this.abrirNotificacaoSucesso()
+                }catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
@@ -187,23 +213,35 @@
                 while (produtos.length) {
                     produtos.splice(index, 1)
                 }
+                this.abrirNotificacaoSucesso()
             },
             deleteItem(item) {
                 const produtos = this.$store.state.pedido.produtos
                 const index = produtos.indexOf(item)
                 confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
+                this.abrirNotificacaoSucesso()
             },
             enviarPedido(pedido) {
                 this.mesa = pedido.mesa
                 this.usuario = pedido.usuario
                 this.comanda = false
                 this.fecharModalPedido()
+                this.abrirNotificacaoSucesso()
             },
             fecharModalProduto() {
                 this.modalProduto = false
             },
             fecharModalPedido() {
                 this.modalPedido = false
+            },
+            async inserirNovoProduto(produto) {
+                try {
+                    this.abrirNotificacaoSucesso()
+                    await this.inserirProduto(produto)
+                    await this.buscarProdutosPorCategoria()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             inserirProdutoPedido(produtos) {
                 if (produtos) {
@@ -212,15 +250,26 @@
                         this.setProdutoPedido(produto)
                     })
                     this.fecharModalProduto()
+                    this.abrirNotificacaoSucesso()
                 }
             },
             async inserirProduto(produto) {
-                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                    this.abrirNotificacaoSucesso()
+                }catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             async inserirPedido(pedido) {
-                await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
-                this.montarMesaParaPedido()
-                this.resetarTabela()
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                    this.montarMesaParaPedido()
+                    this.resetarTabela()
+                    this.abrirNotificacaoSucesso()
+                }catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             montarMesaParaPedido() {
                 this.mesa.status = 'ocupada'

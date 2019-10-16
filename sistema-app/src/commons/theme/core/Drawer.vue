@@ -1,5 +1,6 @@
 <template>
     <div>
+        <notificacao/>
         <v-navigation-drawer
                 app
                 dark
@@ -52,10 +53,12 @@
 </template>
 
 <script>
+    import notificacao from '../../../views/Notifications'
     import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
+        components: {notificacao},
         data: () => ({
             logo: '',
             responsive: false,
@@ -113,6 +116,23 @@
         },
         methods: {
             ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             onResponsiveInverted() {
                 if (window.innerWidth < 991) {
                     this.responsive = true
@@ -125,9 +145,14 @@
                 this.setDrawer(!this.$store.state.app.drawer)
             },
             async efetuarLogout() {
-                await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
-                this.buscarUsuarioLogado()
-                await this.$router.push({path: '/entrar'})
+                try {
+                    await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
+                    this.buscarUsuarioLogado()
+                    await this.$router.push({path: '/entrar'})
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             async buscarUsuarioLogado() {
                 await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)

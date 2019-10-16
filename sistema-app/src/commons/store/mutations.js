@@ -19,5 +19,9 @@ export default {
         state.comanda = comanda
     },
 
+    [mutationTypes.SET_NOTIFICACAO](state, notificacao) {
+        state.notificacao = notificacao
+    },
+
     togglePedido: toggle('pedido')
 }

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <notificacao/>
         <v-btn class="acao-sucesso" flat style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
         </v-btn>
         <v-container fill-height
@@ -31,12 +32,16 @@
     </div>
 </template>
 <script>
-    import {actionTypes} from '@/commons/constants'
+    import notificacao from './Notifications'
+    import {mapMutations} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         name: 'Inicio',
+        components: {notificacao},
         data() {
             return {
+                notificacao: {},
                 mesas: [],
                 pedidos: []
             }
@@ -45,6 +50,23 @@
             this.buscarMesas()
         },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async buscarMesas() {
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
             },
@@ -54,18 +76,23 @@
             },
             definirCorDaMesa(mesa) {
                 if (mesa.status === 'ocupada') {
-                    return 'yellow'
+                    return 'warning'
                 }
                 if (mesa.status === 'disponivel') {
-                    return 'green'
+                    return 'secondary'
                 }
                 if (mesa.status === 'pago') {
-                    return 'red'
+                    return 'error'
                 }
             },
             async inserirMesa(mesa) {
-                await this.$store.dispatch(actionTypes.INSERIR_MESA, mesa)
-                this.buscarMesas()
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_MESA, mesa)
+                    this.buscarMesas()
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             montarMesa() {
                 let numero = this.mesas.length

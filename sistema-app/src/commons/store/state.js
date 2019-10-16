@@ -8,5 +8,10 @@ export default {
         usuario: {},
         cliente: ''
     },
-    usuarioLogado: {}
+    usuarioLogado: {},
+    notificacao: {
+        cor: null,
+        mensagem: null,
+        mostrar: false
+    }
 }
