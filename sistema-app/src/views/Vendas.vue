@@ -2,8 +2,7 @@
     <div>
         <v-container fill-height
                      fluid
-                     grid-list-xl
-                     style="width: 40%; float: left">
+                     grid-list-xl>
             <v-layout wrap>
                 <template>
                     <v-flex :key="categoria.id" v-for="categoria of categorias" lg3 md4>
@@ -25,18 +24,11 @@
                     </v-flex>
                 </template>
             </v-layout>
-        </v-container>
-        <v-container fill-height
-                     fluid
-                     grid-list-xl
-                     style="width: 60%; float: right;">
             <v-layout wrap style="justify-content: flex-end;">
                 <material-card
-                        style="width:100%"
                         color="padrao2"
                         text="Tabela de produtos"
                         title="Comanda">
-
                     <v-data-table
                             :headers="headers"
                             :items="pedido.produtos"
@@ -67,7 +59,6 @@
                             </tr>
                         </template>
                     </v-data-table>
-
                     <div>
                         <v-btn class="acao-fechar" flat style="float: right" @click="resetarTabela">Desistir</v-btn>
                         <v-btn :disabled="comanda" @click="montarPedido" class="acao-sucesso" flat
@@ -106,10 +97,11 @@
     import notificacao from './Notifications'
     import ModalPedido from '../components/ModalPedido'
     import ModalProduto from '../components/ModalProduto'
+    import StatsCard from "../commons/theme/material/StatsCard";
 
     export default {
         name: 'Vendas',
-        components: {ModalPedido, ModalProduto, notificacao},
+        components: {StatsCard, ModalPedido, ModalProduto, notificacao},
         data: () => ({
             modalProduto: false,
             modalCategoria: false,
@@ -120,7 +112,7 @@
             comanda: true,
             modalPedido: false,
             styleCard: [],
-            notificacao:{},
+            notificacao: {},
             headers: [
                 {
                     text: 'Produto',
@@ -180,7 +172,7 @@
                 try {
                     await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, this.mesa)
                     this.abrirNotificacaoSucesso()
-                }catch (e) {
+                } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
@@ -257,7 +249,7 @@
                 try {
                     await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
                     this.abrirNotificacaoSucesso()
-                }catch (e) {
+                } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
@@ -267,7 +259,7 @@
                     this.montarMesaParaPedido()
                     this.resetarTabela()
                     this.abrirNotificacaoSucesso()
-                }catch (e) {
+                } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
@@ -295,3 +287,8 @@
         }
     }
 </script>
+<style>
+    table.v-table thead th:not(:first-child){
+        padding: 0 !important;
+    }
+</style>

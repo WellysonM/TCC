@@ -23,7 +23,7 @@ public class PedidoService {
 
     @GetMapping("/pedidos/{mesaId}")
     @CrossOrigin(origins = "http://localhost:8080")
-    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(@PathVariable("mesaId") String mesaId) {
+    public Pedido buscarPedidosPorStatusEMesaId(@PathVariable("mesaId") String mesaId) {
         return iPedido.buscarPedidosPorStatusEMesaId(mesaId);
     }
 

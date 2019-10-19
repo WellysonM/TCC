@@ -1,5 +1,10 @@
 <template>
     <div>
+        <modal-comanda
+                :modal-comanda="modalComanda"
+                @fecharModalComanda="fecharModalComanda"
+                @confirmar="efetuarPagamento"
+        />
         <notificacao/>
         <v-btn class="acao-sucesso" flat style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
         </v-btn>
@@ -11,7 +16,7 @@
                     <v-flex lg2 md2>
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card
+                                <v-card @click="buscarPedidoPorMesa(mesa.id)"
                                         style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         class="pa-4 card transition-swing"
@@ -33,17 +38,18 @@
 </template>
 <script>
     import notificacao from './Notifications'
+    import modalComanda from '../components/ModalComanda'
     import {mapMutations} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         name: 'Inicio',
-        components: {notificacao},
+        components: {notificacao, modalComanda},
         data() {
             return {
                 notificacao: {},
                 mesas: [],
-                pedidos: []
+                modalComanda: false
             }
         },
         mounted() {
@@ -51,6 +57,7 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            ...mapMutations([mutationTypes.SET_PEDIDO]),
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
@@ -71,8 +78,10 @@
                 this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
             },
             async buscarPedidoPorMesa(mesaId) {
-                this.pedidos = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesaId)
-                console.log(this.pedidos)
+                let pedido = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesaId)
+                console.log(pedido)
+                this.setPedido(pedido)
+                this.modalComanda = true
             },
             definirCorDaMesa(mesa) {
                 if (mesa.status === 'ocupada') {
@@ -84,6 +93,13 @@
                 if (mesa.status === 'pago') {
                     return 'error'
                 }
+            },
+            efetuarPagamento() {
+                this.abrirNotificacaoSucesso()
+                this.fecharModalComanda()
+            },
+            fecharModalComanda() {
+                this.modalComanda = false
             },
             async inserirMesa(mesa) {
                 try {

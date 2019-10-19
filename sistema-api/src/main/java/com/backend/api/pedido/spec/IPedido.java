@@ -9,7 +9,7 @@ public interface IPedido {
 
     List<PedidoDTO> buscarPedidos();
 
-    List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId);
+    Pedido buscarPedidosPorStatusEMesaId(String mesaId);
 
     void removerPedido(PedidoDTO pedidoDTO);
 

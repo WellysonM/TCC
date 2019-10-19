@@ -33,7 +33,7 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId) {
+    public Pedido buscarPedidosPorStatusEMesaId(String mesaId) {
         return buscarPedidosPorMesa.buscarPedidosPorMesa(mesaId);
     }
 

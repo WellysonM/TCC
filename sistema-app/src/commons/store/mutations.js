@@ -15,8 +15,8 @@ export default {
         state.usuarioLogado = usuarioLogado
     },
 
-    [mutationTypes.SET_COMANDA](state, comanda) {
-        state.comanda = comanda
+    [mutationTypes.SET_PEDIDO](state, pedido) {
+        state.pedido = pedido
     },
 
     [mutationTypes.SET_NOTIFICACAO](state, notificacao) {
