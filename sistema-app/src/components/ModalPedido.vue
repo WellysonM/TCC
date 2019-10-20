@@ -1,59 +1,66 @@
 <template>
-    <v-dialog max-width="500px" persistent v-model="modalPedido">
-        <v-card>
-            <v-card-title>
-                <span class="headline">Dados do Pedido</span>
-            </v-card-title>
-            <v-card-text>
-                <v-container>
-                    <v-form>
-                        <v-flex cols="12" md="4" pa-2 sm="6">
-                            <v-select
-                                    item-text="numero"
-                                    item-value="id"
-                                    :items="mesas"
-                                    return-object
-                                    @change="verificarMesasEscolhida"
-                                    label="Escolha o numero da mesa"
-                            ></v-select>
-                        </v-flex>
-                        <v-flex cols="12" md="4" pa-2 sm="6">
-                            <v-select
-                                    item-text="name"
-                                    item-value="id"
-                                    return-object
-                                    @change="verificarUsuarioEscolhido"
-                                    :items="usuarios"
-                                    label="Funcionario"
-                            ></v-select>
-                        </v-flex>
-                        <v-flex cols12 md12 pa-2 sm6>
-                            <v-text-field
-                                    class="info-input"
-                                    label="Cliente"
-                            />
-                        </v-flex>
-                    </v-form>
-                </v-container>
-            </v-card-text>
-            <v-card-actions>
-                <v-divider></v-divider>
-                <v-btn @click="fecharModalPedido" class="acao-fechar" flat style="margin: 0% 2%">
-                    fechar
-                </v-btn>
-                <v-btn @click="enviarPedido" class="acao-sucesso" flat
-                       style="margin: 0% 2%">
-                    Salvar
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-dialog>
+    <div>
+        <v-dialog max-width="500px" persistent v-model="modalPedido">
+            <v-card>
+                <v-card-title>
+                    <span class="headline">Dados do Pedido</span>
+                </v-card-title>
+                <v-card-text>
+                    <v-container>
+                        <v-form>
+                            <v-flex cols="12" md="4" pa-2 sm="6">
+                                <v-select
+                                        item-text="numero"
+                                        item-value="id"
+                                        :items="mesas"
+                                        return-object
+                                        @change="verificarMesasEscolhida"
+                                        label="Escolha o numero da mesa"
+                                ></v-select>
+                            </v-flex>
+                            <v-flex cols="12" md="4" pa-2 sm="6">
+                                <v-select
+                                        item-text="name"
+                                        item-value="id"
+                                        return-object
+                                        @change="verificarUsuarioEscolhido"
+                                        :items="usuarios"
+                                        label="Funcionario"
+                                ></v-select>
+                            </v-flex>
+                            <v-flex cols12 md12 pa-2 sm6>
+                                <v-text-field
+                                        class="info-input"
+                                        label="Cliente"
+                                />
+                            </v-flex>
+                        </v-form>
+                    </v-container>
+                </v-card-text>
+                <v-card-actions>
+                    <v-divider></v-divider>
+                    <v-btn @click="fecharModalPedido" class="acao-fechar" flat style="margin: 0% 2%">
+                        fechar
+                    </v-btn>
+                    <v-btn @click="enviarPedido" class="acao-sucesso" flat
+                           style="margin: 0% 2%">
+                        Salvar
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <notificacao/>
+    </div>
 </template>
 <script>
-    import {actionTypes} from '@/commons/constants'
+    import notificacao from '../views/Notifications'
+    import {mapMutations} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
+
 
     export default {
         name: 'ModalPedido',
+        components: {notificacao},
         data() {
             return {
                 pedido: {
@@ -74,8 +81,25 @@
             this.buscarUsuarios()
         },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             abrirModalPedido() {
                 this.$emit('abrirModalPedido')
+            },
+            abrirNotificacaoAlerta(mesa) {
+                this.notificacao = {
+                    cor: 'warning',
+                    mensagem: 'Atenção a mesa ' + mesa.numero + ' esta com o status ocupada!',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro(mesa) {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Atenção a mesa ' + mesa.numero + ' precisa ser limpa!',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
             },
             fecharModalPedido() {
                 this.$emit('fecharModalPedido')
@@ -83,7 +107,7 @@
             enviarPedido() {
                 this.$emit('enviarPedido', this.pedido)
             },
-             buscarMesas() {
+            buscarMesas() {
                 this.mesas = this.$store.state.mesas
             },
 
@@ -92,7 +116,17 @@
             },
 
             verificarMesasEscolhida(mesa) {
-                this.pedido.mesa = mesa;
+                if (mesa.status === 'disponivel') {
+                    this.pedido.mesa = mesa;
+                }
+                if (mesa.status === 'ocupada') {
+                    this.pedido.mesa = mesa;
+                    this.abrirNotificacaoAlerta(mesa)
+                }
+                if (mesa.status === 'pago') {
+                    this.$router.push({path: '/inicio'})
+                    this.abrirNotificacaoErro(mesa)
+                }
             },
             verificarUsuarioEscolhido(usuario) {
                 this.pedido.usuario = usuario;
