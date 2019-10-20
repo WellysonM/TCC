@@ -9,11 +9,11 @@ public interface IPedido {
 
     List<PedidoDTO> buscarPedidos();
 
-    Pedido buscarPedidosPorStatusEMesaId(String mesaId);
+    List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId);
 
     void removerPedido(PedidoDTO pedidoDTO);
 
     void inserirPedido(PedidoDTO pedidoDTO);
 
-    void atualizarPedido(PedidoDTO pedidoDTO);
+    void atualizarPedido(List<PedidoDTO> pedidoDTOs);
 }

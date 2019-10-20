@@ -10,10 +10,10 @@
                         id="card-title"
                         primary-title>
                     <v-flex md6>
-                        Pedido: {{pedido.status}}
+                        Comanda de pedidos
                     </v-flex>
                 </v-card-title>
-                <v-container fill-height fluid grid-list-xl>
+                <v-container fill-height fluid grid-list-xl v-for="pedido of comanda">
                     <v-layout justify-center wrap>
                         <v-flex md12>
                             <v-data-table
@@ -35,38 +35,39 @@
                                 </template>
                             </v-data-table>
                             <v-divider></v-divider>
-                            <v-layout wrap>
-                                <v-flex md6 style="margin-left: 20px">
-                                    <v-checkbox
-                                            prepend-icon="mdi-cash-usd-outline"
-                                            label="Dinheiro"
-                                            color="success"
-                                            value="dinheiro"
-                                            hide-details
-                                    ></v-checkbox>
-                                </v-flex>
-                                <v-flex md5>
-                                    <v-checkbox
-                                            prepend-icon="mdi-credit-card-outline"
-                                            label="Cartão"
-                                            color="indigo"
-                                            value="cartão"
-                                            hide-details
-                                    ></v-checkbox>
-                                </v-flex>
-                            </v-layout>
+                            <!-- <v-layout wrap>
+                                 <v-flex md6 style="margin-left: 20px">
+                                     <v-checkbox
+                                             prepend-icon="mdi-cash-usd-outline"
+                                             label="Dinheiro"
+                                             color="success"
+                                             value="dinheiro"
+                                             hide-details
+                                     ></v-checkbox>
+                                 </v-flex>
+                                 <v-flex md5>
+                                     <v-checkbox
+                                             prepend-icon="mdi-credit-card-outline"
+                                             label="Cartão"
+                                             color="indigo"
+                                             value="cartão"
+                                             hide-details
+                                     ></v-checkbox>
+                                 </v-flex>
+                             </v-layout>-->
                             <v-flex pa-2>
                                 <div style="float: right">Total: {{pedido.valorTotal}}</div>
                             </v-flex>
                         </v-flex>
-                        <v-btn @click="adicionarProduto" class="acao-sucesso" flat style="min-width: 10px">
-                            <v-icon>mdi-plus-circle-outline</v-icon>
-                        </v-btn>
-                        <v-divider></v-divider>
-                        <v-btn @click="fecharModalComanda" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="abrirModalDialog" class="acao-sucesso" flat style="margin: 0% 2%">Pagamento
-                        </v-btn>
+                        <v-divider/>
                     </v-layout>
+                </v-container>
+                <v-container fill-height fluid grid-list-xl style="justify-content: flex-end;">
+
+                    <v-btn @click="fecharModalComanda" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
+                    <v-btn @click="abrirModalDialog" class="acao-sucesso" flat style="margin: 0% 2%">Pagamento
+                    </v-btn>
+
                 </v-container>
             </v-card>
         </v-dialog>
@@ -120,12 +121,9 @@
             }
         },
         computed: {
-            ...mapState(['pedido'])
+            ...mapState(['comanda'])
         },
         methods: {
-            adicionarProduto() {
-                this.$router.push({path: '/vendas'})
-            },
             abrirModalDialog() {
                 this.dialog = true
             },

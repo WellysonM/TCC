@@ -33,7 +33,7 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public Pedido buscarPedidosPorStatusEMesaId(String mesaId) {
+    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId) {
         return buscarPedidosPorMesa.buscarPedidosPorMesa(mesaId);
     }
 
@@ -48,7 +48,7 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public void atualizarPedido(PedidoDTO pedidoDTO) {
-        atualizar.atualizarPedido(pedidoDTO);
+    public void atualizarPedido(List<PedidoDTO> pedidoDTOs) {
+        atualizar.atualizarPedido(pedidoDTOs);
     }
 }

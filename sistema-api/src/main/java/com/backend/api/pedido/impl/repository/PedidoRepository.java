@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface PedidoRepository extends MongoRepository<Pedido, String> {
-    Pedido findAByMesa_IdAndStatusIsNotLike(String mesaId, String status);
+   List<Pedido> findAByMesa_IdAndStatusIsNotLike(String mesaId, String status);
 }

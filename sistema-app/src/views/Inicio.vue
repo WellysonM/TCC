@@ -68,7 +68,7 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
-            ...mapMutations([mutationTypes.SET_PEDIDO]),
+            ...mapMutations([mutationTypes.SET_COMANDA]),
             abrirModalComanda() {
                 this.modalComanda = true
             },
@@ -88,6 +88,14 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
+            abrirNotificacaoAlerta(mesa) {
+                this.notificacao = {
+                    cor: 'warning',
+                    mensagem: 'Ops... a mesa ' + mesa.numero + ' não possui comanda',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async atualizarMesa(mesa) {
                 try {
                     await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, mesa)
@@ -101,12 +109,12 @@
                 await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
             },
             async buscarPedidoPorMesa(mesa) {
-                let pedido = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesa.id)
-                if (pedido) {
-                    this.setPedido(pedido)
-                }else{
-                    pedido = {}
-                    this.setPedido(pedido)
+                let comanda = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesa.id)
+                if (comanda) {
+                    this.setComanda(comanda)
+                } else {
+                    comanda = {}
+                    this.setComanda(comanda)
                 }
                 this.verificarEstadoAtualMesa(mesa)
             },
@@ -135,8 +143,8 @@
             },
             fecharModalComanda() {
                 this.modalComanda = false
-               let pedido = {}
-                this.setPedido(pedido)
+                let comanda = {}
+                this.setComanda(comanda)
             },
             async inserirMesa(mesa) {
                 try {
@@ -156,13 +164,17 @@
                 this.inserirMesa(mesa)
             },
             async prepararPedidoParaPagamento() {
-                const pedido = this.$store.state.pedido
-                pedido.status = 'finalizado'
-                pedido.mesa.status = 'pago'
+                const comanda = this.$store.state.comanda
                 try {
-                    await this.$store.dispatch(actionTypes.ATUALIZAR_PEDIDO, pedido)
+                    if (comanda) {
+                        comanda.forEach((pedido) => {
+                            pedido.status = 'finalizado'
+                            pedido.mesa.status = 'pago'
+                            this.atualizarMesa(pedido.mesa)
+                        })
+                    }
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_PEDIDO, comanda)
                     this.abrirNotificacaoSucesso()
-                    this.atualizarMesa(pedido.mesa)
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
@@ -173,7 +185,7 @@
                     this.abrirModalComanda()
                 }
                 if (mesa.status === 'disponivel') {
-                    this.abrirModalComanda()
+                    this.abrirNotificacaoAlerta(mesa)
                 }
                 if (mesa.status === 'pago') {
                     this.dialog = true

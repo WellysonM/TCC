@@ -1,5 +1,12 @@
 export default {
     categorias: [],
+    comanda: {},
+    mesas: [],
+    notificacao: {
+        cor: null,
+        mensagem: null,
+        mostrar: false
+    },
     pedido: {
         status: '',
         produtos: [],
@@ -8,11 +15,5 @@ export default {
         usuario: {},
         cliente: ''
     },
-    usuarioLogado: {},
-    mesas: [],
-    notificacao: {
-        cor: null,
-        mensagem: null,
-        mostrar: false
-    }
+    usuarioLogado: {}
 }

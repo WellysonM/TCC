@@ -106,7 +106,6 @@
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
-            devoAtualizar: false,
             produtos: [],
             enviarPedidoCozinha: true,
             modalPedido: false,
@@ -133,7 +132,6 @@
         }),
         async mounted() {
             await this.buscarCategorias()
-            this.verificarPedido()
         },
         computed: {
             ...mapState(['categorias', 'pedido'])
@@ -173,16 +171,6 @@
                 try {
                     await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, mesa)
                     this.abrirNotificacaoSucesso()
-                } catch (e) {
-                    this.abrirNotificacaoErro()
-                }
-            },
-            async atualizarPedido(pedido) {
-                try {
-                    await this.$store.dispatch(actionTypes.ATUALIZAR_PEDIDO, pedido)
-                    this.resetarTabela()
-                    this.abrirNotificacaoSucesso()
-                    await this.$router.push({path: '/inicio'})
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
@@ -281,18 +269,11 @@
                 this.atualizarMesa()
             },
             montarPedido() {
-                if (this.devoAtualizar) {
-                    debugger
-                    const pedido = this.$store.state.pedido
-                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
-                    this.atualizarPedido(pedido)
-                } else {
-                    this.$store.state.pedido.status = 'em espera'
-                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
-                    this.$store.state.pedido.cliente = 'cliente padrão'
-                    const pedido = this.$store.state.pedido
-                    this.inserirPedido(pedido)
-                }
+                this.$store.state.pedido.status = 'em espera'
+                this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                this.$store.state.pedido.cliente = 'cliente padrão'
+                const pedido = this.$store.state.pedido
+                this.inserirPedido(pedido)
             },
             resetarTabela() {
                 this.desistirPedido()
@@ -300,15 +281,6 @@
             },
             setCategoria(categoria) {
                 this.categoria = categoria
-            },
-            verificarPedido() {
-                const pedido = this.$store.state.pedido
-                if (pedido.id) {
-                    this.devoAtualizar = true
-                    this.enviarPedidoCozinha = false
-                } else {
-                    this.devoAtualizar = false
-                }
             }
         }
     }
