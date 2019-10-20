@@ -16,7 +16,7 @@
                     <v-flex lg2 md2>
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card @click="buscarPedidoPorMesa(mesa.id)"
+                                <v-card @click="buscarPedidoPorMesa(mesa)"
                                         style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         class="pa-4 card transition-swing"
@@ -34,23 +34,34 @@
                 </div>
             </v-layout>
         </v-container>
+        <atencao
+                :dialog="dialog"
+                :mensagem="'A mesa esta suja, deseja limpar ela agora?'"
+                @cancelar="cancelar"
+                @confirmar="confirmar"
+        />
     </div>
 </template>
 <script>
     import notificacao from './Notifications'
+    import atencao from '../components/Atencao'
     import modalComanda from '../components/ModalComanda'
-    import {mapMutations} from 'vuex'
+    import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         name: 'Inicio',
-        components: {notificacao, modalComanda},
+        components: {notificacao, modalComanda, atencao},
         data() {
             return {
                 notificacao: {},
-                mesas: [],
-                modalComanda: false
+                modalComanda: false,
+                dialog: false,
+                mesa: {}
             }
+        },
+        computed: {
+            ...mapState(['mesas'])
         },
         mounted() {
             this.buscarMesas()
@@ -58,6 +69,9 @@
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             ...mapMutations([mutationTypes.SET_PEDIDO]),
+            abrirModalComanda() {
+                this.modalComanda = true
+            },
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
@@ -74,14 +88,27 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
-            async buscarMesas() {
-                this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+            async atualizarMesa(mesa) {
+                try {
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, mesa)
+                    this.abrirNotificacaoSucesso()
+                    this.buscarMesas()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
-            async buscarPedidoPorMesa(mesaId) {
-                let pedido = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesaId)
-                console.log(pedido)
-                this.setPedido(pedido)
-                this.modalComanda = true
+            async buscarMesas() {
+                await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+            },
+            async buscarPedidoPorMesa(mesa) {
+                let pedido = await this.$store.dispatch(actionTypes.BUSCAR_PEDIDO_POR_MESA, mesa.id)
+                if (pedido) {
+                    this.setPedido(pedido)
+                }else{
+                    pedido = {}
+                    this.setPedido(pedido)
+                }
+                this.verificarEstadoAtualMesa(mesa)
             },
             definirCorDaMesa(mesa) {
                 if (mesa.status === 'ocupada') {
@@ -94,8 +121,16 @@
                     return 'error'
                 }
             },
+            confirmar() {
+                this.mesa.status = 'disponivel'
+                this.atualizarMesa(this.mesa)
+                this.cancelar()
+            },
+            cancelar() {
+                this.dialog = false
+            },
             efetuarPagamento() {
-                this.abrirNotificacaoSucesso()
+                this.prepararPedidoParaPagamento()
                 this.fecharModalComanda()
             },
             fecharModalComanda() {
@@ -111,12 +146,37 @@
                 }
             },
             montarMesa() {
-                let numero = this.mesas.length
+                let numero = this.$store.state.mesas.length
                 let mesa = {
                     numero: numero + 1,
                     status: 'disponivel'
                 }
                 this.inserirMesa(mesa)
+            },
+            async prepararPedidoParaPagamento() {
+                const pedido = this.$store.state.pedido
+                pedido.status = 'finalizado'
+                pedido.mesa.status = 'pago'
+                try {
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_PEDIDO, pedido)
+                    this.abrirNotificacaoSucesso()
+                    this.atualizarMesa(pedido.mesa)
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
+
+            },
+            verificarEstadoAtualMesa(mesa) {
+                if (mesa.status === 'ocupada') {
+                    this.abrirModalComanda()
+                }
+                if (mesa.status === 'disponivel') {
+                    this.abrirModalComanda()
+                }
+                if (mesa.status === 'pago') {
+                    this.dialog = true
+                    this.mesa = mesa
+                }
             }
         }
     }

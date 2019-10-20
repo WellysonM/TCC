@@ -19,6 +19,10 @@ export default {
         state.pedido = pedido
     },
 
+    [mutationTypes.SET_MESAS](state, mesas) {
+        state.mesas = mesas
+    },
+
     [mutationTypes.SET_NOTIFICACAO](state, notificacao) {
         state.notificacao = notificacao
     },

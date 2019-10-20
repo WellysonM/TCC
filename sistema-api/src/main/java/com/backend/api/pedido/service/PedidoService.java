@@ -33,4 +33,11 @@ public class PedidoService {
     public void inserirPedido(@RequestBody PedidoDTO pedidoDTO) {
         iPedido.inserirPedido(pedidoDTO);
     }
+
+    @PostMapping("/pedido/atualizar")
+    //@PreAuthorize("hasRole('ADMIN')")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void atualizarPedido(@RequestBody PedidoDTO pedidoDTO) {
+        iPedido.atualizarPedido(pedidoDTO);
+    }
 }

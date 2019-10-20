@@ -59,7 +59,7 @@
                                 <div style="float: right">Total: {{pedido.valorTotal}}</div>
                             </v-flex>
                         </v-flex>
-                        <v-btn class="acao-sucesso" flat style="min-width: 10px">
+                        <v-btn @click="adicionarProduto" class="acao-sucesso" flat style="min-width: 10px">
                             <v-icon>mdi-plus-circle-outline</v-icon>
                         </v-btn>
                         <v-divider></v-divider>
@@ -72,6 +72,7 @@
         </v-dialog>
         <atencao
                 :dialog="dialog"
+                :mensagem="'Você esta prestes a realizar uma operação sem volta, tem certeza que deseja continuar?'"
                 @confirmar="confirmar"
                 @cancelar="cancelar"
         />
@@ -122,6 +123,9 @@
             ...mapState(['pedido'])
         },
         methods: {
+            adicionarProduto() {
+                this.$router.push({path: '/vendas'})
+            },
             abrirModalDialog() {
                 this.dialog = true
             },

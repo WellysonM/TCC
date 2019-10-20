@@ -3,6 +3,10 @@ import {actionTypes, mutationTypes} from '@/commons/constants'
 
 export default {
 
+    async [actionTypes.ATUALIZAR_PEDIDO](context, pedido) {
+        return await axios.post('pedido/atualizar', pedido)
+    },
+
     async [actionTypes.ATUALIZAR_USUARIO](context, usuario) {
         return await axios.post('usuario/atualizar', usuario)
     },
@@ -36,9 +40,9 @@ export default {
         commit(mutationTypes.SET_USUARIO_LOGADO, data)
     },
 
-    async [actionTypes.BUSCAR_MESAS]() {
+    async [actionTypes.BUSCAR_MESAS]({commit}) {
         const {data} = await axios.get('mesas/all')
-        return data
+        commit(mutationTypes.SET_MESAS, data)
     },
 
     async [actionTypes.INSERIR_CATEGORIA](context, categoria) {

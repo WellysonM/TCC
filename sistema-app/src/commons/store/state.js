@@ -9,6 +9,7 @@ export default {
         cliente: ''
     },
     usuarioLogado: {},
+    mesas: [],
     notificacao: {
         cor: null,
         mensagem: null,

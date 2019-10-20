@@ -37,6 +37,8 @@
                 if (!usuarioAutenticado.id) {
                     this.$router.push({path: '/entrar'})
                     this.$router.push({path: '/'})
+                } else {
+                    this.$router.push({path: '/inicio'})
                 }
             }
         }

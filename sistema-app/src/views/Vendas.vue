@@ -61,7 +61,7 @@
                     </v-data-table>
                     <div>
                         <v-btn class="acao-fechar" flat style="float: right" @click="resetarTabela">Desistir</v-btn>
-                        <v-btn :disabled="comanda" @click="montarPedido" class="acao-sucesso" flat
+                        <v-btn :disabled="enviarPedidoCozinha" @click="montarPedido" class="acao-sucesso" flat
                                style="float: left">
                             enviar pedido
                         </v-btn>
@@ -106,10 +106,9 @@
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
-            mesa: {},
-            usuario: {},
+            devoAtualizar: false,
             produtos: [],
-            comanda: true,
+            enviarPedidoCozinha: true,
             modalPedido: false,
             styleCard: [],
             notificacao: {},
@@ -134,6 +133,7 @@
         }),
         async mounted() {
             await this.buscarCategorias()
+            this.verificarPedido()
         },
         computed: {
             ...mapState(['categorias', 'pedido'])
@@ -169,9 +169,20 @@
                 this.setNotificacao(this.notificacao)
             },
             async atualizarMesa() {
+                const mesa = this.$store.state.pedido.mesa
                 try {
-                    await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, this.mesa)
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, mesa)
                     this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
+            },
+            async atualizarPedido(pedido) {
+                try {
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_PEDIDO, pedido)
+                    this.resetarTabela()
+                    this.abrirNotificacaoSucesso()
+                    await this.$router.push({path: '/inicio'})
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
@@ -200,6 +211,7 @@
                 return valor.toFixed(2).replace(".", ",")
             },
             desistirPedido() {
+                this.$store.state.pedido.id = null
                 const produtos = this.$store.state.pedido.produtos
                 const index = produtos.indexOf(0)
                 while (produtos.length) {
@@ -214,9 +226,9 @@
                 this.abrirNotificacaoSucesso()
             },
             enviarPedido(pedido) {
-                this.mesa = pedido.mesa
-                this.usuario = pedido.usuario
-                this.comanda = false
+                this.$store.state.pedido.mesa = pedido.mesa
+                this.$store.state.pedido.usuario = pedido.usuario
+                this.enviarPedidoCozinha = false
                 this.fecharModalPedido()
                 this.abrirNotificacaoSucesso()
             },
@@ -259,36 +271,50 @@
                     this.montarMesaParaPedido()
                     this.resetarTabela()
                     this.abrirNotificacaoSucesso()
+                    await this.$router.push({path: '/inicio'})
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
             montarMesaParaPedido() {
-                this.mesa.status = 'ocupada'
+                this.$store.state.pedido.mesa.status = 'ocupada'
                 this.atualizarMesa()
             },
             montarPedido() {
-                this.$store.state.pedido.status = 'em espera'
-                this.$store.state.pedido.valorTotal = this.calcularValorTotal()
-                this.$store.state.pedido.mesa = this.mesa
-                this.$store.state.pedido.usuario = this.usuario
-                this.$store.state.pedido.cliente = 'cliente padrão'
-                const pedido = this.$store.state.pedido
-                this.inserirPedido(pedido)
+                if (this.devoAtualizar) {
+                    debugger
+                    const pedido = this.$store.state.pedido
+                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                    this.atualizarPedido(pedido)
+                } else {
+                    this.$store.state.pedido.status = 'em espera'
+                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                    this.$store.state.pedido.cliente = 'cliente padrão'
+                    const pedido = this.$store.state.pedido
+                    this.inserirPedido(pedido)
+                }
             },
             resetarTabela() {
                 this.desistirPedido()
-                this.comanda = true
-                this.mesa = {}
+                this.enviarPedidoCozinha = true
             },
             setCategoria(categoria) {
                 this.categoria = categoria
+            },
+            verificarPedido() {
+                const pedido = this.$store.state.pedido
+                if (pedido.id) {
+                    this.devoAtualizar = true
+                    this.enviarPedidoCozinha = false
+                } else {
+                    this.devoAtualizar = false
+                }
             }
         }
     }
 </script>
 <style>
-    table.v-table thead th:not(:first-child){
+    table.v-table thead th:not(:first-child) {
         padding: 0 !important;
     }
 </style>

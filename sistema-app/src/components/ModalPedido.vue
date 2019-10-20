@@ -83,8 +83,8 @@
             enviarPedido() {
                 this.$emit('enviarPedido', this.pedido)
             },
-            async buscarMesas() {
-                this.mesas = await this.$store.dispatch(actionTypes.BUSCAR_MESAS)
+             buscarMesas() {
+                this.mesas = this.$store.state.mesas
             },
 
             async buscarUsuarios() {

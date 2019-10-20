@@ -1,4 +1,5 @@
 export default {
+    ATUALIZAR_PEDIDO: 'atualizarPedido',
     ATUALIZAR_USUARIO: 'atualizarUsuario',
     ATUALIZAR_MESA: 'atualizarMesa',
     BUSCAR_CATEGORIAS: 'buscarCategorias',

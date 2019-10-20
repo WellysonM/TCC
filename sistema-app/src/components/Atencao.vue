@@ -2,7 +2,7 @@
     <v-dialog v-model="dialog" persistent max-width="290">
         <v-card>
             <v-card-title class="headline">Atenção</v-card-title>
-            <v-card-text>Você esta prestes a realizar uma operação sem volta, tem certeza que deseja continuar?
+            <v-card-text>{{mensagem}}
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -15,9 +15,14 @@
 
 <script>
     export default {
-        name: "Pagamento",
+        name: "Atencao",
         props: {
-            dialog: true
+            dialog: {
+                required: true
+            },
+            mensagem: {
+                required: true
+            }
         },
         methods: {
             confirmar() {
