@@ -135,6 +135,8 @@
             },
             fecharModalComanda() {
                 this.modalComanda = false
+               let pedido = {}
+                this.setPedido(pedido)
             },
             async inserirMesa(mesa) {
                 try {
