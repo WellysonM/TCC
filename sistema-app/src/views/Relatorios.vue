@@ -1,4 +1,4 @@
-    <template>
+<template>
     <v-container
             fill-height
             fluid
@@ -45,14 +45,17 @@
     </v-container>
 </template>
 <script>
+    import {actionTypes} from '@/commons/constants'
+
     export default {
         data() {
             return {
+                pedidos: {},
                 dailySalesChart: {
                     data: {
                         labels: ['Do', 'Se', 'Te', 'Qua', 'Qui', 'Se', 'Sá'],
                         series: [
-                            [1, 17, 7, 17, 23, 18, 38]
+                            [this.vendasSemanais(0), this.vendasSemanais(1), this.vendasSemanais(2), this.vendasSemanais(3), this.vendasSemanais(4), this.vendasSemanais(5), this.vendasSemanais(6)]
                         ]
                     },
                     options: {
@@ -60,7 +63,7 @@
                             tension: 0
                         }),
                         low: 0,
-                        high: 50,
+                        high: this.definirTamanhoVendasSemanais(),
                         chartPadding: {
                             top: 0,
                             right: 0,
@@ -95,7 +98,6 @@
                         labels: ['Ja', 'Fe', 'Ma', 'Ab', 'Mai', 'Ju', 'Jul', 'Ag', 'Se', 'Out', 'No', 'De'],
                         series: [
                             [151, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
                         ]
                     },
                     options: {
@@ -123,6 +125,30 @@
                     ]
                 }
             }
+        },
+        methods: {
+            calcularQuantidadeVendas(dia) {
+                let vendas = 0;
+                if (this.pedidos) {
+                    this.pedidos.forEach((pedido) => {
+                        if (pedido.data.getDay() === dia) {
+                            vendas++;
+                        }
+                    })
+                    return vendas;
+                }
+            },
+            definirTamanhoVendasSemanais() {
+                return this.pedidos.length + 1
+            },
+            preencherPedidos() {
+                this.pedidos = this.$store.state.pedidosFinalizados
+            },
+            vendasSemanais(dia) {
+                this.preencherPedidos()
+                return this.calcularQuantidadeVendas(dia)
+            }
         }
     }
 </script>
+=

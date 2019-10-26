@@ -30,6 +30,11 @@ export default {
         return data
     },
 
+    async [actionTypes.BUSCAR_PEDIDOS_FINALIZADOS]({commit}) {
+        const {data} = await axios.get('/pedidos/finalizados')
+        commit(mutationTypes.SET_PEDIDOS_FINALIZADOS, data)
+    },
+
     async [actionTypes.BUSCAR_USUARIOS]() {
         const {data} = await axios.get('usuarios/all')
         return data

@@ -65,6 +65,7 @@
         },
         mounted() {
             this.buscarMesas()
+            this.buscarPedidosFinalizados()
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
@@ -118,6 +119,10 @@
                 }
                 this.verificarEstadoAtualMesa(mesa)
             },
+            async buscarPedidosFinalizados() {
+                await this.$store.dispatch(actionTypes.BUSCAR_PEDIDOS_FINALIZADOS)
+                this.formatarData()
+            },
             definirCorDaMesa(mesa) {
                 if (mesa.status === 'ocupada') {
                     return 'warning'
@@ -140,6 +145,15 @@
             efetuarPagamento() {
                 this.prepararPedidoParaPagamento()
                 this.fecharModalComanda()
+                this.buscarPedidosFinalizados()
+            },
+            formatarData() {
+                const pedidos = this.$store.state.pedidosFinalizados
+                if (pedidos) {
+                    pedidos.forEach((pedido) => {
+                        pedido.data = new Date(pedido.data)
+                    })
+                }
             },
             fecharModalComanda() {
                 this.modalComanda = false

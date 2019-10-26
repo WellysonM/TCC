@@ -15,5 +15,6 @@ export default {
         usuario: {},
         data: new Date()
     },
+    pedidosFinalizados: {},
     usuarioLogado: {}
 }
