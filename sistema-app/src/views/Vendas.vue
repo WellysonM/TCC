@@ -228,9 +228,9 @@
             },
             async inserirNovoProduto(produto) {
                 try {
-                    this.abrirNotificacaoSucesso()
                     await this.inserirProduto(produto)
                     await this.buscarProdutosPorCategoria()
+                    this.abrirNotificacaoSucesso()
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
@@ -269,9 +269,9 @@
                 this.atualizarMesa()
             },
             montarPedido() {
+                this.$store.state.pedido.data = new Date()
                 this.$store.state.pedido.status = 'em espera'
                 this.$store.state.pedido.valorTotal = this.calcularValorTotal()
-                this.$store.state.pedido.cliente = 'cliente padrão'
                 const pedido = this.$store.state.pedido
                 this.inserirPedido(pedido)
             },

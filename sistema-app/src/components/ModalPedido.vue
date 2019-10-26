@@ -28,12 +28,6 @@
                                         label="Funcionario"
                                 ></v-select>
                             </v-flex>
-                            <v-flex cols12 md12 pa-2 sm6>
-                                <v-text-field
-                                        class="info-input"
-                                        label="Cliente"
-                                />
-                            </v-flex>
                         </v-form>
                     </v-container>
                 </v-card-text>

@@ -13,7 +13,7 @@ export default {
         valorTotal: '',
         mesa: {},
         usuario: {},
-        cliente: ''
+        data: new Date()
     },
     usuarioLogado: {}
 }

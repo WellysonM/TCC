@@ -11,6 +11,8 @@ public interface IPedido {
 
     List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId);
 
+    List<PedidoDTO> buscarTodosPedidosFinalizados();
+
     void removerPedido(PedidoDTO pedidoDTO);
 
     void inserirPedido(PedidoDTO pedidoDTO);

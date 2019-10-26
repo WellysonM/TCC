@@ -13,7 +13,7 @@
                         Comanda de pedidos
                     </v-flex>
                 </v-card-title>
-                <v-container fill-height fluid grid-list-xl v-for="pedido of comanda">
+                <v-container fill-height fluid grid-list-xl :key="pedido.id" v-for="pedido of comanda">
                     <v-layout justify-center wrap>
                         <v-flex md12>
                             <v-data-table

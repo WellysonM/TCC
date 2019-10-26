@@ -169,6 +169,7 @@
                     if (comanda) {
                         comanda.forEach((pedido) => {
                             pedido.status = 'finalizado'
+                            pedido.data = new Date()
                             pedido.mesa.status = 'pago'
                             this.atualizarMesa(pedido.mesa)
                         })

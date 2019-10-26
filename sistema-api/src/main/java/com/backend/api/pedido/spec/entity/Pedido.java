@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Document(collection = "pedido")
 public class Pedido {
@@ -18,16 +19,16 @@ public class Pedido {
     private String valorTotal;
     private Mesa mesa;
     private Usuario usuario;
-    private String cliente;
+    private Date data;
 
-    public Pedido(String id, String status, ArrayList<Produto> produtos, String valorTotal, Mesa mesa, Usuario usuario, String cliente) {
+    public Pedido(String id, String status, ArrayList<Produto> produtos, String valorTotal, Mesa mesa, Usuario usuario, Date data) {
         this.id = id;
         this.status = status;
         this.produtos = produtos;
         this.valorTotal = valorTotal;
         this.mesa = mesa;
         this.usuario = usuario;
-        this.cliente = cliente;
+        this.data = data;
     }
 
     public Pedido() {
@@ -81,11 +82,11 @@ public class Pedido {
         this.usuario = usuario;
     }
 
-    public String getCliente() {
-        return cliente;
+    public Date getData() {
+        return data;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setData(Date data) {
+        this.data = data;
     }
 }

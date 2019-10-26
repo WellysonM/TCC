@@ -7,6 +7,7 @@ import com.backend.api.produto.spec.entity.Produto;
 import com.backend.api.usuario.spec.entity.Usuario;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PedidoDTO {
 
@@ -16,7 +17,7 @@ public class PedidoDTO {
     private String valorTotal;
     private Mesa mesa;
     private Usuario usuario;
-    private String cliente;
+    private Date data;
 
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
@@ -25,7 +26,7 @@ public class PedidoDTO {
         this.valorTotal = pedido.getValorTotal();
         this.mesa = pedido.getMesa();
         this.usuario = pedido.getUsuario();
-        this.cliente = pedido.getCliente();
+        this.data = pedido.getData();
     }
 
     public PedidoDTO() {
@@ -79,11 +80,11 @@ public class PedidoDTO {
         this.usuario = usuario;
     }
 
-    public String getCliente() {
-        return cliente;
+    public Date getData() {
+        return data;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setData(Date data) {
+        this.data = data;
     }
 }

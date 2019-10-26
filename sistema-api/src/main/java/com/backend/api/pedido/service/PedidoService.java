@@ -6,6 +6,7 @@ import com.backend.api.pedido.spec.entity.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -19,6 +20,12 @@ public class PedidoService {
     @CrossOrigin(origins = "http://localhost:8080")
     public List<PedidoDTO> buscarPedidos() {
         return iPedido.buscarPedidos();
+    }
+
+    @GetMapping("/pedidos/finalizados")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<PedidoDTO> buscarTodosPedidosFinalizados() {
+        return iPedido.buscarTodosPedidosFinalizados();
     }
 
     @GetMapping("/pedidos/{mesaId}")

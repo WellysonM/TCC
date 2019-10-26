@@ -90,7 +90,7 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mensagem: 'Usuario ou senha inválidos !',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -101,8 +101,10 @@
                     if (this.usuarioAutenticado) {
                         this.setUsuarioLogado(this.usuarioAutenticado)
                         await this.$router.push({path: '/inicio'})
+                        this.abrirNotificacaoSucesso()
+                    } else {
+                        return this.abrirNotificacaoErro()
                     }
-                    this.abrirNotificacaoSucesso()
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }

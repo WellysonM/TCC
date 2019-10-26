@@ -20,8 +20,12 @@ public class PedidoBO {
         return pedidoRepository.findAll(Sort.by("id").ascending());
     }
 
-    public  List<Pedido> buscarPedidosPorMesaIdEStatus(String mesaId) {
+    public List<Pedido> buscarPedidosPorMesaIdEStatus(String mesaId) {
         return pedidoRepository.findAByMesa_IdAndStatusIsNotLike(mesaId, status);
+    }
+
+    public List<Pedido> buscarTodosPedidosFinalizados() {
+        return pedidoRepository.findAllByStatus(status);
     }
 
     public Pedido inserirPedido(Pedido pedido) {

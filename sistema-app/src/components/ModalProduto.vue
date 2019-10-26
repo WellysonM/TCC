@@ -185,6 +185,7 @@
             },
             enviarPedido() {
                 this.$emit('inserirProdutoPedido', _.clone(this.selected))
+                this.resetarCheckbox()
             },
             fecharCadastrar() {
                 this.dialog = false
@@ -203,6 +204,9 @@
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
+            },
+            resetarCheckbox() {
+                this.selected = {}
             }
         }
     }
