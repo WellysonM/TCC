@@ -18,10 +18,10 @@
                                 <td>
                                     <v-switch v-model="item.admin" :input-value="item.admin" error
                                               label="Usuario Administrador"
-                                              color="secondary" @change="atualizarUsuario(item)"></v-switch>
+                                              color="secondary" @change="abrirModalAtencao(item)"></v-switch>
                                 </td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="removerUsuario(item.id)" class="acao-fechar" flat
+                                    <v-btn @click="abrirModalAtencaoParaExcluir(item)" class="acao-fechar" flat
                                            style="min-width: 10px">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
@@ -32,17 +32,28 @@
                 </v-flex>
             </v-layout>
         </v-container>
+        <atencao
+                :dialog="dialog"
+                :mensagem="mensagem"
+                @cancelar="cancelar"
+                @confirmar="confirmar"
+        />
     </div>
 </template>
 
 <script>
     import notificacao from './Notifications'
+    import atencao from '../components/Atencao'
     import {mapMutations} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
-        components: {notificacao},
+        components: {notificacao, atencao},
         data: () => ({
+            acaoRemover: false,
+            mensagem: '',
+            usuarioAtual: {},
+            dialog: false,
             notificacao: {},
             usuarios: [],
             headers: [
@@ -68,6 +79,18 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirModalAtencao(item) {
+                this.mensagem = 'Tem certeza que deseja atualizar este usuario?'
+                this.acaoRemover = false
+                this.usuarioAtual = item
+                this.dialog = true
+            },
+            abrirModalAtencaoParaExcluir(item) {
+                this.acaoRemover = true
+                this.mensagem = 'Tem certeza que deseja excluir este usuario?'
+                this.usuarioAtual = item
+                this.dialog = true
+            },
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
@@ -84,12 +107,27 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
+            async atualizarUsuario() {
+                await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuarioAtual)
+                this.buscarUsuarios()
+            },
             async buscarUsuarios() {
                 this.usuarios = await this.$store.dispatch(actionTypes.BUSCAR_USUARIOS)
+                this.verificarUsuario()
             },
-            async atualizarUsuario(usuario) {
-                await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
+            confirmar() {
+                if (!this.acaoRemover) {
+                    this.atualizarUsuario()
+                    this.cancelar()
+                }
+                if (this.acaoRemover) {
+                    this.removerUsuario(this.usuarioAtual.id)
+                    this.cancelar()
+                }
+            },
+            cancelar() {
                 this.buscarUsuarios()
+                this.dialog = false
             },
             async remover(usuarioId) {
                 await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)
@@ -102,6 +140,14 @@
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
+            },
+            verificarUsuario() {
+                const usuarioLogado = this.$store.state.usuarioLogado
+                this.usuarios.forEach((usuario) => {
+                    if (usuario.id === usuarioLogado.id) {
+                        this.usuarios.splice(this.usuarios.indexOf(usuario), 1)
+                    }
+                })
             }
         }
     }

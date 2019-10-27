@@ -73,7 +73,7 @@
         </v-dialog>
         <atencao
                 :dialog="dialog"
-                :mensagem="'Você esta prestes a realizar uma operação sem volta, tem certeza que deseja continuar?'"
+                :mensagem="'Você estar prestes a realizar uma operação sem volta, tem certeza que deseja continuar?'"
                 @confirmar="confirmar"
                 @cancelar="cancelar"
         />

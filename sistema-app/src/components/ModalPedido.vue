@@ -82,7 +82,7 @@
             abrirNotificacaoAlerta(mesa) {
                 this.notificacao = {
                     cor: 'warning',
-                    mensagem: 'Atenção a mesa ' + mesa.numero + ' esta com o status ocupada!',
+                    mensagem: 'Atenção a mesa ' + mesa.numero + ' estar com o status ocupada!',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)

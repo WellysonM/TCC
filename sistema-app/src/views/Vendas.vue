@@ -50,7 +50,7 @@
                                 </td>
                                 <td>{{calcularSubValor(item)}}</td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="deleteItem(item)" class="acao-fechar" flat
+                                    <v-btn @click="abrirModalAtencao(item)" class="acao-fechar" flat
                                            style="min-width: 10px">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
@@ -59,8 +59,11 @@
                         </template>
                     </v-data-table>
                     <div>
-                        <v-btn class="acao-fechar" flat style="float: right" @click="resetarTabela">Desistir</v-btn>
-                        <v-btn :disabled="enviarPedidoCozinha" @click="montarPedido" class="acao-sucesso" flat
+                        <v-btn class="acao-fechar" flat style="float: right" @click="abrirModalAtencaoDesistir">
+                            Desistir
+                        </v-btn>
+                        <v-btn :disabled="enviarPedidoCozinha" @click="abrirModalAtencaoEnviarPedido"
+                               class="acao-sucesso" flat
                                style="float: left">
                             enviar pedido
                         </v-btn>
@@ -87,12 +90,19 @@
                 @fecharModalPedido="fecharModalPedido"
         />
         <notificacao/>
+        <atencao
+                :dialog="dialog"
+                :mensagem="mensagem"
+                @cancelar="cancelar"
+                @confirmar="confirmar"
+        />
     </div>
 </template>
 
 <script>
     import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
+    import atencao from '../components/Atencao'
     import notificacao from './Notifications'
     import ModalPedido from '../components/ModalPedido'
     import ModalProduto from '../components/ModalProduto'
@@ -100,8 +110,13 @@
 
     export default {
         name: 'Vendas',
-        components: {StatsCard, ModalPedido, ModalProduto, notificacao},
+        components: {StatsCard, ModalPedido, ModalProduto, notificacao, atencao},
         data: () => ({
+            mensagem: '',
+            dialog: false,
+            acaoDesistir: false,
+            acaoEnviarPedido: false,
+            produtoRemover: {},
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
@@ -149,6 +164,26 @@
             abrirModalProduto() {
                 this.modalProduto = true
             },
+            abrirModalAtencao(item) {
+                this.acaoEnviarPedido = false
+                this.acaoDesistir = false
+                this.mensagem = 'Tem certeza que deseja excluir este produto?'
+                this.produtoRemover = item
+                this.dialog = true
+            },
+            abrirModalAtencaoDesistir() {
+                this.acaoEnviarPedido = false
+                this.acaoDesistir = true
+                this.mensagem = 'Tem certeza que deseja desistir do pedido?'
+                this.dialog = true
+            },
+            abrirModalAtencaoEnviarPedido() {
+                this.acaoEnviarPedido = true
+                this.acaoDesistir = false
+                this.mensagem = 'Tem certeza que deseja enviar o pedido a cozinha? \n ' +
+                    'após enviar o pedido não será possível editá-lo'
+                this.dialog = true
+            },
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
@@ -161,6 +196,14 @@
                 this.notificacao = {
                     cor: 'error',
                     mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoTabelaVazia() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... a comanda estar vazia',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -197,6 +240,22 @@
                 }
                 return valor.toFixed(2).replace(".", ",")
             },
+            cancelar() {
+                this.dialog = false
+            },
+            confirmar() {
+                if (!this.acaoDesistir && !this.acaoEnviarPedido) {
+                    this.deleteItem(this.produtoRemover)
+                    this.cancelar()
+                }
+                if (this.acaoDesistir) {
+                    this.resetarTabela()
+                    this.cancelar()
+                }
+                if (this.acaoEnviarPedido) {
+                    this.montarPedido()
+                }
+            },
             desistirPedido() {
                 this.$store.state.pedido.id = null
                 const produtos = this.$store.state.pedido.produtos
@@ -209,7 +268,7 @@
             deleteItem(item) {
                 const produtos = this.$store.state.pedido.produtos
                 const index = produtos.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
+                produtos.splice(index, 1)
                 this.abrirNotificacaoSucesso()
             },
             enviarPedido(pedido) {
@@ -268,11 +327,16 @@
                 this.atualizarMesa()
             },
             montarPedido() {
-                this.$store.state.pedido.data = new Date()
-                this.$store.state.pedido.status = 'em espera'
-                this.$store.state.pedido.valorTotal = this.calcularValorTotal()
-                const pedido = this.$store.state.pedido
-                this.inserirPedido(pedido)
+                if (this.verificaTabelaVazia()) {
+                    this.$store.state.pedido.data = new Date()
+                    this.$store.state.pedido.status = 'em espera'
+                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                    const pedido = this.$store.state.pedido
+                    this.inserirPedido(pedido)
+                } else {
+                    this.abrirNotificacaoTabelaVazia()
+                    this.cancelar()
+                }
             },
             resetarTabela() {
                 this.desistirPedido()
@@ -280,6 +344,9 @@
             },
             setCategoria(categoria) {
                 this.categoria = categoria
+            },
+            verificaTabelaVazia() {
+                return this.pedido.produtos.length !== 0;
             }
         }
     }

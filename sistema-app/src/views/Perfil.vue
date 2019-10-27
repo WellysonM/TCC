@@ -55,12 +55,13 @@
                                                 label="Repita Novamente a Nova Senha"
                                         ></v-text-field>
                                     </v-flex>
-                                    <v-sheet class="pa-4">
-                                        <v-switch style="font-family: sans-serif;" v-model="usuarioLogado.admin" error label="Usuario Administrador"
+                                    <v-sheet class="pa-3">
+                                        <v-switch style="font-family: sans-serif;" v-model="usuarioLogado.admin" error
+                                                  label="Usuario Administrador"
                                                   color="secondary"></v-switch>
                                     </v-sheet>
                                     <v-flex text-xs-right xs12>
-                                        <v-btn @click="atualizarUsuario(usuarioLogado)"
+                                        <v-btn @click="abrirModalAtencao()"
                                                class="acao-sucesso"
                                                flat>
                                             Atualizar
@@ -73,19 +74,27 @@
                 </v-flex>
             </v-layout>
         </v-container>
+        <atencao
+                :dialog="dialog"
+                :mensagem="'Tem certeza que deseja atualizar seu usuario?'"
+                @cancelar="cancelar"
+                @confirmar="confirmar"
+        />
     </div>
 </template>
 
 <script>
     import notificacao from './Notifications'
+    import atencao from '../components/Atencao'
     import {mapState} from 'vuex'
     import {mapMutations} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
-        components: {notificacao},
+        components: {notificacao, atencao},
         data() {
             return {
+                dialog: false,
                 notificacao: {}
             }
         },
@@ -94,6 +103,9 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirModalAtencao() {
+                this.dialog = true
+            },
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
@@ -110,13 +122,20 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
-            async atualizarUsuario(usuario) {
+            async atualizarUsuario() {
                 try {
-                    await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, usuario)
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuarioLogado)
                     this.abrirNotificacaoSucesso()
                 } catch (e) {
                     this.abrirNotificacaoErro()
                 }
+            },
+            confirmar() {
+                this.atualizarUsuario()
+                this.cancelar()
+            },
+            cancelar() {
+                this.dialog = false
             }
         }
     }

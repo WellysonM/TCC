@@ -54,16 +54,17 @@
                 graficoPorHora: 0,
                 dailySalesChart: {
                     data: {
-                        labels: ['Do', 'Se', 'Te', 'Qua', 'Qui', 'Se', 'Sá'],
+                        labels: ['Se', 'Te', 'Qua', 'Qui', 'Se', 'Sá', 'Do'],
                         series: [
-                            [this.vendasSemanais(0), this.vendasSemanais(1), this.vendasSemanais(2), this.vendasSemanais(3), this.vendasSemanais(4), this.vendasSemanais(5), this.vendasSemanais(6)]
+                            [this.vendasSemanais(1), this.vendasSemanais(2), this.vendasSemanais(3), this.vendasSemanais(4),
+                                this.vendasSemanais(5), this.vendasSemanais(6), this.vendasSemanais(0)]
                         ]
                     },
                     options: {
                         lineSmooth: this.$chartist.Interpolation.cardinal({
                             tension: 0
                         }),
-                        high: this.graficoSemanal,
+                        high: this.graficoSemanal + 1,
                         low: 0,
                         chartPadding: {
                             top: 0,
@@ -107,7 +108,7 @@
                         axisX: {
                             showGrid: false
                         },
-                        high: this.graficoMensal,
+                        high: this.graficoMensal + 1,
                         low: 0,
                         chartPadding: {
                             top: 0,

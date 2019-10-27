@@ -36,7 +36,7 @@
         </v-container>
         <atencao
                 :dialog="dialog"
-                :mensagem="'A mesa esta suja, deseja limpar ela agora?'"
+                :mensagem="'A mesa estar suja, deseja limpar ela agora?'"
                 @cancelar="cancelar"
                 @confirmar="confirmar"
         />
