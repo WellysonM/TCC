@@ -26,15 +26,15 @@
                                     v-model="styleCard.subTitulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
-                            <v-select
-                                    :items="tamanhos"
-                                    :prepend-icon="styleCard.icone"
-                                    hide-details
-                                    label="Icone"
-                                    menu-props="auto"
-                                    single-line
-                                    v-model="styleCard.icone"
-                            ></v-select>
+                                <v-select
+                                        :items="tamanhos"
+                                        :prepend-icon="styleCard.icone"
+                                        hide-details
+                                        label="Icone"
+                                        menu-props="auto"
+                                        single-line
+                                        v-model="styleCard.icone"
+                                ></v-select>
                         </v-flex>
                         <v-container py-3 v-model="styleCard.cor">
                             <h4 class="title font-weight-light">Escolha uma cor</h4>
@@ -205,9 +205,6 @@
             abrirModalCategoria() {
                 this.$emit('abrirModalCategoria')
             },
-            fecharModalCategoria() {
-                this.$emit('fecharModalCategoria')
-            },
             copiaCategoria() {
                 let cloneCategoria = _.clone(this.styleCard)
                 this.inserirNovaCategoriaProduto(cloneCategoria)
@@ -216,6 +213,9 @@
                 this.styleCard.subTitulo = ''
                 this.styleCard.preco = ''
                 this.styleCard.cor = 'color'
+            },
+            fecharModalCategoria() {
+                this.$emit('fecharModalCategoria')
             },
             inserirNovaCategoriaProduto(cloneCategoria) {
                 this.$emit('inserirNovaCategoriaProduto', cloneCategoria)

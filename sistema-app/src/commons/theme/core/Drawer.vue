@@ -6,7 +6,7 @@
                 dark
                 floating
                 id="app-drawer"
-                mobile-break-point="991"
+                mobile-break-point="1150"
                 persistent
                 v-model="inputValue"
                 width="260"
@@ -134,7 +134,7 @@
                 this.setNotificacao(this.notificacao)
             },
             onResponsiveInverted() {
-                if (window.innerWidth < 991) {
+                if (window.innerWidth < 1150) {
                     this.responsive = true
                 } else {
                     this.responsive = false

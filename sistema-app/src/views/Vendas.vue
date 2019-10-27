@@ -1,8 +1,6 @@
 <template>
     <div>
-        <v-container fill-height
-                     fluid
-                     grid-list-xl>
+        <v-container fill-height>
             <v-layout wrap>
                 <template>
                     <v-flex :key="categoria.id" v-for="categoria of categorias" lg3 md4>
@@ -24,7 +22,8 @@
                     </v-flex>
                 </template>
             </v-layout>
-            <v-layout wrap style="justify-content: flex-end;">
+            <v-flex md1></v-flex>
+            <v-flex md8 lg7 style="justify-content: flex-end;">
                 <material-card
                         color="padrao2"
                         text="Tabela de produtos"
@@ -70,7 +69,7 @@
                         </v-btn>
                     </div>
                 </material-card>
-            </v-layout>
+            </v-flex>
         </v-container>
         <modal-produto
                 :categoria="categoria"
