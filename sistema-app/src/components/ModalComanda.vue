@@ -64,7 +64,7 @@
                 </v-container>
                 <v-container fill-height fluid grid-list-xl style="justify-content: flex-end;">
 
-                    <v-btn @click="fecharModalComanda" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
+                    <v-btn @click="fecharModalComanda" class="acao-fechar" flat style="margin: 0% 2%">cancelar</v-btn>
                     <v-btn @click="abrirModalDialog" class="acao-sucesso" flat style="margin: 0% 2%">Pagamento
                     </v-btn>
 

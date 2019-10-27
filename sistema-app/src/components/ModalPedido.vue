@@ -34,7 +34,7 @@
                 <v-card-actions>
                     <v-divider></v-divider>
                     <v-btn @click="fecharModalPedido" class="acao-fechar" flat style="margin: 0% 2%">
-                        fechar
+                        cancelar
                     </v-btn>
                     <v-btn @click="enviarPedido" class="acao-sucesso" flat
                            style="margin: 0% 2%">

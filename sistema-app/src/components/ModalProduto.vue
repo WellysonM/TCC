@@ -64,7 +64,7 @@
                                 <v-card-actions>
                                     <v-divider></v-divider>
                                     <v-btn @click="fecharCadastrar" class="acao-fechar" flat style="margin: 0% 2%">
-                                        fechar
+                                        cancelar
                                     </v-btn>
                                     <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat
                                            style="margin: 0% 2%">
@@ -115,7 +115,7 @@
                             </v-data-table>
                         </v-flex>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
+                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">cancelar</v-btn>
                         <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
                     </v-layout>
                 </v-container>

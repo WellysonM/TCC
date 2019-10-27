@@ -3,7 +3,7 @@
         <notificacao/>
         <v-container fill-height fluid grid-list-xl>
             <v-layout justify-center wrap>
-                <v-flex md10>
+                <v-flex md9>
                     <material-card
                             color="padrao2"
                             text="Selecione um usuario para editar"
@@ -109,7 +109,6 @@
 <style>
     .v-label {
         color: black !important;
-        font-style: italic;
         font-size: 16.66px !important;
     }
 </style>

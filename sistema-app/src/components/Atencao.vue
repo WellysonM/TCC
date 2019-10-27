@@ -6,8 +6,8 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn class="acao-fechar" flat @click="cancelar">não</v-btn>
-                <v-btn class="acao-sucesso" flat @click="confirmar">sim</v-btn>
+                <v-btn class="acao-fechar" flat @click="cancelar">cancelar</v-btn>
+                <v-btn class="acao-sucesso" flat @click="confirmar">confirmar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>

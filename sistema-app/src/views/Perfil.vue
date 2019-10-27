@@ -56,7 +56,7 @@
                                         ></v-text-field>
                                     </v-flex>
                                     <v-sheet class="pa-4">
-                                        <v-switch v-model="usuarioLogado.admin" error label="Usuario Administrador"
+                                        <v-switch style="font-family: sans-serif;" v-model="usuarioLogado.admin" error label="Usuario Administrador"
                                                   color="secondary"></v-switch>
                                     </v-sheet>
                                     <v-flex text-xs-right xs12>
@@ -125,7 +125,6 @@
 <style>
     .v-label {
         color: black !important;
-        font-style: italic;
         font-size: 16.66px !important;
     }
 </style>
