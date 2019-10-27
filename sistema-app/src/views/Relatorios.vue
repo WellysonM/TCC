@@ -45,12 +45,13 @@
     </v-container>
 </template>
 <script>
-    import {actionTypes} from '@/commons/constants'
-
     export default {
         data() {
             return {
                 pedidos: {},
+                graficoSemanal: 0,
+                graficoMensal: 0,
+                graficoPorHora: 0,
                 dailySalesChart: {
                     data: {
                         labels: ['Do', 'Se', 'Te', 'Qua', 'Qui', 'Se', 'Sá'],
@@ -62,8 +63,8 @@
                         lineSmooth: this.$chartist.Interpolation.cardinal({
                             tension: 0
                         }),
+                        high: this.graficoSemanal,
                         low: 0,
-                        high: this.definirTamanhoVendasSemanais(),
                         chartPadding: {
                             top: 0,
                             right: 0,
@@ -76,15 +77,16 @@
                     data: {
                         labels: ['18', '19', '20', '21', '22', '23', '00', '01'],
                         series: [
-                            [10, 15, 19, 25, 29, 31, 35, 0]
+                            [this.vendasPorHora(18), this.vendasPorHora(19), this.vendasPorHora(20), this.vendasPorHora(21), this.vendasPorHora(22),
+                                this.vendasPorHora(23), this.vendasPorHora(0), this.vendasPorHora(1)]
                         ]
                     },
                     options: {
                         lineSmooth: this.$chartist.Interpolation.cardinal({
                             tension: 0
                         }),
+                        high: this.graficoPorHora + 1,
                         low: 0,
-                        high: 100,
                         chartPadding: {
                             top: 0,
                             right: 0,
@@ -97,15 +99,16 @@
                     data: {
                         labels: ['Ja', 'Fe', 'Ma', 'Ab', 'Mai', 'Ju', 'Jul', 'Ag', 'Se', 'Out', 'No', 'De'],
                         series: [
-                            [151, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+                            [this.vendasMensais(0), this.vendasMensais(1), this.vendasMensais(2), this.vendasMensais(3), this.vendasMensais(4), this.vendasMensais(5),
+                                this.vendasMensais(6), this.vendasMensais(7), this.vendasMensais(8), this.vendasMensais(9), this.vendasMensais(10), this.vendasMensais(11)]
                         ]
                     },
                     options: {
                         axisX: {
                             showGrid: false
                         },
+                        high: this.graficoMensal,
                         low: 0,
-                        high: 1000,
                         chartPadding: {
                             top: 0,
                             right: 5,
@@ -127,7 +130,7 @@
             }
         },
         methods: {
-            calcularQuantidadeVendas(dia) {
+            calcularQuantidadeVendasPorDias(dia) {
                 let vendas = 0;
                 if (this.pedidos) {
                     this.pedidos.forEach((pedido) => {
@@ -135,20 +138,73 @@
                             vendas++;
                         }
                     })
+                    this.definirTamanhoVendasSemanais(vendas)
                     return vendas;
                 }
             },
-            definirTamanhoVendasSemanais() {
-                return this.pedidos.length + 1
+            calcularQuantidadeVendasPorMes(mes) {
+                let vendas = 0;
+                if (this.pedidos) {
+                    this.pedidos.forEach((pedido) => {
+                        if (pedido.data.getMonth() === mes) {
+                            vendas++;
+                        }
+                    })
+                    this.definirTamanhoVendasMensais(vendas)
+                    return vendas;
+                }
+            },
+            calcularQuantidadeVendasPorHora(hora) {
+                let vendas = 0;
+                if (this.pedidos) {
+                    this.pedidos.forEach((pedido) => {
+                        if (pedido.data.getHours() === hora) {
+                            vendas++;
+                        }
+                    })
+                    this.definirTamanhoVendasPorHora(vendas)
+                    return vendas;
+                }
+            },
+            definirTamanhoVendasSemanais(vendas) {
+                if (this.graficoSemanal === undefined) {
+                    this.graficoSemanal = 0
+                }
+                if (vendas > this.graficoSemanal) {
+                    this.graficoSemanal = vendas
+                }
+            },
+            definirTamanhoVendasMensais(vendas) {
+                if (this.graficoMensal === undefined) {
+                    this.graficoMensal = 0
+                }
+                if (vendas > this.graficoMensal) {
+                    this.graficoMensal = vendas
+                }
+            },
+            definirTamanhoVendasPorHora(vendas) {
+                if (this.graficoPorHora === undefined) {
+                    this.graficoPorHora = 0
+                }
+                if (vendas > this.graficoPorHora) {
+                    this.graficoPorHora = vendas
+                }
             },
             preencherPedidos() {
                 this.pedidos = this.$store.state.pedidosFinalizados
             },
+            vendasPorHora(hora) {
+                this.preencherPedidos()
+                return this.calcularQuantidadeVendasPorHora(hora)
+            },
             vendasSemanais(dia) {
                 this.preencherPedidos()
-                return this.calcularQuantidadeVendas(dia)
+                return this.calcularQuantidadeVendasPorDias(dia)
+            },
+            vendasMensais(mes) {
+                this.preencherPedidos()
+                return this.calcularQuantidadeVendasPorMes(mes)
             }
         }
     }
 </script>
-=
