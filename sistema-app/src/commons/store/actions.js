@@ -15,6 +15,10 @@ export default {
         return await axios.post('mesa/atualizar', mesa)
     },
 
+    async [actionTypes.ATUALIZAR_PRODUTO](context, produto) {
+        return await axios.post('produto/atualizar', produto)
+    },
+
     async [actionTypes.BUSCAR_CATEGORIAS]({commit}) {
         const {data} = await axios.get('categoria/all')
         commit(mutationTypes.SET_CATEGORIAS, data)
@@ -85,5 +89,9 @@ export default {
 
     async [actionTypes.REMOVER_USUARIO](context, usuarioId) {
         await axios.post(`usuario/remover/${usuarioId}`)
+    },
+
+    async [actionTypes.REMOVER_PRODUTO](conext, produtoId) {
+        await axios.post(`produto/remover/${produtoId}`)
     }
 }

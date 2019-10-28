@@ -2,6 +2,7 @@ export default {
     ATUALIZAR_PEDIDO: 'atualizarPedido',
     ATUALIZAR_USUARIO: 'atualizarUsuario',
     ATUALIZAR_MESA: 'atualizarMesa',
+    ATUALIZAR_PRODUTO: 'atualizarProduto',
     BUSCAR_CATEGORIAS: 'buscarCategorias',
     BUSCAR_PRODUTOS_POR_CATEGORIA: 'buscarProdutosPorCategoria',
     BUSCAR_MESAS: 'buscarMesas',
@@ -17,5 +18,6 @@ export default {
     INSERIR_PRODUTO: 'inserirNovoProduto',
     INSERIR_USUARIO: 'inserirUsuario',
     INSERIR_MESA: 'inserirMesa',
+    REMOVER_PRODUTO: 'removerProduto',
     REMOVER_USUARIO: 'removerUsuario'
 }

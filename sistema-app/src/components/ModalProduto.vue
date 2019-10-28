@@ -102,7 +102,8 @@
                                     <td>{{ item.preco}}</td>
                                     <td>{{ item.tempoPreparo}}</td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-fechar" flat style="float: right; min-width: 10px">
+                                        <v-btn @click="removerProduto(item.id)" class="acao-fechar" flat
+                                               style="float: right; min-width: 10px">
                                             <v-icon>mdi-close-circle-outline</v-icon>
                                         </v-btn>
                                     </td>
@@ -115,7 +116,8 @@
                             </v-data-table>
                         </v-flex>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">cancelar</v-btn>
+                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">cancelar
+                        </v-btn>
                         <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
                     </v-layout>
                 </v-container>
@@ -126,6 +128,7 @@
 
 <script>
     import _ from 'lodash'
+    import {actionTypes} from '@/commons/constants'
 
     export default {
         name: 'ModalProduto',
@@ -204,6 +207,9 @@
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
+            },
+            async removerProduto(produtoId) {
+                await this.$store.dispatch(actionTypes.REMOVER_PRODUTO, produtoId)
             },
             resetarCheckbox() {
                 this.selected = {}
