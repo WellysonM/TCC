@@ -128,7 +128,6 @@
 
 <script>
     import _ from 'lodash'
-    import {actionTypes} from '@/commons/constants'
 
     export default {
         name: 'ModalProduto',
@@ -208,8 +207,8 @@
                 this.produto.tempoPreparo = ''
                 this.dialog = false
             },
-            async removerProduto(produtoId) {
-                await this.$store.dispatch(actionTypes.REMOVER_PRODUTO, produtoId)
+            removerProduto(produtoId) {
+                this.$emit('removerProduto', produtoId)
             },
             resetarCheckbox() {
                 this.selected = {}

@@ -107,6 +107,14 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
+            abrirNotificacaoErroRemover() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Existe pedidos vinculados a este usuário',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async atualizarUsuario() {
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuarioAtual)
                 this.buscarUsuarios()
@@ -130,16 +138,15 @@
                 this.dialog = false
             },
             async remover(usuarioId) {
-                await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)
+                if (await this.$store.dispatch(actionTypes.REMOVER_USUARIO, usuarioId)) {
+                    this.abrirNotificacaoSucesso()
+                } else {
+                    this.abrirNotificacaoErroRemover()
+                }
             },
             removerUsuario(usuarioId) {
-                try {
-                    this.remover(usuarioId)
-                    this.buscarUsuarios()
-                    this.abrirNotificacaoSucesso()
-                } catch (e) {
-                    this.abrirNotificacaoErro()
-                }
+                this.remover(usuarioId)
+                this.buscarUsuarios()
             },
             verificarUsuario() {
                 const usuarioLogado = this.$store.state.usuarioLogado

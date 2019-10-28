@@ -19,11 +19,13 @@ public class RemoverProduto {
     @Autowired
     private PedidoBO pedidoBO;
 
-    public void RemoverProduto(String produtoDTOId) {
+    public boolean RemoverProduto(String produtoDTOId) {
         Produto produto = produtoBO.buscarProdutoPorId(produtoDTOId);
         if (PossoRemoverProduto(produto)) {
             produtoBO.removerProduto(produto);
+            return true;
         }
+        return false;
     }
 
     private boolean PossoRemoverProduto(Produto produto) {

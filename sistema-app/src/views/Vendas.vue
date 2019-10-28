@@ -82,6 +82,7 @@
                 @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirNovoProduto="inserirNovoProduto"
+                @removerProduto="removerProduto"
         />
         <modal-pedido
                 :modal-pedido="modalPedido"
@@ -196,6 +197,14 @@
                 this.notificacao = {
                     cor: 'error',
                     mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErroRemover() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Existe pedidos vinculados a este produto',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -336,6 +345,14 @@
                 } else {
                     this.abrirNotificacaoTabelaVazia()
                     this.cancelar()
+                }
+            },
+            async removerProduto(produtoId) {
+                if (await this.$store.dispatch(actionTypes.REMOVER_PRODUTO, produtoId)) {
+                    this.abrirNotificacaoSucesso()
+                    this.buscarProdutosPorCategoria()
+                } else {
+                    this.abrirNotificacaoErroRemover()
                 }
             },
             resetarTabela() {

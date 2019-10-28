@@ -16,6 +16,7 @@
                 @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
                 @inserirNovoProduto="inserirNovoProduto"
+                @removerProduto="removerProduto"
         />
 
         <v-container fill-height fluid grid-list-xl>
@@ -65,7 +66,7 @@
                 modalCategoria: false,
                 categoria: [],
                 produtos: [],
-                notificacao:{},
+                notificacao: {},
             }
         },
         async mounted() {
@@ -101,6 +102,14 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
+            abrirNotificacaoErroRemover() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Existe pedidos vinculados a este produto',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
@@ -128,7 +137,7 @@
                 try {
                     await this.$store.dispatch(actionTypes.INSERIR_CATEGORIA, categoria)
                     this.abrirNotificacaoSucesso()
-                }catch (e) {
+                } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
@@ -136,7 +145,7 @@
                 try {
                     await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
                     this.abrirNotificacaoSucesso()
-                }catch (e) {
+                } catch (e) {
                     this.abrirNotificacaoErro()
                 }
             },
@@ -161,6 +170,14 @@
             },
             setCategoria(categoria) {
                 this.categoria = categoria
+            },
+            async removerProduto(produtoId) {
+                if (await this.$store.dispatch(actionTypes.REMOVER_PRODUTO, produtoId)) {
+                    this.abrirNotificacaoSucesso()
+                    this.buscarProdutosPorCategoria()
+                } else {
+                    this.abrirNotificacaoErroRemover()
+                }
             }
         }
     }

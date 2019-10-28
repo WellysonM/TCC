@@ -9,7 +9,7 @@ public interface IUsuario {
 
     List<UsuarioDTO> buscarUsuarios();
 
-    void removerUsuario(String usuarioId);
+    boolean removerUsuario(String usuarioId);
 
     void inserirUsuario(UsuarioDTO usuarioDTO);
 

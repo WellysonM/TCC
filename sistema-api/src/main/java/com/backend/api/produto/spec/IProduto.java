@@ -8,7 +8,7 @@ public interface IProduto {
 
     List<ProdutoDTO> buscarProdutos();
 
-    void removerProduto(String produtoDTOId);
+    boolean removerProduto(String produtoDTOId);
 
     void inserirProduto(ProdutoDTO produtoDTO);
 

@@ -39,8 +39,8 @@ public class ProdutoService {
 
     @RequestMapping(method = RequestMethod.POST, value = {"/produto/remover/{produtoDTOId}"})
     @CrossOrigin(origins = "http://localhost:8080")
-    public void removerProduto(@PathVariable(value = "produtoDTOId") String produtoDTOId) {
-        iProduto.removerProduto(produtoDTOId);
+    public boolean removerProduto(@PathVariable(value = "produtoDTOId") String produtoDTOId) {
+        return iProduto.removerProduto(produtoDTOId);
     }
 
     @PostMapping("/produto/inserir")

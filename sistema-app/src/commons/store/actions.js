@@ -88,10 +88,12 @@ export default {
     },
 
     async [actionTypes.REMOVER_USUARIO](context, usuarioId) {
-        await axios.post(`usuario/remover/${usuarioId}`)
+        const {data} = await axios.post(`usuario/remover/${usuarioId}`)
+        return data
     },
 
     async [actionTypes.REMOVER_PRODUTO](conext, produtoId) {
-        await axios.post(`produto/remover/${produtoId}`)
+        const {data} = await axios.post(`produto/remover/${produtoId}`)
+        return data
     }
 }

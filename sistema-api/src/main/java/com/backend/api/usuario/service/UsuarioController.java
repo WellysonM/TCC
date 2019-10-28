@@ -49,8 +49,8 @@ public class UsuarioController {
 
     @RequestMapping(method = RequestMethod.POST, value = {"/usuario/remover/{usuarioId}"})
     @CrossOrigin(origins = "http://localhost:8080")
-    public void removerUsuario(@PathVariable(value = "usuarioId") String usuarioId) {
-        iUsuario.removerUsuario(usuarioId);
+    public boolean removerUsuario(@PathVariable(value = "usuarioId") String usuarioId) {
+        return iUsuario.removerUsuario(usuarioId);
     }
 
     @GetMapping("/usuario/sair")

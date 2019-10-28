@@ -33,8 +33,8 @@ public class UsuarioImpl implements IUsuario {
     }
 
     @Override
-    public void removerUsuario(String usuarioId) {
-        remover.removerUsuario(usuarioId);
+    public boolean removerUsuario(String usuarioId) {
+        return remover.removerUsuario(usuarioId);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UsuarioImpl implements IUsuario {
     }
 
     @Override
-    public Usuario buscarUsuarioPorUsername(UsuarioDTO usuarioDTO){
-      return buscarUsuarioPorUsername.buscarUsuarioPorUsername(usuarioDTO);
+    public Usuario buscarUsuarioPorUsername(UsuarioDTO usuarioDTO) {
+        return buscarUsuarioPorUsername.buscarUsuarioPorUsername(usuarioDTO);
     }
 }
