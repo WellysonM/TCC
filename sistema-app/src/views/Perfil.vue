@@ -114,7 +114,7 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Digite as senhas novamente !',
+                    mensagem: 'As senhas não confere !',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)

@@ -90,7 +90,7 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Usuario ou senha inválidos !',
+                    mensagem: 'Usuário ou senha inválidos !',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
