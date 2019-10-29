@@ -12,7 +12,7 @@ public class InserirCategoria {
     @Autowired
     private CategoriaBO categoriaBO;
 
-    public void InserirCategoria(CategoriaDTO categoriaDTO){
+    public void inserirCategoria(CategoriaDTO categoriaDTO){
         Categoria categoria = new Categoria();
         preencherCategoria(categoria, categoriaDTO);
         categoriaBO.inserirCategoria(categoria);

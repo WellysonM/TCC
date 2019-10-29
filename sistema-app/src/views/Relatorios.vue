@@ -1,51 +1,59 @@
 <template>
-    <v-container
-            fill-height
-            fluid
-            grid-list-xl>
-        <v-layout wrap>
-            <v-flex
-                    lg4
-                    md12
-                    sm12>
-                <material-chart-card
-                        :data="dailySalesChart.data"
-                        :options="dailySalesChart.options"
-                        color="padrao"
-                        type="Line">
-                    <h4 class="title font-weight-light">Vendas Semanais</h4>
-                </material-chart-card>
-            </v-flex>
-            <v-flex
-                    lg4
-                    md12
-                    sm12>
-                <material-chart-card
-                        :data="emailsSubscriptionChart.data"
-                        :options="emailsSubscriptionChart.options"
-                        :responsive-options="emailsSubscriptionChart.responsiveOptions"
-                        color="padrao"
-                        type="Bar">
-                    <h4 class="title font-weight-light">Vendas Mensais</h4>
-                </material-chart-card>
-            </v-flex>
-            <v-flex
-                    lg4
-                    md12
-                    sm12>
-                <material-chart-card
-                        :data="dataCompletedTasksChart.data"
-                        :options="dataCompletedTasksChart.options"
-                        color="padrao"
-                        type="Line">
-                    <h3 class="title font-weight-light">Vendas Por Horas</h3>
-                </material-chart-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
+    <div>
+        <v-container
+                fill-height
+                fluid
+                grid-list-xl>
+            <v-layout wrap>
+                <v-flex
+                        lg4
+                        md12
+                        sm12>
+                    <material-chart-card
+                            :data="dailySalesChart.data"
+                            :options="dailySalesChart.options"
+                            color="padrao"
+                            type="Line">
+                        <h4 class="title font-weight-light">Vendas Semanais</h4>
+                    </material-chart-card>
+                </v-flex>
+                <v-flex
+                        lg4
+                        md12
+                        sm12>
+                    <material-chart-card
+                            :data="emailsSubscriptionChart.data"
+                            :options="emailsSubscriptionChart.options"
+                            :responsive-options="emailsSubscriptionChart.responsiveOptions"
+                            color="padrao"
+                            type="Bar">
+                        <h4 class="title font-weight-light">Vendas Mensais</h4>
+                    </material-chart-card>
+                </v-flex>
+                <v-flex
+                        lg4
+                        md12
+                        sm12>
+                    <material-chart-card
+                            :data="dataCompletedTasksChart.data"
+                            :options="dataCompletedTasksChart.options"
+                            color="padrao"
+                            type="Line">
+                        <h3 class="title font-weight-light">Vendas Por Horas</h3>
+                    </material-chart-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+        <notificacao/>
+    </div>
 </template>
 <script>
+    import notificacao from './Notifications'
+    import {mapMutations} from 'vuex'
+    import {mutationTypes} from '@/commons/constants'
+
     export default {
+        components: {notificacao},
         data() {
             return {
                 pedidos: {},
@@ -130,7 +138,19 @@
                 }
             }
         },
+        mounted() {
+            this.tenhoPermissao()
+        },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Seu usuário não tem acesso a essa página !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             calcularQuantidadeVendasPorDias(dia) {
                 let vendas = 0;
                 if (this.pedidos) {
@@ -193,6 +213,15 @@
             },
             preencherPedidos() {
                 this.pedidos = this.$store.state.pedidosFinalizados
+            },
+            tenhoPermissao() {
+                const usuario = this.$store.state.usuarioLogado
+                if (usuario.admin) {
+                    return
+                } else {
+                    this.$router.push({path: '/inicio'})
+                    this.abrirNotificacaoErro()
+                }
             },
             vendasPorHora(hora) {
                 this.preencherPedidos()

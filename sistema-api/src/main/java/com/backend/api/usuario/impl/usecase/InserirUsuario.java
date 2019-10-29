@@ -22,7 +22,11 @@ public class InserirUsuario {
         preencherUsuario(usuario, usuarioDTO);
         passwordEncoder.hasPassword(usuario);
         ehPrimeiroUsuario(usuario);
-        usuarioBO.inserirUsuario(usuario);
+        if (possoInserirUsuario(usuario)) {
+            usuarioBO.inserirUsuario(usuario);
+        } else {
+            usuarioBO.inserirUsuario(null);
+        }
     }
 
     private static void preencherUsuario(Usuario usuario, UsuarioDTO usuarioDTO) {
@@ -37,5 +41,15 @@ public class InserirUsuario {
         if (usuarios.isEmpty()) {
             usuario.setAdmin(true);
         }
+    }
+
+    private boolean possoInserirUsuario(Usuario usuario) {
+        List<Usuario> usuarios = usuarioBO.buscarUsuarios();
+        for (Usuario usuarioLista : usuarios) {
+            if (usuarioLista.getUsername().equalsIgnoreCase(usuario.getUsername())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

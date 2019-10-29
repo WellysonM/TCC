@@ -92,7 +92,7 @@
             abrirNotificacaoAlerta(mesa) {
                 this.notificacao = {
                     cor: 'warning',
-                    mensagem: 'Ops... a mesa ' + mesa.numero + ' não possui comanda',
+                    mensagem: 'A mesa ' + mesa.numero + ' não possui comanda',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)

@@ -76,6 +76,7 @@
         }),
         mounted() {
             this.buscarUsuarios()
+            this.tenhoPermissao()
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
@@ -115,6 +116,14 @@
                 }
                 this.setNotificacao(this.notificacao)
             },
+            abrirNotificacaoErroAcesso() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Seu usuário não tem acesso a essa página !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             async atualizarUsuario() {
                 await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuarioAtual)
                 this.buscarUsuarios()
@@ -147,6 +156,15 @@
             removerUsuario(usuarioId) {
                 this.remover(usuarioId)
                 this.buscarUsuarios()
+            },
+            tenhoPermissao() {
+                const usuario = this.$store.state.usuarioLogado
+                if (usuario.admin) {
+                    return
+                } else {
+                    this.$router.push({path: '/inicio'})
+                    this.abrirNotificacaoErroAcesso()
+                }
             },
             verificarUsuario() {
                 const usuarioLogado = this.$store.state.usuarioLogado

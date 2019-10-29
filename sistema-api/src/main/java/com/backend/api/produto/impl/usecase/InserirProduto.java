@@ -17,7 +17,7 @@ public class InserirProduto {
     public void InserirProduto(ProdutoDTO produtoDTO) {
         Produto produto = new Produto();
         preencherProduto(produto, produtoDTO);
-        if (PossoInserirProduto(produto)) {
+        if (possoInserirProduto(produto)) {
             produtoBO.inserirProduto(produto);
         } else {
             produtoBO.inserirProduto(null);
@@ -32,7 +32,7 @@ public class InserirProduto {
         produto.setQuantidade(produtoDTO.getQuantidade());
     }
 
-    private boolean PossoInserirProduto(Produto produto) {
+    private boolean possoInserirProduto(Produto produto) {
         List<Produto> produtos = produtoBO.buscarProdutos();
         for (Produto produtoLista : produtos) {
             if (produtoLista.getProduto().equalsIgnoreCase(produto.getProduto())) {

@@ -15,7 +15,7 @@ public class BuscarCategoria {
     @Autowired
     private CategoriaBO categoriaBO;
 
-    public List<CategoriaDTO> BuscarCategorias() {
+    public List<CategoriaDTO> buscarCategorias() {
         List<Categoria> categorias = categoriaBO.buscarCategorias();
         return converterCategoriaParaDTO(categorias);
     }

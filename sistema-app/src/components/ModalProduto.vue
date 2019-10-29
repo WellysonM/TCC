@@ -3,7 +3,7 @@
         <v-dialog
                 persistent
                 v-model="modalProduto"
-                width="800">
+                width="600">
             <v-card>
                 <div>
                     <v-card-title
@@ -105,11 +105,6 @@
                                         <v-btn @click="removerProduto(item.id)" class="acao-fechar" flat
                                                style="float: right; min-width: 10px">
                                             <v-icon>mdi-close-circle-outline</v-icon>
-                                        </v-btn>
-                                    </td>
-                                    <td class="text-xs-right">
-                                        <v-btn class="acao-sucesso" flat style="float: right; min-width: 10px">
-                                            <v-icon>mdi-circle-edit-outline</v-icon>
                                         </v-btn>
                                     </td>
                                 </template>

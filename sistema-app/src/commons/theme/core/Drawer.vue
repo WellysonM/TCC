@@ -91,7 +91,7 @@
                 {
                     to: '/relatorios',
                     icon: 'mdi-clipboard-outline',
-                    text: 'Relatorios'
+                    text: 'Relatórios'
                 }
             ]
         }),
@@ -108,6 +108,7 @@
             }
         },
         mounted() {
+            this.buscarUsuarioLogado()
             this.onResponsiveInverted()
             window.addEventListener('resize', this.onResponsiveInverted)
         },
@@ -156,6 +157,22 @@
             },
             async buscarUsuarioLogado() {
                 await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
+                this.tenhoPermissao()
+            },
+            tenhoPermissao() {
+                if (!this.usuarioLogado.id) {
+                    this.$router.push({path: '/entrar'})
+                    this.$router.push({path: '/'})
+                } else {
+                    this.$router.push({path: '/inicio'})
+                }
+                if (!this.usuarioLogado.admin) {
+                    this.links.forEach((link) => {
+                        if (link.text === 'Relatórios' || link.text === 'Gerenciar Funcionários') {
+                            this.links.splice(this.links.indexOf(link), 1)
+                        }
+                    })
+                }
             }
         }
     }

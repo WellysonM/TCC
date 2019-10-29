@@ -21,14 +21,14 @@ public class RemoverUsuario {
 
     public boolean removerUsuario(String usuarioId) {
         Usuario usuario = usuarioBO.buscarUsuarioPorId(usuarioId);
-        if (PossoRemoverUsuario(usuario)) {
+        if (possoRemoverUsuario(usuario)) {
             usuarioBO.removerUsuario(usuario);
             return true;
         }
         return false;
     }
 
-    private boolean PossoRemoverUsuario(Usuario usuario) {
+    private boolean possoRemoverUsuario(Usuario usuario) {
         List<Pedido> pedidos = pedidoBO.buscarPedidos();
         for (Pedido pedido : pedidos) {
             if (pedido.getUsuario().getId().equals(usuario.getId())) {

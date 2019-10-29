@@ -212,7 +212,7 @@
             abrirNotificacaoTabelaVazia() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Ops... a comanda estar vazia',
+                    mensagem: 'A comanda estar vazia',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)

@@ -16,7 +16,8 @@
                                 <v-layout wrap>
                                     <v-flex md6 xs12>
                                         <v-text-field
-                                                v-model="usuarioLogado.name"
+                                                disabled
+                                                v-model="usuario.name"
                                                 required
                                                 :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
                                                 class="info-input"
@@ -24,7 +25,7 @@
                                     </v-flex>
                                     <v-flex md6 xs12>
                                         <v-text-field
-                                                v-model="usuarioLogado.username"
+                                                v-model="usuario.username"
                                                 required
                                                 :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
                                                 class="info-input"
@@ -32,31 +33,25 @@
                                     </v-flex>
                                     <v-flex md6 xs12>
                                         <v-text-field
+                                                v-model="usuario.password"
                                                 required
                                                 :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
                                                 :type="'password'"
-                                                label="Senha Atual"
+                                                required
+                                                label="Nova senha"
                                         ></v-text-field>
                                     </v-flex>
                                     <v-flex md6 xs12>
                                         <v-text-field
+                                                v-model="novaSenha"
                                                 required
                                                 :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
                                                 :type="'password'"
-                                                required
-                                                label="Nova Senha"
+                                                label="Repita novamente a nova senha"
                                         ></v-text-field>
                                     </v-flex>
-                                    <v-flex md6 xs12>
-                                        <v-text-field
-                                                required
-                                                :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
-                                                :type="'password'"
-                                                label="Repita Novamente a Nova Senha"
-                                        ></v-text-field>
-                                    </v-flex>
-                                    <v-sheet class="pa-3">
-                                        <v-switch style="font-family: sans-serif;" v-model="usuarioLogado.admin" error
+                                    <v-sheet class="pa-3" v-show="usuario.admin">
+                                        <v-switch style="font-family: sans-serif;" v-model="usuario.admin" error
                                                   label="Usuario Administrador"
                                                   color="secondary"></v-switch>
                                     </v-sheet>
@@ -84,9 +79,9 @@
 </template>
 
 <script>
+    import _ from 'lodash'
     import notificacao from './Notifications'
     import atencao from '../components/Atencao'
-    import {mapState} from 'vuex'
     import {mapMutations} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
@@ -94,12 +89,14 @@
         components: {notificacao, atencao},
         data() {
             return {
+                novaSenha: '',
+                usuario: {},
                 dialog: false,
                 notificacao: {}
             }
         },
-        computed: {
-            ...mapState(['usuarioLogado'])
+        mounted() {
+            this.preencherUsuario()
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
@@ -117,25 +114,50 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mensagem: 'Digite as senhas novamente !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoUsernameExistente() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Já existe um usuário com esse nome !',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
             },
             async atualizarUsuario() {
                 try {
-                    await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuarioLogado)
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_USUARIO, this.usuario)
                     this.abrirNotificacaoSucesso()
                 } catch (e) {
-                    this.abrirNotificacaoErro()
+                    this.abrirNotificacaoUsernameExistente()
                 }
             },
             confirmar() {
-                this.atualizarUsuario()
-                this.cancelar()
+                if (this.validarSenha()) {
+                    this.atualizarUsuario()
+                } else {
+                    this.abrirNotificacaoErro()
+                }
+                this.dialog = false
+
             },
             cancelar() {
                 this.dialog = false
+                this.usuario.admin = this.$store.state.usuarioLogado.admin
+            },
+            preencherUsuario() {
+                this.usuario = _.clone(this.$store.state.usuarioLogado)
+                this.usuario.password = ''
+            },
+            validarSenha() {
+                if (this.usuario.password === this.novaSenha) {
+                    return true
+                } else {
+                    return false
+                }
             }
         }
     }

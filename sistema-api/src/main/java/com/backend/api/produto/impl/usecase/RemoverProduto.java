@@ -21,14 +21,14 @@ public class RemoverProduto {
 
     public boolean RemoverProduto(String produtoDTOId) {
         Produto produto = produtoBO.buscarProdutoPorId(produtoDTOId);
-        if (PossoRemoverProduto(produto)) {
+        if (possoRemoverProduto(produto)) {
             produtoBO.removerProduto(produto);
             return true;
         }
         return false;
     }
 
-    private boolean PossoRemoverProduto(Produto produto) {
+    private boolean possoRemoverProduto(Produto produto) {
         List<Pedido> pedidos = pedidoBO.buscarPedidos();
         for (Pedido pedido : pedidos) {
             for (Produto produtoPedido : pedido.getProdutos()) {

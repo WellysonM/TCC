@@ -28,17 +28,17 @@ public class CategoriaImpl implements ICategoria {
 
     @Override
     public List<CategoriaDTO> buscarCategorias() {
-        return buscar.BuscarCategorias();
+        return buscar.buscarCategorias();
     }
 
     @Override
     public void removerCategoria(CategoriaDTO categoriaDTOId) {
-        remover.RemoverCategoria(categoriaDTOId);
+        remover.removerCategoria(categoriaDTOId);
     }
 
     @Override
     public void inserirCategoria(CategoriaDTO categoriaDTO) {
-        inserir.InserirCategoria(categoriaDTO);
+        inserir.inserirCategoria(categoriaDTO);
     }
 
     @Override
