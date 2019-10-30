@@ -19,8 +19,12 @@ public class AtualizarUsuario {
 
     public void atualizarUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioBO.buscarUsuarioPorId(usuarioDTO.getId());
-        preencherUsuario(usuario, usuarioDTO);
-        passwordEncoder.hasPassword(usuario);
+        if (possoAtualizarSenha(usuario, usuarioDTO)) {
+            preencherUsuario(usuario, usuarioDTO);
+        } else {
+            preencherUsuario(usuario, usuarioDTO);
+            passwordEncoder.hasPassword(usuario);
+        }
         if (possoAtualizarUsuario(usuario)) {
             usuarioBO.atualizarUsuario(usuario);
         } else {
@@ -43,5 +47,9 @@ public class AtualizarUsuario {
             }
         }
         return true;
+    }
+
+    private boolean possoAtualizarSenha(Usuario usuario, UsuarioDTO usuarioDTO) {
+        return usuario.getPassword().equals(usuarioDTO.getPassword());
     }
 }
