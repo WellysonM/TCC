@@ -57,8 +57,7 @@
                                     </v-sheet>
                                     <v-flex text-xs-right xs12>
                                         <v-btn @click="abrirModalAtencao()"
-                                               class="acao-sucesso"
-                                               flat>
+                                               depressed color="white green--text">
                                             Atualizar
                                         </v-btn>
                                     </v-flex>

@@ -21,8 +21,8 @@
                                               color="secondary" @change="abrirModalAtencao(item)"></v-switch>
                                 </td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="abrirModalAtencaoParaExcluir(item)" class="acao-fechar" flat
-                                           style="min-width: 10px">
+                                    <v-btn @click="abrirModalAtencaoParaExcluir(item)" depressed fab small
+                                           color="white red--text">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>

@@ -63,10 +63,10 @@
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-divider></v-divider>
-                                    <v-btn @click="fecharCadastrar" class="acao-fechar" flat style="margin: 0% 2%">
+                                    <v-btn @click="fecharCadastrar" depressed color="white gray--text" style="margin: 0% 2%">
                                         cancelar
                                     </v-btn>
-                                    <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat
+                                    <v-btn @click="preencherCategoriaNoProduto" depressed color="white green--text"
                                            style="margin: 0% 2%">
                                         Salvar
                                     </v-btn>
@@ -102,8 +102,8 @@
                                     <td>{{ item.preco}}</td>
                                     <td>{{ item.tempoPreparo}}</td>
                                     <td class="text-xs-right">
-                                        <v-btn @click="removerProduto(item.id)" class="acao-fechar" flat
-                                               style="float: right; min-width: 10px">
+                                        <v-btn @click="removerProduto(item.id)" depressed fab small
+                                               color="white red--text">
                                             <v-icon>mdi-close-circle-outline</v-icon>
                                         </v-btn>
                                     </td>
@@ -111,9 +111,9 @@
                             </v-data-table>
                         </v-flex>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">cancelar
+                        <v-btn @click="fecharModalProduto" depressed color="white gray--text" style="margin: 0% 2%">cancelar
                         </v-btn>
-                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
+                        <v-btn @click="enviarPedido" depressed color="white green--text" style="margin: 0% 2%">pedido</v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -212,8 +212,9 @@
     }
 </script>
 <style>
+
     table.v-table tbody td {
-        height: 30px;
+        height: 0px;
         text-align: center;
     }
 
@@ -243,7 +244,7 @@
 
     .v-input--selection-controls.v-input .v-label {
         color: black;
-        font-size: 14px;
+        font-size: 14px !important;
         padding: 2px 8px;
     }
 

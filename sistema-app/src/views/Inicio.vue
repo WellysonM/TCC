@@ -6,7 +6,7 @@
                 @confirmar="efetuarPagamento"
         />
         <notificacao/>
-        <v-btn class="acao-sucesso" flat style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
+        <v-btn depressed color="white green--text" style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
         </v-btn>
         <v-container fill-height
                      fluid

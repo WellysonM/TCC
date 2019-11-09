@@ -150,9 +150,9 @@
                             </v-layout>
                         </v-container>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalCategoria" class="acao-fechar" flat style="margin: 4% 2%">cancelar
+                        <v-btn @click="fecharModalCategoria" text depressed color="white gray--text" style="margin: 4% 2%">cancelar
                         </v-btn>
-                        <v-btn @click="copiaCategoria" class="acao-sucesso" flat style="margin: 4% 2%">salvar
+                        <v-btn @click="copiaCategoria" text depressed color="white green--text" style="margin: 4% 2%">salvar
                         </v-btn>
                     </v-layout>
                 </v-container>

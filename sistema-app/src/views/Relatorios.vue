@@ -42,6 +42,28 @@
                         <h3 class="title font-weight-light">Vendas Por Horas</h3>
                     </material-chart-card>
                 </v-flex>
+                <v-flex
+                        lg5
+                        md14
+                        sm12>
+                    <v-flex py-3>
+                        <h3>Relatório de vendas por período</h3>
+                    </v-flex>
+                    <v-date-picker
+                            @change="teste"
+                            year-icon="mdi-calendar-blank"
+                            prev-icon="mdi-skip-previous"
+                            next-icon="mdi-skip-next"
+                            locale="br"
+                            header-color="padrao"
+                            v-model="date"
+                            show-current
+                            landscape>
+                        <v-flex style="display:flex; justify-content: center">
+                            <v-btn depressed color="white green--text" text >Gerar Relatório</v-btn>
+                        </v-flex>
+                    </v-date-picker>
+                </v-flex>
             </v-layout>
         </v-container>
         <notificacao/>
@@ -56,6 +78,8 @@
         components: {notificacao},
         data() {
             return {
+                date: new Date().toISOString().substr(0, 10),
+                month: false,
                 pedidos: {},
                 graficoSemanal: 0,
                 graficoMensal: 0,
@@ -143,6 +167,9 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            teste(value) {
+                console.log(value)
+            },
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
@@ -238,3 +265,8 @@
         }
     }
 </script>
+<style>
+    .v-date-picker-table .v-btn.v-btn--active {
+        color: #fff !important;
+    }
+</style>

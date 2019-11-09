@@ -33,10 +33,10 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-divider></v-divider>
-                    <v-btn @click="fecharModalPedido" class="acao-fechar" flat style="margin: 0% 2%">
+                    <v-btn @click="fecharModalPedido" depressed color="white gray--text" style="margin: 0% 2%">
                         cancelar
                     </v-btn>
-                    <v-btn @click="enviarPedido" class="acao-sucesso" flat
+                    <v-btn @click="enviarPedido" depressed color="white green--text"
                            style="margin: 0% 2%">
                         Salvar
                     </v-btn>

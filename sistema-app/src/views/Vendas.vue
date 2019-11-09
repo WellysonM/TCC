@@ -50,8 +50,8 @@
                                 </td>
                                 <td>{{calcularSubValor(item)}}</td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="abrirModalAtencao(item)" class="acao-fechar" flat
-                                           style="min-width: 10px">
+                                    <v-btn @click="abrirModalAtencao(item)" depressed fab small
+                                           color="white red--text">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>
@@ -59,15 +59,15 @@
                         </template>
                     </v-data-table>
                     <div>
-                        <v-btn class="acao-fechar" flat style="float: right" @click="abrirModalAtencaoDesistir">
+                        <v-btn depressed color="white red--text" @click="abrirModalAtencaoDesistir">
                             Desistir
                         </v-btn>
                         <v-btn :disabled="enviarPedidoCozinha" @click="abrirModalAtencaoEnviarPedido"
-                               class="acao-sucesso" flat
+                               depressed color="white green--text"
                                style="float: left">
                             enviar pedido
                         </v-btn>
-                        <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">
+                        <v-btn @click="abrirModalPedido" depressed color="white green--text" style="float: none;">
                             comanda
                         </v-btn>
                     </div>
