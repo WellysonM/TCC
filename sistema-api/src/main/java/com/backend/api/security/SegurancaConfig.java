@@ -42,7 +42,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*/ADMIN/**").hasRole("ADMIN")
                 .antMatchers("/*/USER/**").hasRole("USER")
                 // .anyRequest().authenticated()
-                .and().formLogin().loginPage("http://localhost:8080/entrar")
+                .and().formLogin().loginPage("http://localhost:8080/")
                 .defaultSuccessUrl("http://localhost:8080/inicio")
                 .permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/sair"))

@@ -3,7 +3,7 @@
         <v-container fill-height>
             <v-layout wrap>
                 <template>
-                    <v-flex :key="categoria.id" v-for="categoria of categorias" lg3 md4>
+                    <v-flex :key="categoria.id" v-for="categoria of categorias" lg4 m4>
                         <v-hover>
                             <template v-slot="{ hover }">
                                 <v-card style="cursor: pointer"

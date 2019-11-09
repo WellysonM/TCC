@@ -13,10 +13,10 @@
                         <ul class="links-unordered-list">
                             <ul class="links-unordered-list">
                                 <li class="active">
-                                    <v-btn flat class="acao-sair" router-link to="/entrar">Entrar</v-btn>
+                                    <v-btn flat class="acao-sair" router-link to="/">Entrar</v-btn>
                                 </li>
                                 <li class="active">
-                                    <v-btn flat class="acao-sair" router-link to="/">Cadastrar</v-btn>
+                                    <v-btn flat class="acao-sair" router-link to="/cadastrar">Cadastrar</v-btn>
                                 </li>
                             </ul>
                         </ul>

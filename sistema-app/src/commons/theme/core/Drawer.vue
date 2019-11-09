@@ -149,7 +149,7 @@
                 try {
                     await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
                     this.buscarUsuarioLogado()
-                    await this.$router.push({path: '/entrar'})
+                    await this.$router.push({path: '/'})
                     this.abrirNotificacaoSucesso()
                 } catch (e) {
                     this.abrirNotificacaoErro()
@@ -161,7 +161,6 @@
             },
             tenhoPermissao() {
                 if (!this.usuarioLogado.id) {
-                    this.$router.push({path: '/entrar'})
                     this.$router.push({path: '/'})
                 } else {
                     this.$router.push({path: '/inicio'})

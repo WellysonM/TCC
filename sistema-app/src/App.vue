@@ -35,7 +35,6 @@
             verificaUsuarioLogado() {
                 const usuarioAutenticado = this.$store.state.usuarioLogado
                 if (!usuarioAutenticado.id) {
-                    this.$router.push({path: '/entrar'})
                     this.$router.push({path: '/'})
                 } else {
                     this.$router.push({path: '/inicio'})
