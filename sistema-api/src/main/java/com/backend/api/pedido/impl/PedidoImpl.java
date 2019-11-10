@@ -3,7 +3,6 @@ package com.backend.api.pedido.impl;
 import com.backend.api.pedido.impl.usecase.*;
 import com.backend.api.pedido.spec.IPedido;
 import com.backend.api.pedido.spec.dto.PedidoDTO;
-import com.backend.api.pedido.spec.entity.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +19,6 @@ public class PedidoImpl implements IPedido {
 
     @Autowired
     private AtualizarPedido atualizar;
-
-    @Autowired
-    private RemoverPedido remover;
 
     @Autowired
     private BuscarPedidosPorMesa buscarPedidosPorMesa;
@@ -43,11 +39,6 @@ public class PedidoImpl implements IPedido {
     @Override
     public List<PedidoDTO> buscarTodosPedidosFinalizados() {
         return buscarPedidosFinalizados.buscarTodosPedidosFinalizados();
-    }
-
-    @Override
-    public void removerPedido(PedidoDTO pedidoDTOId) {
-        remover.removerPedido(pedidoDTOId);
     }
 
     @Override

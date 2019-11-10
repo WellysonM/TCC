@@ -10,7 +10,7 @@
                         <v-flex md6 xs12>
                             <v-text-field
                                     class="info-input"
-                                    label="Titulo"
+                                    label="Título"
                                     v-model="styleCard.titulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
@@ -169,23 +169,23 @@
         data() {
             return {
                 tamanhos: [
-                    {text: 'pizza', value: 'mdi-pizza'},
-                    {text: 'bebida', value: 'mdi-beer'},
-                    {text: 'bebida 2', value: 'mdi-glass-mug'},
-                    {text: 'taça', value: 'mdi-glass-cocktail'},
-                    {text: 'peixe', value: 'mdi-fish'},
-                    {text: 'browne', value: 'mdi-bowl'},
-                    {text: 'bolo', value: 'mdi-cake'},
-                    {text: 'cookie', value: 'mdi-cookie'},
-                    {text: 'sorvete', value: 'mdi-rice'},
-                    {text: 'comida e bebida', value: 'mdi-food-fork-drink'},
-                    {text: 'lanche e bebida', value: 'mdi-food'},
-                    {text: 'hamburgue', value: 'mdi-hamburger'},
-                    {text: 'pastel', value: 'mdi-food-croissant'},
-                    {text: 'jantar', value: 'mdi-silverware'},
-                    {text: 'jantar 2', value: 'mdi-silverware-fork-knife'},
-                    {text: 'jantar 3', value: 'mdi-silverware-variant'},
-                    {text: 'taco', value: 'mdi-taco'}
+                    {text: 'Pizza', value: 'mdi-pizza'},
+                    {text: 'Bebida', value: 'mdi-beer'},
+                    {text: 'Cerveja', value: 'mdi-glass-mug'},
+                    {text: 'Vinho', value: 'mdi-glass-cocktail'},
+                    {text: 'Peixe', value: 'mdi-fish'},
+                    {text: 'Massa', value: 'mdi-bowl'},
+                    {text: 'Bolo', value: 'mdi-cake'},
+                    {text: 'Cookie', value: 'mdi-cookie'},
+                    {text: 'Sorvete', value: 'mdi-rice'},
+                    {text: 'Comida e bebida', value: 'mdi-food-fork-drink'},
+                    {text: 'Lanche e bebida', value: 'mdi-food'},
+                    {text: 'Hamburgue', value: 'mdi-hamburger'},
+                    {text: 'Pastel', value: 'mdi-food-croissant'},
+                    {text: 'Jantar', value: 'mdi-silverware'},
+                    {text: 'Almoço', value: 'mdi-silverware-fork-knife'},
+                    {text: 'Garfo e faca', value: 'mdi-silverware-variant'},
+                    {text: 'Taco', value: 'mdi-taco'}
                 ],
                 styleCard: {
                     icone: '',

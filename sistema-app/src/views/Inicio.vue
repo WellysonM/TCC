@@ -1,12 +1,7 @@
 <template>
     <div>
-        <modal-comanda
-                :modal-comanda="modalComanda"
-                @fecharModalComanda="fecharModalComanda"
-                @confirmar="efetuarPagamento"
-        />
-        <notificacao/>
-        <v-btn depressed color="white green--text" style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir mesa
+        <v-btn depressed color="white green--text" style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir
+            mesa
         </v-btn>
         <v-container fill-height
                      fluid
@@ -34,6 +29,12 @@
                 </div>
             </v-layout>
         </v-container>
+        <modal-comanda
+                :modal-comanda="modalComanda"
+                @fecharModalComanda="fecharModalComanda"
+                @confirmar="efetuarPagamento"
+        />
+        <notificacao/>
         <atencao
                 :dialog="dialog"
                 :mensagem="'A mesa estar suja, deseja limpar ela agora?'"

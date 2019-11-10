@@ -29,7 +29,7 @@ export default {
         return data
     },
 
-    async [actionTypes.BUSCAR_PEDIDO_POR_MESA](contex, mesaId) {
+    async [actionTypes.BUSCAR_PEDIDO_POR_MESA](context, mesaId) {
         const {data} = await axios.get(`/pedidos/${mesaId}`)
         return data
     },
@@ -92,7 +92,7 @@ export default {
         return data
     },
 
-    async [actionTypes.REMOVER_PRODUTO](conext, produtoId) {
+    async [actionTypes.REMOVER_PRODUTO](context, produtoId) {
         const {data} = await axios.post(`produto/remover/${produtoId}`)
         return data
     }

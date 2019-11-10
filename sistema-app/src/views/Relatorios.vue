@@ -50,35 +50,47 @@
                         <h3>Relatório de vendas por período</h3>
                     </v-flex>
                     <v-date-picker
-                            @change="teste"
+                            @change="filtro"
+                            color="#4caf50"
                             year-icon="mdi-calendar-blank"
                             prev-icon="mdi-skip-previous"
                             next-icon="mdi-skip-next"
-                            locale="br"
+                            locale="pt-br"
                             header-color="padrao"
                             v-model="date"
                             show-current
                             landscape>
                         <v-flex style="display:flex; justify-content: center">
-                            <v-btn depressed color="white green--text" text >Gerar Relatório</v-btn>
+                            <v-btn depressed color="white green--text" text @click="PrepararRelatorioCaixa">Gerar
+                                Relatório
+                            </v-btn>
                         </v-flex>
                     </v-date-picker>
                 </v-flex>
             </v-layout>
         </v-container>
         <notificacao/>
+        <relatorio
+                :dialog="dialog"
+                :pedidosFiltrados="pedidosFiltrados"
+                @fecharRelatorio="fecharRelatorio"
+        />
     </div>
 </template>
 <script>
+    import relatorio from '../components/RelatorioMovimentoCaixa'
+    import _ from 'lodash'
     import notificacao from './Notifications'
     import {mapMutations} from 'vuex'
-    import {mutationTypes} from '@/commons/constants'
 
     export default {
-        components: {notificacao},
+        components: {notificacao, relatorio},
         data() {
             return {
-                date: new Date().toISOString().substr(0, 10),
+                data: '',
+                pedidosFiltrados: [],
+                dialog: false,
+                date: new Date().toISOString().substring(0, 10),
                 month: false,
                 pedidos: {},
                 graficoSemanal: 0,
@@ -167,13 +179,21 @@
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
-            teste(value) {
-                console.log(value)
+            abrirRelatorio() {
+                this.dialog = true
             },
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
                     mensagem: 'Seu usuário não tem acesso a essa página !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoAlerta() {
+                this.notificacao = {
+                    cor: 'warning',
+                    mensagem: 'Não há vendas nesse dia!',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -236,6 +256,27 @@
                 }
                 if (vendas > this.graficoPorHora) {
                     this.graficoPorHora = vendas
+                }
+            },
+            fecharRelatorio() {
+                this.dialog = false
+            },
+            filtro(value) {
+                this.data = new Date(value.substring(5, 7) + "/" + value.substring(8, 10) + "/" + value.substring(0, 4)).toLocaleDateString()
+            },
+            PrepararRelatorioCaixa() {
+                this.pedidosFiltrados = []
+                this.pedidos = _.cloneDeep(this.$store.state.pedidosFinalizados)
+                this.pedidos.forEach((pedido) => {
+                    pedido.data = new Date(pedido.data).toLocaleDateString()
+                    if (pedido.data === this.data) {
+                        this.pedidosFiltrados.push(pedido)
+                    }
+                })
+                if (this.pedidosFiltrados.length !== 0) {
+                    this.abrirRelatorio()
+                } else {
+                    this.abrirNotificacaoAlerta()
                 }
             },
             preencherPedidos() {

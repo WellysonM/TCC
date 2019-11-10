@@ -66,7 +66,7 @@
                 {
                     to: '/inicio',
                     icon: 'mdi-home',
-                    text: 'Inicio'
+                    text: 'Início'
                 },
                 {
                     to: '/vendas',
