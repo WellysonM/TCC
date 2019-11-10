@@ -82,6 +82,7 @@
     import _ from 'lodash'
     import notificacao from './Notifications'
     import {mapMutations} from 'vuex'
+    import {mutationTypes} from '@/commons/constants'
 
     export default {
         components: {notificacao, relatorio},
