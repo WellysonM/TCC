@@ -88,7 +88,7 @@
         components: {notificacao, relatorio},
         data() {
             return {
-                data: '',
+                data: new Date().toLocaleDateString(),
                 pedidosFiltrados: [],
                 dialog: false,
                 date: new Date().toISOString().substring(0, 10),
