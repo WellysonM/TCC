@@ -15,6 +15,7 @@ public class PedidoBO {
     private PedidoRepository pedidoRepository;
 
     private static final String status = "finalizado";
+    private static final String emEspera = "em espera";
 
     public List<Pedido> buscarPedidos() {
         return pedidoRepository.findAll(Sort.by("id").ascending());
@@ -26,6 +27,10 @@ public class PedidoBO {
 
     public List<Pedido> buscarTodosPedidosFinalizados() {
         return pedidoRepository.findAllByStatus(status);
+    }
+
+    public List<Pedido> buscarTodosPedidosEmEspera() {
+        return pedidoRepository.findAllByStatus(emEspera);
     }
 
     public Pedido inserirPedido(Pedido pedido) {

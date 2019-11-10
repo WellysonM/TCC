@@ -70,6 +70,7 @@
         mounted() {
             this.buscarMesas()
             this.buscarPedidosFinalizados()
+            this.buscarPedidosEmEspera()
         },
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
@@ -126,6 +127,9 @@
             async buscarPedidosFinalizados() {
                 await this.$store.dispatch(actionTypes.BUSCAR_PEDIDOS_FINALIZADOS)
                 this.formatarData()
+            },
+            async buscarPedidosEmEspera() {
+                await this.$store.dispatch(actionTypes.BUSCAR_PEDIDOS_EMESPERA)
             },
             definirCorDaMesa(mesa) {
                 if (mesa.status === 'ocupada') {

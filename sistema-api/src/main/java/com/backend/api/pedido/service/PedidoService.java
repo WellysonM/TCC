@@ -28,6 +28,12 @@ public class PedidoService {
         return iPedido.buscarTodosPedidosFinalizados();
     }
 
+    @GetMapping("/pedidos/espera")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<PedidoDTO> buscarTodosPedidosEspera() {
+        return iPedido.buscarTodosPedidosEmEspera();
+    }
+
     @GetMapping("/pedidos/{mesaId}")
     @CrossOrigin(origins = "http://localhost:8080")
     public List<PedidoDTO> buscarPedidosPorStatusEMesaId(@PathVariable("mesaId") String mesaId) {

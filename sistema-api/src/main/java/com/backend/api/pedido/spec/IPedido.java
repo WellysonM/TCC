@@ -12,6 +12,8 @@ public interface IPedido {
 
     List<PedidoDTO> buscarTodosPedidosFinalizados();
 
+    List<PedidoDTO> buscarTodosPedidosEmEspera();
+
     void inserirPedido(PedidoDTO pedidoDTO);
 
     void atualizarPedido(List<PedidoDTO> pedidoDTOs);

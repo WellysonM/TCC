@@ -23,6 +23,10 @@ export default {
         state.pedido = pedido
     },
 
+    [mutationTypes.SET_PEDIDOS_EMESPERA](state, pedidosEmEspera) {
+        state.pedidosEmEspera = pedidosEmEspera
+    },
+
     [mutationTypes.SET_PEDIDOS_FINALIZADOS](state, pedidosFinalizados) {
         state.pedidosFinalizados = pedidosFinalizados
     },

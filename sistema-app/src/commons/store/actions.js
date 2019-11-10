@@ -30,12 +30,17 @@ export default {
     },
 
     async [actionTypes.BUSCAR_PEDIDO_POR_MESA](context, mesaId) {
-        const {data} = await axios.get(`/pedidos/${mesaId}`)
+        const {data} = await axios.get(`pedidos/${mesaId}`)
         return data
     },
 
+    async [actionTypes.BUSCAR_PEDIDOS_EMESPERA]({commit}) {
+        const {data} = await axios.get('pedidos/espera')
+        commit(mutationTypes.SET_PEDIDOS_EMESPERA, data)
+    },
+
     async [actionTypes.BUSCAR_PEDIDOS_FINALIZADOS]({commit}) {
-        const {data} = await axios.get('/pedidos/finalizados')
+        const {data} = await axios.get('pedidos/finalizados')
         commit(mutationTypes.SET_PEDIDOS_FINALIZADOS, data)
     },
 

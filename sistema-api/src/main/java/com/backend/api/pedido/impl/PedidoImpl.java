@@ -26,6 +26,9 @@ public class PedidoImpl implements IPedido {
     @Autowired
     BuscarPedidosFinalizados buscarPedidosFinalizados;
 
+    @Autowired
+    BuscarPedidosEmEspera buscarPedidosEmEspera;
+
     @Override
     public List<PedidoDTO> buscarPedidos() {
         return buscar.buscarPedidos();
@@ -39,6 +42,11 @@ public class PedidoImpl implements IPedido {
     @Override
     public List<PedidoDTO> buscarTodosPedidosFinalizados() {
         return buscarPedidosFinalizados.buscarTodosPedidosFinalizados();
+    }
+
+    @Override
+    public List<PedidoDTO> buscarTodosPedidosEmEspera() {
+        return buscarPedidosEmEspera.buscarTodosPedidosEmEspera();
     }
 
     @Override

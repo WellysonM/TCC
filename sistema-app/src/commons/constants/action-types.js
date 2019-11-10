@@ -10,6 +10,7 @@ export default {
     BUSCAR_USUARIOS: 'buscarUsuarios',
     BUSCAR_PEDIDO_POR_MESA: 'buscarPedidoPorMesa',
     BUSCAR_PEDIDOS_FINALIZADOS: 'buscarPedidosFinalizados',
+    BUSCAR_PEDIDOS_EMESPERA: 'buscarPedidosEmEspera',
     EFETUAR_LOGIN: 'efetuarLogin',
     EFETUAR_LOGOUT: 'efetuarLogout',
     INSERIR_CATEGORIA: 'inserirCategoria',

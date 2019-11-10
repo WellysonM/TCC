@@ -7,9 +7,10 @@
                 </v-card-title>
                 <v-card-text>
                     <v-container>
-                        <v-form>
+                        <v-form v-model="form">
                             <v-flex cols="12" md="4" pa-2 sm="6">
                                 <v-select
+                                        :rules="[rules.required]"
                                         item-text="numero"
                                         item-value="id"
                                         :items="mesas"
@@ -20,6 +21,7 @@
                             </v-flex>
                             <v-flex cols="12" md="4" pa-2 sm="6">
                                 <v-select
+                                        :rules="[rules.required]"
                                         item-text="name"
                                         item-value="id"
                                         return-object
@@ -36,7 +38,7 @@
                     <v-btn @click="fecharModalPedido" depressed color="white gray--text" style="margin: 0% 2%">
                         cancelar
                     </v-btn>
-                    <v-btn @click="enviarPedido" depressed color="white green--text"
+                    <v-btn @click="enviarPedido" :disabled="!form" depressed color="white green--text"
                            style="margin: 0% 2%">
                         Salvar
                     </v-btn>
@@ -57,6 +59,10 @@
         components: {notificacao},
         data() {
             return {
+                rules: {
+                    required: v => !!v || 'Campo obrigatório',
+                },
+                form: false,
                 pedido: {
                     mesa: {},
                     usuario: {},
