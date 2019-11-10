@@ -81,14 +81,14 @@
         methods: {
             ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             abrirModalAtencao(item) {
-                this.mensagem = 'Tem certeza que deseja atualizar este usuario?'
+                this.mensagem = 'Tem certeza que deseja atualizar este usuário?'
                 this.acaoRemover = false
                 this.usuarioAtual = item
                 this.dialog = true
             },
             abrirModalAtencaoParaExcluir(item) {
                 this.acaoRemover = true
-                this.mensagem = 'Tem certeza que deseja excluir este usuario?'
+                this.mensagem = 'Tem certeza que deseja excluir este usuário?'
                 this.usuarioAtual = item
                 this.dialog = true
             },

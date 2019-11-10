@@ -41,32 +41,40 @@
                                 </v-card-title>
                                 <v-card-text>
                                     <v-container>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.produto"
-                                                    label="Produto"
-                                            />
-                                        </v-flex>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.preco"
-                                                    label="Preço"
-                                            />
-                                        </v-flex>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.tempoPreparo"
-                                                    label="Tempo Médio de Preparo"
-                                            />
-                                        </v-flex>
+                                        <v-form v-model="form" ref="form">
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        type="text"
+                                                        :rules="[rules.required]"
+                                                        v-model="produto.produto"
+                                                        label="Produto"
+                                                />
+                                            </v-flex>
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        :rules="[rules.required]"
+                                                        v-model="produto.preco"
+                                                        label="Preço"
+                                                />
+                                            </v-flex>
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        :rules="[rules.required]"
+                                                        v-model="produto.tempoPreparo"
+                                                        label="Tempo Médio de Preparo"
+                                                />
+                                            </v-flex>
+                                        </v-form>
                                     </v-container>
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-divider></v-divider>
-                                    <v-btn @click="fecharCadastrar" depressed color="white gray--text" style="margin: 0% 2%">
+                                    <v-btn @click="fecharCadastrar" depressed color="white gray--text"
+                                           style="margin: 0% 2%">
                                         cancelar
                                     </v-btn>
-                                    <v-btn @click="preencherCategoriaNoProduto" depressed color="white green--text"
+                                    <v-btn @click="preencherCategoriaNoProduto" :disabled="!form" depressed
+                                           color="white green--text"
                                            style="margin: 0% 2%">
                                         Salvar
                                     </v-btn>
@@ -96,7 +104,6 @@
                                                 :multiple=true
                                                 :value="item"
                                                 color="success"
-                                                style="font-size: 14px"
                                         />
                                     </td>
                                     <td>{{ item.preco}}</td>
@@ -111,9 +118,11 @@
                             </v-data-table>
                         </v-flex>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalProduto" depressed color="white gray--text" style="margin: 0% 2%">cancelar
+                        <v-btn @click="fecharModalProduto" depressed color="white gray--text" style="margin: 0% 2%">
+                            cancelar
                         </v-btn>
-                        <v-btn @click="enviarPedido" depressed color="white green--text" style="margin: 0% 2%">pedido</v-btn>
+                        <v-btn @click="enviarPedido" depressed color="white green--text" style="margin: 0% 2%">pedido
+                        </v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -128,6 +137,10 @@
         name: 'ModalProduto',
         data() {
             return {
+                rules: {
+                    required: v => !!v || 'Campo obrigatório',
+                },
+                form: false,
                 selected: {},
                 dialog: false,
                 search: '',
@@ -244,7 +257,7 @@
 
     .v-input--selection-controls.v-input .v-label {
         color: black;
-        font-size: 14px !important;
+        font-size: 13px !important;
         padding: 2px 8px;
     }
 

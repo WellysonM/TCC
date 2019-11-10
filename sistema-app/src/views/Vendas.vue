@@ -59,7 +59,7 @@
                         </template>
                     </v-data-table>
                     <div>
-                        <v-btn depressed color="white red--text" @click="abrirModalAtencaoDesistir">
+                        <v-btn depressed color="white red--text" style="float: right" @click="abrirModalAtencaoDesistir">
                             Desistir
                         </v-btn>
                         <v-btn :disabled="enviarPedidoCozinha" @click="abrirModalAtencaoEnviarPedido"

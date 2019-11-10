@@ -11,66 +11,63 @@
                             color="padrao2"
                             text="Não deixe campos vazios :)"
                             title="Atualizar Perfil">
-                        <v-form>
-                            <v-container py-0>
-                                <v-layout wrap>
-                                    <v-flex md6 xs12>
-                                        <v-text-field
-                                                disabled
-                                                v-model="usuario.name"
-                                                required
-                                                :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
-                                                class="info-input"
-                                                label="Nome"/>
-                                    </v-flex>
-                                    <v-flex md6 xs12>
-                                        <v-text-field
-                                                v-model="usuario.username"
-                                                required
-                                                :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
-                                                class="info-input"
-                                                label="Nome de usuario"/>
-                                    </v-flex>
-                                    <v-flex md6 xs12>
-                                        <v-text-field
-                                                v-model="usuario.password"
-                                                required
-                                                :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
-                                                :type="'password'"
-                                                required
-                                                label="Nova senha"
-                                        ></v-text-field>
-                                    </v-flex>
-                                    <v-flex md6 xs12>
-                                        <v-text-field
-                                                v-model="novaSenha"
-                                                required
-                                                :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
-                                                :type="'password'"
-                                                label="Repita novamente a nova senha"
-                                        ></v-text-field>
-                                    </v-flex>
-                                    <v-sheet class="pa-3" v-show="usuario.admin">
-                                        <v-switch style="font-family: sans-serif;" v-model="usuario.admin" error
-                                                  label="Usuario Administrador"
-                                                  color="secondary"></v-switch>
-                                    </v-sheet>
-                                    <v-flex text-xs-right xs12>
-                                        <v-btn @click="abrirModalAtencao()"
-                                               depressed color="white green--text">
-                                            Atualizar
-                                        </v-btn>
-                                    </v-flex>
-                                </v-layout>
-                            </v-container>
-                        </v-form>
+                        <v-container py-0>
+                            <v-layout wrap>
+                                <v-flex md6 xs12>
+                                    <v-text-field
+                                            disabled
+                                            v-model="usuario.name"
+                                            required
+                                            :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
+                                            class="info-input"
+                                            label="Nome"/>
+                                </v-flex>
+                                <v-flex md6 xs12>
+                                    <v-text-field
+                                            v-model="usuario.username"
+                                            required
+                                            :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
+                                            class="info-input"
+                                            label="Nome de usuário"/>
+                                </v-flex>
+                                <v-flex md6 xs12>
+                                    <v-text-field
+                                            v-model="usuario.password"
+                                            label="Nova senha"
+                                            required
+                                            :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
+                                            :type="'password'"
+                                    ></v-text-field>
+                                </v-flex>
+                                <v-flex md6 xs12>
+                                    <v-text-field
+                                            v-model="novaSenha"
+                                            required
+                                            :rules="[val => (val || '').length > 0 || 'Esse campo é obrigatório']"
+                                            :type="'password'"
+                                            label="Repita novamente a nova senha"
+                                    ></v-text-field>
+                                </v-flex>
+                                <v-sheet class="pa-3" v-show="usuarioLogado.admin">
+                                    <v-switch style="font-family: sans-serif;" v-model="usuario.admin" error
+                                              label="Usuário Administrador"
+                                              color="secondary"></v-switch>
+                                </v-sheet>
+                                <v-flex text-xs-right xs12>
+                                    <v-btn @click="abrirModalAtencao()"
+                                           depressed color="white green--text">
+                                        salvar
+                                    </v-btn>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
                     </material-card>
                 </v-flex>
             </v-layout>
         </v-container>
         <atencao
                 :dialog="dialog"
-                :mensagem="'Tem certeza que deseja atualizar seu usuario?'"
+                :mensagem="'Tem certeza que deseja atualizar seu usuário?'"
                 @cancelar="cancelar"
                 @confirmar="confirmar"
         />
@@ -81,18 +78,22 @@
     import _ from 'lodash'
     import notificacao from './Notifications'
     import atencao from '../components/Atencao'
-    import {mapMutations} from 'vuex'
+    import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
         components: {notificacao, atencao},
         data() {
             return {
+                form: true,
                 novaSenha: '',
                 usuario: {},
                 dialog: false,
                 notificacao: {}
             }
+        },
+        computed: {
+            ...mapState(['usuarioLogado']),
         },
         mounted() {
             this.preencherUsuario()
@@ -105,7 +106,7 @@
             abrirNotificacaoSucesso() {
                 this.notificacao = {
                     cor: 'secondary',
-                    mensagem: 'Operação realizada com sucesso !',
+                    mensagem: 'Operação realizada com sucesso, saia e entre novamente no sistema!',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -113,7 +114,7 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'As senhas não confere !',
+                    mensagem: 'Verifique os campos abaixo e tente novamente !',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
@@ -135,7 +136,7 @@
                 }
             },
             confirmar() {
-                if (this.validarSenha()) {
+                if (this.validarSenha() && this.validarCamposVazios()) {
                     this.atualizarUsuario()
                 } else {
                     this.abrirNotificacaoErro()
@@ -148,15 +149,14 @@
                 this.usuario.admin = this.$store.state.usuarioLogado.admin
             },
             preencherUsuario() {
-                this.usuario = _.clone(this.$store.state.usuarioLogado)
+                this.usuario = _.cloneDeep(this.$store.state.usuarioLogado)
                 this.usuario.password = ''
             },
             validarSenha() {
-                if (this.usuario.password === this.novaSenha) {
-                    return true
-                } else {
-                    return false
-                }
+                return this.usuario.password === this.novaSenha;
+            },
+            validarCamposVazios() {
+                return this.usuario.username.length !== 0 && this.usuario.password.length !== 0 && this.novaSenha.length !== 0;
             }
         }
     }

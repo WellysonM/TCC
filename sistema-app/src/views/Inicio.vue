@@ -1,6 +1,7 @@
 <template>
     <div>
-        <v-btn depressed color="white green--text" style="float: left; margin: 4% 1% -2%" @click="montarMesa">inserir
+        <v-btn depressed color="white green--text" style="float: left; margin: 4% 1% -2%" @click="comfirmarInserirMesa">
+            inserir
             mesa
         </v-btn>
         <v-container fill-height
@@ -37,7 +38,7 @@
         <notificacao/>
         <atencao
                 :dialog="dialog"
-                :mensagem="'A mesa estar suja, deseja limpar ela agora?'"
+                :mensagem="mensagem"
                 @cancelar="cancelar"
                 @confirmar="confirmar"
         />
@@ -55,6 +56,8 @@
         components: {notificacao, modalComanda, atencao},
         data() {
             return {
+                devoInserirMesa: false,
+                mensagem: '',
                 notificacao: {},
                 modalComanda: false,
                 dialog: false,
@@ -136,12 +139,23 @@
                 }
             },
             confirmar() {
-                this.mesa.status = 'disponivel'
-                this.atualizarMesa(this.mesa)
-                this.cancelar()
+                if (this.devoInserirMesa) {
+                    this.montarMesa()
+                    this.cancelar()
+                } else {
+                    this.mesa.status = 'disponivel'
+                    this.atualizarMesa(this.mesa)
+                    this.cancelar()
+                }
+            },
+            comfirmarInserirMesa() {
+                this.devoInserirMesa = true
+                this.dialog = true
+                this.mensagem = 'Deseja mesmo inserir uma nova mesa? após inserir não há como excluir'
             },
             cancelar() {
                 this.dialog = false
+                this.devoInserirMesa = false
             },
             efetuarPagamento() {
                 this.prepararPedidoParaPagamento()
@@ -204,6 +218,7 @@
                     this.abrirNotificacaoAlerta(mesa)
                 }
                 if (mesa.status === 'pago') {
+                    this.mensagem = 'A mesa estar suja, deseja limpar ela agora?'
                     this.dialog = true
                     this.mesa = mesa
                 }

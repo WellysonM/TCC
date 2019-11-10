@@ -4,37 +4,41 @@
             <v-card-title class="title padrao2 white--text" primary-title>
                 Nova Categoria
             </v-card-title>
-            <v-form>
+            <v-form v-model="form" ref="form">
                 <v-container py-3>
                     <v-layout row wrap>
                         <v-flex md6 xs12>
                             <v-text-field
+                                    :rules="[rules.required]"
                                     class="info-input"
                                     label="Título"
                                     v-model="styleCard.titulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-text-field
+                                    :rules="[rules.required]"
                                     class="info-input"
                                     label="Margem de preço"
                                     v-model="styleCard.preco"/>
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-text-field
+                                    :rules="[rules.required]"
                                     class="info-input"
                                     label="Informação Adicional"
                                     v-model="styleCard.subTitulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
-                                <v-select
-                                        :items="tamanhos"
-                                        :prepend-icon="styleCard.icone"
-                                        hide-details
-                                        label="Icone"
-                                        menu-props="auto"
-                                        single-line
-                                        v-model="styleCard.icone"
-                                ></v-select>
+                            <v-select
+                                    :rules="[rules.required]"
+                                    :items="tamanhos"
+                                    :prepend-icon="styleCard.icone"
+                                    hide-details
+                                    label="Icone"
+                                    menu-props="auto"
+                                    single-line
+                                    v-model="styleCard.icone"
+                            ></v-select>
                         </v-flex>
                         <v-container py-3 v-model="styleCard.cor">
                             <h4 class="title font-weight-light">Escolha uma cor</h4>
@@ -122,6 +126,7 @@
                                 </v-flex>
                                 <v-flex md4 xs12>
                                     <v-switch
+                                            :rules="[rules.required]"
                                             color="color"
                                             hide-details
                                             label="Padrão Sistema"
@@ -150,9 +155,11 @@
                             </v-layout>
                         </v-container>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalCategoria" text depressed color="white gray--text" style="margin: 4% 2%">cancelar
+                        <v-btn @click="fecharModalCategoria" text depressed color="white gray--text"
+                               style="margin: 4% 2%">cancelar
                         </v-btn>
-                        <v-btn @click="copiaCategoria" text depressed color="white green--text" style="margin: 4% 2%">salvar
+                        <v-btn @click="copiaCategoria" text depressed :disabled="!form" color="white green--text"
+                               style="margin: 4% 2%">salvar
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -168,6 +175,10 @@
         name: 'ModalCategoria',
         data() {
             return {
+                rules: {
+                    required: v => !!v || 'Campo obrigatório',
+                },
+                form: false,
                 tamanhos: [
                     {text: 'Pizza', value: 'mdi-pizza'},
                     {text: 'Bebida', value: 'mdi-beer'},
