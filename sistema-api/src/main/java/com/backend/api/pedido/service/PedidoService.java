@@ -6,6 +6,7 @@ import com.backend.api.pedido.spec.entity.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -50,7 +51,14 @@ public class PedidoService {
     @PostMapping("/pedido/atualizar")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")
-    public void atualizarPedido(@RequestBody List<PedidoDTO> pedidoDTOs) {
+    public void atualizarPedido(@RequestBody ArrayList<PedidoDTO> pedidoDTOs) {
         iPedido.atualizarPedido(pedidoDTOs);
+    }
+
+    @PostMapping("/pedido/atualizar/cozinha")
+    //@PreAuthorize("hasRole('ADMIN')")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void atualizarPedidoCozinha(@RequestBody PedidoDTO pedidoDTO) {
+        iPedido.atualizarPedidoCozinha(pedidoDTO);
     }
 }

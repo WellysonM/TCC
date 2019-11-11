@@ -89,6 +89,9 @@
                 this.title = val.name
             }
         },
+        computed: {
+            ...mapState(['pedidosEmEspera'])
+        },
         mounted() {
             this.onResponsiveInverted()
             window.addEventListener('resize', this.onResponsiveInverted)

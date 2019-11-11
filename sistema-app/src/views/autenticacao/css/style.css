@@ -128,7 +128,7 @@ body {
 }
 
 .text-center {
-    text-align: center;
+    text-align: center !important;
 }
 
 .content-form {

@@ -17,4 +17,6 @@ public interface IPedido {
     void inserirPedido(PedidoDTO pedidoDTO);
 
     void atualizarPedido(List<PedidoDTO> pedidoDTOs);
+
+    void atualizarPedidoCozinha(PedidoDTO pedidoDTO);
 }

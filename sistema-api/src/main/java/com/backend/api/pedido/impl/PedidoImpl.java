@@ -29,6 +29,9 @@ public class PedidoImpl implements IPedido {
     @Autowired
     BuscarPedidosEmEspera buscarPedidosEmEspera;
 
+    @Autowired
+    AtualizarPedidoCozinha atualizarPedidoCozinha;
+
     @Override
     public List<PedidoDTO> buscarPedidos() {
         return buscar.buscarPedidos();
@@ -58,4 +61,11 @@ public class PedidoImpl implements IPedido {
     public void atualizarPedido(List<PedidoDTO> pedidoDTOs) {
         atualizar.atualizarPedido(pedidoDTOs);
     }
+
+    @Override
+    public void atualizarPedidoCozinha(PedidoDTO pedidoDTO) {
+        atualizarPedidoCozinha.atualizarPedidoCozinha(pedidoDTO);
+    }
+
+
 }
