@@ -92,10 +92,6 @@
                     to: '/relatorios',
                     icon: 'mdi-clipboard-outline',
                     text: 'Relatórios'
-                },
-                {
-                    to: '/ajuda',
-                    text: 'ajuda'
                 }
             ]
         }),
