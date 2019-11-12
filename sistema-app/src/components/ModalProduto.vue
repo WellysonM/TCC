@@ -12,7 +12,7 @@
                             primary-title
                             style="padding: 5px 10px">
                         <v-flex md4>
-                            Categoria:
+                            Categoria: {{categoria.titulo}}
                         </v-flex>
                         <v-flex md4>
                             <v-text-field
