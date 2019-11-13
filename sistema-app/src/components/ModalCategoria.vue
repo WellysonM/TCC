@@ -23,7 +23,6 @@
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-text-field
-                                    :rules="[rules.required]"
                                     class="info-input"
                                     label="Informação Adicional"
                                     v-model="styleCard.subTitulo"/>

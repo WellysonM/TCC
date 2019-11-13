@@ -59,7 +59,6 @@
                                             </v-flex>
                                             <v-flex cols="12" md="4" sm="6">
                                                 <v-text-field
-                                                        :rules="[rules.required]"
                                                         v-model="produto.tempoPreparo"
                                                         label="Tempo Médio de Preparo"
                                                 />
