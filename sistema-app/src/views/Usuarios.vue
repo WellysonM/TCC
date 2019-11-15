@@ -6,8 +6,8 @@
                 <v-flex md9>
                     <material-card
                             color="padrao2"
-                            text="Selecione um usuario para editar"
-                            title="Gerenciar Usuarios">
+                            text="Selecione um usuário para editar"
+                            title="Gerenciar Usuários">
                         <v-data-table :headers="headers" :items="usuarios" style="text-align: center !important">
                             <template slot="headerCell" slot-scope="{ header }">
                                 <span class="subheading font-weight-light text--darken-3" v-text="header.text"/>
@@ -17,7 +17,7 @@
                                 <td>{{ item.username }}</td>
                                 <td>
                                     <v-switch v-model="item.admin" :input-value="item.admin" error
-                                              label="Usuario Administrador"
+                                              label="Usuário Administrador"
                                               color="secondary" @change="abrirModalAtencao(item)"></v-switch>
                                 </td>
                                 <td class="text-xs-right">

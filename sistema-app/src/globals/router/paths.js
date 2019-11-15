@@ -1,6 +1,7 @@
 export default [
     {
         path: '/inicio',
+        name: 'Início',
         view: 'Inicio'
     },
     {
@@ -9,13 +10,13 @@ export default [
         view: 'Perfil'
     },
     {
-        path: '/funcionarios',
-        name: 'Funcionarios',
-        view: 'Funcionarios'
+        path: '/usuarios',
+        name: 'Usuários',
+        view: 'Usuarios'
     },
     {
         path: '/relatorios',
-        name: 'Relatorios',
+        name: 'Relatórios',
         view: 'Relatorios'
     }, {
         path: '/produtos',

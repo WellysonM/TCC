@@ -79,9 +79,9 @@
                     text: 'Perfil'
                 },
                 {
-                    to: '/funcionarios',
+                    to: '/usuarios',
                     icon: 'mdi-worker',
-                    text: 'Gerenciar Funcionários'
+                    text: 'Gerenciar Usuários'
                 },
                 {
                     to: '/produtos',
