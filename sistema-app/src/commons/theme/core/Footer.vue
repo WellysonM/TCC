@@ -3,7 +3,7 @@
               id="core-footer">
             <div class="footer-items" style="margin-left: 250px">
        <span class="font-weight-light copyright">
-         <router-link to="ajuda" class="font-weight-light copyright">Precisa de ajuda?</router-link>
+         <router-link to="ajuda" class="font-weight-light copyright" style="color: #495057">Precisa de ajuda?</router-link>
       </span>
             </div>
         <v-spacer/>

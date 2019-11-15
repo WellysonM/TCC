@@ -12,7 +12,7 @@
                             primary-title
                             style="padding: 5px 10px">
                         <v-flex md4>
-                            Categoria:
+                            Categoria: {{categoria.titulo}}
                         </v-flex>
                         <v-flex md4>
                             <v-text-field
@@ -59,7 +59,6 @@
                                             </v-flex>
                                             <v-flex cols="12" md="4" sm="6">
                                                 <v-text-field
-                                                        :rules="[rules.required]"
                                                         v-model="produto.tempoPreparo"
                                                         label="Tempo Médio de Preparo"
                                                 />
