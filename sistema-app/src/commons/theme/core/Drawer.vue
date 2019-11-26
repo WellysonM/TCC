@@ -167,7 +167,7 @@
                 }
                 if (!this.usuarioLogado.admin) {
                     this.links.forEach((link) => {
-                        if (link.text === 'Relatórios' || link.text === 'Gerenciar Funcionários') {
+                        if (link.text === 'Relatórios' || link.text === 'Gerenciar Usuários') {
                             this.links.splice(this.links.indexOf(link), 1)
                         }
                     })
