@@ -11,6 +11,5 @@ public class UsuarioControllerRouter {
     public String entrar() {
         return "entrar";
     }
-
 }
 

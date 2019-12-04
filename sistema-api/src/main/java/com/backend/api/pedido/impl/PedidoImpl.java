@@ -1,9 +1,6 @@
 package com.backend.api.pedido.impl;
 
-import com.backend.api.pedido.impl.usecase.AtualizarPedido;
-import com.backend.api.pedido.impl.usecase.BuscarPedido;
-import com.backend.api.pedido.impl.usecase.InserirPedido;
-import com.backend.api.pedido.impl.usecase.RemoverPedido;
+import com.backend.api.pedido.impl.usecase.*;
 import com.backend.api.pedido.spec.IPedido;
 import com.backend.api.pedido.spec.dto.PedidoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +21,16 @@ public class PedidoImpl implements IPedido {
     private AtualizarPedido atualizar;
 
     @Autowired
-    private RemoverPedido remover;
+    private BuscarPedidosPorMesa buscarPedidosPorMesa;
+
+    @Autowired
+    BuscarPedidosFinalizados buscarPedidosFinalizados;
+
+    @Autowired
+    BuscarPedidosEmEspera buscarPedidosEmEspera;
+
+    @Autowired
+    AtualizarPedidoCozinha atualizarPedidoCozinha;
 
     @Override
     public List<PedidoDTO> buscarPedidos() {
@@ -32,8 +38,18 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public void removerPedido(PedidoDTO pedidoDTOId) {
-        remover.removerPedido(pedidoDTOId);
+    public List<PedidoDTO> buscarPedidosPorStatusEMesaId(String mesaId) {
+        return buscarPedidosPorMesa.buscarPedidosPorMesa(mesaId);
+    }
+
+    @Override
+    public List<PedidoDTO> buscarTodosPedidosFinalizados() {
+        return buscarPedidosFinalizados.buscarTodosPedidosFinalizados();
+    }
+
+    @Override
+    public List<PedidoDTO> buscarTodosPedidosEmEspera() {
+        return buscarPedidosEmEspera.buscarTodosPedidosEmEspera();
     }
 
     @Override
@@ -42,7 +58,14 @@ public class PedidoImpl implements IPedido {
     }
 
     @Override
-    public void atualizarPedido(PedidoDTO pedidoDTO) {
-        atualizar.atualizarPedido(pedidoDTO);
+    public void atualizarPedido(List<PedidoDTO> pedidoDTOs) {
+        atualizar.atualizarPedido(pedidoDTOs);
     }
+
+    @Override
+    public void atualizarPedidoCozinha(PedidoDTO pedidoDTO) {
+        atualizarPedidoCozinha.atualizarPedidoCozinha(pedidoDTO);
+    }
+
+
 }

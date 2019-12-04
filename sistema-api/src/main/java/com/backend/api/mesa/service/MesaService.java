@@ -26,4 +26,11 @@ public class MesaService {
     public void inserirMesa(@RequestBody MesaDTO mesaDTO) {
         iMesa.inserirMesa(mesaDTO);
     }
+
+    @PostMapping("/mesa/atualizar")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void atualizarMesa(@RequestBody MesaDTO mesaDTO) {
+        iMesa.atualizarMesa(mesaDTO);
+    }
+
 }

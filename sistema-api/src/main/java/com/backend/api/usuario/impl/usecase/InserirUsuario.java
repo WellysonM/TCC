@@ -7,6 +7,8 @@ import com.backend.api.usuario.spec.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class InserirUsuario {
 
@@ -19,7 +21,12 @@ public class InserirUsuario {
         Usuario usuario = new Usuario();
         preencherUsuario(usuario, usuarioDTO);
         passwordEncoder.hasPassword(usuario);
-        usuarioBO.inserirUsuario(usuario);
+        ehPrimeiroUsuario(usuario);
+        if (possoInserirUsuario(usuario)) {
+            usuarioBO.inserirUsuario(usuario);
+        } else {
+            usuarioBO.inserirUsuario(null);
+        }
     }
 
     private static void preencherUsuario(Usuario usuario, UsuarioDTO usuarioDTO) {
@@ -27,5 +34,22 @@ public class InserirUsuario {
         usuario.setPassword(usuarioDTO.getPassword());
         usuario.setUsername(usuarioDTO.getUsername());
         usuario.setAdmin(usuarioDTO.isAdmin());
+    }
+
+    private void ehPrimeiroUsuario(Usuario usuario) {
+        List<Usuario> usuarios = usuarioBO.buscarUsuarios();
+        if (usuarios.isEmpty()) {
+            usuario.setAdmin(true);
+        }
+    }
+
+    private boolean possoInserirUsuario(Usuario usuario) {
+        List<Usuario> usuarios = usuarioBO.buscarUsuarios();
+        for (Usuario usuarioLista : usuarios) {
+            if (usuarioLista.getUsername().equalsIgnoreCase(usuario.getUsername())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

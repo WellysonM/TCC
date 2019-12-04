@@ -1,23 +1,32 @@
 package com.backend.api.pedido.spec.dto;
 
 
+import com.backend.api.mesa.spec.entity.Mesa;
 import com.backend.api.pedido.spec.entity.Pedido;
 import com.backend.api.produto.spec.entity.Produto;
+import com.backend.api.usuario.spec.entity.Usuario;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PedidoDTO {
 
     private String id;
     private String status;
     private ArrayList<Produto> produtos = new ArrayList<>();
-    private String subValor;
+    private String valorTotal;
+    private Mesa mesa;
+    private Usuario usuario;
+    private Date data;
 
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.status = pedido.getStatus();
         this.produtos = pedido.getProdutos();
-        this.subValor = pedido.getSubValor();
+        this.valorTotal = pedido.getValorTotal();
+        this.mesa = pedido.getMesa();
+        this.usuario = pedido.getUsuario();
+        this.data = pedido.getData();
     }
 
     public PedidoDTO() {
@@ -47,11 +56,35 @@ public class PedidoDTO {
         this.produtos = produtos;
     }
 
-    public String getSubValor() {
-        return subValor;
+    public String getValorTotal() {
+        return valorTotal;
     }
 
-    public void setSubValor(String subValor) {
-        this.subValor = subValor;
+    public void setValorTotal(String valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 }

@@ -12,7 +12,7 @@ public class RemoverCategoria {
     @Autowired
     private CategoriaBO categoriaBO;
 
-    public void RemoverCategoria(CategoriaDTO categoriaDTO) {
+    public void removerCategoria(CategoriaDTO categoriaDTO) {
         Categoria categroia = categoriaBO.buscarCategoriaPorId(categoriaDTO.getId());
         categoriaBO.removerCategoria(categroia);
     }

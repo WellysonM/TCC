@@ -32,8 +32,8 @@ public class ProdutoImpl implements IProduto {
     }
 
     @Override
-    public void removerProduto(ProdutoDTO produtoDTOId) {
-        remover.RemoverProduto(produtoDTOId);
+    public boolean removerProduto(String produtoDTOId) {
+        return remover.RemoverProduto(produtoDTOId);
     }
 
     @Override

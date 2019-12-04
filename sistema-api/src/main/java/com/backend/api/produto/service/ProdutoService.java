@@ -31,6 +31,18 @@ public class ProdutoService {
         return produtos;
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = {"/produto/atualizar"})
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void atualizaProduto(@RequestBody ProdutoDTO produtoDTO) {
+        iProduto.atualizarProduto(produtoDTO);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = {"/produto/remover/{produtoDTOId}"})
+    @CrossOrigin(origins = "http://localhost:8080")
+    public boolean removerProduto(@PathVariable(value = "produtoDTOId") String produtoDTOId) {
+        return iProduto.removerProduto(produtoDTOId);
+    }
+
     @PostMapping("/produto/inserir")
     //@PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin(origins = "http://localhost:8080")

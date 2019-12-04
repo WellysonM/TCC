@@ -19,9 +19,11 @@ public class InserirPedido {
     }
 
     private static void preencherPedido(Pedido pedido, PedidoDTO pedidoDTO) {
-        pedido.setId(pedidoDTO.getId());
         pedido.setStatus(pedidoDTO.getStatus());
         pedido.setProdutos(pedidoDTO.getProdutos());
-        pedido.setSubValor(pedidoDTO.getSubValor());
+        pedido.setValorTotal(pedidoDTO.getValorTotal());
+        pedido.setMesa(pedidoDTO.getMesa());
+        pedido.setUsuario(pedidoDTO.getUsuario());
+        pedido.setData(pedidoDTO.getData());
     }
 }

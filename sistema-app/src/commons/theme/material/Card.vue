@@ -1,6 +1,5 @@
 <template>
     <v-card
-            style="cursor: pointer"
             :style="styles"
             v-bind="$attrs"
             v-on="$listeners"

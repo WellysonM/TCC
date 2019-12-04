@@ -1,15 +1,12 @@
 <template>
     <div>
-        <v-container fill-height
-                     fluid
-                     grid-list-xl
-                     style="width: 50%; float: left">
+        <v-container fill-height>
             <v-layout wrap>
                 <template>
-                    <v-flex :key="categoria.id" v-for="categoria of categorias">
+                    <v-flex :key="categoria.id" v-for="categoria of categorias" lg4 m4>
                         <v-hover>
                             <template v-slot="{ hover }">
-                                <v-card  style="cursor: pointer"
+                                <v-card style="cursor: pointer"
                                         :class="`elevation-${hover ? 24 : 2}`"
                                         :color=categoria.cor
                                         @click="abrirCategoria(categoria)"
@@ -25,17 +22,12 @@
                     </v-flex>
                 </template>
             </v-layout>
-        </v-container>
-        <v-container fill-height
-                     fluid
-                     grid-list-xl
-                     style="width: 50%; float: right;">
-            <v-layout wrap style="justify-content: flex-end;">
+            <v-flex md1></v-flex>
+            <v-flex md8 lg7 style="justify-content: flex-end;">
                 <material-card
                         color="padrao2"
                         text="Tabela de produtos"
                         title="Comanda">
-
                     <v-data-table
                             :headers="headers"
                             :items="pedido.produtos"
@@ -58,27 +50,29 @@
                                 </td>
                                 <td>{{calcularSubValor(item)}}</td>
                                 <td class="text-xs-right">
-                                    <v-btn @click="deleteItem(item)" class="acao-fechar" flat
-                                           style="float: right; min-width: 10px">
+                                    <v-btn @click="abrirModalAtencao(item)" depressed fab small
+                                           color="white red--text">
                                         <v-icon>mdi-close-circle-outline</v-icon>
                                     </v-btn>
                                 </td>
                             </tr>
                         </template>
                     </v-data-table>
-
                     <div>
-                        <v-btn class="acao-fechar" flat style="float: right">Desistir</v-btn>
-                        <v-btn :disabled="comanda" @click="inserirPedido" class="acao-sucesso" flat
+                        <v-btn depressed color="white red--text" style="float: right" @click="abrirModalAtencaoDesistir">
+                            Desistir
+                        </v-btn>
+                        <v-btn :disabled="enviarPedidoCozinha" @click="abrirModalAtencaoEnviarPedido"
+                               depressed color="white green--text"
                                style="float: left">
                             enviar pedido
                         </v-btn>
-                        <v-btn @click="abrirModalPedido" class="acao-sucesso" flat style="float: none;">
+                        <v-btn @click="abrirModalPedido" depressed color="white green--text" style="float: none;">
                             comanda
                         </v-btn>
                     </div>
                 </material-card>
-            </v-layout>
+            </v-flex>
         </v-container>
         <modal-produto
                 :categoria="categoria"
@@ -87,13 +81,21 @@
                 @abrirModalProduto="abrirModalProduto"
                 @inserirProdutoPedido="inserirProdutoPedido"
                 @fecharModalProduto="fecharModalProduto"
-                @inserirProduto="inserirProduto"
+                @inserirNovoProduto="inserirNovoProduto"
+                @removerProduto="removerProduto"
         />
         <modal-pedido
                 :modal-pedido="modalPedido"
                 @abrirModalPedido="abrirModalPedido"
-                @enviarMesaEscolhida="enviarMesaEscolhida"
+                @enviarPedido="enviarPedido"
                 @fecharModalPedido="fecharModalPedido"
+        />
+        <notificacao/>
+        <atencao
+                :dialog="dialog"
+                :mensagem="mensagem"
+                @cancelar="cancelar"
+                @confirmar="confirmar"
         />
     </div>
 </template>
@@ -101,20 +103,29 @@
 <script>
     import {mapMutations, mapState} from 'vuex'
     import {actionTypes, mutationTypes} from '@/commons/constants'
+    import atencao from '../components/Atencao'
+    import notificacao from './Notifications'
     import ModalPedido from '../components/ModalPedido'
     import ModalProduto from '../components/ModalProduto'
+    import StatsCard from "../commons/theme/material/StatsCard";
 
     export default {
         name: 'Vendas',
-        components: {ModalPedido, ModalProduto},
+        components: {StatsCard, ModalPedido, ModalProduto, notificacao, atencao},
         data: () => ({
+            mensagem: '',
+            dialog: false,
+            acaoDesistir: false,
+            acaoEnviarPedido: false,
+            produtoRemover: {},
             modalProduto: false,
             modalCategoria: false,
             categoria: '',
             produtos: [],
-            comanda: true,
+            enviarPedidoCozinha: true,
             modalPedido: false,
             styleCard: [],
+            notificacao: {},
             headers: [
                 {
                     text: 'Produto',
@@ -138,9 +149,10 @@
             await this.buscarCategorias()
         },
         computed: {
-            ...mapState(['categorias', 'pedido']),
+            ...mapState(['categorias', 'pedido'])
         },
         methods: {
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
             ...mapMutations([mutationTypes.SET_PRODUTO_PEDIDO]),
             abrirCategoria(categoria) {
                 this.setCategoria(categoria)
@@ -153,6 +165,67 @@
             abrirModalProduto() {
                 this.modalProduto = true
             },
+            abrirModalAtencao(item) {
+                this.acaoEnviarPedido = false
+                this.acaoDesistir = false
+                this.mensagem = 'Tem certeza que deseja excluir este produto?'
+                this.produtoRemover = item
+                this.dialog = true
+            },
+            abrirModalAtencaoDesistir() {
+                this.acaoEnviarPedido = false
+                this.acaoDesistir = true
+                this.mensagem = 'Tem certeza que deseja desistir do pedido?'
+                this.dialog = true
+            },
+            abrirModalAtencaoEnviarPedido() {
+                this.acaoEnviarPedido = true
+                this.acaoDesistir = false
+                this.mensagem = 'Tem certeza que deseja enviar o pedido a cozinha? \n ' +
+                    'após enviar o pedido não será possível editá-lo'
+                this.dialog = true
+            },
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErroRemover() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Existe pedidos vinculados a este produto',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoTabelaVazia() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'A comanda estar vazia',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            async atualizarMesa() {
+                const mesa = this.$store.state.pedido.mesa
+                try {
+                    await this.$store.dispatch(actionTypes.ATUALIZAR_MESA, mesa)
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
+            },
             async buscarCategorias() {
                 await this.$store.dispatch(actionTypes.BUSCAR_CATEGORIAS)
             },
@@ -160,9 +233,11 @@
                 this.produtos = await this.$store.dispatch(actionTypes.BUSCAR_PRODUTOS_POR_CATEGORIA, this.categoria.id)
             },
             calcularSubValor(item) {
-                let subPreco = parseFloat(item.preco.replace(",", "."))
-                subPreco = subPreco * item.quantidade
-                return subPreco.toFixed(2).replace(".", ",")
+                if (item) {
+                    let subPreco = parseFloat(item.preco.replace(",", "."))
+                    subPreco = subPreco * item.quantidade
+                    return subPreco.toFixed(2).replace(".", ",")
+                }
             },
             calcularValorTotal() {
                 let valor = 0
@@ -174,20 +249,58 @@
                 }
                 return valor.toFixed(2).replace(".", ",")
             },
+            cancelar() {
+                this.dialog = false
+            },
+            confirmar() {
+                if (!this.acaoDesistir && !this.acaoEnviarPedido) {
+                    this.deleteItem(this.produtoRemover)
+                    this.cancelar()
+                }
+                if (this.acaoDesistir) {
+                    this.resetarTabela()
+                    this.cancelar()
+                }
+                if (this.acaoEnviarPedido) {
+                    this.montarPedido()
+                }
+            },
+            desistirPedido() {
+                this.$store.state.pedido.id = null
+                const produtos = this.$store.state.pedido.produtos
+                const index = produtos.indexOf(0)
+                while (produtos.length) {
+                    produtos.splice(index, 1)
+                }
+                this.abrirNotificacaoSucesso()
+            },
             deleteItem(item) {
                 const produtos = this.$store.state.pedido.produtos
                 const index = produtos.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && produtos.splice(index, 1)
+                produtos.splice(index, 1)
+                this.abrirNotificacaoSucesso()
             },
-            enviarMesaEscolhida() {
-                this.comanda = false
+            enviarPedido(pedido) {
+                this.$store.state.pedido.mesa = pedido.mesa
+                this.$store.state.pedido.usuario = pedido.usuario
+                this.enviarPedidoCozinha = false
                 this.fecharModalPedido()
+                this.abrirNotificacaoSucesso()
             },
             fecharModalProduto() {
                 this.modalProduto = false
             },
             fecharModalPedido() {
                 this.modalPedido = false
+            },
+            async inserirNovoProduto(produto) {
+                try {
+                    await this.inserirProduto(produto)
+                    await this.buscarProdutosPorCategoria()
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
             inserirProdutoPedido(produtos) {
                 if (produtos) {
@@ -196,27 +309,67 @@
                         this.setProdutoPedido(produto)
                     })
                     this.fecharModalProduto()
+                    this.abrirNotificacaoSucesso()
                 }
             },
             async inserirProduto(produto) {
-                await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_PRODUTO, produto)
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
             },
-            async inserirPedido() {
-                this.montarPedido()
-                const pedido = this.$store.state.pedido
-                await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+            async inserirPedido(pedido) {
+                try {
+                    await this.$store.dispatch(actionTypes.INSERIR_PEDIDO, pedido)
+                    this.montarMesaParaPedido()
+                    this.resetarTabela()
+                    this.abrirNotificacaoSucesso()
+                    await this.$router.push({path: '/inicio'})
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
+            },
+            montarMesaParaPedido() {
+                this.$store.state.pedido.mesa.status = 'ocupada'
+                this.atualizarMesa()
             },
             montarPedido() {
-                this.$store.state.pedido.status = 'em espera'
-                this.$store.state.pedido.subValor = this.calcularValorTotal()
+                if (this.verificaTabelaVazia()) {
+                    this.$store.state.pedido.data = new Date()
+                    this.$store.state.pedido.status = 'em espera'
+                    this.$store.state.pedido.valorTotal = this.calcularValorTotal()
+                    const pedido = this.$store.state.pedido
+                    this.inserirPedido(pedido)
+                } else {
+                    this.abrirNotificacaoTabelaVazia()
+                    this.cancelar()
+                }
+            },
+            async removerProduto(produtoId) {
+                if (await this.$store.dispatch(actionTypes.REMOVER_PRODUTO, produtoId)) {
+                    this.abrirNotificacaoSucesso()
+                    this.buscarProdutosPorCategoria()
+                } else {
+                    this.abrirNotificacaoErroRemover()
+                }
+            },
+            resetarTabela() {
+                this.desistirPedido()
+                this.enviarPedidoCozinha = true
             },
             setCategoria(categoria) {
                 this.categoria = categoria
+            },
+            verificaTabelaVazia() {
+                return this.pedido.produtos.length !== 0;
             }
         }
     }
 </script>
-<style lang="stylus">
-
-
+<style>
+    table.v-table thead th:not(:first-child) {
+        padding: 0 !important;
+    }
 </style>

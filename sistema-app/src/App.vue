@@ -3,6 +3,9 @@
         <div v-if="$store.state.route.name === 'Cadastrar'">
             <router-view/>
         </div>
+        <div v-else-if="$store.state.route.name === 'Entrar'">
+            <router-view/>
+        </div>
         <div v-else>
             <core-toolbar/>
             <core-drawer/>
@@ -12,8 +15,32 @@
 </template>
 
 <script>
+    import {mapMutations, mapState} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
+
     export default {
-        name: 'app'
+        name: 'app',
+        computed: {
+            ...mapState(['usuarioLogado']),
+        },
+        mounted() {
+            this.buscarUsuarioLogado()
+        },
+        methods: {
+            ...mapMutations([mutationTypes.SET_USUARIO_LOGADO]),
+            async buscarUsuarioLogado() {
+                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
+                this.verificaUsuarioLogado()
+            },
+            verificaUsuarioLogado() {
+                const usuarioAutenticado = this.$store.state.usuarioLogado
+                if (!usuarioAutenticado.id) {
+                    this.$router.push({path: '/'})
+                } else {
+                    this.$router.push({path: '/inicio'})
+                }
+            }
+        }
     }
 </script>
 

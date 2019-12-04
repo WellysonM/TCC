@@ -3,7 +3,7 @@
         <v-dialog
                 persistent
                 v-model="modalProduto"
-                width="800">
+                width="600">
             <v-card>
                 <div>
                     <v-card-title
@@ -12,7 +12,7 @@
                             primary-title
                             style="padding: 5px 10px">
                         <v-flex md4>
-                            Categoria:
+                            Categoria: {{categoria.titulo}}
                         </v-flex>
                         <v-flex md4>
                             <v-text-field
@@ -41,32 +41,39 @@
                                 </v-card-title>
                                 <v-card-text>
                                     <v-container>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.produto"
-                                                    label="Produto"
-                                            />
-                                        </v-flex>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.preco"
-                                                    label="Preço"
-                                            />
-                                        </v-flex>
-                                        <v-flex cols="12" md="4" sm="6">
-                                            <v-text-field
-                                                    v-model="produto.tempoPreparo"
-                                                    label="Tempo Médio de Preparo"
-                                            />
-                                        </v-flex>
+                                        <v-form v-model="form" ref="form">
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        type="text"
+                                                        :rules="[rules.required]"
+                                                        v-model="produto.produto"
+                                                        label="Produto"
+                                                />
+                                            </v-flex>
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        :rules="[rules.required]"
+                                                        v-model="produto.preco"
+                                                        label="Preço"
+                                                />
+                                            </v-flex>
+                                            <v-flex cols="12" md="4" sm="6">
+                                                <v-text-field
+                                                        v-model="produto.tempoPreparo"
+                                                        label="Tempo Médio de Preparo"
+                                                />
+                                            </v-flex>
+                                        </v-form>
                                     </v-container>
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-divider></v-divider>
-                                    <v-btn @click="fecharCadastrar" class="acao-fechar" flat style="margin: 0% 2%">
-                                        fechar
+                                    <v-btn @click="fecharCadastrar" depressed color="white gray--text"
+                                           style="margin: 0% 2%">
+                                        cancelar
                                     </v-btn>
-                                    <v-btn @click="preencherCategoriaNoProduto" class="acao-sucesso" flat
+                                    <v-btn @click="preencherCategoriaNoProduto" :disabled="!form" depressed
+                                           color="white green--text"
                                            style="margin: 0% 2%">
                                         Salvar
                                     </v-btn>
@@ -96,27 +103,25 @@
                                                 :multiple=true
                                                 :value="item"
                                                 color="success"
-                                                style="font-size: 14px"
                                         />
                                     </td>
                                     <td>{{ item.preco}}</td>
                                     <td>{{ item.tempoPreparo}}</td>
                                     <td class="text-xs-right">
-                                        <v-btn class="acao-fechar" flat style="float: right; min-width: 10px">
+                                        <v-btn @click="removerProduto(item.id)" depressed fab small
+                                               color="white red--text">
                                             <v-icon>mdi-close-circle-outline</v-icon>
-                                        </v-btn>
-                                    </td>
-                                    <td class="text-xs-right">
-                                        <v-btn class="acao-sucesso" flat style="float: right; min-width: 10px">
-                                            <v-icon>mdi-circle-edit-outline</v-icon>
                                         </v-btn>
                                     </td>
                                 </template>
                             </v-data-table>
                         </v-flex>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalProduto" class="acao-fechar" flat style="margin: 0% 2%">fechar</v-btn>
-                        <v-btn @click="enviarPedido" class="acao-sucesso" flat style="margin: 0% 2%">pedido</v-btn>
+                        <v-btn @click="fecharModalProduto" depressed color="white gray--text" style="margin: 0% 2%">
+                            cancelar
+                        </v-btn>
+                        <v-btn @click="enviarPedido" depressed color="white green--text" style="margin: 0% 2%">pedido
+                        </v-btn>
                     </v-layout>
                 </v-container>
             </v-card>
@@ -131,6 +136,10 @@
         name: 'ModalProduto',
         data() {
             return {
+                rules: {
+                    required: v => !!v || 'Campo obrigatório',
+                },
+                form: false,
                 selected: {},
                 dialog: false,
                 search: '',
@@ -185,6 +194,7 @@
             },
             enviarPedido() {
                 this.$emit('inserirProdutoPedido', _.clone(this.selected))
+                this.resetarCheckbox()
             },
             fecharCadastrar() {
                 this.dialog = false
@@ -203,13 +213,20 @@
                 this.produto.produto = ''
                 this.produto.tempoPreparo = ''
                 this.dialog = false
+            },
+            removerProduto(produtoId) {
+                this.$emit('removerProduto', produtoId)
+            },
+            resetarCheckbox() {
+                this.selected = {}
             }
         }
     }
 </script>
 <style>
+
     table.v-table tbody td {
-        height: 30px;
+        height: 0px;
         text-align: center;
     }
 
@@ -239,7 +256,7 @@
 
     .v-input--selection-controls.v-input .v-label {
         color: black;
-        font-size: 14px;
+        font-size: 13px !important;
         padding: 2px 8px;
     }
 

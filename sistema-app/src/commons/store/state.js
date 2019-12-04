@@ -1,8 +1,21 @@
 export default {
     categorias: [],
+    comanda: {},
+    mesas: [],
+    notificacao: {
+        cor: null,
+        mensagem: null,
+        mostrar: false
+    },
     pedido: {
         status: '',
         produtos: [],
-        subValor: ''
-    }
+        valorTotal: '',
+        mesa: {},
+        usuario: {},
+        data: new Date()
+    },
+    pedidosFinalizados: {},
+    pedidosEmEspera: {},
+    usuarioLogado: {}
 }

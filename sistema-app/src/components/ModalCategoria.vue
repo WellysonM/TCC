@@ -4,17 +4,19 @@
             <v-card-title class="title padrao2 white--text" primary-title>
                 Nova Categoria
             </v-card-title>
-            <v-form>
+            <v-form v-model="form" ref="form">
                 <v-container py-3>
                     <v-layout row wrap>
                         <v-flex md6 xs12>
                             <v-text-field
+                                    :rules="[rules.required]"
                                     class="info-input"
-                                    label="Titulo"
+                                    label="Título"
                                     v-model="styleCard.titulo"/>
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-text-field
+                                    :rules="[rules.required]"
                                     class="info-input"
                                     label="Margem de preço"
                                     v-model="styleCard.preco"/>
@@ -27,6 +29,7 @@
                         </v-flex>
                         <v-flex md6 xs12>
                             <v-select
+                                    :rules="[rules.required]"
                                     :items="tamanhos"
                                     :prepend-icon="styleCard.icone"
                                     hide-details
@@ -122,6 +125,7 @@
                                 </v-flex>
                                 <v-flex md4 xs12>
                                     <v-switch
+                                            :rules="[rules.required]"
                                             color="color"
                                             hide-details
                                             label="Padrão Sistema"
@@ -150,9 +154,11 @@
                             </v-layout>
                         </v-container>
                         <v-divider></v-divider>
-                        <v-btn @click="fecharModalCategoria" class="acao-fechar" flat style="margin: 4% 2%">fechar
+                        <v-btn @click="fecharModalCategoria" text depressed color="white gray--text"
+                               style="margin: 4% 2%">cancelar
                         </v-btn>
-                        <v-btn @click="copiaCategoria" class="acao-sucesso" flat style="margin: 4% 2%">salvar
+                        <v-btn @click="copiaCategoria" text depressed :disabled="!form" color="white green--text"
+                               style="margin: 4% 2%">salvar
                         </v-btn>
                     </v-layout>
                 </v-container>
@@ -168,24 +174,28 @@
         name: 'ModalCategoria',
         data() {
             return {
+                rules: {
+                    required: v => !!v || 'Campo obrigatório',
+                },
+                form: false,
                 tamanhos: [
-                    {text: 'pizza', value: 'mdi-pizza'},
-                    {text: 'bebida', value: 'mdi-beer'},
-                    {text: 'bebida 2', value: 'mdi-glass-mug'},
-                    {text: 'taça', value: 'mdi-glass-cocktail'},
-                    {text: 'peixe', value: 'mdi-fish'},
-                    {text: 'browne', value: 'mdi-bowl'},
-                    {text: 'bolo', value: 'mdi-cake'},
-                    {text: 'cookie', value: 'mdi-cookie'},
-                    {text: 'sorvete', value: 'mdi-rice'},
-                    {text: 'comida e bebida', value: 'mdi-food-fork-drink'},
-                    {text: 'lanche e bebida', value: 'mdi-food'},
-                    {text: 'hamburgue', value: 'mdi-hamburger'},
-                    {text: 'pastel', value: 'mdi-food-croissant'},
-                    {text: 'jantar', value: 'mdi-silverware'},
-                    {text: 'jantar 2', value: 'mdi-silverware-fork-knife'},
-                    {text: 'jantar 3', value: 'mdi-silverware-variant'},
-                    {text: 'taco', value: 'mdi-taco'}
+                    {text: 'Pizza', value: 'mdi-pizza'},
+                    {text: 'Bebida', value: 'mdi-beer'},
+                    {text: 'Cerveja', value: 'mdi-glass-mug'},
+                    {text: 'Vinho', value: 'mdi-glass-cocktail'},
+                    {text: 'Peixe', value: 'mdi-fish'},
+                    {text: 'Massa', value: 'mdi-bowl'},
+                    {text: 'Bolo', value: 'mdi-cake'},
+                    {text: 'Cookie', value: 'mdi-cookie'},
+                    {text: 'Sorvete', value: 'mdi-rice'},
+                    {text: 'Comida e bebida', value: 'mdi-food-fork-drink'},
+                    {text: 'Lanche e bebida', value: 'mdi-food'},
+                    {text: 'Hamburgue', value: 'mdi-hamburger'},
+                    {text: 'Pastel', value: 'mdi-food-croissant'},
+                    {text: 'Jantar', value: 'mdi-silverware'},
+                    {text: 'Almoço', value: 'mdi-silverware-fork-knife'},
+                    {text: 'Garfo e faca', value: 'mdi-silverware-variant'},
+                    {text: 'Taco', value: 'mdi-taco'}
                 ],
                 styleCard: {
                     icone: '',
@@ -205,9 +215,6 @@
             abrirModalCategoria() {
                 this.$emit('abrirModalCategoria')
             },
-            fecharModalCategoria() {
-                this.$emit('fecharModalCategoria')
-            },
             copiaCategoria() {
                 let cloneCategoria = _.clone(this.styleCard)
                 this.inserirNovaCategoriaProduto(cloneCategoria)
@@ -216,6 +223,9 @@
                 this.styleCard.subTitulo = ''
                 this.styleCard.preco = ''
                 this.styleCard.cor = 'color'
+            },
+            fecharModalCategoria() {
+                this.$emit('fecharModalCategoria')
             },
             inserirNovaCategoriaProduto(cloneCategoria) {
                 this.$emit('inserirNovaCategoriaProduto', cloneCategoria)

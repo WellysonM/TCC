@@ -1,11 +1,11 @@
 <template>
     <div>
         <v-snackbar
-                :color="cor"
+                :color="notificacao.cor"
                 :right="right"
                 :top="top"
                 dark
-                v-model="notificacao"
+                v-model="notificacao.mostrar"
         >
             <v-icon
                     class="mr-3"
@@ -13,9 +13,9 @@
             >
                 mdi-bell-plus
             </v-icon>
-            <div>{{this.mensagem}}</div>
+            <div>{{notificacao.mensagem}}</div>
             <v-icon
-                    @click="fecharNotificacao"
+                    @click="notificacao.mostrar = false"
                     size="16"
             >
                 mdi-close-circle
@@ -25,30 +25,16 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
+
     export default {
         name: 'notifications',
         data: () => ({
             top: true,
             right: true,
         }),
-        props: {
-            notificacao: {
-                required: true
-            },
-            cor: {
-                required: true
-            },
-            mensagem: {
-                required: true
-            }
-        },
-        methods: {
-            abrirNotificacao() {
-                this.$emit('abrirNotificacao')
-            },
-            fecharNotificacao(){
-                this.$emit('fecharNotificacao')
-            }
+        computed: {
+            ...mapState(['notificacao'])
         }
     }
 </script>

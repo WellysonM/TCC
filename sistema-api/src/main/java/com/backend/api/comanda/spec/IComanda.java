@@ -8,6 +8,8 @@ public interface IComanda {
 
     List<ComandaDTO> buscarComandas();
 
+    List<ComandaDTO> buscarComandasPorMesa(String Id);
+
     void removerComanda(ComandaDTO comandaDTO);
 
     void inserirComanda(ComandaDTO comandaDTO);

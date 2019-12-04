@@ -1,11 +1,12 @@
 <template>
     <div>
+        <notificacao/>
         <v-navigation-drawer
                 app
                 dark
                 floating
                 id="app-drawer"
-                mobile-break-point="991"
+                mobile-break-point="1150"
                 persistent
                 v-model="inputValue"
                 width="260"
@@ -24,7 +25,7 @@
                                 <v-icon size="50">mdi-account-circle</v-icon>
                             </v-list-tile-avatar>
                             <v-list-tile-title class="title">
-                                Bem Vindo
+                                {{usuarioLogado.name}}
                             </v-list-tile-title>
                         </v-list-tile>
                         <v-divider/>
@@ -42,7 +43,7 @@
                                     v-text="link.text"/>
                         </v-list-tile>
                         <div class="pa-2 v-list-item v-list__tile--btn">
-                            <v-btn block class="acao-sair" flat>Sair</v-btn>
+                            <v-btn block class="acao-sair" flat @click="efetuarLogout">Sair</v-btn>
                         </div>
                     </v-layout>
                 </v-img>
@@ -52,9 +53,12 @@
 </template>
 
 <script>
+    import notificacao from '../../../views/Notifications'
     import {mapMutations, mapState} from 'vuex'
+    import {actionTypes, mutationTypes} from '@/commons/constants'
 
     export default {
+        components: {notificacao},
         data: () => ({
             logo: '',
             responsive: false,
@@ -62,7 +66,7 @@
                 {
                     to: '/inicio',
                     icon: 'mdi-home',
-                    text: 'Inicio'
+                    text: 'Início'
                 },
                 {
                     to: '/vendas',
@@ -75,9 +79,9 @@
                     text: 'Perfil'
                 },
                 {
-                    to: '/funcionarios',
+                    to: '/usuarios',
                     icon: 'mdi-worker',
-                    text: 'Gerenciar Funcionários'
+                    text: 'Gerenciar Usuários'
                 },
                 {
                     to: '/produtos',
@@ -87,11 +91,12 @@
                 {
                     to: '/relatorios',
                     icon: 'mdi-clipboard-outline',
-                    text: 'Relatorios'
+                    text: 'Relatórios'
                 }
             ]
         }),
         computed: {
+            ...mapState(['usuarioLogado']),
             ...mapState('app', ['image', 'color']),
             inputValue: {
                 get() {
@@ -103,6 +108,7 @@
             }
         },
         mounted() {
+            this.buscarUsuarioLogado()
             this.onResponsiveInverted()
             window.addEventListener('resize', this.onResponsiveInverted)
         },
@@ -111,8 +117,25 @@
         },
         methods: {
             ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+            ...mapMutations([mutationTypes.SET_NOTIFICACAO]),
+            abrirNotificacaoSucesso() {
+                this.notificacao = {
+                    cor: 'secondary',
+                    mensagem: 'Operação realizada com sucesso !',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
+            abrirNotificacaoErro() {
+                this.notificacao = {
+                    cor: 'error',
+                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mostrar: true
+                }
+                this.setNotificacao(this.notificacao)
+            },
             onResponsiveInverted() {
-                if (window.innerWidth < 991) {
+                if (window.innerWidth < 1150) {
                     this.responsive = true
                 } else {
                     this.responsive = false
@@ -121,6 +144,34 @@
             ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
             onClickBtn() {
                 this.setDrawer(!this.$store.state.app.drawer)
+            },
+            async efetuarLogout() {
+                try {
+                    await this.$store.dispatch(actionTypes.EFETUAR_LOGOUT)
+                    this.buscarUsuarioLogado()
+                    await this.$router.push({path: '/'})
+                    this.abrirNotificacaoSucesso()
+                } catch (e) {
+                    this.abrirNotificacaoErro()
+                }
+            },
+            async buscarUsuarioLogado() {
+                await this.$store.dispatch(actionTypes.BUACAR_USUARIO_LOGADO)
+                this.tenhoPermissao()
+            },
+            tenhoPermissao() {
+                if (!this.usuarioLogado.id) {
+                    this.$router.push({path: '/'})
+                } else {
+                    this.$router.push({path: '/inicio'})
+                }
+                if (!this.usuarioLogado.admin) {
+                    this.links.forEach((link) => {
+                        if (link.text === 'Relatórios' || link.text === 'Gerenciar Usuários') {
+                            this.links.splice(this.links.indexOf(link), 1)
+                        }
+                    })
+                }
             }
         }
     }

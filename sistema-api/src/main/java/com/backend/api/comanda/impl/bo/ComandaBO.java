@@ -18,6 +18,10 @@ public class ComandaBO {
         return comandaRepository.findAll(Sort.by("id").ascending());
     }
 
+    public List<Comanda> buscarComadasPorMesa(String mesaId) {
+        return comandaRepository.findAllByMesa_Id(mesaId);
+    }
+
     public Comanda inserirComanda(Comanda comanda) {
         return comandaRepository.save(comanda);
     }

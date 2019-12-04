@@ -1,6 +1,7 @@
 package com.backend.api.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,14 +34,16 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-               // .antMatchers(HttpMethod.POST).permitAll()
-                .antMatchers("/*/cadastrar", "/*/login", "/api/*/**").permitAll()
+                .antMatchers(HttpMethod.PUT).permitAll()
+                .antMatchers(HttpMethod.DELETE).permitAll()
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/api/*/**").permitAll()
                 .antMatchers("/css/**", "/images/**", "/fonts/**").permitAll()
                 .antMatchers("/*/ADMIN/**").hasRole("ADMIN")
                 .antMatchers("/*/USER/**").hasRole("USER")
-                .anyRequest().authenticated()
-                .and().formLogin().loginPage("/entrar")
-                .defaultSuccessUrl("/menu")
+                // .anyRequest().authenticated()
+                .and().formLogin().loginPage("http://localhost:8080/")
+                .defaultSuccessUrl("http://localhost:8080/inicio")
                 .permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/sair"))
                 .logoutSuccessUrl("/entrar?sair=true")
