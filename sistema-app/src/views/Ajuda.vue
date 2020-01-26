@@ -9,7 +9,7 @@
                     <h3>Cadastro de mesa</h3>
                     <v-divider/>
                     <v-flex md2/>
-                    <p>Ao entrar pela primeira vez no sistema não haverá mesas cadastradas, será necessario clicar no
+                    <p>Ao entrar pela primeira vez no sistema não haverá mesas cadastradas, será necessário clicar no
                         botão de inserir mesa e confirma a operação.</p>
                     <v-flex md2/>
                     <img src="../img/inserir mesa.gif" width="100%" height="100%"/>

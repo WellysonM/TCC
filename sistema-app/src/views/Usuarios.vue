@@ -6,8 +6,8 @@
                 <v-flex md9>
                     <material-card
                             color="padrao2"
-                            text="Selecione um usuário para editar"
-                            title="Gerenciar Usuários">
+                            text="Selecione um funcionário para editar"
+                            title="Gerenciar Funcionário">
                         <v-data-table :headers="headers" :items="usuarios" style="text-align: center !important">
                             <template slot="headerCell" slot-scope="{ header }">
                                 <span class="subheading font-weight-light text--darken-3" v-text="header.text"/>
@@ -64,7 +64,7 @@
                 },
                 {
                     sortable: true,
-                    text: 'Nome de usuario',
+                    text: 'Nome de usuário',
                     value: 'username'
                 },
                 {

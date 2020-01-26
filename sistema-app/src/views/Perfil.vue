@@ -49,7 +49,7 @@
                                     ></v-text-field>
                                 </v-flex>
                                 <v-sheet class="pa-3" v-show="usuarioLogado.admin">
-                                    <v-switch style="font-family: sans-serif;" v-model="usuario.admin" error
+                                    <v-switch style="font-family: sans-serif;" v-model="usuario.admin" error readonly
                                               label="Usuário Administrador"
                                               color="secondary"></v-switch>
                                 </v-sheet>

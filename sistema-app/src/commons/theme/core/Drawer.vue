@@ -81,7 +81,7 @@
                 {
                     to: '/usuarios',
                     icon: 'mdi-worker',
-                    text: 'Gerenciar Usuários'
+                    text: 'Gerenciar Funcionários'
                 },
                 {
                     to: '/produtos',

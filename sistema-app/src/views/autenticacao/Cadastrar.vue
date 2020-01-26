@@ -95,7 +95,7 @@
             abrirNotificacaoErro() {
                 this.notificacao = {
                     cor: 'error',
-                    mensagem: 'Ops... algo deu errado, contate seu administrador',
+                    mensagem: 'Nome de usuário já existe!',
                     mostrar: true
                 }
                 this.setNotificacao(this.notificacao)
